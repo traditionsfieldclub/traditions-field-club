@@ -1,28 +1,78 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function VideoHero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const video1Ref = useRef<HTMLVideoElement>(null);
+  const video2Ref = useRef<HTMLVideoElement>(null);
+  const [activeVideo, setActiveVideo] = useState(0);
+  const isTransitioning = useRef(false);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 0.85; // 15% slower
-    }
+    const video1 = video1Ref.current;
+    const video2 = video2Ref.current;
+    if (!video1 || !video2) return;
+
+    // Set playback speed for both videos
+    video1.playbackRate = 0.7;
+    video2.playbackRate = 0.8;
+
+    const handleVideo1End = () => {
+      if (isTransitioning.current) return;
+      isTransitioning.current = true;
+
+      video2.currentTime = 0;
+      video2.play();
+      setActiveVideo(1);
+
+      setTimeout(() => {
+        isTransitioning.current = false;
+      }, 2500);
+    };
+
+    const handleVideo2End = () => {
+      if (isTransitioning.current) return;
+      isTransitioning.current = true;
+
+      video1.currentTime = 0;
+      video1.play();
+      setActiveVideo(0);
+
+      setTimeout(() => {
+        isTransitioning.current = false;
+      }, 2500);
+    };
+
+    video1.addEventListener('ended', handleVideo1End);
+    video2.addEventListener('ended', handleVideo2End);
+
+    return () => {
+      video1.removeEventListener('ended', handleVideo1End);
+      video2.removeEventListener('ended', handleVideo2End);
+    };
   }, []);
 
   return (
-    <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-      {/* Video Background */}
+    <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-[#162838]">
+      {/* Video 1 Background */}
       <video
-        ref={videoRef}
+        ref={video1Ref}
         autoPlay
-        loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover object-right md:object-center"
+        className={`absolute inset-0 w-full h-full object-cover object-right md:object-center transition-opacity duration-[2000ms] ${activeVideo === 0 ? 'opacity-100' : 'opacity-0'}`}
       >
         <source src="/hero-video.mp4" type="video/mp4" />
+      </video>
+
+      {/* Video 2 Background */}
+      <video
+        ref={video2Ref}
+        muted
+        playsInline
+        className={`absolute inset-0 w-full h-full object-cover object-right md:object-center transition-opacity duration-[2000ms] ${activeVideo === 1 ? 'opacity-100' : 'opacity-0'}`}
+      >
+        <source src="/hero-video2.mp4" type="video/mp4" />
       </video>
 
       {/* Overlay for better text readability */}
