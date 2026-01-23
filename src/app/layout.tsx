@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Nanum_Myeongjo, Nanum_Gothic } from "next/font/google";
+import { Nanum_Myeongjo, Lato } from "next/font/google";
 import "./globals.css";
 import FloatingContact from "@/components/FloatingContact";
 
@@ -9,10 +9,10 @@ const nanumMyeongjo = Nanum_Myeongjo({
   weight: ["400", "700", "800"],
 });
 
-const nanumGothic = Nanum_Gothic({
+const lato = Lato({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "700", "800"],
+  weight: ["300", "400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${nanumMyeongjo.variable} ${nanumGothic.variable} antialiased`}
+        className={`${nanumMyeongjo.variable} ${lato.variable} antialiased`}
         style={{ fontFamily: "var(--font-body), sans-serif" }}
       >
         {children}
