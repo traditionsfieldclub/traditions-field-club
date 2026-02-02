@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const navLinks = [
+  { label: "First Time", href: "/first-time" },
   { label: "Activities", href: "/activities" },
   { label: "About", href: "/about" },
   { label: "Roadmap", href: "/roadmap" },

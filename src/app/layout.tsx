@@ -26,9 +26,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-x-hidden">
       <body
-        className={`${nanumMyeongjo.variable} ${lato.variable} antialiased`}
+        className={`${nanumMyeongjo.variable} ${lato.variable} antialiased overflow-x-hidden w-full max-w-full`}
         style={{ fontFamily: "var(--font-body), sans-serif" }}
       >
         {children}

@@ -1,21 +1,59 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
 
 export default function Activities() {
-  return (
-    <div className="min-h-screen flex flex-col">
-      {/* Announcement Bar */}
-      <AnnouncementBar />
+  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+  const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
-      {/* Header */}
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleSections((prev) => new Set([...prev, entry.target.id]));
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    Object.values(sectionRefs.current).forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const isVisible = (id: string) => visibleSections.has(id);
+
+  return (
+    <div className="min-h-screen flex flex-col overflow-x-hidden">
+      <AnnouncementBar />
       <Header />
 
-      {/* Main Content */}
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="bg-[#3d5a45] py-16 md:py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <section className="relative py-20 md:py-28 lg:py-32">
+          {/* Background Image Placeholder */}
+          <div
+            className="absolute inset-0 bg-[#3d5a45] bg-cover bg-center"
+            style={{
+              backgroundImage: "url('/images/activities-hero.jpg')",
+            }}
+          >
+            <div className="absolute inset-0 bg-[#3d5a45]/70"></div>
+          </div>
+
+          {/* Placeholder Indicator */}
+          <div className="absolute top-4 right-4 bg-[#162838]/50 text-[#f5f2ec]/50 text-xs px-3 py-1 rounded">
+            (image here)
+          </div>
+
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1
               className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#f5f2ec] mb-4 tracking-wide"
               style={{ fontFamily: "var(--font-heading), serif" }}
@@ -28,52 +66,123 @@ export default function Activities() {
           </div>
         </section>
 
+        {/* Intro Section */}
+        <section
+          id="intro"
+          ref={(el) => { sectionRefs.current["intro"] = el; }}
+          className="py-16 md:py-24 bg-white overflow-hidden"
+        >
+          <div
+            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-1000 ease-out ${
+              isVisible("intro")
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+              <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">What We Offer</span>
+              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+            </div>
+            <h2
+              className="text-3xl md:text-4xl text-[#162838] mb-6"
+              style={{ fontFamily: "var(--font-heading), serif" }}
+            >
+              World-Class Shooting Sports
+            </h2>
+            <div className="flex justify-center mb-6">
+              <span className="h-[1px] w-16 bg-[#a75235]"></span>
+            </div>
+            <p className="text-lg text-[#333333] leading-relaxed">
+              At Traditions Field Club, we offer a variety of shooting sports designed to challenge and delight
+              enthusiasts of all skill levels. From the fast-paced action of 5-Stand to the scenic journey of
+              sporting clays, each experience connects you with the traditions of Southern outdoor sports.
+            </p>
+          </div>
+        </section>
+
         {/* 5-Stand Section - Image Left */}
-        <section id="5-stand" className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32">
+        <section
+          id="5-stand"
+          ref={(el) => { sectionRefs.current["5-stand"] = el; }}
+          className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Image */}
-              <div className="relative h-[300px] md:h-[400px] bg-[#e8e4dc] rounded-lg overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-[#162838]">
-                    <svg className="w-16 h-16 mx-auto mb-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <p className="text-sm uppercase tracking-widest opacity-60">Image Placeholder</p>
+              <div
+                className={`relative h-[300px] sm:h-[350px] md:h-[450px] transition-all duration-1000 ease-out ${
+                  isVisible("5-stand")
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-10"
+                }`}
+              >
+                <div className="absolute inset-0 bg-[#e8e4dc] rounded-lg overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center text-[#162838]">
+                      <svg className="w-16 h-16 mx-auto mb-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <p className="text-sm uppercase tracking-widest opacity-60">Image Placeholder</p>
+                    </div>
                   </div>
                 </div>
+                {/* Decorative accent */}
+                <div className="hidden sm:block absolute -bottom-4 -right-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
+                <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 bg-[#3d5a45]/10 rounded-lg -z-10"></div>
               </div>
 
               {/* Content */}
-              <div>
+              <div
+                className={`transition-all duration-1000 ease-out delay-200 ${
+                  isVisible("5-stand")
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 translate-x-10"
+                }`}
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="h-[1px] w-8 md:w-12 bg-[#a75235]"></span>
+                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Shooting Sports</span>
+                </div>
                 <h2
-                  className="text-3xl md:text-4xl text-[#162838] mb-4"
+                  className="text-3xl md:text-4xl lg:text-5xl text-[#162838] mb-6"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
                   5-Stand
                 </h2>
-                <p className="text-[#333333] mb-4 leading-relaxed">
+                <p className="text-lg text-[#333333] mb-4 leading-relaxed">
                   Our dedicated 5-Stand facility offers an exciting and challenging shooting experience for all skill levels.
                   With five shooting stations and multiple trap machines presenting targets from various angles and distances,
                   you&apos;ll enjoy a dynamic round that tests your reflexes and marksmanship.
                 </p>
                 <p className="text-[#333333] mb-6 leading-relaxed">
                   Perfect for those looking to sharpen their skills or enjoy a quick session, 5-Stand provides the thrill
-                  of sporting clays in a compact format. Whether you&apos;re a seasoned shooter or just getting started,
-                  our well-maintained stations and quality targets ensure an exceptional experience every visit.
+                  of sporting clays in a compact format.
                 </p>
-                <ul className="space-y-2 text-[#333333]">
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-[#a75235] rounded-full"></span>
-                    Five shooting stations with varied presentations
+                <ul className="space-y-3 text-[#333333] mb-8">
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Five shooting stations with varied presentations</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-[#a75235] rounded-full"></span>
-                    Multiple target combinations per station
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Multiple target combinations per station</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-[#a75235] rounded-full"></span>
-                    Suitable for beginners and experienced shooters
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Suitable for beginners and experienced shooters</span>
                   </li>
                 </ul>
               </div>
@@ -81,139 +190,398 @@ export default function Activities() {
           </div>
         </section>
 
+        {/* Full-Width Image Break */}
+        <section
+          id="imagebreak"
+          ref={(el) => { sectionRefs.current["imagebreak"] = el; }}
+          className="relative h-[300px] md:h-[400px]"
+        >
+          <div
+            className="absolute inset-0 bg-[#162838] bg-cover bg-center bg-fixed"
+            style={{
+              backgroundImage: "url('/images/activities-break.jpg')",
+            }}
+          >
+            <div className="absolute inset-0 bg-[#162838]/60"></div>
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center px-4">
+              <p
+                className={`text-[#f5f2ec]/70 text-lg md:text-xl tracking-wide transition-all duration-1000 ease-out ${
+                  isVisible("imagebreak")
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-6"
+                }`}
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                — Where Tradition Meets Excellence —
+              </p>
+            </div>
+          </div>
+          {/* Placeholder Indicator */}
+          <div className="absolute top-4 right-4 bg-[#162838]/50 text-[#f5f2ec]/50 text-xs px-3 py-1 rounded">
+            (image here)
+          </div>
+        </section>
+
         {/* Sporting Clays Section - Image Right */}
-        <section id="sporting-clays" className="py-16 md:py-24 bg-white scroll-mt-32">
+        <section
+          id="sporting-clays"
+          ref={(el) => { sectionRefs.current["sporting-clays"] = el; }}
+          className="py-16 md:py-24 bg-white scroll-mt-32 overflow-hidden"
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Content - First on mobile, second on desktop */}
-              <div className="order-2 md:order-1">
+              <div
+                className={`order-2 lg:order-1 transition-all duration-1000 ease-out ${
+                  isVisible("sporting-clays")
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-10"
+                }`}
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="h-[1px] w-8 md:w-12 bg-[#a75235]"></span>
+                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Premier Experience</span>
+                </div>
                 <h2
-                  className="text-3xl md:text-4xl text-[#162838] mb-4"
+                  className="text-3xl md:text-4xl lg:text-5xl text-[#162838] mb-6"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
                   Sporting Clays
                 </h2>
-                <p className="text-[#333333] mb-4 leading-relaxed">
+                <p className="text-lg text-[#333333] mb-4 leading-relaxed">
                   Often called &quot;golf with a shotgun,&quot; our sporting clays courses wind through the natural
                   beauty of South Carolina&apos;s southern fields. Each station presents unique target presentations
-                  that simulate the flight patterns of various game birds, offering an authentic and immersive
-                  shooting experience.
+                  that simulate the flight patterns of various game birds.
                 </p>
                 <p className="text-[#333333] mb-6 leading-relaxed">
                   Our courses feature 12 stations across beautifully maintained grounds, with plans to expand
-                  to three full courses. The varying terrain and natural landscape create a truly memorable
-                  shooting environment that connects you with the land and traditions of Southern outdoor sports.
+                  to three full courses. The varying terrain creates a truly memorable shooting environment.
                 </p>
-                <ul className="space-y-2 text-[#333333]">
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-[#a75235] rounded-full"></span>
-                    12 stations across scenic terrain
+                <ul className="space-y-3 text-[#333333] mb-8">
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>12 stations across scenic terrain</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-[#a75235] rounded-full"></span>
-                    Realistic game bird flight simulations
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Realistic game bird flight simulations</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-[#a75235] rounded-full"></span>
-                    Certified instruction available
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Certified instruction available</span>
                   </li>
                 </ul>
               </div>
 
               {/* Image - Second on mobile, first on desktop */}
-              <div className="relative h-[300px] md:h-[400px] bg-[#e8e4dc] rounded-lg overflow-hidden order-1 md:order-2">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-[#162838]">
-                    <svg className="w-16 h-16 mx-auto mb-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <p className="text-sm uppercase tracking-widest opacity-60">Image Placeholder</p>
+              <div
+                className={`relative h-[300px] sm:h-[350px] md:h-[450px] order-1 lg:order-2 transition-all duration-1000 ease-out delay-200 ${
+                  isVisible("sporting-clays")
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 translate-x-10"
+                }`}
+              >
+                <div className="absolute inset-0 bg-[#e8e4dc] rounded-lg overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center text-[#162838]">
+                      <svg className="w-16 h-16 mx-auto mb-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <p className="text-sm uppercase tracking-widest opacity-60">Image Placeholder</p>
+                    </div>
                   </div>
                 </div>
+                {/* Decorative accent */}
+                <div className="hidden sm:block absolute -bottom-4 -left-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
+                <div className="hidden sm:block absolute -top-4 -right-4 w-24 h-24 bg-[#3d5a45]/10 rounded-lg -z-10"></div>
               </div>
             </div>
           </div>
         </section>
 
+        {/* Full-Width Image Break 2 */}
+        <section
+          id="imagebreak2"
+          ref={(el) => { sectionRefs.current["imagebreak2"] = el; }}
+          className="relative h-[300px] md:h-[400px]"
+        >
+          <div
+            className="absolute inset-0 bg-[#162838] bg-cover bg-center bg-fixed"
+            style={{
+              backgroundImage: "url('/images/activities-break2.jpg')",
+            }}
+          >
+            <div className="absolute inset-0 bg-[#162838]/60"></div>
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center px-4">
+              <p
+                className={`text-[#f5f2ec]/70 text-lg md:text-xl tracking-wide transition-all duration-1000 ease-out ${
+                  isVisible("imagebreak2")
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-6"
+                }`}
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                — For Every Generation —
+              </p>
+            </div>
+          </div>
+          {/* Placeholder Indicator */}
+          <div className="absolute top-4 right-4 bg-[#162838]/50 text-[#f5f2ec]/50 text-xs px-3 py-1 rounded">
+            (image here)
+          </div>
+        </section>
+
         {/* Archery Section - Image Left */}
-        <section id="archery" className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32">
+        <section
+          id="archery"
+          ref={(el) => { sectionRefs.current["archery"] = el; }}
+          className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Image */}
-              <div className="relative h-[300px] md:h-[400px] bg-[#e8e4dc] rounded-lg overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-[#162838]">
-                    <svg className="w-16 h-16 mx-auto mb-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <p className="text-sm uppercase tracking-widest opacity-60">Image Placeholder</p>
+              <div
+                className={`relative h-[300px] sm:h-[350px] md:h-[450px] transition-all duration-1000 ease-out ${
+                  isVisible("archery")
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-10"
+                }`}
+              >
+                <div className="absolute inset-0 bg-[#e8e4dc] rounded-lg overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center text-[#162838]">
+                      <svg className="w-16 h-16 mx-auto mb-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <p className="text-sm uppercase tracking-widest opacity-60">Image Placeholder</p>
+                    </div>
                   </div>
                 </div>
+                {/* Decorative accent */}
+                <div className="hidden sm:block absolute -bottom-4 -right-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
+                <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 bg-[#3d5a45]/10 rounded-lg -z-10"></div>
               </div>
 
               {/* Content */}
-              <div>
+              <div
+                className={`transition-all duration-1000 ease-out delay-200 ${
+                  isVisible("archery")
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 translate-x-10"
+                }`}
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="h-[1px] w-8 md:w-12 bg-[#a75235]"></span>
+                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Traditional Sport</span>
+                </div>
                 <h2
-                  className="text-3xl md:text-4xl text-[#162838] mb-4"
+                  className="text-3xl md:text-4xl lg:text-5xl text-[#162838] mb-6"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
                   Archery
                 </h2>
-                <p className="text-[#333333] mb-4 leading-relaxed">
+                <p className="text-lg text-[#333333] mb-4 leading-relaxed">
                   Discover the timeless art of archery at our dedicated outdoor range. Whether you&apos;re
                   drawn to traditional recurve bows, modern compounds, or want to introduce your family
-                  to this rewarding discipline, our archery facilities provide a safe and welcoming
-                  environment for archers of all ages and abilities.
+                  to this rewarding discipline, our archery facilities provide a safe and welcoming environment.
                 </p>
                 <p className="text-[#333333] mb-6 leading-relaxed">
                   Our range is designed with youth and beginners in mind, featuring proper safety measures
-                  and distance markers for progressive skill development. Experienced archers will appreciate
-                  our well-maintained targets and the peaceful setting that allows for focused practice
-                  amidst nature.
+                  and distance markers for progressive skill development.
                 </p>
-                <ul className="space-y-2 text-[#333333]">
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-[#a75235] rounded-full"></span>
-                    Youth and family-friendly programs
+                <ul className="space-y-3 text-[#333333] mb-8">
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Youth and family-friendly programs</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-[#a75235] rounded-full"></span>
-                    Beginner instruction available
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Beginner instruction available</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-[#a75235] rounded-full"></span>
-                    Safe, well-maintained outdoor range
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Safe, well-maintained outdoor range</span>
                   </li>
                 </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Lessons & Instruction Section */}
+        <section
+          id="lessons"
+          ref={(el) => { sectionRefs.current["lessons"] = el; }}
+          className="py-16 md:py-24 bg-white scroll-mt-32 overflow-hidden"
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              {/* Content - First on mobile, second on desktop */}
+              <div
+                className={`order-2 lg:order-1 transition-all duration-1000 ease-out ${
+                  isVisible("lessons")
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-10"
+                }`}
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="h-[1px] w-8 md:w-12 bg-[#a75235]"></span>
+                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Improve Your Skills</span>
+                </div>
+                <h2
+                  className="text-3xl md:text-4xl lg:text-5xl text-[#162838] mb-6"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Lessons & Instruction
+                </h2>
+                <p className="text-lg text-[#333333] mb-4 leading-relaxed">
+                  Whether you&apos;re picking up a shotgun for the first time or looking to refine your technique,
+                  our certified instructor is here to help you reach your goals. Private and group lessons are
+                  available for shooters of all ages and skill levels.
+                </p>
+                <p className="text-[#333333] mb-6 leading-relaxed">
+                  From mastering the fundamentals to breaking through plateaus, personalized coaching can
+                  accelerate your progress and deepen your enjoyment of the sport.
+                </p>
+                <ul className="space-y-3 text-[#333333] mb-8">
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Certified shooting instructor on staff</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Private and group sessions available</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Beginner through advanced skill levels</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Youth instruction programs</span>
+                  </li>
+                </ul>
+                <a
+                  href="/contact?topic=lessons"
+                  className="inline-block bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Inquire About Lessons
+                </a>
+              </div>
+
+              {/* Image - Second on mobile, first on desktop */}
+              <div
+                className={`relative h-[300px] sm:h-[350px] md:h-[450px] order-1 lg:order-2 transition-all duration-1000 ease-out delay-200 ${
+                  isVisible("lessons")
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 translate-x-10"
+                }`}
+              >
+                <div className="absolute inset-0 bg-[#e8e4dc] rounded-lg overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center text-[#162838]">
+                      <svg className="w-16 h-16 mx-auto mb-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <p className="text-sm uppercase tracking-widest opacity-60">Image Placeholder</p>
+                    </div>
+                  </div>
+                </div>
+                {/* Decorative accent */}
+                <div className="hidden sm:block absolute -bottom-4 -left-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
+                <div className="hidden sm:block absolute -top-4 -right-4 w-24 h-24 bg-[#3d5a45]/10 rounded-lg -z-10"></div>
               </div>
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 md:py-20 bg-[#162838]">
+        <section className="py-16 md:py-20 bg-[#3d5a45]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            {/* Decorative Header */}
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <span className="h-[1px] w-12 md:w-20 bg-[#f5f2ec]/30"></span>
+              <span className="text-[#f5f2ec]/60 text-sm tracking-[0.3em] uppercase">Get Started</span>
+              <span className="h-[1px] w-12 md:w-20 bg-[#f5f2ec]/30"></span>
+            </div>
             <h2
               className="text-3xl md:text-4xl text-[#f5f2ec] mb-4"
               style={{ fontFamily: "var(--font-heading), serif" }}
             >
               Ready to Experience Traditions?
             </h2>
+            <div className="flex justify-center mb-6">
+              <span className="h-[1px] w-16 bg-[#a75235]"></span>
+            </div>
             <p className="text-[#f5f2ec] opacity-90 max-w-2xl mx-auto mb-8">
               Join our community of outdoor enthusiasts and become part of something special.
               We&apos;re currently accepting interest for memberships.
             </p>
-            <a
-              href="/contact"
-              className="inline-block bg-[#a75235] text-[#f5f2ec] px-8 py-3 rounded-md font-medium uppercase tracking-widest hover:bg-[#8a4229] transition-colors duration-200"
-            >
-              Get In Touch
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/membership"
+                className="inline-block bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                View Membership
+              </a>
+              <a
+                href="/contact"
+                className="inline-block bg-transparent border-2 border-[#f5f2ec] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#f5f2ec] hover:text-[#3d5a45] transition-colors rounded-lg"
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                Contact Us
+              </a>
+            </div>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
       <Footer />
     </div>
   );
