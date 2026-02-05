@@ -379,19 +379,6 @@ export default function About() {
               </div>
             </div>
 
-            {/* Shared Intro */}
-            <div
-              className={`max-w-3xl mx-auto text-center mb-12 transition-all duration-1000 ease-out ${
-                isVisible("owners")
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
-            >
-              <p className="text-[#333333] leading-relaxed">
-                Brian Seifrit and Jim Nicholson are co-owners of Traditions Field Club, united by their shared commitment to faith, family, personal growth, and the outdoors. Guided by strong Christian values, they are dedicated to preserving outdoor traditions while creating meaningful opportunities for families and future generations to experience them firsthand. Together, they are building a place where faith, fellowship, mentorship, and outdoor heritage come together to strengthen families and communities.
-              </p>
-            </div>
-
             {/* Owners Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
               {/* Owner 1 */}
@@ -420,14 +407,14 @@ export default function About() {
                     className="text-2xl text-[#162838] mb-2"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
-                    Brian Seifrit
+                    Owner Name
                   </h3>
-                  <p className="text-[#a75235] text-sm uppercase tracking-wider mb-4">Co-Owner</p>
-                  <p className="text-[#333333] leading-relaxed mb-4">
-                    An accomplished marksman and seasoned outdoorsman, Brian brings decades of experience in hunting, shooting sports, land stewardship, and wildlife conservation. He is especially passionate about mentoring youth, teaching safe and responsible firearm handling, and helping young people develop confidence, discipline, and respect for the outdoors.
-                  </p>
+                  <p className="text-[#a75235] text-sm uppercase tracking-wider mb-4">Co-Founder</p>
                   <p className="text-[#333333] leading-relaxed">
-                    For Brian, every day at the club is an opportunity to pass down the traditions and values that shaped him.
+                    Bio content will go here. This section will feature the owner&apos;s background,
+                    their passion for outdoor sports, military service, and their vision for
+                    Traditions Field Club. The personal story helps members connect with the
+                    people behind the club.
                   </p>
                 </div>
               </div>
@@ -458,11 +445,14 @@ export default function About() {
                     className="text-2xl text-[#162838] mb-2"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
-                    Jim Nicholson
+                    Owner Name
                   </h3>
-                  <p className="text-[#a75235] text-sm uppercase tracking-wider mb-4">Co-Owner</p>
+                  <p className="text-[#a75235] text-sm uppercase tracking-wider mb-4">Co-Founder</p>
                   <p className="text-[#333333] leading-relaxed">
-                    Jim Nicholson brings a complementary professional background focused on recognizing individual strengths and guiding people toward achieving their personal and professional goals. His expertise in leadership development and employee growth directly supports the club&apos;s emphasis on mentorship, character-building, and community—ensuring members grow not only in outdoor skill but also in purpose and integrity.
+                    Bio content will go here. This section will feature the owner&apos;s background,
+                    their passion for outdoor sports, military service, and their vision for
+                    Traditions Field Club. The personal story helps members connect with the
+                    people behind the club.
                   </p>
                 </div>
               </div>

@@ -262,7 +262,7 @@ export default function Waiver() {
                     <li>Being sure of my target and what is beyond it</li>
                     <li>Wearing eye and ear protection at all times on the range</li>
                     <li>Keeping firearms unloaded and actions open when not in use</li>
-                    <li>Not consuming alcohol or drugs before or during shooting activities</li>
+                    <li>Not possessing or consuming alcohol or drugs anywhere on club property</li>
                     <li>Following all instructions from Club staff and range officers</li>
                   </ul>
                   <p>

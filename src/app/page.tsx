@@ -468,7 +468,7 @@ export default function Home() {
                 { phase: "Phase 1", title: "Foundation", status: "In Progress", desc: "Sporting clays, 5-stand, archery range" },
                 { phase: "Phase 2", title: "Expansion", status: "Planned", desc: "Pro shop, key card system, pavilion" },
                 { phase: "Phase 3", title: "Recreation", status: "Planned", desc: "Trails, camping, RV lot" },
-                { phase: "Phase 4", title: "The Lodge", status: "Long-Term", desc: "Barn-style lodge, events, dining" },
+                { phase: "Phase 4", title: "The Lodge", status: "Long-Term", desc: "Barn-style lodge, events, catering" },
               ].map((item, index) => (
                 <div
                   key={item.phase}

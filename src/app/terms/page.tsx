@@ -146,8 +146,8 @@ export default function TermsOfService() {
                     <span className="text-[#f5f2ec] text-sm font-bold">7</span>
                   </span>
                   <div>
-                    <strong className="text-[#162838]">No alcohol or drugs before or during shooting activities.</strong>
-                    <p className="text-sm mt-1 opacity-75">Impairment of any kind is strictly prohibited. Alcohol may only be consumed after all shooting activities have concluded.</p>
+                    <strong className="text-[#162838]">Alcohol and drugs are strictly prohibited on club property.</strong>
+                    <p className="text-sm mt-1 opacity-75">Impairment of any kind is not tolerated. No alcohol or controlled substances are permitted anywhere on the premises.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
