@@ -1,22 +1,9 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
-import dynamic from "next/dynamic";
-import Script from "next/script";
-import type ReactSignatureCanvas from "react-signature-canvas";
+import { useState, useEffect, useRef } from "react";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
-
-// Dynamic import — react-signature-canvas uses canvas APIs not available during SSR
-const SignatureCanvas = dynamic(() => import("react-signature-canvas"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-[200px] border-2 border-dashed border-[#e8e4dc] rounded-lg bg-[#fafaf8] flex items-center justify-center text-[#999]">
-      Loading signature pad...
-    </div>
-  ),
-}) as React.ComponentType<ReactSignatureCanvas["props"] & { ref?: React.Ref<ReactSignatureCanvas> }>;
 
 export default function Waiver() {
   const [formData, setFormData] = useState({
@@ -40,7 +27,8 @@ export default function Waiver() {
     acknowledgeRelease: false,
     acknowledgeRules: false,
     agreeToTerms: false,
-    // Signature date
+    // Signature
+    signedName: "",
     signedDate: new Date().toISOString().split("T")[0],
     // Honeypot
     website: "",
@@ -48,28 +36,8 @@ export default function Waiver() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-  const [pdfBase64, setPdfBase64] = useState<string | null>(null);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
-  const signatureRef = useRef<SignaturePadType | null>(null);
-  const [signatureEmpty, setSignatureEmpty] = useState(true);
-  const formLoadedAt = useRef<number>(Date.now());
-
-  // Turnstile
-  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
-  const turnstileRef = useRef<HTMLDivElement>(null);
-
-  const handleTurnstileCallback = useCallback((token: string) => {
-    setTurnstileToken(token);
-  }, []);
-
-  useEffect(() => {
-    window.onTurnstileCallback = handleTurnstileCallback;
-    return () => {
-      window.onTurnstileCallback = undefined;
-    };
-  }, [handleTurnstileCallback]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -110,90 +78,34 @@ export default function Waiver() {
     formData.acknowledgeRules &&
     formData.agreeToTerms;
 
-  const clearSignature = () => {
-    if (signatureRef.current) {
-      signatureRef.current.clear();
-      setSignatureEmpty(true);
-    }
-  };
-
-  const handleSignatureEnd = () => {
-    if (signatureRef.current && !signatureRef.current.isEmpty()) {
-      setSignatureEmpty(false);
-    }
-  };
-
-  const downloadPDF = (base64: string) => {
-    const byteCharacters = atob(base64);
-    const byteNumbers = new Array(byteCharacters.length);
-    for (let i = 0; i < byteCharacters.length; i++) {
-      byteNumbers[i] = byteCharacters.charCodeAt(i);
-    }
-    const byteArray = new Uint8Array(byteNumbers);
-    const blob = new Blob([byteArray], { type: "application/pdf" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `waiver-${formData.participantName.trim().replace(/\s+/g, "-").toLowerCase()}-${formData.signedDate}.pdf`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setErrorMessage("");
 
     // Honeypot check
     if (formData.website) {
+      console.log("Bot detected");
       return;
     }
 
     if (!allAcknowledged) {
-      setErrorMessage("Please acknowledge all sections of the waiver before signing.");
+      alert("Please acknowledge all sections of the waiver before signing.");
       return;
     }
 
-    if (signatureEmpty || !signatureRef.current || signatureRef.current.isEmpty()) {
-      setErrorMessage("Please draw your signature in the signature pad.");
+    if (formData.signedName.toLowerCase() !== formData.participantName.toLowerCase()) {
+      alert("Your signature must match the participant name exactly.");
       return;
     }
 
     setIsSubmitting(true);
 
-    try {
-      const signatureDataUrl = signatureRef.current.getTrimmedCanvas().toDataURL("image/png");
+    // TODO: Connect to backend/email service
+    console.log("Waiver submitted:", formData);
 
-      const response = await fetch("/api/waiver", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...formData,
-          signatureDataUrl,
-          cfTurnstileToken: turnstileToken,
-          formLoadedAt: formLoadedAt.current,
-        }),
-      });
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
-      const result = await response.json();
-
-      if (!response.ok) {
-        setErrorMessage(result.error || "Something went wrong. Please try again.");
-        setIsSubmitting(false);
-        return;
-      }
-
-      if (result.pdf) {
-        setPdfBase64(result.pdf);
-      }
-
-      setIsSubmitted(true);
-    } catch {
-      setErrorMessage("Network error. Please check your connection and try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    setIsSubmitted(true);
+    setIsSubmitting(false);
   };
 
   if (isSubmitted) {
@@ -216,24 +128,10 @@ export default function Waiver() {
                 Waiver Submitted Successfully
               </h2>
               <p className="text-[#333333] mb-6">
-                Thank you for completing the waiver. A copy has been sent to the club.
-                Please bring a valid ID when you visit.
+                Thank you for completing the waiver. A confirmation has been sent to your email address.
+                Please bring a valid ID when you visit the club.
               </p>
-
-              {pdfBase64 && (
-                <button
-                  onClick={() => downloadPDF(pdfBase64)}
-                  className="inline-flex items-center gap-2 bg-[#3d5a45] text-[#f5f2ec] px-6 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg mb-4"
-                  style={{ fontFamily: "var(--font-heading), serif" }}
-                >
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  Download Waiver PDF
-                </button>
-              )}
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="/first-time"
                   className="inline-block bg-[#a75235] text-[#f5f2ec] px-6 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
@@ -723,80 +621,42 @@ export default function Waiver() {
                 </h3>
 
                 <p className="text-sm text-[#666666] mb-6">
-                  Please draw your signature in the box below using your mouse or finger (on mobile).
-                  This constitutes your electronic signature and agreement to all terms of this waiver.
+                  By typing your full legal name below, you acknowledge that this constitutes your electronic
+                  signature and that you agree to all terms of this waiver. Your signature must match the
+                  participant name entered above.
                 </p>
 
-                <div className="mb-4">
-                  <label className="block text-sm font-medium text-[#333333] mb-2">
-                    Draw Your Signature <span className="text-[#a75235]">*</span>
-                  </label>
-                  <div className="border-2 border-[#e8e4dc] rounded-lg overflow-hidden bg-white relative">
-                    <SignatureCanvas
-                      ref={(ref: SignaturePadType | null) => { signatureRef.current = ref; }}
-                      canvasProps={{
-                        className: "w-full h-[200px] touch-none",
-                        style: { width: "100%", height: "200px" },
-                      }}
-                      penColor="#162838"
-                      backgroundColor="rgba(255,255,255,0)"
-                      onEnd={handleSignatureEnd}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-[#333333] mb-2">
+                      Type Your Full Legal Name <span className="text-[#a75235]">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="signedName"
+                      required
+                      value={formData.signedName}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent italic"
+                      placeholder="Type your full name as signature"
+                      style={{ fontFamily: "cursive, serif" }}
                     />
-                    {signatureEmpty && (
-                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                        <span className="text-[#ccc] text-sm">Sign here</span>
-                      </div>
-                    )}
                   </div>
-                  <button
-                    type="button"
-                    onClick={clearSignature}
-                    className="mt-2 text-sm text-[#a75235] hover:text-[#162838] transition-colors font-medium"
-                  >
-                    Clear Signature
-                  </button>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-[#333333] mb-2">
-                    Date <span className="text-[#a75235]">*</span>
-                  </label>
-                  <input
-                    type="date"
-                    name="signedDate"
-                    required
-                    value={formData.signedDate}
-                    onChange={handleChange}
-                    className="w-full max-w-xs px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
-                  />
+                  <div>
+                    <label className="block text-sm font-medium text-[#333333] mb-2">
+                      Date <span className="text-[#a75235]">*</span>
+                    </label>
+                    <input
+                      type="date"
+                      name="signedDate"
+                      required
+                      value={formData.signedDate}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                    />
+                  </div>
                 </div>
               </div>
-
-              {/* Cloudflare Turnstile */}
-              <div
-                className={`mb-8 flex justify-center transition-all duration-700 delay-500 ${
-                  isVisible("waiver") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                }`}
-              >
-                <div
-                  ref={turnstileRef}
-                  className="cf-turnstile"
-                  data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
-                  data-callback="onTurnstileCallback"
-                  data-theme="light"
-                ></div>
-                <Script
-                  src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-                  strategy="lazyOnload"
-                />
-              </div>
-
-              {/* Error Message */}
-              {errorMessage && (
-                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-center">
-                  <p className="text-red-700 text-sm">{errorMessage}</p>
-                </div>
-              )}
 
               {/* Submit Button */}
               <div
@@ -827,11 +687,3 @@ export default function Waiver() {
     </div>
   );
 }
-
-// Type for the signature canvas ref
-type SignaturePadType = {
-  clear: () => void;
-  isEmpty: () => boolean;
-  getTrimmedCanvas: () => HTMLCanvasElement;
-  toDataURL: (type?: string) => string;
-};
