@@ -404,7 +404,7 @@ export default function About() {
 
             {/* Owners Bios Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
-              {/* Jim - Left */}
+              {/* Brian - Left */}
               <div
                 className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out hover:shadow-md ${
                   isVisible("owners")
@@ -418,16 +418,19 @@ export default function About() {
                     className="text-2xl text-[#162838] mb-2"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
-                    Jim Nicholson
+                    Brian Seifrit
                   </h3>
-                  <p className="text-[#a75235] text-sm uppercase tracking-wider mb-4">Owner</p>
+                  <p className="text-[#a75235] text-sm uppercase tracking-wider mb-4">Co-Owner</p>
+                  <p className="text-[#333333] leading-relaxed mb-4">
+                    An accomplished marksman and seasoned outdoorsman, Brian brings decades of experience in hunting, shooting sports, land stewardship, and wildlife conservation. He is especially passionate about mentoring youth, teaching safe and responsible firearm handling, and helping young people develop confidence, discipline, and respect for the outdoors.
+                  </p>
                   <p className="text-[#333333] leading-relaxed">
-                    Jim Nicholson brings a complementary professional background focused on recognizing individual strengths and guiding people toward achieving their personal and professional goals. His expertise in leadership development and employee growth directly supports the club&apos;s emphasis on mentorship, character-building, and community—ensuring members grow not only in outdoor skill but also in purpose and integrity.
+                    For Brian, every day at the club is an opportunity to pass down the traditions and values that shaped him.
                   </p>
                 </div>
               </div>
 
-              {/* Brian - Right */}
+              {/* Jim - Right */}
               <div
                 className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out hover:shadow-md ${
                   isVisible("owners")
@@ -441,14 +444,11 @@ export default function About() {
                     className="text-2xl text-[#162838] mb-2"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
-                    Brian Seifrit
+                    Jim Nicholson
                   </h3>
-                  <p className="text-[#a75235] text-sm uppercase tracking-wider mb-4">Owner</p>
-                  <p className="text-[#333333] leading-relaxed mb-4">
-                    An accomplished marksman and seasoned outdoorsman, Brian brings decades of experience in hunting, shooting sports, land stewardship, and wildlife conservation. He is especially passionate about mentoring youth, teaching safe and responsible firearm handling, and helping young people develop confidence, discipline, and respect for the outdoors.
-                  </p>
+                  <p className="text-[#a75235] text-sm uppercase tracking-wider mb-4">Co-Owner</p>
                   <p className="text-[#333333] leading-relaxed">
-                    For Brian, every day at the club is an opportunity to pass down the traditions and values that shaped him.
+                    Jim Nicholson brings a complementary professional background focused on recognizing individual strengths and guiding people toward achieving their personal and professional goals. His expertise in leadership development and employee growth directly supports the club&apos;s emphasis on mentorship, character-building, and community—ensuring members grow not only in outdoor skill but also in purpose and integrity.
                   </p>
                 </div>
               </div>
