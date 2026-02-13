@@ -52,6 +52,9 @@ const ALLOWED_ORIGINS = [
 ].filter(Boolean);
 
 export async function POST(req: NextRequest) {
+  // --- TEMPORARY DEBUG MODE (remove before go-live) ---
+  const debug: string[] = [];
+
   try {
     // 1. Rate limiting by IP
     const ip =
@@ -60,7 +63,6 @@ export async function POST(req: NextRequest) {
       "unknown";
 
     if (isRateLimited(ip)) {
-      // Silent rejection — return fake success so bots think it worked
       return NextResponse.json({ success: true });
     }
 
@@ -68,24 +70,28 @@ export async function POST(req: NextRequest) {
     const origin = req.headers.get("origin");
     const referer = req.headers.get("referer");
     const requestOrigin = origin || (referer ? new URL(referer).origin : null);
+    debug.push(`origin: ${requestOrigin}`);
 
     if (requestOrigin && !ALLOWED_ORIGINS.includes(requestOrigin)) {
-      // Silent rejection
-      return NextResponse.json({ success: true });
+      debug.push("REJECTED: origin not allowed");
+      return NextResponse.json({ success: true, _debug: debug });
     }
+    debug.push("origin: OK");
 
     const body = await req.json();
     const { firstName, lastName, email, phone, topic, message, website, cfTurnstileToken } = body;
 
     // 3. Turnstile verification — reject if no token provided
     if (!cfTurnstileToken) {
+      debug.push("REJECTED: no turnstile token");
       return NextResponse.json(
-        { error: "Verification required" },
+        { error: "Verification required", _debug: debug },
         { status: 400 }
       );
     }
 
     // Verify token with Cloudflare
+    debug.push(`turnstile secret set: ${!!TURNSTILE_SECRET_KEY}`);
     const turnstileResponse = await fetch(
       "https://challenges.cloudflare.com/turnstile/v0/siteverify",
       {
@@ -99,22 +105,24 @@ export async function POST(req: NextRequest) {
       }
     );
     const turnstileResult = await turnstileResponse.json();
+    debug.push(`turnstile result: ${JSON.stringify(turnstileResult)}`);
 
     if (!turnstileResult.success) {
-      // Silent rejection — fake success so bots don't know they failed
-      return NextResponse.json({ success: true });
+      debug.push("REJECTED: turnstile failed");
+      return NextResponse.json({ success: true, _debug: debug });
     }
+    debug.push("turnstile: OK");
 
     // 4. Honeypot check — if filled, it's a bot
     if (website) {
-      // Silent rejection
-      return NextResponse.json({ success: true });
+      debug.push("REJECTED: honeypot");
+      return NextResponse.json({ success: true, _debug: debug });
     }
 
     // 5. Validate required fields exist
     if (!firstName || !lastName || !email || !phone || !topic) {
       return NextResponse.json(
-        { error: "Missing required fields" },
+        { error: "Missing required fields", _debug: debug },
         { status: 400 }
       );
     }
@@ -123,27 +131,34 @@ export async function POST(req: NextRequest) {
     const fields: Record<string, string> = { firstName, lastName, email, phone, topic, message: message || "" };
     for (const [field, value] of Object.entries(fields)) {
       if (typeof value !== "string") {
-        return NextResponse.json({ error: "Invalid field type" }, { status: 400 });
+        return NextResponse.json({ error: "Invalid field type", _debug: debug }, { status: 400 });
       }
       if (value.length > (MAX_LENGTHS[field] || 500)) {
-        return NextResponse.json({ error: "Field too long" }, { status: 400 });
+        return NextResponse.json({ error: "Field too long", _debug: debug }, { status: 400 });
       }
     }
 
     // 7. Validate email format
     if (!EMAIL_REGEX.test(email)) {
-      return NextResponse.json({ error: "Invalid email format" }, { status: 400 });
+      return NextResponse.json({ error: "Invalid email format", _debug: debug }, { status: 400 });
     }
 
     // 8. Validate topic is an expected value
     const VALID_TOPICS = ["membership", "lessons", "volunteer", "partnerships", "general", "scheduling", "other"];
     if (!VALID_TOPICS.includes(topic)) {
-      return NextResponse.json({ error: "Invalid topic" }, { status: 400 });
+      return NextResponse.json({ error: "Invalid topic", _debug: debug }, { status: 400 });
     }
 
+    debug.push("validation: OK");
+
     // 9. Submit to HubSpot Forms API
+    const hubspotUrl = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`;
+    debug.push(`hubspot portal set: ${!!HUBSPOT_PORTAL_ID}`);
+    debug.push(`hubspot form set: ${!!HUBSPOT_FORM_ID}`);
+    debug.push(`hubspot url: ${hubspotUrl}`);
+
     const hubspotResponse = await fetch(
-      `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`,
+      hubspotUrl,
       {
         method: "POST",
         headers: {
@@ -168,20 +183,25 @@ export async function POST(req: NextRequest) {
       }
     );
 
+    debug.push(`hubspot status: ${hubspotResponse.status}`);
+    const hubspotData = await hubspotResponse.json();
+    debug.push(`hubspot response: ${JSON.stringify(hubspotData)}`);
+
     if (!hubspotResponse.ok) {
-      const errorData = await hubspotResponse.json();
-      console.error("HubSpot API error:", errorData);
+      console.error("HubSpot API error:", hubspotData);
       return NextResponse.json(
-        { error: "Failed to submit form" },
+        { error: "Failed to submit form", _debug: debug },
         { status: 500 }
       );
     }
 
-    return NextResponse.json({ success: true });
+    debug.push("hubspot: OK");
+    return NextResponse.json({ success: true, _debug: debug });
   } catch (error) {
     console.error("Contact form error:", error);
+    debug.push(`EXCEPTION: ${error instanceof Error ? error.message : String(error)}`);
     return NextResponse.json(
-      { error: "Internal server error" },
+      { error: "Internal server error", _debug: debug },
       { status: 500 }
     );
   }

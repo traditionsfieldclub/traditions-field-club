@@ -108,8 +108,16 @@ export default function Contact() {
         }),
       });
 
+      const data = await response.json();
+      // TEMPORARY: Log debug info to browser console
+      if (data._debug) {
+        console.log("=== CONTACT FORM DEBUG ===");
+        data._debug.forEach((msg: string) => console.log(msg));
+        console.log("=========================");
+      }
+
       if (!response.ok) {
-        throw new Error("Failed to submit");
+        throw new Error(data.error || "Failed to submit");
       }
 
       setShowSuccess(true);
@@ -688,13 +696,13 @@ export default function Contact() {
             <p className="text-[#333333] mb-6">
               Your message has been submitted. We will be in touch soon.
             </p>
-            <a
-              href="/"
+            <button
+              onClick={() => setShowSuccess(false)}
               className="inline-block bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
               style={{ fontFamily: "var(--font-heading), serif" }}
             >
-              Return Home
-            </a>
+              Close
+            </button>
           </div>
         </div>
       )}
