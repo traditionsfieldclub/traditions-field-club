@@ -108,16 +108,8 @@ export default function Contact() {
         }),
       });
 
-      const data = await response.json();
-      // TEMPORARY: Log debug info to browser console
-      if (data._debug) {
-        console.log("=== CONTACT FORM DEBUG ===");
-        data._debug.forEach((msg: string) => console.log(msg));
-        console.log("=========================");
-      }
-
       if (!response.ok) {
-        throw new Error(data.error || "Failed to submit");
+        throw new Error("Failed to submit");
       }
 
       setShowSuccess(true);

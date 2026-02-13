@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Traditions Field Club
+
+Website for Traditions Field Club, a sporting clays and shooting sports club in Ruffin, SC.
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router, TypeScript)
+- **Styling**: Tailwind CSS 4
+- **Hosting**: Netlify (with `@netlify/plugin-nextjs`)
+- **CRM**: HubSpot (free tier, na2 region)
+- **Bot Protection**: Cloudflare Turnstile (Managed mode)
+- **Email**: Resend (transactional, waiver PDF delivery)
+- **PDF Generation**: pdf-lib (server-side waiver PDFs)
+- **Signature**: react-signature-canvas (draw-to-sign)
+
+## Live URLs
+
+- **Production**: https://traditionsfieldclub.netlify.app
+- **Future domain**: https://traditionsfieldclub.com (GoDaddy, not yet pointed)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Dev server runs on http://localhost:3003 (configured in `package.json`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.local.example` to `.env.local` and fill in values:
 
-## Learn More
+| Variable | Purpose |
+|---|---|
+| `HUBSPOT_PORTAL_ID` | HubSpot portal ID (245138922) |
+| `HUBSPOT_FORM_ID` | Contact form ID |
+| `HUBSPOT_WAIVER_FORM_ID` | Waiver form ID |
+| `HUBSPOT_REGION` | HubSpot region (na2) |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Cloudflare Turnstile public site key |
+| `TURNSTILE_SECRET_KEY` | Cloudflare Turnstile server secret |
+| `RESEND_API_KEY` | Resend transactional email API key |
+| `ALLOWED_ORIGIN` | Production domain for origin validation |
 
-To learn more about Next.js, take a look at the following resources:
+**Netlify note**: `NEXT_PUBLIC_*` and `ALLOWED_ORIGIN` must be set as non-secret vars (Netlify's secrets scanner blocks builds if secret values appear in build output).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Route | Description |
+|---|---|
+| `/` | Home — hero, about, activities, membership preview |
+| `/about` | About the club, mission, team |
+| `/activities` | Sporting clays, 5-stand, archery, etc. |
+| `/join` | Membership application / interest form |
+| `/contact` | Contact form (HubSpot + Turnstile) |
+| `/waiver` | Liability waiver (signature, PDF gen, email) |
+| `/roadmap` | Club development phases |
+| `/terms` | Terms of service |
+| `/privacy` | Privacy policy |
 
-## Deploy on Vercel
+## API Routes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### `POST /api/contact`
+Contact form submission → HubSpot Forms API.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Security layers: rate limiting (5/IP/10min), origin validation, Turnstile verification, honeypot, field validation, email regex, topic whitelist, silent rejection for bots.
+
+### `POST /api/waiver`
+Waiver form → PDF generation → HubSpot + Resend email with PDF attachment.
+
+Security layers: stricter rate limiting (3/IP/30min), same validation stack as contact, plus signature format/size validation. Returns base64 PDF for client-side download.
+
+## Deployment
+
+Auto-deploys from `main` branch via Netlify. Build command: `npm run build`, publish dir: `.next`.
+
+GitHub: `ForgedDigital/traditions-field-club`
+
+## Project Workflow Docs
+
+See `../project_workflow/` for detailed documentation:
+- `08-Service-Setup-Workflow.txt` — All service configs and credentials
+- `09-Contact-Form-Testing-Workflow.txt` — Full testing checklist
+- `07-HubSpot-Integration-Guide.txt` — HubSpot setup and API reference
