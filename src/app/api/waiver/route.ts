@@ -6,6 +6,12 @@ const HUBSPOT_PORTAL_ID = process.env.HUBSPOT_PORTAL_ID;
 const HUBSPOT_WAIVER_FORM_ID = process.env.HUBSPOT_WAIVER_FORM_ID;
 const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const HUBSPOT_REGION = process.env.HUBSPOT_REGION || "";
+
+// Use region-specific HubSpot Forms API endpoint
+const HUBSPOT_API_BASE = HUBSPOT_REGION && HUBSPOT_REGION !== "na1"
+  ? `https://api-${HUBSPOT_REGION}.hsforms.com`
+  : "https://api.hsforms.com";
 
 // --- Rate Limiting (in-memory, per-IP) ---
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -601,7 +607,7 @@ export async function POST(req: NextRequest) {
       }
 
       const hubspotResponse = await fetch(
-        `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_WAIVER_FORM_ID}`,
+        `${HUBSPOT_API_BASE}/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_WAIVER_FORM_ID}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

@@ -3,6 +3,12 @@ import { NextRequest, NextResponse } from "next/server";
 const HUBSPOT_PORTAL_ID = process.env.HUBSPOT_PORTAL_ID;
 const HUBSPOT_FORM_ID = process.env.HUBSPOT_FORM_ID;
 const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
+const HUBSPOT_REGION = process.env.HUBSPOT_REGION || "";
+
+// Use region-specific HubSpot Forms API endpoint
+const HUBSPOT_API_BASE = HUBSPOT_REGION && HUBSPOT_REGION !== "na1"
+  ? `https://api-${HUBSPOT_REGION}.hsforms.com`
+  : "https://api.hsforms.com";
 
 // --- Rate Limiting (in-memory, per-IP) ---
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -152,7 +158,7 @@ export async function POST(req: NextRequest) {
     debug.push("validation: OK");
 
     // 9. Submit to HubSpot Forms API
-    const hubspotUrl = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`;
+    const hubspotUrl = `${HUBSPOT_API_BASE}/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`;
     debug.push(`hubspot portal set: ${!!HUBSPOT_PORTAL_ID}`);
     debug.push(`hubspot form set: ${!!HUBSPOT_FORM_ID}`);
     debug.push(`hubspot url: ${hubspotUrl}`);

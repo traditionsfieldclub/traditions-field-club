@@ -310,7 +310,7 @@ export default function Home() {
           <div
             className="absolute inset-0 bg-[#162838] bg-cover bg-center bg-fixed"
             style={{
-              backgroundImage: "url('/images/home-break.jpg')",
+              backgroundImage: "url('/images/spanish_moss_forest.webp')",
             }}
           >
             <div className="absolute inset-0 bg-[#162838]/60"></div>
@@ -324,10 +324,6 @@ export default function Home() {
                 — Where Tradition Meets Excellence —
               </p>
             </div>
-          </div>
-          {/* Placeholder Indicator */}
-          <div className="absolute top-4 right-4 bg-[#162838]/50 text-[#f5f2ec]/50 text-xs px-3 py-1 rounded">
-            (image here)
           </div>
         </section>
 
