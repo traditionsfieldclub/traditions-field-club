@@ -33,10 +33,10 @@ Copy `.env.local.example` to `.env.local` and fill in values:
 
 | Variable | Purpose |
 |---|---|
-| `HUBSPOT_PORTAL_ID` | HubSpot portal ID (245138922) |
+| `HUBSPOT_PORTAL_ID` | HubSpot portal ID |
 | `HUBSPOT_FORM_ID` | Contact form ID |
 | `HUBSPOT_WAIVER_FORM_ID` | Waiver form ID |
-| `HUBSPOT_REGION` | HubSpot region (na2) |
+| `HUBSPOT_REGION` | HubSpot region |
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | Cloudflare Turnstile public site key |
 | `TURNSTILE_SECRET_KEY` | Cloudflare Turnstile server secret |
 | `RESEND_API_KEY` | Resend transactional email API key |
