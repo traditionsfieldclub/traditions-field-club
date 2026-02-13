@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
 export default function About() {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
@@ -38,19 +39,10 @@ export default function About() {
       <main className="flex-grow">
         {/* Hero */}
         <section className="relative py-20 md:py-28 lg:py-32">
-          {/* Background Image Placeholder */}
           <div
-            className="absolute inset-0 bg-[#3d5a45] bg-cover bg-center"
-            style={{
-              backgroundImage: "url('/images/about-hero.jpg')",
-            }}
+            className="absolute inset-0 bg-[#3d5a45]"
           >
             <div className="absolute inset-0 bg-[#3d5a45]/70"></div>
-          </div>
-
-          {/* Placeholder Indicator */}
-          <div className="absolute top-4 right-4 bg-[#162838]/50 text-[#f5f2ec]/50 text-xs px-3 py-1 rounded">
-            (image here)
           </div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -281,22 +273,22 @@ export default function About() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Image Placeholder */}
+              {/* The Land Image */}
               <div
-                className={`relative h-[300px] sm:h-[350px] md:h-[450px] bg-[#e8e4dc] rounded-lg overflow-hidden transition-all duration-1000 ease-out ${
+                className={`relative h-[300px] sm:h-[350px] md:h-[450px] rounded-lg overflow-hidden transition-all duration-1000 ease-out ${
                   isVisible("land")
                     ? "opacity-100 translate-x-0"
                     : "opacity-0 -translate-x-10"
                 }`}
               >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-[#162838]">
-                    <svg className="w-16 h-16 mx-auto mb-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <p className="text-sm uppercase tracking-widest opacity-60">Image Placeholder</p>
-                  </div>
-                </div>
+                <Image
+                  src="/images/clays_in_flight.webp"
+                  alt="Clay targets in flight over the fields at Traditions Field Club"
+                  fill
+                  className="object-cover"
+                  style={{ objectPosition: "calc(50% - 40px) calc(50% - 40px)" }}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               </div>
 
               {/* Content */}
@@ -392,67 +384,35 @@ export default function About() {
               </p>
             </div>
 
-            {/* Owners Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
-              {/* Owner 1 */}
-              <div
-                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out hover:shadow-md ${
-                  isVisible("owners")
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
-                }`}
-                style={{ transitionDelay: "150ms" }}
-              >
-                {/* Photo Placeholder */}
-                <div className="relative h-[250px] sm:h-[300px] md:h-[350px] bg-[#e8e4dc]">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center text-[#162838]">
-                      <svg className="w-16 h-16 mx-auto mb-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                      </svg>
-                      <p className="text-sm uppercase tracking-widest opacity-60">Photo Placeholder</p>
-                    </div>
-                  </div>
-                </div>
-                {/* Bio */}
-                <div className="p-6 md:p-8">
-                  <h3
-                    className="text-2xl text-[#162838] mb-2"
-                    style={{ fontFamily: "var(--font-heading), serif" }}
-                  >
-                    Brian Seifrit
-                  </h3>
-                  <p className="text-[#a75235] text-sm uppercase tracking-wider mb-4">Co-Owner</p>
-                  <p className="text-[#333333] leading-relaxed mb-4">
-                    An accomplished marksman and seasoned outdoorsman, Brian brings decades of experience in hunting, shooting sports, land stewardship, and wildlife conservation. He is especially passionate about mentoring youth, teaching safe and responsible firearm handling, and helping young people develop confidence, discipline, and respect for the outdoors.
-                  </p>
-                  <p className="text-[#333333] leading-relaxed">
-                    For Brian, every day at the club is an opportunity to pass down the traditions and values that shaped him.
-                  </p>
-                </div>
-              </div>
+            {/* Shared Owners Photo */}
+            <div
+              className={`relative h-[300px] sm:h-[350px] md:h-[400px] max-w-3xl mx-auto mb-12 rounded-lg overflow-hidden transition-all duration-700 ease-out ${
+                isVisible("owners")
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+              style={{ transitionDelay: "100ms" }}
+            >
+              <Image
+                src="/images/owners_selfie_property.webp"
+                alt="Brian Seifrit and Jim Nicholson, co-owners of Traditions Field Club"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 768px"
+              />
+            </div>
 
-              {/* Owner 2 */}
+            {/* Owners Bios Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+              {/* Jim - Left */}
               <div
                 className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out hover:shadow-md ${
                   isVisible("owners")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-10"
                 }`}
-                style={{ transitionDelay: "300ms" }}
+                style={{ transitionDelay: "200ms" }}
               >
-                {/* Photo Placeholder */}
-                <div className="relative h-[250px] sm:h-[300px] md:h-[350px] bg-[#e8e4dc]">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center text-[#162838]">
-                      <svg className="w-16 h-16 mx-auto mb-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                      </svg>
-                      <p className="text-sm uppercase tracking-widest opacity-60">Photo Placeholder</p>
-                    </div>
-                  </div>
-                </div>
-                {/* Bio */}
                 <div className="p-6 md:p-8">
                   <h3
                     className="text-2xl text-[#162838] mb-2"
@@ -460,9 +420,35 @@ export default function About() {
                   >
                     Jim Nicholson
                   </h3>
-                  <p className="text-[#a75235] text-sm uppercase tracking-wider mb-4">Co-Owner</p>
+                  <p className="text-[#a75235] text-sm uppercase tracking-wider mb-4">Owner</p>
                   <p className="text-[#333333] leading-relaxed">
                     Jim Nicholson brings a complementary professional background focused on recognizing individual strengths and guiding people toward achieving their personal and professional goals. His expertise in leadership development and employee growth directly supports the club&apos;s emphasis on mentorship, character-building, and community—ensuring members grow not only in outdoor skill but also in purpose and integrity.
+                  </p>
+                </div>
+              </div>
+
+              {/* Brian - Right */}
+              <div
+                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out hover:shadow-md ${
+                  isVisible("owners")
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
+                }`}
+                style={{ transitionDelay: "350ms" }}
+              >
+                <div className="p-6 md:p-8">
+                  <h3
+                    className="text-2xl text-[#162838] mb-2"
+                    style={{ fontFamily: "var(--font-heading), serif" }}
+                  >
+                    Brian Seifrit
+                  </h3>
+                  <p className="text-[#a75235] text-sm uppercase tracking-wider mb-4">Owner</p>
+                  <p className="text-[#333333] leading-relaxed mb-4">
+                    An accomplished marksman and seasoned outdoorsman, Brian brings decades of experience in hunting, shooting sports, land stewardship, and wildlife conservation. He is especially passionate about mentoring youth, teaching safe and responsible firearm handling, and helping young people develop confidence, discipline, and respect for the outdoors.
+                  </p>
+                  <p className="text-[#333333] leading-relaxed">
+                    For Brian, every day at the club is an opportunity to pass down the traditions and values that shaped him.
                   </p>
                 </div>
               </div>

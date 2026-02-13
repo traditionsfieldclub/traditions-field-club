@@ -48,17 +48,11 @@ export default function Footer() {
                   info@traditionsfieldclub.com
                 </a>
               </li>
-              <li>
-                <a
-                  href="tel:+1-xxx-xxx-xxxx"
-                  className="opacity-75 hover:opacity-100 hover:text-[#a75235] transition-colors"
-                >
-                  xxx-xxx-xxxx
-                </a>
+              <li className="opacity-75">
+                Coming Soon
               </li>
               <li className="opacity-75">
-                <p>XXX Lowcountry Hwy</p>
-                <p>Ruffin, SC 29475</p>
+                TBD
               </li>
               <li className="pt-2">
                 <a
@@ -163,14 +157,11 @@ export default function Footer() {
                   info@traditionsfieldclub.com
                 </a>
               </li>
-              <li>
-                <span className="opacity-75">
-                  xxx-xxx-xxxx
-                </span>
+              <li className="opacity-75">
+                Coming Soon
               </li>
               <li className="opacity-75">
-                <p>XXX Lowcountry Hwy</p>
-                <p>Ruffin, SC 29475</p>
+                TBD
               </li>
               <li className="pt-2">
                 <a

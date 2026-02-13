@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nanum_Myeongjo, Lato } from "next/font/google";
 import "./globals.css";
 import FloatingContact from "@/components/FloatingContact";
+import JsonLd from "@/components/JsonLd";
 
 const nanumMyeongjo = Nanum_Myeongjo({
   variable: "--font-heading",
@@ -16,8 +17,60 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "Traditions Field Club",
-  description: "A premier sporting clays and outdoor club in South Carolina",
+  metadataBase: new URL("https://traditionsfieldclub.com"),
+  title: {
+    default:
+      "Traditions Field Club | Premier Sporting Clays Club in South Carolina",
+    template: "%s | Traditions Field Club",
+  },
+  description:
+    "Traditions Field Club is a veteran-owned sporting clays, 5-stand, and archery club in South Carolina's Lowcountry near Ruffin, SC. Family-friendly memberships, certified instruction, and corporate events. Open 7 days, sunrise to sunset.",
+  keywords: [
+    "sporting clays South Carolina",
+    "5-stand shooting",
+    "archery range SC",
+    "shooting club Lowcountry",
+    "veteran owned sporting club",
+    "family friendly shooting range",
+    "clay shooting Ruffin SC",
+    "outdoor club near Charleston",
+    "sporting clays near Hilton Head",
+    "corporate team building shooting",
+    "youth shooting programs SC",
+  ],
+  authors: [{ name: "Traditions Field Club" }],
+  creator: "Traditions Field Club",
+  openGraph: {
+    title:
+      "Traditions Field Club | Premier Sporting Clays Club in South Carolina",
+    description:
+      "Traditions Field Club is a veteran-owned sporting clays, 5-stand, and archery club in South Carolina's Lowcountry near Ruffin, SC. Family-friendly memberships, certified instruction, and corporate events. Open 7 days, sunrise to sunset.",
+    url: "https://traditionsfieldclub.com",
+    siteName: "Traditions Field Club",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Traditions Field Club | Premier Sporting Clays Club in South Carolina",
+    description:
+      "Traditions Field Club is a veteran-owned sporting clays, 5-stand, and archery club in South Carolina's Lowcountry near Ruffin, SC. Family-friendly memberships, certified instruction, and corporate events. Open 7 days, sunrise to sunset.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://traditionsfieldclub.com",
+  },
 };
 
 export default function RootLayout({
@@ -33,6 +86,7 @@ export default function RootLayout({
       >
         {children}
         <FloatingContact />
+        <JsonLd />
       </body>
     </html>
   );

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
 const steps = [
   {
@@ -97,19 +98,8 @@ export default function FirstTime() {
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative py-20 md:py-28 lg:py-32">
-          {/* Background Image Placeholder */}
-          <div
-            className="absolute inset-0 bg-[#162838] bg-cover bg-center"
-            style={{
-              backgroundImage: "url('/images/first-time-hero.jpg')",
-            }}
-          >
+          <div className="absolute inset-0 bg-[#162838]">
             <div className="absolute inset-0 bg-[#162838]/70"></div>
-          </div>
-
-          {/* Placeholder Indicator */}
-          <div className="absolute top-4 right-4 bg-[#162838]/50 text-[#f5f2ec]/50 text-xs px-3 py-1 rounded">
-            (image here)
           </div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -223,27 +213,34 @@ export default function FirstTime() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* Image Placeholder */}
               <div
-                className={`relative h-[300px] sm:h-[350px] md:h-[400px] transition-all duration-1000 ease-out ${
+                className={`transition-all duration-1000 ease-out ${
                   isVisible("bring")
                     ? "opacity-100 translate-x-0"
                     : "opacity-0 -translate-x-10"
                 }`}
               >
-                <div className="absolute inset-0 bg-[#e8e4dc] rounded-lg overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center text-[#162838]">
-                      <svg className="w-16 h-16 mx-auto mb-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <p className="text-sm uppercase tracking-widest opacity-60">Image Placeholder</p>
-                    </div>
+                <div className="relative h-[300px] sm:h-[350px] md:h-[400px]">
+                  <div className="absolute inset-0 rounded-lg overflow-hidden">
+                    <Image
+                      src="/images/clay_target_thrower.webp"
+                      alt="Clay target thrower loaded with orange clays"
+                      fill
+                      className="object-cover"
+                      style={{ objectPosition: "center calc(50% + 20px)" }}
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
                   </div>
+                  {/* Decorative accent */}
+                  <div className="hidden sm:block absolute -bottom-4 -right-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
+                  <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 bg-[#3d5a45]/10 rounded-lg -z-10"></div>
                 </div>
-                {/* Decorative accent */}
-                <div className="hidden sm:block absolute -bottom-4 -right-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
-                <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 bg-[#3d5a45]/10 rounded-lg -z-10"></div>
+                <p
+                  className="text-center text-2xl md:text-3xl text-[#162838] mt-8"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  We Bring the Rest
+                </p>
               </div>
 
               {/* Content */}

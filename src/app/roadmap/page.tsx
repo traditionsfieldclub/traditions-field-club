@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
 export default function Roadmap() {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
@@ -38,19 +39,8 @@ export default function Roadmap() {
       <main className="flex-grow">
         {/* Hero */}
         <section className="relative py-20 md:py-28 lg:py-32">
-          {/* Background Image Placeholder */}
-          <div
-            className="absolute inset-0 bg-[#3d5a45] bg-cover bg-center"
-            style={{
-              backgroundImage: "url('/images/roadmap-hero.jpg')",
-            }}
-          >
+          <div className="absolute inset-0 bg-[#3d5a45]">
             <div className="absolute inset-0 bg-[#3d5a45]/70"></div>
-          </div>
-
-          {/* Placeholder Indicator */}
-          <div className="absolute top-4 right-4 bg-[#162838]/50 text-[#f5f2ec]/50 text-xs px-3 py-1 rounded">
-            (image here)
           </div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -110,22 +100,21 @@ export default function Roadmap() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Image Placeholder */}
+              {/* Phase 1 Image */}
               <div
-                className={`relative h-[250px] sm:h-[300px] md:h-[400px] bg-[#e8e4dc] rounded-lg overflow-hidden transition-all duration-1000 ease-out ${
+                className={`relative h-[250px] sm:h-[300px] md:h-[400px] rounded-lg overflow-hidden transition-all duration-1000 ease-out ${
                   isVisible("phase1")
                     ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
+                    : "opacity-0 md:-translate-x-10"
                 }`}
               >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-[#162838]">
-                    <svg className="w-16 h-16 mx-auto mb-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <p className="text-sm uppercase tracking-widest opacity-60">Image Placeholder</p>
-                  </div>
-                </div>
+                <Image
+                  src="/images/land_clearing_chainsaw.webp"
+                  alt="Land clearing work for Phase 1 at Traditions Field Club"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               </div>
 
               {/* Content */}
@@ -133,7 +122,7 @@ export default function Roadmap() {
                 className={`transition-all duration-1000 ease-out delay-200 ${
                   isVisible("phase1")
                     ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    : "opacity-0 md:translate-x-10"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-3">
@@ -196,7 +185,7 @@ export default function Roadmap() {
                 className={`order-2 lg:order-1 transition-all duration-1000 ease-out ${
                   isVisible("phase2")
                     ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
+                    : "opacity-0 md:-translate-x-10"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-3">
@@ -242,22 +231,25 @@ export default function Roadmap() {
                 </ul>
               </div>
 
-              {/* Image Placeholder - Second on mobile */}
+              {/* Phase 2 Image */}
               <div
-                className={`relative h-[250px] sm:h-[300px] md:h-[400px] bg-[#e8e4dc] rounded-lg overflow-hidden order-1 lg:order-2 transition-all duration-1000 ease-out delay-200 ${
+                className={`relative h-[250px] sm:h-[300px] md:h-[400px] rounded-lg overflow-hidden order-1 lg:order-2 transition-all duration-1000 ease-out delay-200 ${
                   isVisible("phase2")
                     ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    : "opacity-0 md:translate-x-10"
                 }`}
               >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-[#162838]">
-                    <svg className="w-16 h-16 mx-auto mb-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <p className="text-sm uppercase tracking-widest opacity-60">Image Placeholder</p>
-                  </div>
+                <Image
+                  src="/images/entrance_gate_pines.webp"
+                  alt="Entrance gate concept for Traditions Field Club"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-[#162838]/50 flex items-center justify-center">
+                  <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
                 </div>
+                <p className="absolute bottom-2 left-0 right-0 text-center text-[10px] text-white/60 italic">*Rendering — subject to change</p>
               </div>
             </div>
           </div>
@@ -271,22 +263,25 @@ export default function Roadmap() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Image Placeholder */}
+              {/* Phase 3 Image */}
               <div
-                className={`relative h-[250px] sm:h-[300px] md:h-[400px] bg-[#e8e4dc] rounded-lg overflow-hidden transition-all duration-1000 ease-out ${
+                className={`relative h-[250px] sm:h-[300px] md:h-[400px] rounded-lg overflow-hidden transition-all duration-1000 ease-out ${
                   isVisible("phase3")
                     ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
+                    : "opacity-0 md:-translate-x-10"
                 }`}
               >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-[#162838]">
-                    <svg className="w-16 h-16 mx-auto mb-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <p className="text-sm uppercase tracking-widest opacity-60">Image Placeholder</p>
-                  </div>
+                <Image
+                  src="/images/lodge_exterior_render.webp"
+                  alt="Lodge exterior concept for Traditions Field Club"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-[#162838]/50 flex items-center justify-center">
+                  <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
                 </div>
+                <p className="absolute bottom-2 left-0 right-0 text-center text-[10px] text-white/60 italic">*Rendering — subject to change</p>
               </div>
 
               {/* Content */}
@@ -294,7 +289,7 @@ export default function Roadmap() {
                 className={`transition-all duration-1000 ease-out delay-200 ${
                   isVisible("phase3")
                     ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    : "opacity-0 md:translate-x-10"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-3">
@@ -323,11 +318,11 @@ export default function Roadmap() {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Primitive camping areas</span>
+                    <span>Barn-style lodge with Southern charm</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>RV lot with hookups</span>
+                    <span>Hosted events with food truck or private catering options</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
@@ -356,7 +351,7 @@ export default function Roadmap() {
                 className={`order-2 lg:order-1 transition-all duration-1000 ease-out ${
                   isVisible("phase4")
                     ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
+                    : "opacity-0 md:-translate-x-10"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-3">
@@ -382,15 +377,15 @@ export default function Roadmap() {
                 <ul className="space-y-3 text-[#333333]">
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Barn-style lodge with Southern charm</span>
+                    <span>Primitive camping areas</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                    <span>RV lot with hookups</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
                     <span>Event and banquet facilities</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Hosted events with food truck or private catering options</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
@@ -403,22 +398,179 @@ export default function Roadmap() {
                 </ul>
               </div>
 
-              {/* Image Placeholder - Second on mobile */}
+              {/* Phase 4 Image */}
               <div
-                className={`relative h-[250px] sm:h-[300px] md:h-[400px] bg-[#e8e4dc] rounded-lg overflow-hidden order-1 lg:order-2 transition-all duration-1000 ease-out delay-200 ${
+                className={`relative h-[250px] sm:h-[300px] md:h-[400px] rounded-lg overflow-hidden order-1 lg:order-2 transition-all duration-1000 ease-out delay-200 ${
                   isVisible("phase4")
                     ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    : "opacity-0 md:translate-x-10"
                 }`}
               >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-[#162838]">
-                    <svg className="w-16 h-16 mx-auto mb-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <p className="text-sm uppercase tracking-widest opacity-60">Image Placeholder</p>
-                  </div>
+                <Image
+                  src="/images/rv_campground_pines.webp"
+                  alt="RV campground concept in pine forest at Traditions Field Club"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-[#162838]/50 flex items-center justify-center">
+                  <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
                 </div>
+                <p className="absolute bottom-2 left-0 right-0 text-center text-[10px] text-white/60 italic">*Rendering — subject to change</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Progress Gallery */}
+        <section
+          id="progress"
+          ref={(el) => { sectionRefs.current["progress"] = el; }}
+          className="py-16 md:py-24 bg-[#f5f2ec] overflow-hidden scroll-mt-[140px]"
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Section Header */}
+            <div
+              className={`text-center mb-16 transition-all duration-1000 ease-out ${
+                isVisible("progress")
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
+              <div className="flex items-center justify-center gap-4 mb-4">
+                <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+                <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">From the Ground Up</span>
+                <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+              </div>
+              <h2
+                className="text-3xl md:text-4xl text-[#162838] mb-6"
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                See It Coming Together
+              </h2>
+              <div className="flex justify-center mb-6">
+                <span className="h-[1px] w-16 bg-[#a75235]"></span>
+              </div>
+              <p className="text-lg text-[#333333] leading-relaxed max-w-3xl mx-auto">
+                Every great tradition starts somewhere. Here&apos;s a look at the hands-on work
+                that&apos;s turning our vision into reality.
+              </p>
+            </div>
+
+            {/* November 2025 */}
+            <div className="mb-16">
+              <div className="flex items-center gap-4 mb-8">
+                <span className="bg-[#162838] text-[#f5f2ec] text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">
+                  January 2026
+                </span>
+                <span className="h-[1px] flex-grow bg-[#162838]/15"></span>
+              </div>
+              <h3
+                className="text-2xl text-[#162838] mb-2"
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                Exploring the Land
+              </h3>
+              <p className="text-[#333333] mb-6">
+                Walking the property for the first time, surveying the terrain, and discovering
+                the natural beauty that would become Traditions Field Club.
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                {[
+                  { src: "zillow_aerial_property_map", alt: "Aerial property map of the land" },
+                  { src: "open_field_treeline", alt: "Open field with treeline" },
+                  { src: "cleared_land_panoramic", alt: "Panoramic view of cleared land" },
+                  { src: "brush_pile_clearing", alt: "Brush pile during land clearing" },
+                  { src: "log_pile_trail", alt: "Log pile along trail" },
+                  { src: "debris_pile_field", alt: "Debris pile in open field" },
+                  { src: "cypress_trees_leaf_floor", alt: "Cypress trees with leaf-covered floor" },
+                  { src: "cypress_swamp_creek_2", alt: "Cypress swamp and creek" },
+                  { src: "bridge_construction_workers", alt: "Workers building a trail bridge" },
+                  { src: "spanish_moss_forest", alt: "Forest with Spanish moss" },
+                  { src: "swamp_trees_water", alt: "Swamp trees reflecting in water" },
+                ].map((img) => (
+                  <div key={img.src} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
+                    <Image
+                      src={`/images/${img.src}.webp`}
+                      alt={img.alt}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* February 2026 */}
+            <div>
+              <div className="flex items-center gap-4 mb-8">
+                <span className="bg-[#3d5a45] text-[#f5f2ec] text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">
+                  February 2026
+                </span>
+                <span className="h-[1px] flex-grow bg-[#162838]/15"></span>
+              </div>
+              <h3
+                className="text-2xl text-[#162838] mb-2"
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                Clearing, Building &amp; First Shots Fired
+              </h3>
+              <p className="text-[#333333] mb-6">
+                Chainsaws running, trees coming down, stations going up, and the first rounds
+                echoing across the property. It&apos;s happening.
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                {[
+                  { src: "cleared_field_worker", alt: "Worker in cleared field" },
+                  { src: "chainsaw_felled_tree", alt: "Chainsaw on a felled tree" },
+                  { src: "felled_pine_trail", alt: "Felled pine along trail" },
+                  { src: "man_sitting_fallen_log", alt: "Taking a break on a fallen log" },
+                  { src: "trail_bridge_building_1", alt: "Building a trail bridge" },
+                  { src: "pond_work_crew", alt: "Work crew at the pond" },
+                  { src: "skid_steer_station_frame", alt: "Skid steer moving station frames" },
+                  { src: "station_frames_construction", alt: "Station frames under construction" },
+                  { src: "five_stand_stations_row", alt: "Row of 5-stand shooting stations" },
+                  { src: "skid_steer_stations_lumber", alt: "Skid steer delivering lumber to stations" },
+                  { src: "shooting_stations_construction", alt: "Shooting stations being built" },
+                  { src: "station_interior_field_view", alt: "View from inside a shooting station" },
+                  { src: "station_clay_thrower_field", alt: "Station with clay thrower and field view" },
+                  { src: "clay_thrower_trailer_delivery", alt: "Clay thrower delivery on trailer" },
+                  { src: "shooter_aiming_field", alt: "Shooter aiming in the field" },
+                  { src: "shooting_from_deck_swamp", alt: "Shooting from deck overlooking swamp" },
+                ].map((img) => (
+                  <div key={img.src} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
+                    <Image
+                      src={`/images/${img.src}.webp`}
+                      alt={img.alt}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* March 2026 */}
+            <div className="mt-16">
+              <div className="flex items-center gap-4 mb-8">
+                <span className="bg-[#a75235] text-[#f5f2ec] text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">
+                  March 2026
+                </span>
+                <span className="h-[1px] flex-grow bg-[#162838]/15"></span>
+              </div>
+              <div className="bg-white rounded-lg border border-[#e8e4dc] p-8 md:p-12 text-center">
+                <p className="text-4xl mb-4">👀</p>
+                <h3
+                  className="text-2xl md:text-3xl text-[#162838] mb-3"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Stay Tuned...
+                </h3>
+                <p className="text-lg text-[#333333] max-w-xl mx-auto">
+                  We&apos;re not done yet. Grab some shells and check back soon — you won&apos;t want to miss what&apos;s next.
+                </p>
               </div>
             </div>
           </div>

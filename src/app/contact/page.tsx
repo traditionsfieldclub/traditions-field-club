@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import Script from "next/script";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
@@ -18,8 +19,23 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitTime, setSubmitTime] = useState<number | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<HTMLDivElement>(null);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
+
+  // Turnstile callback — called when challenge is solved
+  const handleTurnstileCallback = useCallback((token: string) => {
+    setTurnstileToken(token);
+  }, []);
+
+  // Expose callback globally for Turnstile widget
+  useEffect(() => {
+    window.onTurnstileCallback = handleTurnstileCallback;
+    return () => {
+      window.onTurnstileCallback = undefined;
+    };
+  }, [handleTurnstileCallback]);
 
   // Scroll animation observer
   useEffect(() => {
@@ -60,38 +76,62 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Security check 1: Honeypot field should be empty
+    // Security check 1: Honeypot field should be empty — fake success
     if (formData.website) {
-      console.log("Bot detected via honeypot");
+      alert("Thank you for your message! We will be in touch soon.");
       return;
     }
 
-    // Security check 2: Form should take at least 3 seconds to fill out
+    // Security check 2: Form should take at least 3 seconds to fill out — fake success
     if (submitTime && Date.now() - submitTime < 3000) {
-      console.log("Bot detected via timing");
+      alert("Thank you for your message! We will be in touch soon.");
       return;
     }
 
     setIsSubmitting(true);
 
-    // TODO: Connect to backend (HubSpot) later
-    console.log("Form submitted:", formData);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          topic: formData.topic,
+          message: formData.message,
+          website: formData.website,
+          cfTurnstileToken: turnstileToken,
+        }),
+      });
 
-    // Simulate submission delay
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+      if (!response.ok) {
+        throw new Error("Failed to submit");
+      }
 
-    alert("Thank you for your message! We will be in touch soon.");
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      topic: "",
-      message: "",
-      website: "",
-    });
-    setIsSubmitting(false);
-    setSubmitTime(null);
+      alert("Thank you for your message! We will be in touch soon.");
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        topic: "",
+        message: "",
+        website: "",
+      });
+      setSubmitTime(null);
+      setTurnstileToken(null);
+      // Reset Turnstile widget for next submission
+      if (window.turnstile && turnstileRef.current) {
+        window.turnstile.reset(turnstileRef.current);
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert("Something went wrong. Please try again or email us directly at info@traditionsfieldclub.com");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -102,19 +142,8 @@ export default function Contact() {
       <main className="flex-grow">
         {/* Hero */}
         <section className="relative py-20 md:py-28 lg:py-32">
-          {/* Background Image Placeholder */}
-          <div
-            className="absolute inset-0 bg-[#3d5a45] bg-cover bg-center"
-            style={{
-              backgroundImage: "url('/images/contact-hero.jpg')",
-            }}
-          >
+          <div className="absolute inset-0 bg-[#3d5a45] bg-cover bg-center">
             <div className="absolute inset-0 bg-[#3d5a45]/70"></div>
-          </div>
-
-          {/* Placeholder Indicator */}
-          <div className="absolute top-4 right-4 bg-[#162838]/50 text-[#f5f2ec]/50 text-xs px-3 py-1 rounded">
-            (image here)
           </div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -178,8 +207,7 @@ export default function Contact() {
                     Address
                   </h3>
                   <p className="text-[#333333]">
-                    XXXXX Lowcountry Hwy<br />
-                    Ruffin, SC 29475
+                    TBD
                   </p>
                 </div>
 
@@ -191,12 +219,9 @@ export default function Contact() {
                   >
                     Phone
                   </h3>
-                  <a
-                    href="tel:+18435551234"
-                    className="text-[#333333] hover:text-[#a75235] transition-colors"
-                  >
-                    (843) 555-1234
-                  </a>
+                  <p className="text-[#333333]">
+                    Coming Soon
+                  </p>
                 </div>
 
                 {/* Email */}
@@ -401,6 +426,19 @@ export default function Contact() {
                     />
                   </div>
 
+                  {/* Cloudflare Turnstile */}
+                  <div
+                    ref={turnstileRef}
+                    className="cf-turnstile"
+                    data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+                    data-callback="onTurnstileCallback"
+                    data-theme="light"
+                  ></div>
+                  <Script
+                    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+                    strategy="lazyOnload"
+                  />
+
                   {/* Submit Button */}
                   <div>
                     <button
@@ -424,13 +462,7 @@ export default function Contact() {
           ref={(el) => { sectionRefs.current["imagebreak"] = el; }}
           className="relative h-[300px] sm:h-[350px] md:h-[450px] lg:h-[500px] overflow-hidden"
         >
-          {/* Background Image - replace src with actual image */}
-          <div
-            className="absolute inset-0 bg-[#162838] bg-cover bg-center"
-            style={{
-              backgroundImage: "url('/images/contact-break.jpg')",
-            }}
-          >
+          <div className="absolute inset-0 bg-[#162838] bg-cover bg-center">
             {/* Overlay for text readability */}
             <div className="absolute inset-0 bg-[#162838]/50"></div>
           </div>
@@ -519,7 +551,7 @@ export default function Contact() {
                 </h2>
                 <p className="text-base sm:text-lg text-[#333333] mb-6 leading-relaxed">
                   Traditions Field Club is located strategically in the quiet rural areas of South Carolina.
-                  Located at XXXXX Lowcountry Hwy, Ruffin, SC along Highway 21.
+                  Address TBD.
                 </p>
 
                 <div className="mb-8">

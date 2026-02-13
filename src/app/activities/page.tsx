@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
 export default function Activities() {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
@@ -38,19 +39,10 @@ export default function Activities() {
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative py-20 md:py-28 lg:py-32">
-          {/* Background Image Placeholder */}
           <div
-            className="absolute inset-0 bg-[#3d5a45] bg-cover bg-center"
-            style={{
-              backgroundImage: "url('/images/activities-hero.jpg')",
-            }}
+            className="absolute inset-0 bg-[#3d5a45]"
           >
             <div className="absolute inset-0 bg-[#3d5a45]/70"></div>
-          </div>
-
-          {/* Placeholder Indicator */}
-          <div className="absolute top-4 right-4 bg-[#162838]/50 text-[#f5f2ec]/50 text-xs px-3 py-1 rounded">
-            (image here)
           </div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -117,15 +109,14 @@ export default function Activities() {
                     : "opacity-0 -translate-x-10"
                 }`}
               >
-                <div className="absolute inset-0 bg-[#e8e4dc] rounded-lg overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center text-[#162838]">
-                      <svg className="w-16 h-16 mx-auto mb-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <p className="text-sm uppercase tracking-widest opacity-60">Image Placeholder</p>
-                    </div>
-                  </div>
+                <div className="absolute inset-0 rounded-lg overflow-hidden">
+                  <Image
+                    src="/images/shooting_stations_construction.webp"
+                    alt="5-Stand shooting stations at Traditions Field Club"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
                 </div>
                 {/* Decorative accent */}
                 <div className="hidden sm:block absolute -bottom-4 -right-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
@@ -197,10 +188,7 @@ export default function Activities() {
           className="relative h-[300px] md:h-[400px]"
         >
           <div
-            className="absolute inset-0 bg-[#162838] bg-cover bg-center bg-fixed"
-            style={{
-              backgroundImage: "url('/images/activities-break.jpg')",
-            }}
+            className="absolute inset-0 bg-[#162838]"
           >
             <div className="absolute inset-0 bg-[#162838]/60"></div>
           </div>
@@ -217,10 +205,6 @@ export default function Activities() {
                 — Where Tradition Meets Excellence —
               </p>
             </div>
-          </div>
-          {/* Placeholder Indicator */}
-          <div className="absolute top-4 right-4 bg-[#162838]/50 text-[#f5f2ec]/50 text-xs px-3 py-1 rounded">
-            (image here)
           </div>
         </section>
 
@@ -295,15 +279,14 @@ export default function Activities() {
                     : "opacity-0 translate-x-10"
                 }`}
               >
-                <div className="absolute inset-0 bg-[#e8e4dc] rounded-lg overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center text-[#162838]">
-                      <svg className="w-16 h-16 mx-auto mb-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <p className="text-sm uppercase tracking-widest opacity-60">Image Placeholder</p>
-                    </div>
-                  </div>
+                <div className="absolute inset-0 rounded-lg overflow-hidden">
+                  <Image
+                    src="/images/shotgun_shooting_station.webp"
+                    alt="Sporting clays shooting at Traditions Field Club"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
                 </div>
                 {/* Decorative accent */}
                 <div className="hidden sm:block absolute -bottom-4 -left-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
@@ -320,10 +303,7 @@ export default function Activities() {
           className="relative h-[300px] md:h-[400px]"
         >
           <div
-            className="absolute inset-0 bg-[#162838] bg-cover bg-center bg-fixed"
-            style={{
-              backgroundImage: "url('/images/activities-break2.jpg')",
-            }}
+            className="absolute inset-0 bg-[#162838]"
           >
             <div className="absolute inset-0 bg-[#162838]/60"></div>
           </div>
@@ -340,10 +320,6 @@ export default function Activities() {
                 — For Every Generation —
               </p>
             </div>
-          </div>
-          {/* Placeholder Indicator */}
-          <div className="absolute top-4 right-4 bg-[#162838]/50 text-[#f5f2ec]/50 text-xs px-3 py-1 rounded">
-            (image here)
           </div>
         </section>
 
@@ -363,14 +339,16 @@ export default function Activities() {
                     : "opacity-0 -translate-x-10"
                 }`}
               >
-                <div className="absolute inset-0 bg-[#e8e4dc] rounded-lg overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center text-[#162838]">
-                      <svg className="w-16 h-16 mx-auto mb-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <p className="text-sm uppercase tracking-widest opacity-60">Image Placeholder</p>
-                    </div>
+                <div className="absolute inset-0 rounded-lg overflow-hidden">
+                  <Image
+                    src="/images/archery_range_shooting.webp"
+                    alt="Archery range at Traditions Field Club"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-[#162838]/40 flex items-center justify-center">
+                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
                   </div>
                 </div>
                 {/* Decorative accent */}
@@ -522,15 +500,14 @@ export default function Activities() {
                     : "opacity-0 translate-x-10"
                 }`}
               >
-                <div className="absolute inset-0 bg-[#e8e4dc] rounded-lg overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center text-[#162838]">
-                      <svg className="w-16 h-16 mx-auto mb-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <p className="text-sm uppercase tracking-widest opacity-60">Image Placeholder</p>
-                    </div>
-                  </div>
+                <div className="absolute inset-0 rounded-lg overflow-hidden">
+                  <Image
+                    src="/images/shooting_lesson_group.webp"
+                    alt="Group shooting lesson at Traditions Field Club"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
                 </div>
                 {/* Decorative accent */}
                 <div className="hidden sm:block absolute -bottom-4 -left-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>

@@ -38,19 +38,10 @@ export default function About() {
       <main className="flex-grow">
         {/* Hero */}
         <section className="relative py-20 md:py-28 lg:py-32">
-          {/* Background Image Placeholder */}
           <div
-            className="absolute inset-0 bg-[#3d5a45] bg-cover bg-center"
-            style={{
-              backgroundImage: "url('/images/about-hero.jpg')",
-            }}
+            className="absolute inset-0 bg-[#3d5a45]"
           >
             <div className="absolute inset-0 bg-[#3d5a45]/70"></div>
-          </div>
-
-          {/* Placeholder Indicator */}
-          <div className="absolute top-4 right-4 bg-[#162838]/50 text-[#f5f2ec]/50 text-xs px-3 py-1 rounded">
-            (image here)
           </div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -281,7 +272,7 @@ export default function About() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Image Placeholder */}
+              {/* Photo Coming Soon */}
               <div
                 className={`relative h-[300px] sm:h-[350px] md:h-[450px] bg-[#e8e4dc] rounded-lg overflow-hidden transition-all duration-1000 ease-out ${
                   isVisible("land")
@@ -294,7 +285,7 @@ export default function About() {
                     <svg className="w-16 h-16 mx-auto mb-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    <p className="text-sm uppercase tracking-widest opacity-60">Image Placeholder</p>
+                    <p className="text-sm uppercase tracking-widest opacity-60">Photo Coming Soon</p>
                   </div>
                 </div>
               </div>
@@ -379,6 +370,19 @@ export default function About() {
               </div>
             </div>
 
+            {/* Shared Intro */}
+            <div
+              className={`max-w-3xl mx-auto text-center mb-12 transition-all duration-1000 ease-out ${
+                isVisible("owners")
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
+              <p className="text-[#333333] leading-relaxed">
+                Brian Seifrit and Jim Nicholson are co-owners of Traditions Field Club, united by their shared commitment to faith, family, personal growth, and the outdoors. Guided by strong Christian values, they are dedicated to preserving outdoor traditions while creating meaningful opportunities for families and future generations to experience them firsthand. Together, they are building a place where faith, fellowship, mentorship, and outdoor heritage come together to strengthen families and communities.
+              </p>
+            </div>
+
             {/* Owners Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
               {/* Owner 1 */}
@@ -407,14 +411,14 @@ export default function About() {
                     className="text-2xl text-[#162838] mb-2"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
-                    Owner Name
+                    Brian Seifrit
                   </h3>
-                  <p className="text-[#a75235] text-sm uppercase tracking-wider mb-4">Co-Founder</p>
+                  <p className="text-[#a75235] text-sm uppercase tracking-wider mb-4">Co-Owner</p>
+                  <p className="text-[#333333] leading-relaxed mb-4">
+                    An accomplished marksman and seasoned outdoorsman, Brian brings decades of experience in hunting, shooting sports, land stewardship, and wildlife conservation. He is especially passionate about mentoring youth, teaching safe and responsible firearm handling, and helping young people develop confidence, discipline, and respect for the outdoors.
+                  </p>
                   <p className="text-[#333333] leading-relaxed">
-                    Bio content will go here. This section will feature the owner&apos;s background,
-                    their passion for outdoor sports, military service, and their vision for
-                    Traditions Field Club. The personal story helps members connect with the
-                    people behind the club.
+                    For Brian, every day at the club is an opportunity to pass down the traditions and values that shaped him.
                   </p>
                 </div>
               </div>
@@ -445,14 +449,11 @@ export default function About() {
                     className="text-2xl text-[#162838] mb-2"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
-                    Owner Name
+                    Jim Nicholson
                   </h3>
-                  <p className="text-[#a75235] text-sm uppercase tracking-wider mb-4">Co-Founder</p>
+                  <p className="text-[#a75235] text-sm uppercase tracking-wider mb-4">Co-Owner</p>
                   <p className="text-[#333333] leading-relaxed">
-                    Bio content will go here. This section will feature the owner&apos;s background,
-                    their passion for outdoor sports, military service, and their vision for
-                    Traditions Field Club. The personal story helps members connect with the
-                    people behind the club.
+                    Jim Nicholson brings a complementary professional background focused on recognizing individual strengths and guiding people toward achieving their personal and professional goals. His expertise in leadership development and employee growth directly supports the club&apos;s emphasis on mentorship, character-building, and community—ensuring members grow not only in outdoor skill but also in purpose and integrity.
                   </p>
                 </div>
               </div>
