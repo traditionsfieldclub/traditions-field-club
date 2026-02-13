@@ -18,6 +18,8 @@ export default function Contact() {
     website: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
   const [submitTime, setSubmitTime] = useState<number | null>(null);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const turnstileRef = useRef<HTMLDivElement>(null);
@@ -78,13 +80,13 @@ export default function Contact() {
 
     // Security check 1: Honeypot field should be empty — fake success
     if (formData.website) {
-      alert("Thank you for your message! We will be in touch soon.");
+      setShowSuccess(true);
       return;
     }
 
     // Security check 2: Form should take at least 3 seconds to fill out — fake success
     if (submitTime && Date.now() - submitTime < 3000) {
-      alert("Thank you for your message! We will be in touch soon.");
+      setShowSuccess(true);
       return;
     }
 
@@ -110,7 +112,7 @@ export default function Contact() {
         throw new Error("Failed to submit");
       }
 
-      alert("Thank you for your message! We will be in touch soon.");
+      setShowSuccess(true);
       setFormData({
         firstName: "",
         lastName: "",
@@ -128,7 +130,7 @@ export default function Contact() {
       }
     } catch (error) {
       console.error("Form submission error:", error);
-      alert("Something went wrong. Please try again or email us directly at info@traditionsfieldclub.com");
+      setShowError(true);
     } finally {
       setIsSubmitting(false);
     }
@@ -667,6 +669,67 @@ export default function Contact() {
       </main>
 
       <Footer />
+
+      {/* Success Modal */}
+      {showSuccess && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
+          <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-8 text-center">
+            <div className="w-16 h-16 bg-[#3d5a45] rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg className="w-8 h-8 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3
+              className="text-2xl text-[#162838] mb-3"
+              style={{ fontFamily: "var(--font-heading), serif" }}
+            >
+              Thank You!
+            </h3>
+            <p className="text-[#333333] mb-6">
+              Your message has been submitted. We will be in touch soon.
+            </p>
+            <a
+              href="/"
+              className="inline-block bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
+              style={{ fontFamily: "var(--font-heading), serif" }}
+            >
+              Return Home
+            </a>
+          </div>
+        </div>
+      )}
+
+      {/* Error Modal */}
+      {showError && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
+          <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-8 text-center">
+            <div className="w-16 h-16 bg-[#a75235] rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg className="w-8 h-8 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </div>
+            <h3
+              className="text-2xl text-[#162838] mb-3"
+              style={{ fontFamily: "var(--font-heading), serif" }}
+            >
+              Something Went Wrong
+            </h3>
+            <p className="text-[#333333] mb-6">
+              Please try again or email us directly at{" "}
+              <a href="mailto:info@traditionsfieldclub.com" className="text-[#a75235] hover:underline">
+                info@traditionsfieldclub.com
+              </a>
+            </p>
+            <button
+              onClick={() => setShowError(false)}
+              className="inline-block bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
+              style={{ fontFamily: "var(--font-heading), serif" }}
+            >
+              Try Again
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

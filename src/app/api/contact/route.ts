@@ -46,6 +46,7 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // --- Allowed Origins ---
 const ALLOWED_ORIGINS = [
   process.env.ALLOWED_ORIGIN,
+  "https://traditionsfieldclub.netlify.app",
   "http://localhost:3005",
   "http://localhost:3003",
 ].filter(Boolean);

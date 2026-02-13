@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import Script from "next/script";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
@@ -18,8 +19,23 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitTime, setSubmitTime] = useState<number | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<HTMLDivElement>(null);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
+
+  // Turnstile callback — called when challenge is solved
+  const handleTurnstileCallback = useCallback((token: string) => {
+    setTurnstileToken(token);
+  }, []);
+
+  // Expose callback globally for Turnstile widget
+  useEffect(() => {
+    window.onTurnstileCallback = handleTurnstileCallback;
+    return () => {
+      window.onTurnstileCallback = undefined;
+    };
+  }, [handleTurnstileCallback]);
 
   // Scroll animation observer
   useEffect(() => {
@@ -86,6 +102,7 @@ export default function Contact() {
           topic: formData.topic,
           message: formData.message,
           website: formData.website,
+          cfTurnstileToken: turnstileToken,
         }),
       });
 
@@ -104,6 +121,11 @@ export default function Contact() {
         website: "",
       });
       setSubmitTime(null);
+      setTurnstileToken(null);
+      // Reset Turnstile widget for next submission
+      if (window.turnstile && turnstileRef.current) {
+        window.turnstile.reset(turnstileRef.current);
+      }
     } catch (error) {
       console.error("Form submission error:", error);
       alert("Something went wrong. Please try again or email us directly at info@traditionsfieldclub.com");
@@ -403,6 +425,19 @@ export default function Contact() {
                       placeholder="Tell us more about your inquiry..."
                     />
                   </div>
+
+                  {/* Cloudflare Turnstile */}
+                  <div
+                    ref={turnstileRef}
+                    className="cf-turnstile"
+                    data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+                    data-callback="onTurnstileCallback"
+                    data-theme="light"
+                  ></div>
+                  <Script
+                    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+                    strategy="lazyOnload"
+                  />
 
                   {/* Submit Button */}
                   <div>
