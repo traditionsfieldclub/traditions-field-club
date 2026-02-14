@@ -176,7 +176,7 @@ export default function Membership() {
                 </div>
                 <div className="p-6 pt-0">
                   <a
-                    href="/contact?topic=membership"
+                    href="/join"
                     className="block w-full bg-[#a75235] text-[#f5f2ec] px-6 py-3 text-center font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
@@ -234,7 +234,7 @@ export default function Membership() {
                 </div>
                 <div className="p-6 pt-0">
                   <a
-                    href="/contact?topic=membership"
+                    href="/join"
                     className="block w-full bg-[#a75235] text-[#f5f2ec] px-6 py-3 text-center font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
@@ -292,7 +292,7 @@ export default function Membership() {
                 </div>
                 <div className="p-6 pt-0">
                   <a
-                    href="/contact?topic=partnerships"
+                    href="/join"
                     className="block w-full bg-[#a75235] text-[#f5f2ec] px-6 py-3 text-center font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
@@ -358,7 +358,7 @@ export default function Membership() {
                 </div>
                 <div className="p-6 pt-0">
                   <a
-                    href="/contact?topic=membership"
+                    href="/join"
                     className="block w-full bg-[#a75235] text-[#f5f2ec] px-6 py-3 text-center font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >

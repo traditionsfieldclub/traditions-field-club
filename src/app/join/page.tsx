@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import Script from "next/script";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
@@ -42,8 +43,11 @@ export default function Join() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
+  const formLoadedAt = useRef(Date.now());
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -66,6 +70,18 @@ export default function Join() {
 
   const isVisible = (id: string) => visibleSections.has(id);
 
+  const handleTurnstileCallback = useCallback((token: string) => {
+    setTurnstileToken(token);
+  }, []);
+
+  // Expose callback globally for Turnstile
+  useEffect(() => {
+    (window as unknown as Record<string, unknown>).onTurnstileCallback = handleTurnstileCallback;
+    return () => {
+      delete (window as unknown as Record<string, unknown>).onTurnstileCallback;
+    };
+  }, [handleTurnstileCallback]);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
@@ -81,27 +97,51 @@ export default function Join() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMessage("");
 
-    // Honeypot check
+    // Honeypot check — silently "succeed"
     if (formData.website) {
-      console.log("Bot detected");
+      setIsSubmitted(true);
       return;
     }
 
     if (!allAgreed) {
-      alert("Please agree to all terms before submitting.");
+      setErrorMessage("Please agree to all terms before submitting.");
+      return;
+    }
+
+    if (!turnstileToken) {
+      setErrorMessage("Please complete the verification check below.");
       return;
     }
 
     setIsSubmitting(true);
 
-    // TODO: Connect to backend/email service
-    console.log("Application submitted:", formData);
+    try {
+      const response = await fetch("/api/join", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          cfTurnstileToken: turnstileToken,
+          formLoadedAt: formLoadedAt.current,
+        }),
+      });
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+      const data = await response.json();
 
-    setIsSubmitted(true);
-    setIsSubmitting(false);
+      if (!response.ok) {
+        setErrorMessage(data.error || "Something went wrong. Please try again.");
+        setIsSubmitting(false);
+        return;
+      }
+
+      setIsSubmitted(true);
+    } catch {
+      setErrorMessage("Unable to submit your application. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -123,13 +163,10 @@ export default function Join() {
               >
                 Application Submitted!
               </h2>
-              <p className="text-[#333333] mb-6">
+              <p className="text-[#333333] mb-8">
                 Thank you for your interest in joining Traditions Field Club. We&apos;ve received your
                 membership application and will review it shortly. A member of our team will contact
                 you within 2-3 business days to discuss next steps.
-              </p>
-              <p className="text-sm text-[#666666] mb-8">
-                A confirmation email has been sent to your email address.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
@@ -159,6 +196,11 @@ export default function Join() {
     <div className="min-h-screen flex flex-col overflow-x-hidden">
       <AnnouncementBar />
       <Header />
+
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        strategy="lazyOnload"
+      />
 
       <main className="flex-grow">
         {/* Hero */}
@@ -611,7 +653,7 @@ export default function Join() {
                       name="agreeRules"
                       checked={formData.agreeRules}
                       onChange={handleChange}
-                      className="w-5 h-5 mt-0.5 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
+                      className="w-5 h-5 shrink-0 mt-0.5 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
                     />
                     <span className="text-[#333333]">
                       I agree to abide by all <a href="/terms" className="text-[#a75235] hover:underline">club rules and policies</a>, including all safety regulations.
@@ -624,7 +666,7 @@ export default function Join() {
                       name="agreeWaiver"
                       checked={formData.agreeWaiver}
                       onChange={handleChange}
-                      className="w-5 h-5 mt-0.5 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
+                      className="w-5 h-5 shrink-0 mt-0.5 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
                     />
                     <span className="text-[#333333]">
                       I understand that I will be required to sign a <a href="/waiver" className="text-[#a75235] hover:underline">liability waiver</a> before participating in any activities.
@@ -637,7 +679,7 @@ export default function Join() {
                       name="agreeApproval"
                       checked={formData.agreeApproval}
                       onChange={handleChange}
-                      className="w-5 h-5 mt-0.5 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
+                      className="w-5 h-5 shrink-0 mt-0.5 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
                     />
                     <span className="text-[#333333]">
                       I understand that membership is subject to approval and that submitting this application does not guarantee acceptance.
@@ -646,12 +688,29 @@ export default function Join() {
                 </div>
               </div>
 
-              {/* Submit Button */}
+              {/* Turnstile + Error + Submit */}
               <div
                 className={`text-center transition-all duration-700 delay-700 ${
                   isVisible("application") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                 }`}
               >
+                {/* Turnstile Widget */}
+                <div className="flex justify-center mb-6">
+                  <div
+                    className="cf-turnstile"
+                    data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+                    data-callback="onTurnstileCallback"
+                    data-theme="light"
+                  />
+                </div>
+
+                {/* Error Message */}
+                {errorMessage && (
+                  <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+                    <p className="text-sm text-red-700">{errorMessage}</p>
+                  </div>
+                )}
+
                 <button
                   type="submit"
                   disabled={isSubmitting || !allAgreed}

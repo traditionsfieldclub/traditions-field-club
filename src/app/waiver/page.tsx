@@ -576,13 +576,13 @@ export default function Waiver() {
                   Minor Participant (Under 18)
                 </h3>
 
-                <label className="flex items-center gap-3 cursor-pointer">
+                <label className="flex items-start gap-3 cursor-pointer">
                   <input
                     type="checkbox"
                     name="isMinor"
                     checked={formData.isMinor}
                     onChange={handleChange}
-                    className="w-5 h-5 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
+                    className="w-5 h-5 mt-0.5 shrink-0 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
                   />
                   <span className="text-[#333333]">This waiver is for a minor participant</span>
                 </label>
@@ -648,7 +648,7 @@ export default function Waiver() {
                       name="acknowledgeSafety"
                       checked={formData.acknowledgeSafety}
                       onChange={handleChange}
-                      className="w-5 h-5 mt-0.5 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
+                      className="w-5 h-5 mt-0.5 shrink-0 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
                     />
                     <span className="text-[#333333]">
                       I have read and understand the <strong>safety rules</strong> outlined in this waiver and agree to follow them at all times.
@@ -661,7 +661,7 @@ export default function Waiver() {
                       name="acknowledgeRisk"
                       checked={formData.acknowledgeRisk}
                       onChange={handleChange}
-                      className="w-5 h-5 mt-0.5 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
+                      className="w-5 h-5 mt-0.5 shrink-0 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
                     />
                     <span className="text-[#333333]">
                       I understand and <strong>voluntarily assume all risks</strong> associated with participating in shooting sports activities, including the risk of serious injury or death.
@@ -674,7 +674,7 @@ export default function Waiver() {
                       name="acknowledgeRelease"
                       checked={formData.acknowledgeRelease}
                       onChange={handleChange}
-                      className="w-5 h-5 mt-0.5 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
+                      className="w-5 h-5 mt-0.5 shrink-0 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
                     />
                     <span className="text-[#333333]">
                       I <strong>release and waive</strong> all claims against Traditions Field Club, its owners, employees, and agents for any injury or damage arising from my participation.
@@ -687,7 +687,7 @@ export default function Waiver() {
                       name="acknowledgeRules"
                       checked={formData.acknowledgeRules}
                       onChange={handleChange}
-                      className="w-5 h-5 mt-0.5 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
+                      className="w-5 h-5 mt-0.5 shrink-0 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
                     />
                     <span className="text-[#333333]">
                       I agree to abide by all <strong>club rules and policies</strong> and understand that violation may result in removal from the premises.
@@ -700,7 +700,7 @@ export default function Waiver() {
                       name="agreeToTerms"
                       checked={formData.agreeToTerms}
                       onChange={handleChange}
-                      className="w-5 h-5 mt-0.5 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
+                      className="w-5 h-5 mt-0.5 shrink-0 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
                     />
                     <span className="text-[#333333]">
                       I have read this entire waiver, <strong>understand its contents</strong>, and agree to be bound by its terms.

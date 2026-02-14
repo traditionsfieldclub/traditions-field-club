@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
 const faqs = [
   {
@@ -66,19 +67,8 @@ export default function Membership() {
       <main className="flex-grow">
         {/* Hero */}
         <section className="relative py-20 md:py-28 lg:py-32">
-          {/* Background Image Placeholder */}
-          <div
-            className="absolute inset-0 bg-[#162838] bg-cover bg-center"
-            style={{
-              backgroundImage: "url('/images/membership-hero.jpg')",
-            }}
-          >
+          <div className="absolute inset-0 bg-[#162838]">
             <div className="absolute inset-0 bg-[#162838]/70"></div>
-          </div>
-
-          {/* Placeholder Indicator */}
-          <div className="absolute top-4 right-4 bg-[#162838]/50 text-[#f5f2ec]/50 text-xs px-3 py-1 rounded">
-            (image here)
           </div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -388,22 +378,20 @@ export default function Membership() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Image Placeholder */}
               <div
-                className={`relative h-[300px] sm:h-[350px] md:h-[450px] bg-[#e8e4dc] rounded-lg overflow-hidden transition-all duration-1000 ease-out ${
+                className={`relative h-[300px] sm:h-[350px] md:h-[450px] rounded-lg overflow-hidden transition-all duration-1000 ease-out ${
                   isVisible("benefits")
                     ? "opacity-100 translate-x-0"
                     : "opacity-0 -translate-x-10"
                 }`}
               >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-[#162838]">
-                    <svg className="w-16 h-16 mx-auto mb-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <p className="text-sm uppercase tracking-widest opacity-60">Image Placeholder</p>
-                  </div>
-                </div>
+                <Image
+                  src="/images/youth_shooting_team_silo.webp"
+                  alt="Youth shooting team at Traditions Field Club"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               </div>
 
               {/* Content */}

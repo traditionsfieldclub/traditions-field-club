@@ -166,14 +166,10 @@ export default function Join() {
           <div
             className="absolute inset-0 bg-[#3d5a45] bg-cover bg-center"
             style={{
-              backgroundImage: "url('/images/join-hero.jpg')",
+              backgroundImage: "url('/images/group_sporting_clays.webp')",
             }}
           >
             <div className="absolute inset-0 bg-[#3d5a45]/70"></div>
-          </div>
-
-          <div className="absolute top-4 right-4 bg-[#162838]/50 text-[#f5f2ec]/50 text-xs px-3 py-1 rounded">
-            (image here)
           </div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
