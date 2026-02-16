@@ -5,6 +5,7 @@ import Script from "next/script";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
+import NewsletterForm from "@/components/NewsletterForm";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -15,7 +16,7 @@ export default function Contact() {
     topic: "",
     message: "",
     // Honeypot field for bot detection
-    website: "",
+    companyFax: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -79,7 +80,7 @@ export default function Contact() {
     e.preventDefault();
 
     // Security check 1: Honeypot field should be empty — fake success
-    if (formData.website) {
+    if (formData.companyFax) {
       setShowSuccess(true);
       return;
     }
@@ -103,7 +104,7 @@ export default function Contact() {
           phone: formData.phone,
           topic: formData.topic,
           message: formData.message,
-          website: formData.website,
+          companyFax: formData.companyFax,
           cfTurnstileToken: turnstileToken,
         }),
       });
@@ -120,7 +121,7 @@ export default function Contact() {
         phone: "",
         topic: "",
         message: "",
-        website: "",
+        companyFax: "",
       });
       setSubmitTime(null);
       setTurnstileToken(null);
@@ -284,15 +285,15 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Honeypot field - hidden from users, bots will fill it */}
                   <div className="absolute -left-[9999px]" aria-hidden="true">
-                    <label htmlFor="website">Website</label>
+                    <label htmlFor="companyFax">Fax</label>
                     <input
                       type="text"
-                      id="website"
-                      name="website"
-                      value={formData.website}
+                      id="companyFax"
+                      name="companyFax"
+                      value={formData.companyFax}
                       onChange={handleChange}
                       tabIndex={-1}
-                      autoComplete="off"
+                      autoComplete="nope"
                     />
                   </div>
 
@@ -629,43 +630,10 @@ export default function Contact() {
         </section>
 
         {/* Newsletter CTA Section */}
-        <section className="py-16 md:py-20 bg-[#3d5a45]">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            {/* Decorative Header */}
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <span className="h-[1px] w-12 md:w-20 bg-[#f5f2ec]/30"></span>
-              <span className="text-[#f5f2ec]/60 text-sm tracking-[0.3em] uppercase">Stay Connected</span>
-              <span className="h-[1px] w-12 md:w-20 bg-[#f5f2ec]/30"></span>
-            </div>
-            <h2
-              className="text-3xl md:text-4xl text-[#f5f2ec] mb-4"
-              style={{ fontFamily: "var(--font-heading), serif" }}
-            >
-              Newsletter Sign Up
-            </h2>
-            <div className="flex justify-center mb-6">
-              <span className="h-[1px] w-16 bg-[#a75235]"></span>
-            </div>
-            <p className="text-base sm:text-lg text-[#f5f2ec]/80 mb-8 max-w-xl mx-auto">
-              Sign up for our mailing list to keep up to date with current events, promotions, and opportunities.
-            </p>
-            <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                required
-                className="flex-1 px-4 py-3 rounded-lg border-2 border-transparent focus:outline-none focus:border-[#a75235] transition-colors bg-white text-[#333333]"
-              />
-              <button
-                type="submit"
-                className="bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg whitespace-nowrap"
-                style={{ fontFamily: "var(--font-heading), serif" }}
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </section>
+        <NewsletterForm
+          heading="Newsletter Sign Up"
+          description="Sign up for our mailing list to keep up to date with current events, promotions, and opportunities."
+        />
       </main>
 
       <Footer />

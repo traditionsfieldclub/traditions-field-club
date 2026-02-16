@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import FooterNewsletter from "./FooterNewsletter";
 
 const navLinks = [
   { label: "First Time", href: "/first-time" },
@@ -68,6 +69,17 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
+            <div className="mt-6 pt-4 border-t border-[#f5f2ec]/10">
+              <p className="text-base opacity-75 mb-4">
+                Sunrise to Sunset
+              </p>
+              <a
+                href="/waiver"
+                className="inline-block bg-[#a75235] text-[#f5f2ec] px-10 py-3 rounded text-base font-semibold uppercase tracking-widest hover:bg-[#8a4229] transition-colors duration-200"
+              >
+                Sign Waiver
+              </a>
+            </div>
           </div>
 
           {/* Navigation */}
@@ -89,20 +101,9 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Hours */}
+          {/* Newsletter */}
           <div>
-            <h3 className="text-base font-semibold uppercase tracking-widest mb-4 text-[#a75235]">
-              Hours
-            </h3>
-            <p className="text-base opacity-75 mb-6">
-              Sunrise to Sunset
-            </p>
-            <a
-              href="/waiver"
-              className="inline-block bg-[#a75235] text-[#f5f2ec] px-10 py-3 rounded text-base font-semibold uppercase tracking-widest hover:bg-[#8a4229] transition-colors duration-200"
-            >
-              Sign Waiver
-            </a>
+            <FooterNewsletter />
           </div>
         </div>
 
@@ -143,7 +144,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact, Hours & Actions */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-widest mb-4 text-[#a75235]">
               Contact
@@ -177,24 +178,25 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
+            <div className="mt-6 pt-4 border-t border-[#f5f2ec]/10">
+              <p className="text-sm opacity-75 mb-3">
+                Sunrise to Sunset
+              </p>
+              <a
+                href="/waiver"
+                className="inline-block bg-[#a75235] text-[#f5f2ec] px-6 py-2 rounded-md text-sm font-medium uppercase tracking-wider hover:bg-[#8a4229] transition-colors duration-200"
+              >
+                Sign Waiver
+              </a>
+            </div>
           </div>
 
-          {/* Hours & Actions */}
+          {/* Newsletter Subscribe */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-widest mb-4 text-[#a75235]">
-              Hours
-            </h3>
-            <p className="text-sm opacity-75 mb-6">
-              Sunrise to Sunset
-            </p>
-            <a
-              href="/waiver"
-              className="inline-block bg-[#a75235] text-[#f5f2ec] px-6 py-2 rounded-md text-sm font-medium uppercase tracking-wider hover:bg-[#8a4229] transition-colors duration-200"
-            >
-              Sign Waiver
-            </a>
+            <FooterNewsletter />
           </div>
         </div>
+
       </div>
 
       {/* Bottom Bar */}

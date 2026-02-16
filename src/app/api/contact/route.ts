@@ -79,37 +79,41 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { firstName, lastName, email, phone, topic, message, website, cfTurnstileToken } = body;
+    const { firstName, lastName, email, phone, topic, message, companyFax, cfTurnstileToken } = body;
 
-    // 3. Turnstile verification — reject if no token provided
-    if (!cfTurnstileToken) {
-      return NextResponse.json(
-        { error: "Verification required" },
-        { status: 400 }
-      );
-    }
+    // 3. Turnstile verification (skip in development — localhost not in allowed hostnames)
+    const isDev = process.env.NODE_ENV === "development";
 
-    // Verify token with Cloudflare
-    const turnstileResponse = await fetch(
-      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          secret: TURNSTILE_SECRET_KEY,
-          response: cfTurnstileToken,
-          remoteip: ip,
-        }),
+    if (!isDev) {
+      if (!cfTurnstileToken) {
+        return NextResponse.json(
+          { error: "Verification required" },
+          { status: 400 }
+        );
       }
-    );
-    const turnstileResult = await turnstileResponse.json();
 
-    if (!turnstileResult.success) {
-      return NextResponse.json({ success: true });
+      // Verify token with Cloudflare
+      const turnstileResponse = await fetch(
+        "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            secret: TURNSTILE_SECRET_KEY,
+            response: cfTurnstileToken,
+            remoteip: ip,
+          }),
+        }
+      );
+      const turnstileResult = await turnstileResponse.json();
+
+      if (!turnstileResult.success) {
+        return NextResponse.json({ success: true });
+      }
     }
 
     // 4. Honeypot check — if filled, it's a bot
-    if (website) {
+    if (companyFax) {
       return NextResponse.json({ success: true });
     }
 

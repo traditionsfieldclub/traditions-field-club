@@ -15,7 +15,7 @@ const HUBSPOT_API_BASE = HUBSPOT_REGION && HUBSPOT_REGION !== "na1"
 
 // --- Rate Limiting (in-memory, per-IP) ---
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
-const RATE_LIMIT_MAX = 3; // stricter — waivers are one-time
+const RATE_LIMIT_MAX = 3; // stricter - waivers are one-time
 const RATE_LIMIT_WINDOW = 30 * 60 * 1000; // 30 minutes
 
 function isRateLimited(ip: string): boolean {
@@ -448,39 +448,43 @@ export async function POST(req: NextRequest) {
       parentRelationship,
       signedDate,
       signatureDataUrl,
-      website, // honeypot
+      companyFax, // honeypot
       cfTurnstileToken,
       formLoadedAt, // timing bot detection
     } = body;
 
-    // 3. Turnstile verification
-    if (!cfTurnstileToken) {
-      return NextResponse.json(
-        { error: "Verification required" },
-        { status: 400 }
-      );
-    }
+    // 3. Turnstile verification (skip in development — localhost not in allowed hostnames)
+    const isDev = process.env.NODE_ENV === "development";
 
-    const turnstileResponse = await fetch(
-      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          secret: TURNSTILE_SECRET_KEY,
-          response: cfTurnstileToken,
-          remoteip: ip,
-        }),
+    if (!isDev) {
+      if (!cfTurnstileToken) {
+        return NextResponse.json(
+          { error: "Verification required" },
+          { status: 400 }
+        );
       }
-    );
-    const turnstileResult = await turnstileResponse.json();
 
-    if (!turnstileResult.success) {
-      return NextResponse.json({ success: true }); // Silent rejection
+      const turnstileResponse = await fetch(
+        "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            secret: TURNSTILE_SECRET_KEY,
+            response: cfTurnstileToken,
+            remoteip: ip,
+          }),
+        }
+      );
+      const turnstileResult = await turnstileResponse.json();
+
+      if (!turnstileResult.success) {
+        return NextResponse.json({ success: true }); // Silent rejection
+      }
     }
 
     // 4. Honeypot check
-    if (website) {
+    if (companyFax) {
       return NextResponse.json({ success: true }); // Silent rejection
     }
 

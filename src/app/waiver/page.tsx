@@ -43,7 +43,7 @@ export default function Waiver() {
     // Signature date
     signedDate: new Date().toISOString().split("T")[0],
     // Honeypot
-    website: "",
+    companyFax: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -146,7 +146,7 @@ export default function Waiver() {
     setErrorMessage("");
 
     // Honeypot check
-    if (formData.website) {
+    if (formData.companyFax) {
       return;
     }
 
@@ -290,8 +290,8 @@ export default function Waiver() {
               <div className="absolute -left-[9999px]" aria-hidden="true">
                 <input
                   type="text"
-                  name="website"
-                  value={formData.website}
+                  name="companyFax"
+                  value={formData.companyFax}
                   onChange={handleChange}
                   tabIndex={-1}
                   autoComplete="off"

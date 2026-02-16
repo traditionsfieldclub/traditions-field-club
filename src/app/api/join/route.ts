@@ -377,39 +377,43 @@ export async function POST(req: NextRequest) {
       emergencyPhone,
       emergencyRelationship,
       additionalInfo,
-      website, // honeypot
+      companyFax, // honeypot
       cfTurnstileToken,
       formLoadedAt, // timing bot detection
     } = body;
 
-    // 3. Turnstile verification
-    if (!cfTurnstileToken) {
-      return NextResponse.json(
-        { error: "Verification required" },
-        { status: 400 }
-      );
-    }
+    // 3. Turnstile verification (skip in development — localhost not in allowed hostnames)
+    const isDev = process.env.NODE_ENV === "development";
 
-    const turnstileResponse = await fetch(
-      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          secret: TURNSTILE_SECRET_KEY,
-          response: cfTurnstileToken,
-          remoteip: ip,
-        }),
+    if (!isDev) {
+      if (!cfTurnstileToken) {
+        return NextResponse.json(
+          { error: "Verification required" },
+          { status: 400 }
+        );
       }
-    );
-    const turnstileResult = await turnstileResponse.json();
 
-    if (!turnstileResult.success) {
-      return NextResponse.json({ success: true }); // Silent rejection
+      const turnstileResponse = await fetch(
+        "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            secret: TURNSTILE_SECRET_KEY,
+            response: cfTurnstileToken,
+            remoteip: ip,
+          }),
+        }
+      );
+      const turnstileResult = await turnstileResponse.json();
+
+      if (!turnstileResult.success) {
+        return NextResponse.json({ success: true }); // Silent rejection
+      }
     }
 
     // 4. Honeypot check
-    if (website) {
+    if (companyFax) {
       return NextResponse.json({ success: true }); // Silent rejection
     }
 
@@ -552,7 +556,7 @@ export async function POST(req: NextRequest) {
         { objectTypeId: "0-1", name: "membership_type", value: membershipType },
         { objectTypeId: "0-1", name: "experience_level", value: experienceLevel },
         { objectTypeId: "0-1", name: "emergency_contact_name", value: emergencyName.trim() },
-        { objectTypeId: "0-1", name: "emergency_contact_phone", value: emergencyPhone.trim() },
+        { objectTypeId: "0-1", name: "emergency_contact_number", value: emergencyPhone.trim() },
       ];
 
       if (spouseName?.trim()) {
@@ -584,7 +588,7 @@ export async function POST(req: NextRequest) {
 
       if (!hubspotResponse.ok) {
         const errorData = await hubspotResponse.json();
-        console.error("HubSpot membership submission error:", errorData);
+        console.error("HubSpot membership submission error:", JSON.stringify(errorData, null, 2));
       }
     } catch (hubspotError) {
       console.error("HubSpot submission failed:", hubspotError);

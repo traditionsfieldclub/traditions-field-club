@@ -38,11 +38,12 @@ export default function Join() {
     agreeWaiver: false,
     agreeApproval: false,
     // Honeypot
-    website: "",
+    companyFax: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showPostSubmit, setShowPostSubmit] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [turnstileToken, setTurnstileToken] = useState("");
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
@@ -99,18 +100,15 @@ export default function Join() {
     e.preventDefault();
     setErrorMessage("");
 
-    // Honeypot check — silently "succeed"
-    if (formData.website) {
-      setIsSubmitted(true);
-      return;
-    }
+    // Honeypot is checked server-side only
 
     if (!allAgreed) {
       setErrorMessage("Please agree to all terms before submitting.");
       return;
     }
 
-    if (!turnstileToken) {
+    const isDev = window.location.hostname === "localhost";
+    if (!isDev && !turnstileToken) {
       setErrorMessage("Please complete the verification check below.");
       return;
     }
@@ -144,7 +142,7 @@ export default function Join() {
     }
   };
 
-  if (isSubmitted) {
+  if (isSubmitted && !showPostSubmit) {
     return (
       <div className="min-h-screen flex flex-col overflow-x-hidden">
         <AnnouncementBar />
@@ -163,10 +161,64 @@ export default function Join() {
               >
                 Application Submitted!
               </h2>
+              <p className="text-[#333333] mb-6">
+                Thank you for your interest in joining Traditions Field Club.
+              </p>
+              <p
+                className="text-lg md:text-xl text-[#162838] mb-6 font-semibold"
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                Have you signed our liability waiver?
+              </p>
+              <p className="text-sm text-[#666666] mb-8">
+                All participants are required to sign a waiver before visiting the club.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="/waiver"
+                  className="inline-block bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  No — Sign Waiver Now
+                </a>
+                <button
+                  onClick={() => setShowPostSubmit(true)}
+                  className="inline-block bg-transparent border-2 border-[#162838] text-[#162838] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] hover:text-[#f5f2ec] transition-colors rounded-lg cursor-pointer"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Yes — Already Signed
+                </button>
+              </div>
+            </div>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (isSubmitted && showPostSubmit) {
+    return (
+      <div className="min-h-screen flex flex-col overflow-x-hidden">
+        <AnnouncementBar />
+        <Header />
+        <main className="flex-grow flex items-center justify-center bg-[#f5f2ec] py-16">
+          <div className="max-w-2xl mx-auto px-4 text-center">
+            <div className="bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-8 md:p-12">
+              <div className="w-16 h-16 bg-[#3d5a45] rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h2
+                className="text-2xl md:text-3xl text-[#162838] mb-4"
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                You&apos;re All Set!
+              </h2>
               <p className="text-[#333333] mb-8">
-                Thank you for your interest in joining Traditions Field Club. We&apos;ve received your
-                membership application and will review it shortly. A member of our team will contact
-                you within 2-3 business days to discuss next steps.
+                We&apos;ve received your membership application and will review it shortly.
+                A member of our team will contact you within 2-3 business days to discuss next steps.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
@@ -239,11 +291,11 @@ export default function Join() {
               <div className="absolute -left-[9999px]" aria-hidden="true">
                 <input
                   type="text"
-                  name="website"
-                  value={formData.website}
+                  name="companyFax"
+                  value={formData.companyFax}
                   onChange={handleChange}
                   tabIndex={-1}
-                  autoComplete="off"
+                  autoComplete="nope"
                 />
               </div>
 

@@ -603,45 +603,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Newsletter CTA */}
-        <section className="py-16 md:py-20 bg-[#3d5a45]">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <span className="h-[1px] w-12 md:w-20 bg-[#f5f2ec]/30"></span>
-              <span className="text-[#f5f2ec]/60 text-sm tracking-[0.3em] uppercase">
-                Stay Connected
-              </span>
-              <span className="h-[1px] w-12 md:w-20 bg-[#f5f2ec]/30"></span>
-            </div>
-            <h2
-              className="text-3xl md:text-4xl text-[#f5f2ec] mb-4"
-              style={{ fontFamily: "var(--font-heading), serif" }}
-            >
-              Join Our Mailing List
-            </h2>
-            <div className="flex justify-center mb-6">
-              <span className="h-[1px] w-16 bg-[#a75235]"></span>
-            </div>
-            <p className="text-lg text-[#f5f2ec]/80 mb-8 max-w-xl mx-auto">
-              Be the first to know about events, membership openings, and club updates.
-            </p>
-            <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                required
-                className="flex-1 px-4 py-3 rounded-lg border-2 border-transparent focus:outline-none focus:border-[#a75235] transition-colors bg-white text-[#333333]"
-              />
-              <button
-                type="submit"
-                className="bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg whitespace-nowrap"
-                style={{ fontFamily: "var(--font-heading), serif" }}
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </section>
       </main>
 
       <Footer />
