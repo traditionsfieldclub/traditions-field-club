@@ -249,11 +249,6 @@ export default function Join() {
       <AnnouncementBar />
       <Header />
 
-      <Script
-        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-        strategy="lazyOnload"
-      />
-
       <main className="flex-grow">
         {/* Hero */}
         <section className="relative py-20 md:py-28 lg:py-32">
@@ -741,11 +736,7 @@ export default function Join() {
               </div>
 
               {/* Turnstile + Error + Submit */}
-              <div
-                className={`text-center transition-all duration-700 delay-700 ${
-                  isVisible("application") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                }`}
-              >
+              <div className="text-center">
                 {/* Turnstile Widget */}
                 <div className="flex justify-center mb-6">
                   <div
@@ -755,6 +746,10 @@ export default function Join() {
                     data-theme="light"
                   />
                 </div>
+                <Script
+                  src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+                  strategy="lazyOnload"
+                />
 
                 {/* Error Message */}
                 {errorMessage && (
