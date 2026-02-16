@@ -5,6 +5,10 @@ import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
 
+// Note: not-found.tsx is a client component so we can't export metadata here.
+// The 404 title is set via the root layout's title.default as a fallback.
+// Next.js automatically adds noindex to not-found pages.
+
 export default function NotFound() {
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden">

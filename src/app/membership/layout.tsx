@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     description:
       "Join Traditions Field Club with membership options for individuals, families, and businesses. 7-day access from sunrise to sunset, clay credits, member events, guest passes, and volunteer perks. Located in South Carolina's Lowcountry.",
     url: "https://traditionsfieldclub.com/membership",
+    images: [{ url: "https://traditionsfieldclub.com/og-image.jpg", width: 1200, height: 630 }],
   },
   alternates: {
     canonical: "https://traditionsfieldclub.com/membership",
