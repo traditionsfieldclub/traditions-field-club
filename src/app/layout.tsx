@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Nanum_Myeongjo, Lato } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import FloatingContact from "@/components/FloatingContact";
 import JsonLd from "@/components/JsonLd";
@@ -89,10 +90,34 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="overflow-x-hidden">
+      <head>
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}');
+              `}
+            </Script>
+          </>
+        )}
+      </head>
       <body
         className={`${nanumMyeongjo.variable} ${lato.variable} antialiased overflow-x-hidden w-full max-w-full`}
         style={{ fontFamily: "var(--font-body), sans-serif" }}
       >
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-[#162838] focus:text-[#f5f2ec] focus:px-4 focus:py-2 focus:rounded"
+        >
+          Skip to main content
+        </a>
         {children}
         <FloatingContact />
         <JsonLd />

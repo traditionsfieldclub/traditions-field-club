@@ -64,7 +64,7 @@ export default function Membership() {
       <AnnouncementBar />
       <Header />
 
-      <main className="flex-grow">
+      <main id="main" className="flex-grow">
         {/* Hero */}
         <section className="relative py-20 md:py-28 lg:py-32">
           <div className="absolute inset-0 bg-[#162838]">

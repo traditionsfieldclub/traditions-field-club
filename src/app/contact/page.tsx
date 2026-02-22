@@ -1,13 +1,16 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 import Script from "next/script";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
 import NewsletterForm from "@/components/NewsletterForm";
 
-export default function Contact() {
+function ContactContent() {
+  const searchParams = useSearchParams();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -18,6 +21,15 @@ export default function Contact() {
     // Honeypot field for bot detection
     companyFax: "",
   });
+
+  // Pre-fill topic from URL param (e.g. /contact?topic=volunteer)
+  useEffect(() => {
+    const topic = searchParams.get("topic");
+    const validTopics = ["membership", "lessons", "volunteer", "partnerships", "general", "scheduling", "other"];
+    if (topic && validTopics.includes(topic)) {
+      setFormData((prev) => ({ ...prev, topic }));
+    }
+  }, [searchParams]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
@@ -130,7 +142,6 @@ export default function Contact() {
         window.turnstile.reset(turnstileRef.current);
       }
     } catch (error) {
-      console.error("Form submission error:", error);
       setShowError(true);
     } finally {
       setIsSubmitting(false);
@@ -142,7 +153,7 @@ export default function Contact() {
       <AnnouncementBar />
       <Header />
 
-      <main className="flex-grow">
+      <main id="main" className="flex-grow">
         {/* Hero */}
         <section className="relative py-20 md:py-28 lg:py-32">
           <div className="absolute inset-0 bg-[#3d5a45] bg-cover bg-center">
@@ -589,20 +600,20 @@ export default function Contact() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <a
+                  <Link
                     href="/activities"
                     className="inline-block bg-[#3d5a45] text-[#f5f2ec] px-6 py-3 text-center font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
                     View Activities
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="/membership"
                     className="inline-block bg-[#a75235] text-[#f5f2ec] px-6 py-3 text-center font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
                     Become a Member
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -616,6 +627,7 @@ export default function Contact() {
               >
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000!2d-80.85435667019426!3d32.89696941753158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDUzJzQ5LjEiTiA4MMKwNTEnMTUuNyJX!5e0!3m2!1sen!2sus!4v1706000000000!5m2!1sen!2sus"
+                  title="Traditions Field Club location map — Ruffin, South Carolina"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -640,7 +652,7 @@ export default function Contact() {
 
       {/* Success Modal */}
       {showSuccess && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4" role="alert">
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-8 text-center">
             <div className="w-16 h-16 bg-[#3d5a45] rounded-full flex items-center justify-center mx-auto mb-6">
               <svg className="w-8 h-8 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -669,7 +681,7 @@ export default function Contact() {
 
       {/* Error Modal */}
       {showError && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4" role="alert">
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-8 text-center">
             <div className="w-16 h-16 bg-[#a75235] rounded-full flex items-center justify-center mx-auto mb-6">
               <svg className="w-8 h-8 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -699,5 +711,13 @@ export default function Contact() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function Contact() {
+  return (
+    <Suspense>
+      <ContactContent />
+    </Suspense>
   );
 }

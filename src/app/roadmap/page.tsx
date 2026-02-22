@@ -36,7 +36,7 @@ export default function Roadmap() {
       <AnnouncementBar />
       <Header />
 
-      <main className="flex-grow">
+      <main id="main" className="flex-grow">
         {/* Hero */}
         <section className="relative py-20 md:py-28 lg:py-32">
           <div className="absolute inset-0 bg-[#3d5a45]">
@@ -457,7 +457,7 @@ export default function Roadmap() {
               </p>
             </div>
 
-            {/* November 2025 */}
+            {/* January 2026 */}
             <div className="mb-16">
               <div className="flex items-center gap-4 mb-8">
                 <span className="bg-[#162838] text-[#f5f2ec] text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">
@@ -477,6 +477,7 @@ export default function Roadmap() {
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                 {[
+                  { src: "property_view_land", alt: "Property view of the land" },
                   { src: "zillow_aerial_property_map", alt: "Aerial property map of the land" },
                   { src: "open_field_treeline", alt: "Open field with treeline" },
                   { src: "cleared_land_panoramic", alt: "Panoramic view of cleared land" },
@@ -525,15 +526,15 @@ export default function Roadmap() {
                   { src: "cleared_field_worker", alt: "Worker in cleared field" },
                   { src: "chainsaw_felled_tree", alt: "Chainsaw on a felled tree" },
                   { src: "felled_pine_trail", alt: "Felled pine along trail" },
-                  { src: "man_sitting_fallen_log", alt: "Taking a break on a fallen log" },
+                  { src: "owner_chainsaw_pine_tree", alt: "Owner chainsawing a pine tree" },
                   { src: "trail_bridge_building_1", alt: "Building a trail bridge" },
                   { src: "pond_work_crew", alt: "Work crew at the pond" },
-                  { src: "skid_steer_station_frame", alt: "Skid steer moving station frames" },
+                  { src: "crew_surveying_woods", alt: "Crew surveying the woods" },
                   { src: "station_frames_construction", alt: "Station frames under construction" },
                   { src: "five_stand_stations_row", alt: "Row of 5-stand shooting stations" },
                   { src: "skid_steer_stations_lumber", alt: "Skid steer delivering lumber to stations" },
                   { src: "shooting_stations_construction", alt: "Shooting stations being built" },
-                  { src: "station_interior_field_view", alt: "View from inside a shooting station" },
+                  { src: "crew_brush_clearing_chainsaw", alt: "Crew clearing brush with chainsaws" },
                   { src: "station_clay_thrower_field", alt: "Station with clay thrower and field view" },
                   { src: "clay_thrower_trailer_delivery", alt: "Clay thrower delivery on trailer" },
                   { src: "shooter_aiming_field", alt: "Shooter aiming in the field" },

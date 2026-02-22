@@ -73,12 +73,12 @@ export default function Footer() {
               <p className="text-base opacity-75 mb-4">
                 Sunrise to Sunset
               </p>
-              <a
+              <Link
                 href="/waiver"
                 className="inline-block bg-[#a75235] text-[#f5f2ec] px-10 py-3 rounded text-base font-semibold uppercase tracking-widest hover:bg-[#8a4229] transition-colors duration-200"
               >
                 Sign Waiver
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -182,12 +182,12 @@ export default function Footer() {
               <p className="text-sm opacity-75 mb-3">
                 Sunrise to Sunset
               </p>
-              <a
+              <Link
                 href="/waiver"
                 className="inline-block bg-[#a75235] text-[#f5f2ec] px-6 py-2 rounded-md text-sm font-medium uppercase tracking-wider hover:bg-[#8a4229] transition-colors duration-200"
               >
                 Sign Waiver
-              </a>
+              </Link>
             </div>
           </div>
 

@@ -38,7 +38,7 @@ export default function Home() {
       <AnnouncementBar />
       <Header />
 
-      <main className="flex-grow">
+      <main id="main" className="flex-grow">
         {/* Hero Section with Video */}
         <VideoHero />
 
@@ -98,7 +98,7 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Intro Image */}
+              {/* Intro Video */}
               <div
                 className={`relative h-[400px] md:h-[500px] transition-all duration-1000 ease-out delay-300 ${
                   isVisible("intro")
@@ -107,14 +107,28 @@ export default function Home() {
                 }`}
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
-                  <Image
-                    src="/images/group_sporting_clays.webp"
-                    alt="Group of sporting clays shooters at Traditions Field Club"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    priority
-                  />
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover object-left"
+                    aria-label="Drive through the future sporting clays course at Traditions Field Club"
+                    ref={(el) => { if (el) el.playbackRate = 0.8; }}
+                  >
+                    <source src="/images/property-drive-view.mp4" type="video/mp4" />
+                  </video>
+                  {/* Subtle overlay */}
+                  <div className="absolute inset-0 bg-[#162838]/30"></div>
+                  {/* Overlay text */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <p
+                      className="text-[#f5f2ec] text-lg md:text-2xl tracking-[0.25em] uppercase font-light text-center px-4"
+                      style={{ fontFamily: "var(--font-heading), serif", textShadow: "0 2px 8px rgba(0,0,0,0.4)" }}
+                    >
+                      Welcome to Your First Course
+                    </p>
+                  </div>
                 </div>
                 {/* Decorative accent */}
                 <div className="hidden sm:block absolute -bottom-4 -right-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
@@ -216,7 +230,7 @@ export default function Home() {
               >
                 <div className="relative h-[200px] overflow-hidden">
                   <Image
-                    src="/images/shotgun_shooting_station.webp"
+                    src="/images/shooter_at_stand.webp"
                     alt="Sporting clays shooting at Traditions Field Club"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"

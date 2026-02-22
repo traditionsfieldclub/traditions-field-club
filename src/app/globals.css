@@ -6,7 +6,7 @@
   /* Brand Colors */
   --navy: #162838;
   --field-green: #3d5a45;
-  --burgundy: #a75235;
+  --copper: #a75235;
   --cream: #f5f2ec;
   --cream-dark: #e8e4dc;
   --charcoal: #333333;
@@ -22,7 +22,7 @@
   --color-foreground: var(--foreground);
   --color-navy: var(--navy);
   --color-field-green: var(--field-green);
-  --color-burgundy: var(--burgundy);
+  --color-copper: var(--copper);
   --color-cream: var(--cream);
   --color-cream-dark: var(--cream-dark);
   --color-charcoal: var(--charcoal);

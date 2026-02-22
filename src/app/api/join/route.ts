@@ -2,6 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
 import { Resend } from "resend";
 
+function esc(str: string): string {
+  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
 const HUBSPOT_PORTAL_ID = process.env.HUBSPOT_PORTAL_ID;
 const HUBSPOT_MEMBERSHIP_FORM_ID = process.env.HUBSPOT_MEMBERSHIP_FORM_ID;
 const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
@@ -101,7 +105,6 @@ const HOW_HEARD_LABELS: Record<string, string> = {
 const ALLOWED_ORIGINS = [
   process.env.ALLOWED_ORIGIN,
   "https://traditionsfieldclub.netlify.app",
-  "http://localhost:3005",
   "http://localhost:3003",
 ].filter(Boolean);
 
@@ -601,25 +604,25 @@ export async function POST(req: NextRequest) {
         const resend = new Resend(RESEND_API_KEY);
 
         await resend.emails.send({
-          from: "Traditions Field Club <onboarding@resend.dev>",
+          from: "Traditions Field Club <noreply@traditionsfieldclub.com>",
           to: ["admin@traditionsfieldclub.com"],
           subject: `Membership Application — ${firstName.trim()} ${lastName.trim()}`,
           html: `
             <h2>New Membership Application</h2>
-            <p><strong>Name:</strong> ${firstName.trim()} ${lastName.trim()}</p>
-            <p><strong>Email:</strong> ${email.trim()}</p>
-            <p><strong>Phone:</strong> ${phone.trim()}</p>
-            <p><strong>Date of Birth:</strong> ${dateOfBirth}</p>
-            <p><strong>Address:</strong> ${address.trim()}, ${city.trim()}, ${state.trim()} ${zip.trim()}</p>
-            <p><strong>Membership Type:</strong> ${MEMBERSHIP_LABELS[membershipType] || membershipType}</p>
-            <p><strong>Experience Level:</strong> ${EXPERIENCE_LABELS[experienceLevel] || experienceLevel}</p>
-            <p><strong>How They Heard:</strong> ${HOW_HEARD_LABELS[howHeard] || howHeard}</p>
-            <p><strong>Emergency Contact:</strong> ${emergencyName.trim()} — ${emergencyPhone.trim()} (${emergencyRelationship.trim()})</p>
-            ${spouseName?.trim() ? `<p><strong>Spouse:</strong> ${spouseName.trim()}</p>` : ""}
-            ${childrenInfo?.trim() ? `<p><strong>Children:</strong> ${childrenInfo.trim()}</p>` : ""}
-            ${previousClubs?.trim() ? `<p><strong>Previous Clubs:</strong> ${previousClubs.trim()}</p>` : ""}
-            ${additionalInfo?.trim() ? `<p><strong>Additional Info:</strong> ${additionalInfo.trim()}</p>` : ""}
-            <p><strong>Submitted:</strong> ${submittedDate}</p>
+            <p><strong>Name:</strong> ${esc(firstName.trim())} ${esc(lastName.trim())}</p>
+            <p><strong>Email:</strong> ${esc(email.trim())}</p>
+            <p><strong>Phone:</strong> ${esc(phone.trim())}</p>
+            <p><strong>Date of Birth:</strong> ${esc(dateOfBirth)}</p>
+            <p><strong>Address:</strong> ${esc(address.trim())}, ${esc(city.trim())}, ${esc(state.trim())} ${esc(zip.trim())}</p>
+            <p><strong>Membership Type:</strong> ${esc(MEMBERSHIP_LABELS[membershipType] || membershipType)}</p>
+            <p><strong>Experience Level:</strong> ${esc(EXPERIENCE_LABELS[experienceLevel] || experienceLevel)}</p>
+            <p><strong>How They Heard:</strong> ${esc(HOW_HEARD_LABELS[howHeard] || howHeard)}</p>
+            <p><strong>Emergency Contact:</strong> ${esc(emergencyName.trim())} — ${esc(emergencyPhone.trim())} (${esc(emergencyRelationship.trim())})</p>
+            ${spouseName?.trim() ? `<p><strong>Spouse:</strong> ${esc(spouseName.trim())}</p>` : ""}
+            ${childrenInfo?.trim() ? `<p><strong>Children:</strong> ${esc(childrenInfo.trim())}</p>` : ""}
+            ${previousClubs?.trim() ? `<p><strong>Previous Clubs:</strong> ${esc(previousClubs.trim())}</p>` : ""}
+            ${additionalInfo?.trim() ? `<p><strong>Additional Info:</strong> ${esc(additionalInfo.trim())}</p>` : ""}
+            <p><strong>Submitted:</strong> ${esc(submittedDate)}</p>
             <p>The full membership application PDF is attached.</p>
           `,
           attachments: [

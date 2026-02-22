@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Activities() {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
@@ -36,7 +37,7 @@ export default function Activities() {
       <AnnouncementBar />
       <Header />
 
-      <main className="flex-grow">
+      <main id="main" className="flex-grow">
         {/* Hero Section */}
         <section className="relative py-20 md:py-28 lg:py-32">
           <div
@@ -281,7 +282,7 @@ export default function Activities() {
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
                   <Image
-                    src="/images/shotgun_shooting_station.webp"
+                    src="/images/shooter_at_stand.webp"
                     alt="Sporting clays shooting at Traditions Field Club"
                     fill
                     className="object-cover"
@@ -483,13 +484,13 @@ export default function Activities() {
                     <span>Youth instruction programs</span>
                   </li>
                 </ul>
-                <a
+                <Link
                   href="/contact?topic=lessons"
                   className="inline-block bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
                   Inquire About Lessons
-                </a>
+                </Link>
               </div>
 
               {/* Image - Second on mobile, first on desktop */}
@@ -540,20 +541,20 @@ export default function Activities() {
               We&apos;re currently accepting interest for memberships.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+              <Link
                 href="/membership"
                 className="inline-block bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
                 View Membership
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/contact"
                 className="inline-block bg-transparent border-2 border-[#f5f2ec] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#f5f2ec] hover:text-[#3d5a45] transition-colors rounded-lg"
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
         </section>

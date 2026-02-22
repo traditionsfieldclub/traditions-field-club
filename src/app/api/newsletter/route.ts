@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 const HUBSPOT_PORTAL_ID = process.env.HUBSPOT_PORTAL_ID;
 const HUBSPOT_NEWSLETTER_FORM_ID = process.env.HUBSPOT_NEWSLETTER_FORM_ID;
 const HUBSPOT_REGION = process.env.HUBSPOT_REGION || "";
+const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
 
 const HUBSPOT_API_BASE = HUBSPOT_REGION && HUBSPOT_REGION !== "na1"
   ? `https://api-${HUBSPOT_REGION}.hsforms.com`
@@ -41,7 +42,6 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const ALLOWED_ORIGINS = [
   process.env.ALLOWED_ORIGIN,
   "https://traditionsfieldclub.netlify.app",
-  "http://localhost:3005",
   "http://localhost:3003",
 ].filter(Boolean);
 
@@ -67,14 +67,34 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { email, formLoadedAt } = body;
+    const { email, formLoadedAt, cfTurnstileToken } = body;
 
-    // 3. Timing-based bot detection (< 3 seconds = bot)
+    // 3. Turnstile verification
+    if (TURNSTILE_SECRET_KEY && cfTurnstileToken) {
+      const turnstileResponse = await fetch(
+        "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            secret: TURNSTILE_SECRET_KEY,
+            response: cfTurnstileToken,
+            remoteip: ip,
+          }),
+        }
+      );
+      const turnstileResult = await turnstileResponse.json();
+      if (!turnstileResult.success) {
+        return NextResponse.json({ success: true }); // Silent rejection
+      }
+    }
+
+    // 4. Timing-based bot detection (< 3 seconds = bot)
     if (formLoadedAt && Date.now() - formLoadedAt < 3000) {
       return NextResponse.json({ success: true }); // Silent rejection
     }
 
-    // 4. Validate email
+    // 5. Validate email
     if (!email || typeof email !== "string" || email.length > 254) {
       return NextResponse.json({ error: "Valid email is required" }, { status: 400 });
     }
@@ -83,7 +103,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid email format" }, { status: 400 });
     }
 
-    // 5. Submit to HubSpot
+    // 6. Submit to HubSpot
     const hubspotResponse = await fetch(
       `${HUBSPOT_API_BASE}/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_NEWSLETTER_FORM_ID}`,
       {

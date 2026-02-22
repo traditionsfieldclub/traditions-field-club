@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const navItems = [
@@ -15,6 +16,7 @@ const navItems = [
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <>
@@ -42,11 +44,15 @@ export default function Header() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="group text-[#162838] text-xs xl:text-sm font-bold uppercase tracking-wide xl:tracking-widest hover:text-[#a75235] transition-colors duration-200 relative whitespace-nowrap"
+                className={`group text-xs xl:text-sm font-bold uppercase tracking-wide xl:tracking-widest transition-colors duration-200 relative whitespace-nowrap ${
+                  pathname === item.href ? "text-[#a75235]" : "text-[#162838] hover:text-[#a75235]"
+                }`}
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
                 {item.label}
-                <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-[#a75235] transition-all duration-300 ease-out group-hover:w-full"></span>
+                <span className={`absolute left-0 -bottom-1 h-[1px] bg-[#a75235] transition-all duration-300 ease-out ${
+                  pathname === item.href ? "w-full" : "w-0 group-hover:w-full"
+                }`}></span>
               </Link>
             ))}
             <Link
@@ -63,6 +69,7 @@ export default function Header() {
             className="lg:hidden text-[#162838] hover:text-[#a75235] transition-colors absolute right-0"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
           >
             <svg
               className="h-6 w-6"
@@ -98,7 +105,9 @@ export default function Header() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-[#162838] text-sm font-bold uppercase tracking-widest hover:text-[#a75235] transition-colors duration-200 py-2"
+                className={`text-sm font-bold uppercase tracking-widest transition-colors duration-200 py-2 ${
+                  pathname === item.href ? "text-[#a75235]" : "text-[#162838] hover:text-[#a75235]"
+                }`}
                 style={{ fontFamily: "var(--font-heading), serif" }}
                 onClick={() => setMobileMenuOpen(false)}
               >

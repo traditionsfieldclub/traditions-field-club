@@ -262,7 +262,7 @@ export default function Waiver() {
       <AnnouncementBar />
       <Header />
 
-      <main className="flex-grow">
+      <main id="main" className="flex-grow">
         {/* Hero */}
         <section className="bg-[#162838] py-20 md:py-28 lg:py-32">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -793,7 +793,7 @@ export default function Waiver() {
 
               {/* Error Message */}
               {errorMessage && (
-                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-center">
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-center" role="alert">
                   <p className="text-red-700 text-sm">{errorMessage}</p>
                 </div>
               )}

@@ -2,6 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
 import { Resend } from "resend";
 
+function esc(str: string): string {
+  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
 const HUBSPOT_PORTAL_ID = process.env.HUBSPOT_PORTAL_ID;
 const HUBSPOT_WAIVER_FORM_ID = process.env.HUBSPOT_WAIVER_FORM_ID;
 const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
@@ -62,7 +66,6 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const ALLOWED_ORIGINS = [
   process.env.ALLOWED_ORIGIN,
   "https://traditionsfieldclub.netlify.app",
-  "http://localhost:3005",
   "http://localhost:3003",
 ].filter(Boolean);
 
@@ -642,18 +645,18 @@ export async function POST(req: NextRequest) {
         const resend = new Resend(RESEND_API_KEY);
 
         await resend.emails.send({
-          from: "Traditions Field Club <onboarding@resend.dev>",
+          from: "Traditions Field Club <noreply@traditionsfieldclub.com>",
           to: ["admin@traditionsfieldclub.com"],
           subject: `Signed Waiver — ${participantName.trim()}`,
           html: `
             <h2>New Waiver Submission</h2>
-            <p><strong>Participant:</strong> ${participantName.trim()}</p>
-            <p><strong>Email:</strong> ${email.trim()}</p>
-            <p><strong>Phone:</strong> ${phone.trim()}</p>
-            <p><strong>Date of Birth:</strong> ${dateOfBirth}</p>
-            <p><strong>Emergency Contact:</strong> ${emergencyContactName.trim()} — ${emergencyContactPhone.trim()}</p>
-            ${isMinor ? `<p><strong>Minor — Parent/Guardian:</strong> ${parentName.trim()} (${parentRelationship.trim()})</p>` : ""}
-            <p><strong>Signed:</strong> ${signedDate}</p>
+            <p><strong>Participant:</strong> ${esc(participantName.trim())}</p>
+            <p><strong>Email:</strong> ${esc(email.trim())}</p>
+            <p><strong>Phone:</strong> ${esc(phone.trim())}</p>
+            <p><strong>Date of Birth:</strong> ${esc(dateOfBirth)}</p>
+            <p><strong>Emergency Contact:</strong> ${esc(emergencyContactName.trim())} — ${esc(emergencyContactPhone.trim())}</p>
+            ${isMinor ? `<p><strong>Minor — Parent/Guardian:</strong> ${esc(parentName.trim())} (${esc(parentRelationship.trim())})</p>` : ""}
+            <p><strong>Signed:</strong> ${esc(signedDate)}</p>
             <p>The signed waiver PDF is attached.</p>
           `,
           attachments: [

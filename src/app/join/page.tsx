@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import Link from "next/link";
 import Script from "next/script";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
@@ -174,13 +175,13 @@ export default function Join() {
                 All participants are required to sign a waiver before visiting the club.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
+                <Link
                   href="/waiver"
                   className="inline-block bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
                   No — Sign Waiver Now
-                </a>
+                </Link>
                 <button
                   onClick={() => setShowPostSubmit(true)}
                   className="inline-block bg-transparent border-2 border-[#162838] text-[#162838] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] hover:text-[#f5f2ec] transition-colors rounded-lg cursor-pointer"
@@ -221,20 +222,20 @@ export default function Join() {
                 A member of our team will contact you within 2-3 business days to discuss next steps.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
+                <Link
                   href="/first-time"
                   className="inline-block bg-[#a75235] text-[#f5f2ec] px-6 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
                   First Time Info
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/activities"
                   className="inline-block bg-transparent border-2 border-[#162838] text-[#162838] px-6 py-3 font-semibold tracking-wide hover:bg-[#162838] hover:text-[#f5f2ec] transition-colors rounded-lg"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
                   View Activities
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -249,16 +250,11 @@ export default function Join() {
       <AnnouncementBar />
       <Header />
 
-      <main className="flex-grow">
+      <main id="main" className="flex-grow">
         {/* Hero */}
         <section className="relative py-20 md:py-28 lg:py-32">
-          <div
-            className="absolute inset-0 bg-[#3d5a45] bg-cover bg-center"
-            style={{
-              backgroundImage: "url('/images/group_sporting_clays.webp')",
-            }}
-          >
-            <div className="absolute inset-0 bg-[#3d5a45]/70"></div>
+          <div className="absolute inset-0 bg-[#162838]">
+            <div className="absolute inset-0 bg-[#162838]/70"></div>
           </div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -481,9 +477,9 @@ export default function Join() {
                     <option value="undecided">Not sure yet - would like to discuss options</option>
                   </select>
                   <p className="text-sm text-[#666666] mt-2">
-                    <a href="/membership" className="text-[#a75235] hover:underline">
+                    <Link href="/membership" className="text-[#a75235] hover:underline">
                       View membership details and benefits →
-                    </a>
+                    </Link>
                   </p>
                 </div>
 
@@ -703,7 +699,7 @@ export default function Join() {
                       className="w-5 h-5 shrink-0 mt-0.5 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
                     />
                     <span className="text-[#333333]">
-                      I agree to abide by all <a href="/terms" className="text-[#a75235] hover:underline">club rules and policies</a>, including all safety regulations.
+                      I agree to abide by all <Link href="/terms" className="text-[#a75235] hover:underline">club rules and policies</Link>, including all safety regulations.
                     </span>
                   </label>
 
@@ -716,7 +712,7 @@ export default function Join() {
                       className="w-5 h-5 shrink-0 mt-0.5 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
                     />
                     <span className="text-[#333333]">
-                      I understand that I will be required to sign a <a href="/waiver" className="text-[#a75235] hover:underline">liability waiver</a> before participating in any activities.
+                      I understand that I will be required to sign a <Link href="/waiver" className="text-[#a75235] hover:underline">liability waiver</Link> before participating in any activities.
                     </span>
                   </label>
 
@@ -753,7 +749,7 @@ export default function Join() {
 
                 {/* Error Message */}
                 {errorMessage && (
-                  <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+                  <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg" role="alert">
                     <p className="text-sm text-red-700">{errorMessage}</p>
                   </div>
                 )}
