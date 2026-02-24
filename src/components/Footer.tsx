@@ -50,10 +50,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="opacity-75">
-                Coming Soon
-              </li>
-              <li className="opacity-75">
-                TBD
+                Lowcountry Hwy, Ruffin, SC 29475
               </li>
               <li className="pt-2">
                 <a
@@ -159,10 +156,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="opacity-75">
-                Coming Soon
-              </li>
-              <li className="opacity-75">
-                TBD
+                Lowcountry Hwy, Ruffin, SC 29475
               </li>
               <li className="pt-2">
                 <a

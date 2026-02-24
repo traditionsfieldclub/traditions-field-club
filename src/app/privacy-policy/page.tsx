@@ -183,7 +183,7 @@ export default function PrivacyPolicy() {
                 <div className="mt-4 p-6 bg-[#f5f2ec] rounded-lg">
                   <p className="font-semibold text-[#162838]">Traditions Field Club</p>
                   <p>Email: info@traditionsfieldclub.com</p>
-                  <p>Address: XXXXX Lowcountry Hwy, Ruffin, SC 29475</p>
+                  <p>Address: Lowcountry Hwy, Ruffin, SC 29475</p>
                 </div>
               </div>
 

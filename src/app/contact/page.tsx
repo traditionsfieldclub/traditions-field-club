@@ -242,7 +242,7 @@ function ContactContent() {
                     Address
                   </h3>
                   <p className="text-[#333333]">
-                    TBD
+                    Lowcountry Hwy, Ruffin, SC 29475
                   </p>
                 </div>
 
@@ -580,7 +580,7 @@ function ContactContent() {
                 </h2>
                 <p className="text-base sm:text-lg text-[#333333] mb-6 leading-relaxed">
                   Traditions Field Club is located strategically in the quiet rural areas of South Carolina.
-                  Address TBD.
+                  Located on Lowcountry Hwy, Ruffin, SC 29475.
                 </p>
 
                 <div className="mb-8">
