@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 import type ReactSignatureCanvas from "react-signature-canvas";
@@ -59,17 +59,42 @@ export default function Waiver() {
   // Turnstile
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const turnstileRef = useRef<HTMLDivElement>(null);
+  const turnstileWidgetId = useRef<string | null>(null);
 
-  const handleTurnstileCallback = useCallback((token: string) => {
-    setTurnstileToken(token);
-  }, []);
-
+  // Explicitly render Turnstile widget — handles both fresh loads and client-side navigation
   useEffect(() => {
-    window.onTurnstileCallback = handleTurnstileCallback;
-    return () => {
-      window.onTurnstileCallback = undefined;
+    const renderWidget = () => {
+      if (window.turnstile && turnstileRef.current && turnstileWidgetId.current === null) {
+        turnstileWidgetId.current = window.turnstile.render(turnstileRef.current, {
+          sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!,
+          callback: (token: string) => setTurnstileToken(token),
+          theme: "light",
+        });
+      }
     };
-  }, [handleTurnstileCallback]);
+
+    // If turnstile API is already loaded (client-side nav), render immediately
+    if (window.turnstile) {
+      renderWidget();
+    } else {
+      // Otherwise wait for the script to load
+      const interval = setInterval(() => {
+        if (window.turnstile) {
+          renderWidget();
+          clearInterval(interval);
+        }
+      }, 100);
+      return () => clearInterval(interval);
+    }
+
+    return () => {
+      // Cleanup widget on unmount
+      if (window.turnstile && turnstileWidgetId.current !== null) {
+        window.turnstile.remove(turnstileWidgetId.current);
+        turnstileWidgetId.current = null;
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -778,16 +803,10 @@ export default function Waiver() {
                   isVisible("waiver") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                 }`}
               >
-                <div
-                  ref={turnstileRef}
-                  className="cf-turnstile"
-                  data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
-                  data-callback="onTurnstileCallback"
-                  data-theme="light"
-                ></div>
+                <div ref={turnstileRef}></div>
                 <Script
-                  src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-                  strategy="lazyOnload"
+                  src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+                  strategy="afterInteractive"
                 />
               </div>
 

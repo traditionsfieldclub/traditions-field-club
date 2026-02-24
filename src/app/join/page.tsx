@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Script from "next/script";
 import Header from "@/components/Header";
@@ -72,17 +72,40 @@ export default function Join() {
 
   const isVisible = (id: string) => visibleSections.has(id);
 
-  const handleTurnstileCallback = useCallback((token: string) => {
-    setTurnstileToken(token);
-  }, []);
+  const turnstileRef = useRef<HTMLDivElement>(null);
+  const turnstileWidgetId = useRef<string | null>(null);
 
-  // Expose callback globally for Turnstile
+  // Explicitly render Turnstile widget — handles both fresh loads and client-side navigation
   useEffect(() => {
-    (window as unknown as Record<string, unknown>).onTurnstileCallback = handleTurnstileCallback;
-    return () => {
-      delete (window as unknown as Record<string, unknown>).onTurnstileCallback;
+    const renderWidget = () => {
+      if (window.turnstile && turnstileRef.current && turnstileWidgetId.current === null) {
+        turnstileWidgetId.current = window.turnstile.render(turnstileRef.current, {
+          sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!,
+          callback: (token: string) => setTurnstileToken(token),
+          theme: "light",
+        });
+      }
     };
-  }, [handleTurnstileCallback]);
+
+    if (window.turnstile) {
+      renderWidget();
+    } else {
+      const interval = setInterval(() => {
+        if (window.turnstile) {
+          renderWidget();
+          clearInterval(interval);
+        }
+      }, 100);
+      return () => clearInterval(interval);
+    }
+
+    return () => {
+      if (window.turnstile && turnstileWidgetId.current !== null) {
+        window.turnstile.remove(turnstileWidgetId.current);
+        turnstileWidgetId.current = null;
+      }
+    };
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -735,16 +758,11 @@ export default function Join() {
               <div className="text-center">
                 {/* Turnstile Widget */}
                 <div className="flex justify-center mb-6">
-                  <div
-                    className="cf-turnstile"
-                    data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
-                    data-callback="onTurnstileCallback"
-                    data-theme="light"
-                  />
+                  <div ref={turnstileRef} />
                 </div>
                 <Script
-                  src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-                  strategy="lazyOnload"
+                  src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+                  strategy="afterInteractive"
                 />
 
                 {/* Error Message */}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback, Suspense } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Script from "next/script";
@@ -39,18 +39,39 @@ function ContactContent() {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
-  // Turnstile callback — called when challenge is solved
-  const handleTurnstileCallback = useCallback((token: string) => {
-    setTurnstileToken(token);
-  }, []);
+  const turnstileWidgetId = useRef<string | null>(null);
 
-  // Expose callback globally for Turnstile widget
+  // Explicitly render Turnstile widget — handles both fresh loads and client-side navigation
   useEffect(() => {
-    window.onTurnstileCallback = handleTurnstileCallback;
-    return () => {
-      window.onTurnstileCallback = undefined;
+    const renderWidget = () => {
+      if (window.turnstile && turnstileRef.current && turnstileWidgetId.current === null) {
+        turnstileWidgetId.current = window.turnstile.render(turnstileRef.current, {
+          sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!,
+          callback: (token: string) => setTurnstileToken(token),
+          theme: "light",
+        });
+      }
     };
-  }, [handleTurnstileCallback]);
+
+    if (window.turnstile) {
+      renderWidget();
+    } else {
+      const interval = setInterval(() => {
+        if (window.turnstile) {
+          renderWidget();
+          clearInterval(interval);
+        }
+      }, 100);
+      return () => clearInterval(interval);
+    }
+
+    return () => {
+      if (window.turnstile && turnstileWidgetId.current !== null) {
+        window.turnstile.remove(turnstileWidgetId.current);
+        turnstileWidgetId.current = null;
+      }
+    };
+  }, []);
 
   // Scroll animation observer
   useEffect(() => {
@@ -138,8 +159,8 @@ function ContactContent() {
       setSubmitTime(null);
       setTurnstileToken(null);
       // Reset Turnstile widget for next submission
-      if (window.turnstile && turnstileRef.current) {
-        window.turnstile.reset(turnstileRef.current);
+      if (window.turnstile && turnstileWidgetId.current !== null) {
+        window.turnstile.reset(turnstileWidgetId.current);
       }
     } catch (error) {
       setShowError(true);
@@ -441,16 +462,10 @@ function ContactContent() {
                   </div>
 
                   {/* Cloudflare Turnstile */}
-                  <div
-                    ref={turnstileRef}
-                    className="cf-turnstile"
-                    data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
-                    data-callback="onTurnstileCallback"
-                    data-theme="light"
-                  ></div>
+                  <div ref={turnstileRef}></div>
                   <Script
-                    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-                    strategy="lazyOnload"
+                    src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+                    strategy="afterInteractive"
                   />
 
                   {/* Submit Button */}
