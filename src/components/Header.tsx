@@ -60,7 +60,7 @@ export default function Header() {
               className="bg-[#a75235] text-[#f5f2ec] text-xs xl:text-sm font-bold uppercase tracking-wide xl:tracking-widest px-3 xl:px-5 py-2 hover:bg-[#162838] transition-colors duration-200 rounded whitespace-nowrap"
               style={{ fontFamily: "var(--font-heading), serif" }}
             >
-              Join Now
+              Join Our Waitlist
             </Link>
           </nav>
 
@@ -121,7 +121,7 @@ export default function Header() {
               style={{ fontFamily: "var(--font-heading), serif" }}
               onClick={() => setMobileMenuOpen(false)}
             >
-              Join Now
+              Join Our Waitlist
             </Link>
           </div>
         </nav>

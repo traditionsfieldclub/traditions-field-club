@@ -148,7 +148,7 @@ export default function Roadmap() {
                 <ul className="space-y-3 text-[#333333]">
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>2 sporting clays courses with 12 stations</span>
+                    <span>2 sporting clays courses — 15 stations (intermediate to advanced) and 12 stations (beginner to intermediate)</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
@@ -165,6 +165,14 @@ export default function Roadmap() {
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
                     <span>Safety infrastructure and signage</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                    <span>Bath house with restrooms and basic facilities</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                    <span>Youth and beginner instruction programs</span>
                   </li>
                 </ul>
               </div>
@@ -210,10 +218,6 @@ export default function Roadmap() {
                 <ul className="space-y-3 text-[#333333]">
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Third sporting clays course</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
                     <span>Pro shop with equipment and supplies</span>
                   </li>
                   <li className="flex items-start gap-3">
@@ -226,7 +230,19 @@ export default function Roadmap() {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Youth and beginner instruction programs</span>
+                    <span>Hunting — duck blinds, food plots, tower shoots, deer stands</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                    <span>Primitive camping</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                    <span>Outdoor event spaces</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                    <span>Habitat rebuilding and wildlife conservation</span>
                   </li>
                 </ul>
               </div>
@@ -327,10 +343,6 @@ export default function Roadmap() {
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
                     <span>Duck blinds and wildlife viewing areas</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Outdoor event spaces</span>
                   </li>
                 </ul>
               </div>

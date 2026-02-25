@@ -126,6 +126,58 @@ export default function Membership() {
           className="py-16 md:py-24 bg-[#f5f2ec] overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Section Header */}
+            <div
+              className={`text-center mb-12 transition-all duration-1000 ease-out ${
+                isVisible("tiers")
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
+              <div className="flex items-center justify-center gap-4 mb-4">
+                <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+                <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Membership Options</span>
+                <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+              </div>
+              <h2
+                className="text-3xl md:text-4xl text-[#162838]"
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                Choose Your Tier
+              </h2>
+              <div className="flex justify-center mt-4">
+                <span className="h-[1px] w-16 bg-[#a75235]"></span>
+              </div>
+            </div>
+
+            {/* All Memberships Include */}
+            <div className="bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-8 md:mb-10">
+              <h3
+                className="text-xl md:text-2xl text-[#162838] mb-4 text-center"
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                All Memberships Include
+              </h3>
+              <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 text-[#333333]">
+                <div className="flex items-center gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full flex-shrink-0"></span>
+                  <span>Access to sporting clays and 5-stand</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full flex-shrink-0"></span>
+                  <span>Archery range access</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full flex-shrink-0"></span>
+                  <span>7-day access, sun up to sun down</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full flex-shrink-0"></span>
+                  <span>Invitation to member and family events</span>
+                </div>
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {/* Basic Membership */}
               <div
@@ -154,23 +206,15 @@ export default function Membership() {
                   <ul className="space-y-3 text-[#333333] mb-8">
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>Access to sporting clays and 5-stand</span>
+                      <span>500 clays included</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>Archery range access</span>
+                      <span>1 member card</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>Member pricing on clays and supplies</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>7-day access, sun up to sun down</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>Invitation to member events</span>
+                      <span>1 visitor allowed</span>
                     </li>
                   </ul>
                 </div>
@@ -212,23 +256,19 @@ export default function Membership() {
                   <ul className="space-y-3 text-[#333333] mb-8">
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>All Basic Membership benefits</span>
+                      <span>1,000 clays included</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>Access for spouse and children under 18</span>
+                      <span>2 member cards</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Up to 6 shooters</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
                       <span>Youth instruction program discounts</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>Family event invitations</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>Guest passes included</span>
                     </li>
                   </ul>
                 </div>
@@ -270,15 +310,19 @@ export default function Membership() {
                   <ul className="space-y-3 text-[#333333] mb-8">
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>Multiple employee access passes</span>
+                      <span>1,000 clays included</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                      <span>3 member cards</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Up to 12 shooters</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
                       <span>Priority event booking</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>Dedicated corporate event coordinator</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
@@ -332,10 +376,6 @@ export default function Membership() {
                   <ul className="space-y-3 text-[#333333] mb-8">
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>All Family Membership benefits</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
                       <span>Unlimited guest passes</span>
                     </li>
                     <li className="flex items-start gap-3">
@@ -345,10 +385,6 @@ export default function Membership() {
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
                       <span>VIP access to all club events</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>Founding member recognition</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
@@ -428,7 +464,7 @@ export default function Membership() {
                   </div>
                   <div className="bg-[#f5f2ec] p-4 rounded-lg">
                     <h4 className="text-[#162838] font-semibold mb-2">Volunteer Perks</h4>
-                    <p className="text-sm text-[#333333]">Earn free shooting through volunteer work</p>
+                    <p className="text-sm text-[#333333]">Volunteers can earn shooting clays</p>
                   </div>
                   <div className="bg-[#f5f2ec] p-4 rounded-lg">
                     <h4 className="text-[#162838] font-semibold mb-2">Community Events</h4>

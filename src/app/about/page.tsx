@@ -311,13 +311,13 @@ export default function About() {
                   The Land
                 </h2>
                 <p className="text-[#333333] leading-relaxed mb-4">
-                  Nestled in the quiet rural heart of South Carolina&apos;s Lowcountry, Traditions Field Club
+                  Spanning 410 acres in the quiet rural heart of South Carolina&apos;s Lowcountry, Traditions Field Club
                   sits on land that embodies the natural beauty and rich heritage of the South.
                   Rolling fields, mature pine forests, and the peaceful sounds of nature create
                   an atmosphere unlike any other.
                 </p>
                 <p className="text-[#333333] leading-relaxed mb-6">
-                  We are stewards of this land—committed to its preservation and enhancement.
+                  We are stewards of this land—dedicated to conservation, preservation, and responsible land stewardship for generations to come.
                   Our courses wind through the natural terrain, designed to showcase the landscape
                   while providing a world-class sporting experience. Here, you&apos;ll find deer trails,
                   wildlife, and the kind of tranquility that can only be found away from the rush of modern life.

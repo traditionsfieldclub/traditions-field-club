@@ -76,9 +76,14 @@ export default function Home() {
                   sporting clays, 5-stand, and archery in an environment that honors the
                   heritage of Southern outdoor traditions.
                 </p>
-                <p className="text-[#333333] leading-relaxed mb-8">
+                <p className="text-[#333333] leading-relaxed mb-6">
                   Veteran-owned, family-friendly, and community-driven, we&apos;re building
                   a place where memories are made and traditions are passed down through generations.
+                </p>
+                <p className="text-[#333333] leading-relaxed mb-8">
+                  Rooted in a deep respect for the land, we&apos;re committed to conservation,
+                  preservation, and responsible stewardship of our 410 acres—ensuring the natural
+                  beauty of the Lowcountry thrives for generations to come.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
@@ -427,7 +432,7 @@ export default function Home() {
                     className="inline-block bg-transparent border-2 border-[#a75235] text-[#a75235] px-8 py-3 font-semibold tracking-wide hover:bg-[#a75235] hover:text-[#f5f2ec] transition-colors rounded-lg text-center"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
-                    Join Now
+                    Join Our Waitlist
                   </Link>
                 </div>
               </div>
@@ -562,7 +567,7 @@ export default function Home() {
                       </svg>
                     </span>
                     <span className="text-[#333333]">
-                      <strong className="text-[#162838]">Shoot for Free</strong> — Earn shooting time through volunteer work
+                      <strong className="text-[#162838]">Earn Clays</strong> — Volunteers can earn shooting clays
                     </span>
                   </li>
                   <li className="flex items-start gap-3">

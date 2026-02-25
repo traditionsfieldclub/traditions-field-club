@@ -241,8 +241,8 @@ export default function Activities() {
                   that simulate the flight patterns of various game birds.
                 </p>
                 <p className="text-[#333333] mb-6 leading-relaxed">
-                  Our courses feature 12 stations across beautifully maintained grounds, with plans to expand
-                  to three full courses. The varying terrain creates a truly memorable shooting environment.
+                  Our courses feature 15 stations across beautifully maintained grounds, with a second course
+                  designed for newer shooters coming soon. The varying terrain creates a truly memorable shooting environment.
                 </p>
                 <ul className="space-y-3 text-[#333333] mb-8">
                   <li className="flex items-start gap-3">
@@ -251,7 +251,7 @@ export default function Activities() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span>12 stations across scenic terrain</span>
+                    <span>15 stations across scenic terrain</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -268,6 +268,14 @@ export default function Activities() {
                       </svg>
                     </span>
                     <span>Certified instruction available</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Second 12-station course for beginners coming soon</span>
                   </li>
                 </ul>
               </div>
