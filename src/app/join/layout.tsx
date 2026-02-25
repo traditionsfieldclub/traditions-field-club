@@ -5,9 +5,9 @@ export const metadata: Metadata = {
   description:
     "Apply to become a member of Traditions Field Club. Fill out our membership application for individual, family, corporate, or exclusive membership at our sporting clays club in South Carolina's Lowcountry.",
   openGraph: {
-    title: "Join — Apply for Membership",
+    title: "Join Our Membership Waiting List",
     description:
-      "Apply to become a member of Traditions Field Club. Fill out our membership application for individual, family, corporate, or exclusive membership at our sporting clays club in South Carolina's Lowcountry.",
+      "Join the membership waiting list at Traditions Field Club. Sign up for individual, family, corporate, or exclusive membership at our sporting clays club in South Carolina's Lowcountry.",
     url: "https://traditionsfieldclub.com/join",
     images: [{ url: "https://traditionsfieldclub.com/og-image.jpg", width: 1200, height: 630 }],
   },

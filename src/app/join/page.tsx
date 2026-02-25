@@ -241,7 +241,7 @@ export default function Join() {
                 You&apos;re All Set!
               </h2>
               <p className="text-[#333333] mb-8">
-                We&apos;ve received your membership application and will review it shortly.
+                We&apos;ve added you to our membership waiting list and will review your submission shortly.
                 A member of our team will contact you within 2-3 business days to discuss next steps.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -285,7 +285,7 @@ export default function Join() {
               className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#f5f2ec] mb-4 tracking-wide"
               style={{ fontFamily: "var(--font-heading), serif" }}
             >
-              Membership Application
+              Membership Waiting List
             </h1>
             <p className="text-lg md:text-xl text-[#f5f2ec] max-w-2xl mx-auto opacity-90">
               Begin your journey with Traditions Field Club
@@ -320,7 +320,7 @@ export default function Join() {
                 }`}
               >
                 <p className="text-[#333333] max-w-2xl mx-auto">
-                  Complete the application below to apply for membership. All applications are reviewed
+                  Complete the form below to be placed on our membership waiting list. All submissions are reviewed
                   by our team, and we&apos;ll be in touch to discuss membership options and schedule your
                   first visit.
                 </p>
