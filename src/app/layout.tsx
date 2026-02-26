@@ -18,7 +18,7 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://traditionsfieldclub.com"),
+  metadataBase: new URL("https://traditionsfieldclub.netlify.app"),
   title: {
     default:
       "Traditions Field Club | Premier Sporting Clays Club in South Carolina",
@@ -46,13 +46,13 @@ export const metadata: Metadata = {
       "Traditions Field Club | Premier Sporting Clays Club in South Carolina",
     description:
       "Traditions Field Club is a veteran-owned sporting clays, 5-stand, and archery club in South Carolina's Lowcountry near Ruffin, SC. Family-friendly memberships, certified instruction, and corporate events. Open 7 days, sunrise to sunset.",
-    url: "https://traditionsfieldclub.com",
+    url: "https://traditionsfieldclub.netlify.app",
     siteName: "Traditions Field Club",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://traditionsfieldclub.com/og-image.jpg",
+        url: "https://traditionsfieldclub.netlify.app/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Traditions Field Club — Sporting Clays in South Carolina's Lowcountry",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
       "Traditions Field Club | Premier Sporting Clays Club in South Carolina",
     description:
       "Traditions Field Club is a veteran-owned sporting clays, 5-stand, and archery club in South Carolina's Lowcountry near Ruffin, SC. Family-friendly memberships, certified instruction, and corporate events. Open 7 days, sunrise to sunset.",
-    images: ["https://traditionsfieldclub.com/og-image.jpg"],
+    images: ["https://traditionsfieldclub.netlify.app/og-image.jpg"],
   },
   robots: {
     index: true,
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://traditionsfieldclub.com",
+    canonical: "https://traditionsfieldclub.netlify.app",
   },
 };
 
