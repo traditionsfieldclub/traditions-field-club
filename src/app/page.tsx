@@ -325,7 +325,7 @@ export default function Home() {
         </section>
 
         {/* Full-Width Image Break */}
-        <section className="relative h-[300px] md:h-[400px]">
+        <section className="relative h-[300px] md:h-[400px]" role="img" aria-label="Spanish moss hanging from trees in the forest at Traditions Field Club">
           <div
             className="absolute inset-0 bg-[#162838] bg-cover bg-center bg-fixed"
             style={{

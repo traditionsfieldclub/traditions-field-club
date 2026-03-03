@@ -423,6 +423,33 @@ export default function Activities() {
           </div>
         </section>
 
+        {/* Full-Width Image Break 3 */}
+        <section
+          id="imagebreak3"
+          ref={(el) => { sectionRefs.current["imagebreak3"] = el; }}
+          className="relative h-[300px] md:h-[400px]"
+        >
+          <div
+            className="absolute inset-0 bg-[#162838]"
+          >
+            <div className="absolute inset-0 bg-[#162838]/60"></div>
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center px-4">
+              <p
+                className={`text-[#f5f2ec]/70 text-lg md:text-xl tracking-wide transition-all duration-1000 ease-out ${
+                  isVisible("imagebreak3")
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-6"
+                }`}
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                — Sharpen Your Skills —
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Lessons & Instruction Section */}
         <section
           id="lessons"

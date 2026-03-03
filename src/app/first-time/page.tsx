@@ -307,6 +307,33 @@ export default function FirstTime() {
                     <span><strong>Your own firearm</strong> — Optional; rentals available</span>
                   </li>
                 </ul>
+
+                {/* Available On-Site Callout */}
+                <div className="mt-8 bg-[#f5f2ec] border border-[#3d5a45]/20 rounded-lg p-5">
+                  <h3
+                    className="text-lg text-[#162838] mb-3 flex items-center gap-2"
+                    style={{ fontFamily: "var(--font-heading), serif" }}
+                  >
+                    <svg className="w-5 h-5 text-[#3d5a45]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Available On-Site
+                  </h3>
+                  <ul className="space-y-2 text-[#333333] text-sm">
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#a75235] mt-0.5">&#8226;</span>
+                      <span><strong>Eye &amp; ear protection</strong> provided at no charge</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#a75235] mt-0.5">&#8226;</span>
+                      <span><strong>Firearm rentals</strong> available for guests</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#a75235] mt-0.5">&#8226;</span>
+                      <span><strong>Ammunition</strong> available for purchase</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

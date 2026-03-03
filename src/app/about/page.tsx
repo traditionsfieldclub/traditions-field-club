@@ -274,7 +274,7 @@ export default function About() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* The Land Image */}
+              {/* The Land Video */}
               <div
                 className={`relative h-[300px] sm:h-[350px] md:h-[450px] rounded-lg overflow-hidden transition-all duration-1000 ease-out ${
                   isVisible("land")
@@ -282,14 +282,16 @@ export default function About() {
                     : "opacity-0 -translate-x-10"
                 }`}
               >
-                <Image
-                  src="/images/owner_watching_clays_flight.webp"
-                  alt="Owner watching clay targets in flight over the fields at Traditions Field Club"
-                  fill
-                  className="object-cover"
-                  style={{ objectPosition: "calc(50% - 40px) calc(50% - 40px)" }}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  aria-label="Scenic views of the 410-acre property at Traditions Field Club"
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src="/images/land_combined.mp4" type="video/mp4" />
+                </video>
               </div>
 
               {/* Content */}

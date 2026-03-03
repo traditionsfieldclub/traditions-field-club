@@ -422,8 +422,8 @@ export default function Membership() {
                 }`}
               >
                 <Image
-                  src="/images/youth_shooting_team_silo.webp"
-                  alt="Youth shooting team at Traditions Field Club"
+                  src="/images/kids_truck_bed_property.webp"
+                  alt="Kids hanging out in a truck bed on the property at Traditions Field Club"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
