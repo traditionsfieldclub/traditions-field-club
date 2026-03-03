@@ -484,9 +484,8 @@ export default function Roadmap() {
                 Course 1 Testing — Family Tested, Family Approved
               </h3>
               <p className="text-[#333333] mb-6">
-                Course 1 is live and the first family put it to the test. Dad, daughter, and son
-                all took their shots — and the smiles say it all. Meanwhile, clearing continues
-                as the property keeps taking shape.
+                Course 1 is nearly complete. Dads, daughters, and sons all took their first shots —
+                and that&apos;s what it&apos;s all about. Meanwhile, clearing continues as the property keeps taking shape.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                 {[
