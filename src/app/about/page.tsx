@@ -276,11 +276,7 @@ export default function About() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* The Land Video */}
               <div
-                className={`relative h-[300px] sm:h-[350px] md:h-[450px] rounded-lg overflow-hidden transition-all duration-1000 ease-out ${
-                  isVisible("land")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
-                }`}
+                className="relative h-[300px] sm:h-[350px] md:h-[450px] rounded-lg overflow-hidden"
               >
                 <video
                   autoPlay
