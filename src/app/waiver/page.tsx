@@ -182,8 +182,7 @@ export default function Waiver() {
     URL.revokeObjectURL(url);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     setErrorMessage("");
 
     // Honeypot check
@@ -333,7 +332,7 @@ export default function Waiver() {
           className="py-12 md:py-16 bg-[#f5f2ec]"
         >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <form onSubmit={handleSubmit}>
+            <form noValidate onSubmit={(e) => e.preventDefault()}>
               {/* Honeypot */}
               <div className="absolute -left-[9999px]" aria-hidden="true">
                 <input
@@ -847,8 +846,9 @@ export default function Waiver() {
                 }`}
               >
                 <button
-                  type="submit"
+                  type="button"
                   disabled={isSubmitting || !allAcknowledged}
+                  onClick={handleSubmit}
                   className="bg-[#a75235] text-[#f5f2ec] px-12 py-4 font-semibold tracking-wide hover:bg-[#162838] transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer rounded-lg text-lg"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
