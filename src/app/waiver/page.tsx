@@ -40,8 +40,8 @@ export default function Waiver() {
     acknowledgeRelease: false,
     acknowledgeRules: false,
     agreeToTerms: false,
-    // Signature date
-    signedDate: new Date().toISOString().split("T")[0],
+    // Signature date — set via useEffect to avoid SSR hydration mismatch
+    signedDate: "",
     // Honeypot
     companyFax: "",
   });
@@ -55,6 +55,14 @@ export default function Waiver() {
   const signatureRef = useRef<SignaturePadType | null>(null);
   const [signatureEmpty, setSignatureEmpty] = useState(true);
   const formLoadedAt = useRef<number>(Date.now());
+
+  // Set signed date on client only to avoid SSR hydration mismatch
+  useEffect(() => {
+    setFormData((prev) => ({
+      ...prev,
+      signedDate: new Date().toISOString().split("T")[0],
+    }));
+  }, []);
 
   // Turnstile
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
