@@ -69,7 +69,7 @@ export default function FooterNewsletter() {
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="w-full bg-[#a75235] text-[#f5f2ec] px-6 py-2 rounded-md text-sm font-medium uppercase tracking-wider hover:bg-[#8a4229] transition-colors disabled:opacity-50"
+              className="w-full bg-[#a75235] text-[#f5f2ec] px-6 py-2 rounded-md text-sm font-medium uppercase tracking-wider hover:bg-[#8a4229] transition-colors disabled:opacity-50 cursor-pointer"
             >
               {status === "submitting" ? "..." : "Subscribe"}
             </button>

@@ -834,7 +834,7 @@ export default function Waiver() {
                 <button
                   type="submit"
                   disabled={isSubmitting || !allAcknowledged}
-                  className="bg-[#a75235] text-[#f5f2ec] px-12 py-4 font-semibold tracking-wide hover:bg-[#162838] transition-colors disabled:opacity-50 disabled:cursor-not-allowed rounded-lg text-lg"
+                  className="bg-[#a75235] text-[#f5f2ec] px-12 py-4 font-semibold tracking-wide hover:bg-[#162838] transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer rounded-lg text-lg"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
                   {isSubmitting ? "Submitting..." : "Sign & Submit Waiver"}

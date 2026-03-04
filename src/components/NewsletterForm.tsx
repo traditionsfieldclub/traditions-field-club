@@ -96,7 +96,7 @@ export default function NewsletterForm({
               <button
                 type="submit"
                 disabled={status === "submitting"}
-                className="bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg whitespace-nowrap disabled:opacity-50"
+                className="bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg whitespace-nowrap disabled:opacity-50 cursor-pointer"
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
                 {status === "submitting" ? "..." : "Subscribe"}
