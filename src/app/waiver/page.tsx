@@ -182,7 +182,8 @@ export default function Waiver() {
     URL.revokeObjectURL(url);
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     setErrorMessage("");
 
     // Honeypot check
@@ -332,7 +333,7 @@ export default function Waiver() {
           className="py-12 md:py-16 bg-[#f5f2ec]"
         >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <form noValidate onSubmit={(e) => e.preventDefault()}>
+            <form onSubmit={handleSubmit}>
               {/* Honeypot */}
               <div className="absolute -left-[9999px]" aria-hidden="true">
                 <input
@@ -819,36 +820,27 @@ export default function Waiver() {
                 </div>
               </div>
 
-              {/* Cloudflare Turnstile */}
-              <div
-                className={`mb-8 flex justify-center transition-all duration-700 delay-500 ${
-                  isVisible("waiver") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                }`}
-              >
-                <div ref={turnstileRef}></div>
+              {/* Turnstile + Error + Submit — no animation wrapper (Turnstile fails at opacity:0) */}
+              <div className="text-center">
+                {/* Cloudflare Turnstile */}
+                <div className="flex justify-center mb-6">
+                  <div ref={turnstileRef} />
+                </div>
                 <Script
                   src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
                   strategy="afterInteractive"
                 />
-              </div>
 
-              {/* Error Message */}
-              {errorMessage && (
-                <div ref={errorRef} className="mb-6 p-4 bg-red-50 border-2 border-red-300 rounded-lg text-center shadow-sm" role="alert">
-                  <p className="text-red-700 font-medium">{errorMessage}</p>
-                </div>
-              )}
+                {/* Error Message */}
+                {errorMessage && (
+                  <div ref={errorRef} className="mb-6 p-4 bg-red-50 border-2 border-red-300 rounded-lg text-center shadow-sm" role="alert">
+                    <p className="text-red-700 font-medium">{errorMessage}</p>
+                  </div>
+                )}
 
-              {/* Submit Button */}
-              <div
-                className={`text-center transition-all duration-700 delay-500 ${
-                  isVisible("waiver") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                }`}
-              >
                 <button
-                  type="button"
+                  type="submit"
                   disabled={isSubmitting || !allAcknowledged}
-                  onClick={handleSubmit}
                   className="bg-[#a75235] text-[#f5f2ec] px-12 py-4 font-semibold tracking-wide hover:bg-[#162838] transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer rounded-lg text-lg"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
