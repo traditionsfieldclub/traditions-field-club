@@ -184,6 +184,7 @@ export default function Waiver() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("[WAIVER DEBUG] handleSubmit called", { allAcknowledged, signatureEmpty, turnstileToken: !!turnstileToken });
     setErrorMessage("");
 
     // Honeypot check
@@ -333,7 +334,7 @@ export default function Waiver() {
           className="py-12 md:py-16 bg-[#f5f2ec]"
         >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <form onSubmit={handleSubmit}>
+            <form noValidate onSubmit={handleSubmit}>
               {/* Honeypot */}
               <div className="absolute -left-[9999px]" aria-hidden="true">
                 <input
