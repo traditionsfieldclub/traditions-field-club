@@ -146,33 +146,26 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid topic" }, { status: 400 });
     }
 
-    // 9. Push to Google Sheets (Contact Form Submissions tab)
-    try {
-      const sheetsRes = await fetch(
-        "https://script.google.com/macros/s/AKfycby5yqVfqC3c1mo3QVa4WNsIl8Wh_FYw2rEfpi0Ji20Oql4EIiHOtng9amVQqLYkMX7Mnw/exec",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            tab: "Contact Form Submissions",
-            values: [
-              new Date().toLocaleDateString("en-US"),
-              firstName.trim(),
-              lastName.trim(),
-              email.trim(),
-              phone.trim(),
-              topic,
-              (message || "").trim(),
-            ],
-          }),
-        }
-      );
-      if (!sheetsRes.ok) {
-        console.error("Google Sheets push failed:", await sheetsRes.text());
+    // 9. Push to Google Sheets (Contact Form Submissions tab) — fire and forget
+    fetch(
+      "https://script.google.com/macros/s/AKfycby5yqVfqC3c1mo3QVa4WNsIl8Wh_FYw2rEfpi0Ji20Oql4EIiHOtng9amVQqLYkMX7Mnw/exec",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          tab: "Contact Form Submissions",
+          values: [
+            new Date().toLocaleDateString("en-US"),
+            firstName.trim(),
+            lastName.trim(),
+            email.trim(),
+            phone.trim(),
+            topic,
+            (message || "").trim(),
+          ],
+        }),
       }
-    } catch (sheetsError) {
-      console.error("Google Sheets push failed:", sheetsError);
-    }
+    ).catch((err) => console.error("Google Sheets push failed:", err));
 
     // 10. Submit to HubSpot Forms API
     const hubspotResponse = await fetch(
