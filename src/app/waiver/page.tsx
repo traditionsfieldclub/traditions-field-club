@@ -828,24 +828,24 @@ export default function Waiver() {
                 </div>
               </div>
 
-              {/* Turnstile + Error + Submit — no animation wrapper (Turnstile fails at opacity:0) */}
-              <div className="text-center">
-                {/* Cloudflare Turnstile */}
-                <div className="flex justify-center mb-6">
-                  <div ref={turnstileRef} />
+              {/* Cloudflare Turnstile — isolated in its own container away from button */}
+              <div className="flex justify-center mb-6 overflow-hidden" style={{ maxHeight: "80px" }}>
+                <div ref={turnstileRef} />
+              </div>
+              <Script
+                src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+                strategy="afterInteractive"
+              />
+
+              {/* Error Message */}
+              {errorMessage && (
+                <div ref={errorRef} className="mb-6 p-4 bg-red-50 border-2 border-red-300 rounded-lg text-center shadow-sm" role="alert">
+                  <p className="text-red-700 font-medium">{errorMessage}</p>
                 </div>
-                <Script
-                  src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
-                  strategy="afterInteractive"
-                />
+              )}
 
-                {/* Error Message */}
-                {errorMessage && (
-                  <div ref={errorRef} className="mb-6 p-4 bg-red-50 border-2 border-red-300 rounded-lg text-center shadow-sm" role="alert">
-                    <p className="text-red-700 font-medium">{errorMessage}</p>
-                  </div>
-                )}
-
+              {/* Submit button — isolated stacking context so nothing can overlay it */}
+              <div className="text-center relative" style={{ zIndex: 10 }}>
                 <button
                   type="button"
                   onClick={handleSubmit}
