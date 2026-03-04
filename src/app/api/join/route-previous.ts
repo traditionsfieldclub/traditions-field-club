@@ -598,56 +598,7 @@ export async function POST(req: NextRequest) {
       // Don't block the response — PDF email is more important
     }
 
-    // 13. Push to Google Sheets (Members tab)
-    try {
-      const sheetsRes = await fetch(
-        "https://script.google.com/macros/s/AKfycbw8fbFnW0SMjaJ2z1vRviS-C9YyuwzWspkW-2wdZp96SpWdV3U5RREaqmqtyhqCs5wB/exec",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            tab: "Members",
-            values: [
-              new Date().toLocaleDateString("en-US"),  // Date Submitted
-              "Pending",                                // Approval Status
-              "",                                       // Date Approved
-              "",                                       // Date Joined
-              "",                                       // Membership Expiration (formula)
-              firstName.trim(),                         // First Name
-              lastName.trim(),                          // Last Name
-              email.trim(),                             // Email
-              phone.trim(),                             // Phone
-              dateOfBirth,                              // Date of Birth
-              address.trim(),                           // Street Address
-              city.trim(),                              // City
-              state.trim(),                             // State
-              zip.trim(),                               // ZIP Code
-              MEMBERSHIP_LABELS[membershipType] || membershipType, // Membership Type
-              (spouseName || "").trim(),                 // Spouse/Partner Name
-              (childrenInfo || "").trim(),               // Children
-              EXPERIENCE_LABELS[experienceLevel] || experienceLevel, // Experience Level
-              HOW_HEARD_LABELS[howHeard] || howHeard,   // How Did You Hear
-              emergencyName.trim(),                     // Emergency Contact Name
-              emergencyPhone.trim(),                    // Emergency Contact Phone
-              emergencyRelationship.trim(),             // Emergency Contact Relationship
-              (additionalInfo || "").trim(),             // Additional Info
-              "",                                       // Waiver Signed? (formula)
-              "",                                       // Payment Status
-              "",                                       // Amount Due
-              "",                                       // Access Card #
-              "",                                       // Notes
-            ],
-          }),
-        }
-      );
-      if (!sheetsRes.ok) {
-        console.error("Google Sheets push failed:", await sheetsRes.text());
-      }
-    } catch (sheetsError) {
-      console.error("Google Sheets push failed:", sheetsError);
-    }
-
-    // 14. Email PDF to owner via Resend
+    // 13. Email PDF to owner via Resend
     try {
       if (RESEND_API_KEY && RESEND_API_KEY !== "REPLACE_WITH_REAL_API_KEY") {
         const resend = new Resend(RESEND_API_KEY);

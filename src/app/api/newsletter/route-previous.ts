@@ -103,30 +103,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid email format" }, { status: 400 });
     }
 
-    // 6. Push to Google Sheets (Newsletter Submissions tab)
-    try {
-      const sheetsRes = await fetch(
-        "https://script.google.com/macros/s/AKfycby5yqVfqC3c1mo3QVa4WNsIl8Wh_FYw2rEfpi0Ji20Oql4EIiHOtng9amVQqLYkMX7Mnw/exec",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            tab: "Newsletter Submissions",
-            values: [
-              new Date().toLocaleDateString("en-US"),
-              email.trim(),
-            ],
-          }),
-        }
-      );
-      if (!sheetsRes.ok) {
-        console.error("Google Sheets push failed:", await sheetsRes.text());
-      }
-    } catch (sheetsError) {
-      console.error("Google Sheets push failed:", sheetsError);
-    }
-
-    // 7. Submit to HubSpot
+    // 6. Submit to HubSpot
     const hubspotResponse = await fetch(
       `${HUBSPOT_API_BASE}/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_NEWSLETTER_FORM_ID}`,
       {

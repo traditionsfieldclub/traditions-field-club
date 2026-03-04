@@ -589,43 +589,6 @@ export async function POST(req: NextRequest) {
     // Convert PDF to base64 for response
     const pdfBase64 = Buffer.from(pdfBytes).toString("base64");
 
-    // === Push to Google Sheets (Signed Waivers tab) ===
-    try {
-      const sheetsRes = await fetch(
-        "https://script.google.com/macros/s/AKfycbw8fbFnW0SMjaJ2z1vRviS-C9YyuwzWspkW-2wdZp96SpWdV3U5RREaqmqtyhqCs5wB/exec",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            tab: "Signed Waivers",
-            values: [
-              new Date().toLocaleDateString("en-US"),   // Date Submitted
-              participantName.trim(),                    // Participant Name
-              email.trim(),                              // Email
-              phone.trim(),                              // Phone
-              dateOfBirth,                               // Date of Birth
-              address.trim(),                            // Street Address
-              city.trim(),                               // City
-              state.trim(),                              // State
-              zip.trim(),                                // ZIP Code
-              emergencyContactName.trim(),               // Emergency Contact Name
-              emergencyContactPhone.trim(),              // Emergency Contact Phone
-              isMinor ? "Yes" : "No",                    // Is Minor?
-              (parentName || "").trim(),                  // Parent/Guardian Name
-              (parentRelationship || "").trim(),          // Parent/Guardian Relationship
-              signedDate,                                // Date Signed
-              "",                                        // Notes
-            ],
-          }),
-        }
-      );
-      if (!sheetsRes.ok) {
-        console.error("Google Sheets push failed:", await sheetsRes.text());
-      }
-    } catch (sheetsError) {
-      console.error("Google Sheets push failed:", sheetsError);
-    }
-
     // === Submit to HubSpot ===
     try {
       const hubspotFields = [
