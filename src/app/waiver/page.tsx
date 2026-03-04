@@ -850,6 +850,7 @@ export default function Waiver() {
                 <button
                   type="submit"
                   disabled={isSubmitting || !allAcknowledged || signatureEmpty}
+                  onClick={() => console.log("[WAIVER DEBUG] Button CLICKED", { isSubmitting, allAcknowledged, signatureEmpty, turnstileToken: !!turnstileToken, signatureRef: !!signatureRef.current })}
                   className="bg-[#a75235] text-[#f5f2ec] px-12 py-4 font-semibold tracking-wide hover:bg-[#162838] transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer rounded-lg text-lg"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
