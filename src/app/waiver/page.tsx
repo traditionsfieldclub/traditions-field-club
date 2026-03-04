@@ -55,6 +55,7 @@ export default function Waiver() {
   const signatureRef = useRef<SignaturePadType | null>(null);
   const [signatureEmpty, setSignatureEmpty] = useState(true);
   const formLoadedAt = useRef<number>(Date.now());
+  const errorRef = useRef<HTMLDivElement>(null);
 
   // Set signed date on client only to avoid SSR hydration mismatch
   useEffect(() => {
@@ -125,6 +126,13 @@ export default function Waiver() {
 
   const isVisible = (id: string) => visibleSections.has(id);
 
+  // Scroll to error message when it appears
+  useEffect(() => {
+    if (errorMessage && errorRef.current) {
+      errorRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [errorMessage]);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
@@ -190,6 +198,13 @@ export default function Waiver() {
 
     if (signatureEmpty || !signatureRef.current || signatureRef.current.isEmpty()) {
       setErrorMessage("Please draw your signature in the signature pad.");
+      return;
+    }
+
+    // Client-side Turnstile check (matches join form pattern)
+    const isDev = window.location.hostname === "localhost";
+    if (!isDev && !turnstileToken) {
+      setErrorMessage("Please complete the verification check below.");
       return;
     }
 
@@ -820,8 +835,8 @@ export default function Waiver() {
 
               {/* Error Message */}
               {errorMessage && (
-                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-center" role="alert">
-                  <p className="text-red-700 text-sm">{errorMessage}</p>
+                <div ref={errorRef} className="mb-6 p-4 bg-red-50 border-2 border-red-300 rounded-lg text-center shadow-sm" role="alert">
+                  <p className="text-red-700 font-medium">{errorMessage}</p>
                 </div>
               )}
 
@@ -833,15 +848,19 @@ export default function Waiver() {
               >
                 <button
                   type="submit"
-                  disabled={isSubmitting || !allAcknowledged}
+                  disabled={isSubmitting || !allAcknowledged || signatureEmpty}
                   className="bg-[#a75235] text-[#f5f2ec] px-12 py-4 font-semibold tracking-wide hover:bg-[#162838] transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer rounded-lg text-lg"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
                   {isSubmitting ? "Submitting..." : "Sign & Submit Waiver"}
                 </button>
-                {!allAcknowledged && (
+                {(!allAcknowledged || signatureEmpty) && (
                   <p className="text-sm text-[#a75235] mt-4">
-                    Please check all acknowledgment boxes above to submit the waiver.
+                    {!allAcknowledged && !signatureEmpty
+                      ? "Please check all acknowledgment boxes above to submit the waiver."
+                      : !allAcknowledged && signatureEmpty
+                        ? "Please check all acknowledgment boxes and provide your signature to submit."
+                        : "Please provide your signature above to submit the waiver."}
                   </p>
                 )}
               </div>
