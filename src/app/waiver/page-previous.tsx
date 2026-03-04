@@ -66,47 +66,38 @@ export default function Waiver() {
   }, []);
 
   // Turnstile
-  const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const turnstileRef = useRef<HTMLDivElement>(null);
   const turnstileWidgetId = useRef<string | null>(null);
 
   // Explicitly render Turnstile widget — handles both fresh loads and client-side navigation
   useEffect(() => {
-    let interval: ReturnType<typeof setInterval> | null = null;
-
     const renderWidget = () => {
       if (window.turnstile && turnstileRef.current && turnstileWidgetId.current === null) {
-        const opts = {
+        turnstileWidgetId.current = window.turnstile.render(turnstileRef.current, {
           sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!,
           callback: (token: string) => setTurnstileToken(token),
-          "error-callback": () => {
-            if (window.turnstile && turnstileWidgetId.current !== null) {
-              window.turnstile.reset(turnstileWidgetId.current);
-            }
-          },
-          theme: "light" as const,
-        };
-        turnstileWidgetId.current = window.turnstile.render(
-          turnstileRef.current,
-          opts as Parameters<typeof window.turnstile.render>[1]
-        );
+          theme: "light",
+        });
       }
     };
 
+    // If turnstile API is already loaded (client-side nav), render immediately
     if (window.turnstile) {
       renderWidget();
     } else {
-      interval = setInterval(() => {
+      // Otherwise wait for the script to load
+      const interval = setInterval(() => {
         if (window.turnstile) {
           renderWidget();
-          if (interval) clearInterval(interval);
-          interval = null;
+          clearInterval(interval);
         }
       }, 100);
+      return () => clearInterval(interval);
     }
 
     return () => {
-      if (interval) clearInterval(interval);
+      // Cleanup widget on unmount
       if (window.turnstile && turnstileWidgetId.current !== null) {
         window.turnstile.remove(turnstileWidgetId.current);
         turnstileWidgetId.current = null;
@@ -342,7 +333,7 @@ export default function Waiver() {
           className="py-12 md:py-16 bg-[#f5f2ec]"
         >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <form onSubmit={handleSubmit} noValidate>
+            <form onSubmit={handleSubmit}>
               {/* Honeypot */}
               <div className="absolute -left-[9999px]" aria-hidden="true">
                 <input
@@ -849,19 +840,15 @@ export default function Waiver() {
 
                 <button
                   type="submit"
-                  disabled={isSubmitting || !allAcknowledged || signatureEmpty}
+                  disabled={isSubmitting || !allAcknowledged}
                   className="bg-[#a75235] text-[#f5f2ec] px-12 py-4 font-semibold tracking-wide hover:bg-[#162838] transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer rounded-lg text-lg"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
                   {isSubmitting ? "Submitting..." : "Sign & Submit Waiver"}
                 </button>
-                {(!allAcknowledged || signatureEmpty) && (
+                {!allAcknowledged && (
                   <p className="text-sm text-[#a75235] mt-4">
-                    {!allAcknowledged && signatureEmpty
-                      ? "Please check all acknowledgment boxes and sign above to submit."
-                      : !allAcknowledged
-                      ? "Please check all acknowledgment boxes above to submit."
-                      : "Please sign above to submit the waiver."}
+                    Please check all acknowledgment boxes above to submit the waiver.
                   </p>
                 )}
               </div>
