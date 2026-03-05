@@ -859,11 +859,11 @@ export default function Waiver() {
                 </div>
               )}
 
-              {/* Submit button — isolated stacking context so nothing can overlay it */}
-              <div className="text-center relative" style={{ zIndex: 10 }}>
+              {/* Submit button */}
+              <div className="text-center">
                 <button
-                  ref={submitRef}
                   type="button"
+                  onClick={() => { window.alert("CLICK WORKS"); handleSubmit(); }}
                   disabled={isSubmitting || !allAcknowledged || signatureEmpty}
                   className="bg-[#a75235] text-[#f5f2ec] px-12 py-4 font-semibold tracking-wide hover:bg-[#162838] transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer rounded-lg text-lg"
                   style={{ fontFamily: "var(--font-heading), serif" }}
