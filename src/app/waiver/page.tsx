@@ -56,6 +56,7 @@ export default function Waiver() {
   const [signatureEmpty, setSignatureEmpty] = useState(true);
   const formLoadedAt = useRef<number>(Date.now());
   const errorRef = useRef<HTMLDivElement>(null);
+  const submitRef = useRef<HTMLButtonElement>(null);
 
   // Set signed date on client only to avoid SSR hydration mismatch
   useEffect(() => {
@@ -251,6 +252,20 @@ export default function Waiver() {
       setIsSubmitting(false);
     }
   };
+
+  // Store latest handleSubmit in a ref so native listener always calls current version
+  const handleSubmitRef = useRef(handleSubmit);
+  handleSubmitRef.current = handleSubmit;
+
+  // Attach native DOM click listener as fallback — bypasses React's synthetic event system
+  // which can fail to attach during hydration with dynamic imports (ssr: false)
+  useEffect(() => {
+    const btn = submitRef.current;
+    if (!btn) return;
+    const handler = () => handleSubmitRef.current();
+    btn.addEventListener("click", handler);
+    return () => btn.removeEventListener("click", handler);
+  }, []);
 
   if (isSubmitted) {
     return (
@@ -847,8 +862,8 @@ export default function Waiver() {
               {/* Submit button — isolated stacking context so nothing can overlay it */}
               <div className="text-center relative" style={{ zIndex: 10 }}>
                 <button
+                  ref={submitRef}
                   type="button"
-                  onClick={handleSubmit}
                   disabled={isSubmitting || !allAcknowledged || signatureEmpty}
                   className="bg-[#a75235] text-[#f5f2ec] px-12 py-4 font-semibold tracking-wide hover:bg-[#162838] transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer rounded-lg text-lg"
                   style={{ fontFamily: "var(--font-heading), serif" }}
