@@ -40,8 +40,8 @@ export default function Waiver() {
     acknowledgeRelease: false,
     acknowledgeRules: false,
     agreeToTerms: false,
-    // Signature date
-    signedDate: new Date().toISOString().split("T")[0],
+    // Signature date — set via useEffect to avoid SSR hydration mismatch
+    signedDate: "",
     // Honeypot
     companyFax: "",
   });
@@ -55,40 +55,59 @@ export default function Waiver() {
   const signatureRef = useRef<SignaturePadType | null>(null);
   const [signatureEmpty, setSignatureEmpty] = useState(true);
   const formLoadedAt = useRef<number>(Date.now());
+  const errorRef = useRef<HTMLDivElement>(null);
+  const submitRef = useRef<HTMLButtonElement>(null);
+
+  // Set signed date on client only to avoid SSR hydration mismatch
+  useEffect(() => {
+    setFormData((prev) => ({
+      ...prev,
+      signedDate: new Date().toISOString().split("T")[0],
+    }));
+  }, []);
 
   // Turnstile
-  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState("");
   const turnstileRef = useRef<HTMLDivElement>(null);
   const turnstileWidgetId = useRef<string | null>(null);
 
   // Explicitly render Turnstile widget — handles both fresh loads and client-side navigation
   useEffect(() => {
+    let interval: ReturnType<typeof setInterval> | null = null;
+
     const renderWidget = () => {
       if (window.turnstile && turnstileRef.current && turnstileWidgetId.current === null) {
-        turnstileWidgetId.current = window.turnstile.render(turnstileRef.current, {
+        const opts = {
           sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!,
           callback: (token: string) => setTurnstileToken(token),
-          theme: "light",
-        });
+          "error-callback": () => {
+            if (window.turnstile && turnstileWidgetId.current !== null) {
+              window.turnstile.reset(turnstileWidgetId.current);
+            }
+          },
+          theme: "light" as const,
+        };
+        turnstileWidgetId.current = window.turnstile.render(
+          turnstileRef.current,
+          opts as Parameters<typeof window.turnstile.render>[1]
+        );
       }
     };
 
-    // If turnstile API is already loaded (client-side nav), render immediately
     if (window.turnstile) {
       renderWidget();
     } else {
-      // Otherwise wait for the script to load
-      const interval = setInterval(() => {
+      interval = setInterval(() => {
         if (window.turnstile) {
           renderWidget();
-          clearInterval(interval);
+          if (interval) clearInterval(interval);
+          interval = null;
         }
       }, 100);
-      return () => clearInterval(interval);
     }
 
     return () => {
-      // Cleanup widget on unmount
+      if (interval) clearInterval(interval);
       if (window.turnstile && turnstileWidgetId.current !== null) {
         window.turnstile.remove(turnstileWidgetId.current);
         turnstileWidgetId.current = null;
@@ -116,6 +135,13 @@ export default function Waiver() {
   }, []);
 
   const isVisible = (id: string) => visibleSections.has(id);
+
+  // Scroll to error message when it appears
+  useEffect(() => {
+    if (errorMessage && errorRef.current) {
+      errorRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [errorMessage]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -166,8 +192,7 @@ export default function Waiver() {
     URL.revokeObjectURL(url);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     setErrorMessage("");
 
     // Honeypot check
@@ -182,6 +207,13 @@ export default function Waiver() {
 
     if (signatureEmpty || !signatureRef.current || signatureRef.current.isEmpty()) {
       setErrorMessage("Please draw your signature in the signature pad.");
+      return;
+    }
+
+    // Client-side Turnstile check (matches join form pattern)
+    const isDev = window.location.hostname === "localhost";
+    if (!isDev && !turnstileToken) {
+      setErrorMessage("Please complete the verification check below.");
       return;
     }
 
@@ -220,6 +252,20 @@ export default function Waiver() {
       setIsSubmitting(false);
     }
   };
+
+  // Store latest handleSubmit in a ref so native listener always calls current version
+  const handleSubmitRef = useRef(handleSubmit);
+  handleSubmitRef.current = handleSubmit;
+
+  // Attach native DOM click listener as fallback — bypasses React's synthetic event system
+  // which can fail to attach during hydration with dynamic imports (ssr: false)
+  useEffect(() => {
+    const btn = submitRef.current;
+    if (!btn) return;
+    const handler = () => handleSubmitRef.current();
+    btn.addEventListener("click", handler);
+    return () => btn.removeEventListener("click", handler);
+  }, []);
 
   if (isSubmitted) {
     return (
@@ -310,7 +356,7 @@ export default function Waiver() {
           className="py-12 md:py-16 bg-[#f5f2ec]"
         >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <form onSubmit={handleSubmit}>
+            <div>
               {/* Honeypot */}
               <div className="absolute -left-[9999px]" aria-hidden="true">
                 <input
@@ -790,7 +836,6 @@ export default function Waiver() {
                     type="date"
                     name="signedDate"
                     required
-                    suppressHydrationWarning
                     value={formData.signedDate}
                     onChange={handleChange}
                     className="w-full max-w-xs px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
@@ -798,47 +843,44 @@ export default function Waiver() {
                 </div>
               </div>
 
-              {/* Cloudflare Turnstile */}
-              <div
-                className={`mb-8 flex justify-center transition-all duration-700 delay-500 ${
-                  isVisible("waiver") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                }`}
-              >
-                <div ref={turnstileRef}></div>
-                <Script
-                  src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
-                  strategy="afterInteractive"
-                />
+              {/* Cloudflare Turnstile — isolated in its own container away from button */}
+              <div className="flex justify-center mb-6 overflow-hidden" style={{ maxHeight: "80px" }}>
+                <div ref={turnstileRef} />
               </div>
+              <Script
+                src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+                strategy="afterInteractive"
+              />
 
               {/* Error Message */}
               {errorMessage && (
-                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-center" role="alert">
-                  <p className="text-red-700 text-sm">{errorMessage}</p>
+                <div ref={errorRef} className="mb-6 p-4 bg-red-50 border-2 border-red-300 rounded-lg text-center shadow-sm" role="alert">
+                  <p className="text-red-700 font-medium">{errorMessage}</p>
                 </div>
               )}
 
-              {/* Submit Button */}
-              <div
-                className={`text-center transition-all duration-700 delay-500 ${
-                  isVisible("waiver") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-                }`}
-              >
+              {/* Submit button — isolated stacking context so nothing can overlay it */}
+              <div className="text-center relative" style={{ zIndex: 10 }}>
                 <button
-                  type="submit"
-                  disabled={isSubmitting || !allAcknowledged}
-                  className="bg-[#a75235] text-[#f5f2ec] px-12 py-4 font-semibold tracking-wide hover:bg-[#162838] transition-colors disabled:opacity-50 disabled:cursor-not-allowed rounded-lg text-lg"
+                  ref={submitRef}
+                  type="button"
+                  disabled={isSubmitting || !allAcknowledged || signatureEmpty}
+                  className="bg-[#a75235] text-[#f5f2ec] px-12 py-4 font-semibold tracking-wide hover:bg-[#162838] transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer rounded-lg text-lg"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
                   {isSubmitting ? "Submitting..." : "Sign & Submit Waiver"}
                 </button>
-                {!allAcknowledged && (
+                {(!allAcknowledged || signatureEmpty) && (
                   <p className="text-sm text-[#a75235] mt-4">
-                    Please check all acknowledgment boxes above to submit the waiver.
+                    {!allAcknowledged && signatureEmpty
+                      ? "Please check all acknowledgment boxes and sign above to submit."
+                      : !allAcknowledged
+                      ? "Please check all acknowledgment boxes above to submit."
+                      : "Please sign above to submit the waiver."}
                   </p>
                 )}
               </div>
-            </form>
+            </div>
           </div>
         </section>
       </main>
