@@ -197,15 +197,18 @@ export default function Waiver() {
 
     // Honeypot check
     if (formData.companyFax) {
+      window.alert("BLOCKED: honeypot filled — value: " + formData.companyFax);
       return;
     }
 
     if (!allAcknowledged) {
+      window.alert("BLOCKED: not all acknowledged");
       setErrorMessage("Please acknowledge all sections of the waiver before signing.");
       return;
     }
 
     if (signatureEmpty || !signatureRef.current || signatureRef.current.isEmpty()) {
+      window.alert("BLOCKED: signature empty=" + signatureEmpty + " ref=" + !!signatureRef.current);
       setErrorMessage("Please draw your signature in the signature pad.");
       return;
     }
@@ -213,10 +216,12 @@ export default function Waiver() {
     // Client-side Turnstile check (matches join form pattern)
     const isDev = window.location.hostname === "localhost";
     if (!isDev && !turnstileToken) {
+      window.alert("BLOCKED: no turnstile token. isDev=" + isDev);
       setErrorMessage("Please complete the verification check below.");
       return;
     }
 
+    window.alert("ALL CHECKS PASSED — submitting now");
     setIsSubmitting(true);
 
     try {
