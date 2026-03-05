@@ -56,7 +56,6 @@ export default function Waiver() {
   const [signatureEmpty, setSignatureEmpty] = useState(true);
   const formLoadedAt = useRef<number>(Date.now());
   const errorRef = useRef<HTMLDivElement>(null);
-  const submitRef = useRef<HTMLButtonElement>(null);
 
   // Set signed date on client only to avoid SSR hydration mismatch
   useEffect(() => {
@@ -253,19 +252,6 @@ export default function Waiver() {
     }
   };
 
-  // Store latest handleSubmit in a ref so native listener always calls current version
-  const handleSubmitRef = useRef(handleSubmit);
-  handleSubmitRef.current = handleSubmit;
-
-  // Attach native DOM click listener as fallback — bypasses React's synthetic event system
-  // which can fail to attach during hydration with dynamic imports (ssr: false)
-  useEffect(() => {
-    const btn = submitRef.current;
-    if (!btn) return;
-    const handler = () => handleSubmitRef.current();
-    btn.addEventListener("click", handler);
-    return () => btn.removeEventListener("click", handler);
-  }, []);
 
   if (isSubmitted) {
     return (
