@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
+import Script from "next/script";
 import type ReactSignatureCanvas from "react-signature-canvas";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
@@ -65,9 +66,54 @@ export default function Waiver() {
     }));
   }, []);
 
-  // Turnstile removed from client — was causing script errors that broke the page
-  // Server-side validation is skipped when no token is provided
-  // Spam protection still active via honeypot + form timing
+  // Turnstile
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const turnstileRef = useRef<HTMLDivElement>(null);
+  const turnstileWidgetId = useRef<string | null>(null);
+
+  // Explicitly render Turnstile widget — handles both fresh loads and client-side navigation
+  useEffect(() => {
+    let interval: ReturnType<typeof setInterval> | null = null;
+
+    const renderWidget = () => {
+      if (window.turnstile && turnstileRef.current && turnstileWidgetId.current === null) {
+        const opts = {
+          sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!,
+          callback: (token: string) => setTurnstileToken(token),
+          "error-callback": () => {
+            if (window.turnstile && turnstileWidgetId.current !== null) {
+              window.turnstile.reset(turnstileWidgetId.current);
+            }
+          },
+          theme: "light" as const,
+        };
+        turnstileWidgetId.current = window.turnstile.render(
+          turnstileRef.current,
+          opts as Parameters<typeof window.turnstile.render>[1]
+        );
+      }
+    };
+
+    if (window.turnstile) {
+      renderWidget();
+    } else {
+      interval = setInterval(() => {
+        if (window.turnstile) {
+          renderWidget();
+          if (interval) clearInterval(interval);
+          interval = null;
+        }
+      }, 100);
+    }
+
+    return () => {
+      if (interval) clearInterval(interval);
+      if (window.turnstile && turnstileWidgetId.current !== null) {
+        window.turnstile.remove(turnstileWidgetId.current);
+        turnstileWidgetId.current = null;
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -164,6 +210,13 @@ export default function Waiver() {
       return;
     }
 
+    // Client-side Turnstile check (matches join form pattern)
+    const isDev = window.location.hostname === "localhost";
+    if (!isDev && !turnstileToken) {
+      setErrorMessage("Please complete the verification check below.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -175,6 +228,7 @@ export default function Waiver() {
         body: JSON.stringify({
           ...formData,
           signatureDataUrl,
+          cfTurnstileToken: turnstileToken,
           formLoadedAt: formLoadedAt.current,
         }),
       });
@@ -788,6 +842,15 @@ export default function Waiver() {
                   />
                 </div>
               </div>
+
+              {/* Cloudflare Turnstile — isolated in its own container away from button */}
+              <div className="flex justify-center mb-6 overflow-hidden" style={{ maxHeight: "80px" }}>
+                <div ref={turnstileRef} />
+              </div>
+              <Script
+                src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+                strategy="afterInteractive"
+              />
 
               {/* Error Message */}
               {errorMessage && (
