@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
 
 const HUBSPOT_PORTAL_ID = process.env.HUBSPOT_PORTAL_ID;
 const HUBSPOT_FORM_ID = process.env.HUBSPOT_FORM_ID;
 const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
 const HUBSPOT_REGION = process.env.HUBSPOT_REGION || "";
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
 // Use region-specific HubSpot Forms API endpoint
 const HUBSPOT_API_BASE = HUBSPOT_REGION && HUBSPOT_REGION !== "na1"
@@ -167,7 +169,32 @@ export async function POST(req: NextRequest) {
       }
     ).catch((err) => console.error("Google Sheets push failed:", err));
 
-    // 10. Submit to HubSpot Forms API
+    // 10. Email notification via Resend
+    try {
+      if (RESEND_API_KEY && RESEND_API_KEY !== "REPLACE_WITH_REAL_API_KEY") {
+        const resend = new Resend(RESEND_API_KEY);
+        await resend.emails.send({
+          from: "Traditions Field Club <noreply@traditionsfieldclub.com>",
+          to: ["admin@traditionsfieldclub.com"],
+          subject: `New Contact Form: ${topic} — ${firstName} ${lastName}`,
+          html: `
+            <h2>New Contact Form Submission</h2>
+            <table style="border-collapse:collapse;width:100%;max-width:600px;">
+              <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Name</td><td style="padding:8px;border:1px solid #ddd;">${firstName.trim()} ${lastName.trim()}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Email</td><td style="padding:8px;border:1px solid #ddd;"><a href="mailto:${email.trim()}">${email.trim()}</a></td></tr>
+              <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Phone</td><td style="padding:8px;border:1px solid #ddd;">${phone.trim()}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Topic</td><td style="padding:8px;border:1px solid #ddd;">${topic}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Message</td><td style="padding:8px;border:1px solid #ddd;">${(message || "N/A").trim()}</td></tr>
+            </table>
+            <p style="color:#999;font-size:12px;margin-top:20px;">Submitted from the Traditions Field Club website contact form.</p>
+          `,
+        });
+      }
+    } catch (emailError) {
+      console.error("Resend email failed:", emailError);
+    }
+
+    // 11. Submit to HubSpot Forms API
     const hubspotResponse = await fetch(
       `${HUBSPOT_API_BASE}/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`,
       {

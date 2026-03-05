@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
 
 const HUBSPOT_PORTAL_ID = process.env.HUBSPOT_PORTAL_ID;
 const HUBSPOT_NEWSLETTER_FORM_ID = process.env.HUBSPOT_NEWSLETTER_FORM_ID;
 const HUBSPOT_REGION = process.env.HUBSPOT_REGION || "";
 const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
 const HUBSPOT_API_BASE = HUBSPOT_REGION && HUBSPOT_REGION !== "na1"
   ? `https://api-${HUBSPOT_REGION}.hsforms.com`
@@ -119,7 +121,26 @@ export async function POST(req: NextRequest) {
       }
     ).catch((err) => console.error("Google Sheets push failed:", err));
 
-    // 7. Submit to HubSpot
+    // 7. Email notification via Resend
+    try {
+      if (RESEND_API_KEY && RESEND_API_KEY !== "REPLACE_WITH_REAL_API_KEY") {
+        const resend = new Resend(RESEND_API_KEY);
+        await resend.emails.send({
+          from: "Traditions Field Club <noreply@traditionsfieldclub.com>",
+          to: ["admin@traditionsfieldclub.com"],
+          subject: "New Newsletter Subscriber",
+          html: `
+            <h2>New Newsletter Signup</h2>
+            <p><strong>Email:</strong> <a href="mailto:${email.trim()}">${email.trim()}</a></p>
+            <p style="color:#999;font-size:12px;margin-top:20px;">Submitted from the Traditions Field Club website.</p>
+          `,
+        });
+      }
+    } catch (emailError) {
+      console.error("Resend email failed:", emailError);
+    }
+
+    // 8. Submit to HubSpot
     const hubspotResponse = await fetch(
       `${HUBSPOT_API_BASE}/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_NEWSLETTER_FORM_ID}`,
       {
