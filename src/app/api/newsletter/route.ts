@@ -1,15 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const HUBSPOT_PORTAL_ID = process.env.HUBSPOT_PORTAL_ID;
-const HUBSPOT_NEWSLETTER_FORM_ID = process.env.HUBSPOT_NEWSLETTER_FORM_ID;
-const HUBSPOT_REGION = process.env.HUBSPOT_REGION || "";
 const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-
-const HUBSPOT_API_BASE = HUBSPOT_REGION && HUBSPOT_REGION !== "na1"
-  ? `https://api-${HUBSPOT_REGION}.hsforms.com`
-  : "https://api.hsforms.com";
 
 // --- Rate Limiting (in-memory, per-IP) ---
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -138,31 +131,6 @@ export async function POST(req: NextRequest) {
       }
     } catch (emailError) {
       console.error("Resend email failed:", emailError);
-    }
-
-    // 8. Submit to HubSpot
-    const hubspotResponse = await fetch(
-      `${HUBSPOT_API_BASE}/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_NEWSLETTER_FORM_ID}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          submittedAt: Date.now(),
-          fields: [
-            { objectTypeId: "0-1", name: "email", value: email.trim() },
-          ],
-          context: {
-            pageUri: referer || "https://traditionsfieldclub.com",
-            pageName: "Newsletter Signup",
-            ipAddress: ip,
-          },
-        }),
-      }
-    );
-
-    if (!hubspotResponse.ok) {
-      const errorData = await hubspotResponse.json();
-      console.error("HubSpot newsletter error:", errorData);
     }
 
     return NextResponse.json({ success: true });

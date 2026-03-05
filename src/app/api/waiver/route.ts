@@ -6,16 +6,8 @@ function esc(str: string): string {
   return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
-const HUBSPOT_PORTAL_ID = process.env.HUBSPOT_PORTAL_ID;
-const HUBSPOT_WAIVER_FORM_ID = process.env.HUBSPOT_WAIVER_FORM_ID;
 const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const HUBSPOT_REGION = process.env.HUBSPOT_REGION || "";
-
-// Use region-specific HubSpot Forms API endpoint
-const HUBSPOT_API_BASE = HUBSPOT_REGION && HUBSPOT_REGION !== "na1"
-  ? `https://api-${HUBSPOT_REGION}.hsforms.com`
-  : "https://api.hsforms.com";
 
 // --- Rate Limiting (in-memory, per-IP) ---
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -618,56 +610,6 @@ export async function POST(req: NextRequest) {
         }),
       }
     ).catch((err) => console.error("Google Sheets push failed:", err));
-
-    // === Submit to HubSpot ===
-    try {
-      const hubspotFields = [
-        { objectTypeId: "0-1", name: "firstname", value: participantName.trim().split(" ")[0] },
-        { objectTypeId: "0-1", name: "lastname", value: participantName.trim().split(" ").slice(1).join(" ") },
-        { objectTypeId: "0-1", name: "email", value: email.trim() },
-        { objectTypeId: "0-1", name: "phone", value: phone.trim() },
-        { objectTypeId: "0-1", name: "address", value: address.trim() },
-        { objectTypeId: "0-1", name: "city", value: city.trim() },
-        { objectTypeId: "0-1", name: "state", value: state.trim() },
-        { objectTypeId: "0-1", name: "zip", value: zip.trim() },
-        { objectTypeId: "0-1", name: "date_of_birth", value: dateOfBirth },
-        { objectTypeId: "0-1", name: "emergency_contact_name", value: emergencyContactName.trim() },
-        { objectTypeId: "0-1", name: "emergency_contact_phone", value: emergencyContactPhone.trim() },
-        { objectTypeId: "0-1", name: "waiver_signed_date", value: signedDate },
-      ];
-
-      if (isMinor) {
-        hubspotFields.push(
-          { objectTypeId: "0-1", name: "parent_guardian_name", value: parentName.trim() },
-          { objectTypeId: "0-1", name: "parent_guardian_relationship", value: parentRelationship.trim() }
-        );
-      }
-
-      const hubspotResponse = await fetch(
-        `${HUBSPOT_API_BASE}/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_WAIVER_FORM_ID}`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            submittedAt: Date.now(),
-            fields: hubspotFields,
-            context: {
-              pageUri: referer || "https://traditionsfieldclub.com/waiver",
-              pageName: "Liability Waiver",
-              ipAddress: ip,
-            },
-          }),
-        }
-      );
-
-      if (!hubspotResponse.ok) {
-        const errorData = await hubspotResponse.json();
-        console.error("HubSpot waiver submission error:", errorData);
-      }
-    } catch (hubspotError) {
-      console.error("HubSpot submission failed:", hubspotError);
-      // Don't block the response — waiver PDF is more important
-    }
 
     // === Email PDF to owners via Resend ===
     try {

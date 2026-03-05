@@ -6,16 +6,8 @@ function esc(str: string): string {
   return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
-const HUBSPOT_PORTAL_ID = process.env.HUBSPOT_PORTAL_ID;
-const HUBSPOT_MEMBERSHIP_FORM_ID = process.env.HUBSPOT_MEMBERSHIP_FORM_ID;
 const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const HUBSPOT_REGION = process.env.HUBSPOT_REGION || "";
-
-// Use region-specific HubSpot Forms API endpoint
-const HUBSPOT_API_BASE = HUBSPOT_REGION && HUBSPOT_REGION !== "na1"
-  ? `https://api-${HUBSPOT_REGION}.hsforms.com`
-  : "https://api.hsforms.com";
 
 // --- Rate Limiting (in-memory, per-IP) ---
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -529,76 +521,7 @@ export async function POST(req: NextRequest) {
 
     const pdfBase64 = Buffer.from(pdfBytes).toString("base64");
 
-    // 11. Build combined message for fields without dedicated properties
-    const messageParts: string[] = [];
-    if (howHeard?.trim()) {
-      messageParts.push(`How They Heard About Us: ${HOW_HEARD_LABELS[howHeard] || howHeard}`);
-    }
-    if (emergencyRelationship?.trim()) {
-      messageParts.push(`Emergency Contact Relationship: ${emergencyRelationship.trim()}`);
-    }
-    if (previousClubs?.trim()) {
-      messageParts.push(`Previous Clubs: ${previousClubs.trim()}`);
-    }
-    if (additionalInfo?.trim()) {
-      messageParts.push(`Additional Info: ${additionalInfo.trim()}`);
-    }
-
-    // 12. Submit to HubSpot Forms API
-    try {
-      const hubspotFields = [
-        { objectTypeId: "0-1", name: "firstname", value: firstName.trim() },
-        { objectTypeId: "0-1", name: "lastname", value: lastName.trim() },
-        { objectTypeId: "0-1", name: "email", value: email.trim() },
-        { objectTypeId: "0-1", name: "phone", value: phone.trim() },
-        { objectTypeId: "0-1", name: "date_of_birth", value: dateOfBirth },
-        { objectTypeId: "0-1", name: "address", value: address.trim() },
-        { objectTypeId: "0-1", name: "city", value: city.trim() },
-        { objectTypeId: "0-1", name: "state", value: state.trim() },
-        { objectTypeId: "0-1", name: "zip", value: zip.trim() },
-        { objectTypeId: "0-1", name: "membership_type", value: membershipType },
-        { objectTypeId: "0-1", name: "experience_level", value: experienceLevel },
-        { objectTypeId: "0-1", name: "emergency_contact_name", value: emergencyName.trim() },
-        { objectTypeId: "0-1", name: "emergency_contact_number", value: emergencyPhone.trim() },
-      ];
-
-      if (spouseName?.trim()) {
-        hubspotFields.push({ objectTypeId: "0-1", name: "spouse", value: spouseName.trim() });
-      }
-      if (childrenInfo?.trim()) {
-        hubspotFields.push({ objectTypeId: "0-1", name: "children_info", value: childrenInfo.trim() });
-      }
-      if (messageParts.length > 0) {
-        hubspotFields.push({ objectTypeId: "0-1", name: "message", value: messageParts.join("\n") });
-      }
-
-      const hubspotResponse = await fetch(
-        `${HUBSPOT_API_BASE}/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_MEMBERSHIP_FORM_ID}`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            submittedAt: Date.now(),
-            fields: hubspotFields,
-            context: {
-              pageUri: referer || "https://traditionsfieldclub.com/join",
-              pageName: "Membership Application",
-              ipAddress: ip,
-            },
-          }),
-        }
-      );
-
-      if (!hubspotResponse.ok) {
-        const errorData = await hubspotResponse.json();
-        console.error("HubSpot membership submission error:", JSON.stringify(errorData, null, 2));
-      }
-    } catch (hubspotError) {
-      console.error("HubSpot submission failed:", hubspotError);
-      // Don't block the response — PDF email is more important
-    }
-
-    // 13. Push to Google Sheets (Members tab) — fire and forget
+    // 11. Push to Google Sheets (Members tab) — fire and forget
     fetch(
       "https://script.google.com/macros/s/AKfycbw8fbFnW0SMjaJ2z1vRviS-C9YyuwzWspkW-2wdZp96SpWdV3U5RREaqmqtyhqCs5wB/exec",
       {
