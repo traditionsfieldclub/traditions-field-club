@@ -459,13 +459,8 @@ export async function POST(req: NextRequest) {
     // 3. Turnstile verification (skip in development — localhost not in allowed hostnames)
     const isDev = process.env.NODE_ENV === "development";
 
-    if (!isDev) {
-      if (!cfTurnstileToken) {
-        return NextResponse.json(
-          { error: "Verification required" },
-          { status: 400 }
-        );
-      }
+    if (!isDev && cfTurnstileToken) {
+      // Only verify if a token was provided (Turnstile removed from client due to script errors)
 
       const turnstileResponse = await fetch(
         "https://challenges.cloudflare.com/turnstile/v0/siteverify",
