@@ -197,18 +197,15 @@ export default function Waiver() {
 
     // Honeypot check
     if (formData.companyFax) {
-      window.alert("BLOCKED: honeypot filled — value: " + formData.companyFax);
       return;
     }
 
     if (!allAcknowledged) {
-      window.alert("BLOCKED: not all acknowledged");
       setErrorMessage("Please acknowledge all sections of the waiver before signing.");
       return;
     }
 
     if (signatureEmpty || !signatureRef.current || signatureRef.current.isEmpty()) {
-      window.alert("BLOCKED: signature empty=" + signatureEmpty + " ref=" + !!signatureRef.current);
       setErrorMessage("Please draw your signature in the signature pad.");
       return;
     }
@@ -216,12 +213,10 @@ export default function Waiver() {
     // Client-side Turnstile check (matches join form pattern)
     const isDev = window.location.hostname === "localhost";
     if (!isDev && !turnstileToken) {
-      window.alert("BLOCKED: no turnstile token. isDev=" + isDev);
       setErrorMessage("Please complete the verification check below.");
       return;
     }
 
-    window.alert("ALL CHECKS PASSED — submitting now");
     setIsSubmitting(true);
 
     try {
@@ -362,15 +357,15 @@ export default function Waiver() {
         >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div>
-              {/* Honeypot */}
+              {/* Honeypot — name must not match any autofill heuristic */}
               <div className="absolute -left-[9999px]" aria-hidden="true">
                 <input
                   type="text"
-                  name="companyFax"
+                  name="website_url_confirm"
                   value={formData.companyFax}
-                  onChange={handleChange}
+                  onChange={(e) => setFormData((prev) => ({ ...prev, companyFax: e.target.value }))}
                   tabIndex={-1}
-                  autoComplete="off"
+                  autoComplete="new-password"
                 />
               </div>
 
@@ -868,7 +863,7 @@ export default function Waiver() {
               <div className="text-center">
                 <button
                   type="button"
-                  onClick={() => { window.alert("CLICK WORKS"); handleSubmit(); }}
+                  onClick={handleSubmit}
                   disabled={isSubmitting || !allAcknowledged || signatureEmpty}
                   className="bg-[#a75235] text-[#f5f2ec] px-12 py-4 font-semibold tracking-wide hover:bg-[#162838] transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer rounded-lg text-lg"
                   style={{ fontFamily: "var(--font-heading), serif" }}

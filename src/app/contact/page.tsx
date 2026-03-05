@@ -316,16 +316,15 @@ function ContactContent() {
               >
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Honeypot field - hidden from users, bots will fill it */}
+                  {/* Honeypot — name must not match any autofill heuristic */}
                   <div className="absolute -left-[9999px]" aria-hidden="true">
-                    <label htmlFor="companyFax">Fax</label>
                     <input
                       type="text"
-                      id="companyFax"
-                      name="companyFax"
+                      name="website_url_confirm"
                       value={formData.companyFax}
-                      onChange={handleChange}
+                      onChange={(e) => setFormData((prev) => ({ ...prev, companyFax: e.target.value }))}
                       tabIndex={-1}
-                      autoComplete="nope"
+                      autoComplete="new-password"
                     />
                   </div>
 

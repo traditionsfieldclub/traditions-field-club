@@ -301,15 +301,15 @@ export default function Join() {
         >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <form onSubmit={handleSubmit}>
-              {/* Honeypot */}
+              {/* Honeypot — name must not match any autofill heuristic */}
               <div className="absolute -left-[9999px]" aria-hidden="true">
                 <input
                   type="text"
-                  name="companyFax"
+                  name="website_url_confirm"
                   value={formData.companyFax}
-                  onChange={handleChange}
+                  onChange={(e) => setFormData((prev) => ({ ...prev, companyFax: e.target.value }))}
                   tabIndex={-1}
-                  autoComplete="nope"
+                  autoComplete="new-password"
                 />
               </div>
 
