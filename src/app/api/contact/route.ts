@@ -1,16 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const HUBSPOT_PORTAL_ID = process.env.HUBSPOT_PORTAL_ID;
-const HUBSPOT_FORM_ID = process.env.HUBSPOT_FORM_ID;
-const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
-const HUBSPOT_REGION = process.env.HUBSPOT_REGION || "";
-const RESEND_API_KEY = process.env.RESEND_API_KEY;
+function esc(str: string): string {
+  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
 
-// Use region-specific HubSpot Forms API endpoint
-const HUBSPOT_API_BASE = HUBSPOT_REGION && HUBSPOT_REGION !== "na1"
-  ? `https://api-${HUBSPOT_REGION}.hsforms.com`
-  : "https://api.hsforms.com";
+const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
 // --- Rate Limiting (in-memory, per-IP) ---
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -180,11 +176,11 @@ export async function POST(req: NextRequest) {
           html: `
             <h2>New Contact Form Submission</h2>
             <table style="border-collapse:collapse;width:100%;max-width:600px;">
-              <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Name</td><td style="padding:8px;border:1px solid #ddd;">${firstName.trim()} ${lastName.trim()}</td></tr>
-              <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Email</td><td style="padding:8px;border:1px solid #ddd;"><a href="mailto:${email.trim()}">${email.trim()}</a></td></tr>
-              <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Phone</td><td style="padding:8px;border:1px solid #ddd;">${phone.trim()}</td></tr>
-              <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Topic</td><td style="padding:8px;border:1px solid #ddd;">${topic}</td></tr>
-              <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Message</td><td style="padding:8px;border:1px solid #ddd;">${(message || "N/A").trim()}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Name</td><td style="padding:8px;border:1px solid #ddd;">${esc(firstName.trim())} ${esc(lastName.trim())}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Email</td><td style="padding:8px;border:1px solid #ddd;"><a href="mailto:${esc(email.trim())}">${esc(email.trim())}</a></td></tr>
+              <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Phone</td><td style="padding:8px;border:1px solid #ddd;">${esc(phone.trim())}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Topic</td><td style="padding:8px;border:1px solid #ddd;">${esc(topic)}</td></tr>
+              <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Message</td><td style="padding:8px;border:1px solid #ddd;">${esc((message || "N/A").trim())}</td></tr>
             </table>
             <p style="color:#999;font-size:12px;margin-top:20px;">Submitted from the Traditions Field Club website contact form.</p>
           `,
@@ -192,42 +188,6 @@ export async function POST(req: NextRequest) {
       }
     } catch (emailError) {
       console.error("Resend email failed:", emailError);
-    }
-
-    // 11. Submit to HubSpot Forms API
-    const hubspotResponse = await fetch(
-      `${HUBSPOT_API_BASE}/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          submittedAt: Date.now(),
-          fields: [
-            { objectTypeId: "0-1", name: "firstname", value: firstName.trim() },
-            { objectTypeId: "0-1", name: "lastname", value: lastName.trim() },
-            { objectTypeId: "0-1", name: "email", value: email.trim() },
-            { objectTypeId: "0-1", name: "phone", value: phone.trim() },
-            { objectTypeId: "0-1", name: "how_can_we_help_", value: topic },
-            { objectTypeId: "0-1", name: "message", value: (message || "").trim() },
-          ],
-          context: {
-            pageUri: referer || "https://traditionsfieldclub.com/contact",
-            pageName: "Contact Us",
-            ipAddress: ip,
-          },
-        }),
-      }
-    );
-
-    if (!hubspotResponse.ok) {
-      const errorData = await hubspotResponse.json();
-      console.error("HubSpot API error:", errorData);
-      return NextResponse.json(
-        { error: "Failed to submit form" },
-        { status: 500 }
-      );
     }
 
     return NextResponse.json({ success: true });
