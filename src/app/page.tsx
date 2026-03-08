@@ -129,7 +129,7 @@ export default function Home() {
                   {/* Overlay text */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <p
-                      className="text-[#f5f2ec] text-lg md:text-2xl tracking-[0.25em] uppercase font-light text-center px-4"
+                      className="text-[#f5f2ec] text-lg md:text-2xl tracking-[0.25em] uppercase font-normal text-center px-4"
                       style={{ fontFamily: "var(--font-heading), serif", textShadow: "0 2px 8px rgba(0,0,0,0.4)" }}
                     >
                       Welcome to Your First Course
@@ -239,6 +239,7 @@ export default function Home() {
                     src="/images/shooter_at_stand.webp"
                     alt="Sporting clays shooting at Traditions Field Club"
                     fill
+                    quality={50}
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
@@ -332,6 +333,7 @@ export default function Home() {
               src="/images/spanish_moss_forest.webp"
               alt=""
               fill
+              quality={40}
               className="object-cover object-center"
               sizes="100vw"
               loading="lazy"

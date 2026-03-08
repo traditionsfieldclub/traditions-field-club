@@ -8,13 +8,13 @@ import JsonLd from "@/components/JsonLd";
 const nanumMyeongjo = Nanum_Myeongjo({
   variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["400", "700", "800"],
+  weight: ["400", "700"],
 });
 
 const lato = Lato({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["300", "400", "700"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
