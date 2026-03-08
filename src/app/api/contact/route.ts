@@ -26,13 +26,6 @@ function isRateLimited(ip: string): boolean {
   return entry.count > RATE_LIMIT_MAX;
 }
 
-// Clean up stale entries every 15 minutes
-setInterval(() => {
-  const now = Date.now();
-  for (const [ip, entry] of rateLimitMap) {
-    if (now > entry.resetAt) rateLimitMap.delete(ip);
-  }
-}, 15 * 60 * 1000);
 
 // --- Field Limits ---
 const MAX_LENGTHS: Record<string, number> = {
