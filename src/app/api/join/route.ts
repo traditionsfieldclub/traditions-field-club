@@ -522,8 +522,9 @@ export async function POST(req: NextRequest) {
     const pdfBase64 = Buffer.from(pdfBytes).toString("base64");
 
     // 11. Push to Google Sheets (Members tab) — fire and forget
-    fetch(
-      "https://script.google.com/macros/s/AKfycbw8fbFnW0SMjaJ2z1vRviS-C9YyuwzWspkW-2wdZp96SpWdV3U5RREaqmqtyhqCs5wB/exec",
+    const sheetsWebhook = process.env.GOOGLE_SHEETS_MEMBERS_WEBHOOK;
+    if (sheetsWebhook) fetch(
+      `https://script.google.com/macros/s/${sheetsWebhook}/exec`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

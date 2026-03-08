@@ -14,6 +14,7 @@ export default function NewsletterForm({
   description = "Be the first to know about events, membership openings, and club updates.",
 }: NewsletterFormProps) {
   const [email, setEmail] = useState("");
+  const [honeypot, setHoneypot] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const formLoadedAt = useRef(Date.now());
@@ -23,6 +24,12 @@ export default function NewsletterForm({
     setErrorMessage("");
 
     if (!email.trim()) return;
+
+    // Honeypot — silently fake success if filled
+    if (honeypot) {
+      setStatus("success");
+      return;
+    }
 
     setStatus("submitting");
 
@@ -84,7 +91,18 @@ export default function NewsletterForm({
           </div>
         ) : (
           <>
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto relative">
+              {/* Honeypot — hidden from users, bots will fill it */}
+              <div className="absolute -left-[9999px]" aria-hidden="true">
+                <input
+                  type="text"
+                  name="website_url_confirm"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="new-password"
+                />
+              </div>
               <input
                 type="email"
                 placeholder="Enter your email"

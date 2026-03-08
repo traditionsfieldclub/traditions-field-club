@@ -8,7 +8,6 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options = "ALLOWALL"
     Content-Security-Policy = "frame-ancestors 'self' https://forgeddigitaldesign.com http://localhost:*"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"

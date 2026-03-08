@@ -35,6 +35,7 @@ function ContactContent() {
   const [showError, setShowError] = useState(false);
   const [submitTime, setSubmitTime] = useState<number | null>(null);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const formLoadedAt = useRef(Date.now());
   const turnstileRef = useRef<HTMLDivElement>(null);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
@@ -139,6 +140,7 @@ function ContactContent() {
           message: formData.message,
           companyFax: formData.companyFax,
           cfTurnstileToken: turnstileToken,
+          formLoadedAt: formLoadedAt.current,
         }),
       });
 

@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 
 export default function FooterNewsletter() {
   const [email, setEmail] = useState("");
+  const [honeypot, setHoneypot] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const formLoadedAt = useRef(Date.now());
@@ -13,6 +14,12 @@ export default function FooterNewsletter() {
     setErrorMessage("");
 
     if (!email.trim()) return;
+
+    // Honeypot — silently fake success if filled
+    if (honeypot) {
+      setStatus("success");
+      return;
+    }
 
     setStatus("submitting");
 
@@ -58,6 +65,17 @@ export default function FooterNewsletter() {
       ) : (
         <>
           <form onSubmit={handleSubmit} className="space-y-3">
+            {/* Honeypot — hidden from users, bots will fill it */}
+            <div className="absolute -left-[9999px]" aria-hidden="true">
+              <input
+                type="text"
+                name="website_url_confirm"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                tabIndex={-1}
+                autoComplete="new-password"
+              />
+            </div>
             <input
               type="email"
               placeholder="Enter your email"

@@ -30,6 +30,11 @@ setInterval(() => {
   }
 }, 15 * 60 * 1000);
 
+// --- HTML Escaping (XSS Prevention) ---
+function esc(s: string): string {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
 // --- Email Validation ---
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -99,8 +104,9 @@ export async function POST(req: NextRequest) {
     }
 
     // 6. Push to Google Sheets (Newsletter Submissions tab) — fire and forget
-    fetch(
-      "https://script.google.com/macros/s/AKfycby5yqVfqC3c1mo3QVa4WNsIl8Wh_FYw2rEfpi0Ji20Oql4EIiHOtng9amVQqLYkMX7Mnw/exec",
+    const sheetsWebhook = process.env.GOOGLE_SHEETS_CONTACT_WEBHOOK;
+    if (sheetsWebhook) fetch(
+      `https://script.google.com/macros/s/${sheetsWebhook}/exec`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -124,7 +130,7 @@ export async function POST(req: NextRequest) {
           subject: "New Newsletter Subscriber",
           html: `
             <h2>New Newsletter Signup</h2>
-            <p><strong>Email:</strong> <a href="mailto:${email.trim()}">${email.trim()}</a></p>
+            <p><strong>Email:</strong> <a href="mailto:${esc(email.trim())}">${esc(email.trim())}</a></p>
             <p style="color:#999;font-size:12px;margin-top:20px;">Submitted from the Traditions Field Club website.</p>
           `,
         });

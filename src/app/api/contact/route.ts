@@ -76,7 +76,7 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { firstName, lastName, email, phone, topic, message, companyFax, cfTurnstileToken } = body;
+    const { firstName, lastName, email, phone, topic, message, companyFax, cfTurnstileToken, formLoadedAt } = body;
 
     // 3. Turnstile verification (skip in development — localhost not in allowed hostnames)
     const isDev = process.env.NODE_ENV === "development";
@@ -109,7 +109,12 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // 4. Honeypot check — if filled, it's a bot
+    // 4. Timing-based bot detection (< 3 seconds = bot)
+    if (formLoadedAt && Date.now() - formLoadedAt < 3000) {
+      return NextResponse.json({ success: true }); // Silent rejection
+    }
+
+    // 5. Honeypot check — if filled, it's a bot
     if (companyFax) {
       return NextResponse.json({ success: true });
     }
@@ -145,8 +150,9 @@ export async function POST(req: NextRequest) {
     }
 
     // 9. Push to Google Sheets (Contact Form Submissions tab) — fire and forget
-    fetch(
-      "https://script.google.com/macros/s/AKfycby5yqVfqC3c1mo3QVa4WNsIl8Wh_FYw2rEfpi0Ji20Oql4EIiHOtng9amVQqLYkMX7Mnw/exec",
+    const sheetsWebhook = process.env.GOOGLE_SHEETS_CONTACT_WEBHOOK;
+    if (sheetsWebhook) fetch(
+      `https://script.google.com/macros/s/${sheetsWebhook}/exec`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
