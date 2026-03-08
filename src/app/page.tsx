@@ -333,9 +333,8 @@ export default function Home() {
               src="/images/spanish_moss_forest.webp"
               alt=""
               fill
-              quality={40}
+              unoptimized
               className="object-cover object-center"
-              sizes="100vw"
               loading="lazy"
             />
             <div className="absolute inset-0 bg-[#162838]/60"></div>
