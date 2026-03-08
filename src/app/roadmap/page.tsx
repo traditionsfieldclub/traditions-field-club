@@ -484,19 +484,21 @@ export default function Roadmap() {
                 Course 1 Testing — Family Tested, Family Approved
               </h3>
               <p className="text-[#333333] mb-6">
-                Course 1 is nearly complete. Dads, daughters, and sons all took their first shots —
-                and that&apos;s what it&apos;s all about. Meanwhile, clearing continues as the property keeps taking shape.
+                Course 1 is nearly complete. Clay throwers dialed in, stations prepped, and families taking their first shots —
+                that&apos;s what it&apos;s all about. Meanwhile, clearing continues as the property keeps taking shape.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                 {[
+                  { src: "team_group_photo_1", alt: "The crew posing together on the property" },
                   { src: "father_daughter_station_field", alt: "Father teaching daughter to shoot at a station overlooking the field", position: "right center" },
+                  { src: "trap_setup_team_2", alt: "Two crew members setting up a clay trap machine on the course" },
                   { src: "boy_shooting_station", alt: "Young boy shooting from a station on the course" },
                   { src: "shooter_station_deck_water", alt: "Shooter aiming from a wooden station deck by the water", position: "center 20%" },
+                  { src: "trap_loading_closeup_1", alt: "Loading clay targets into a trap machine up close" },
                   { src: "kids_running_trail_bridge", alt: "Kids running across a wooden trail bridge through the woods" },
                   { src: "family_covered_station", alt: "Family gathered at a covered shooting station" },
+                  { src: "trap_machine_atv_1", alt: "Crew working on trap machine setup with ATV nearby" },
                   { src: "kid_shooting_station_field", alt: "Kid shooting from a station overlooking the field" },
-                  { src: "crew_brush_clearing_chainsaw", alt: "Crew clearing brush with chainsaws" },
-                  { src: "chainsaw_felled_tree", alt: "Chainsaw on a felled tree" },
                   { src: "crew_chainsaw_field", alt: "Crew members with chainsaws in open field" },
                   { src: "owner_chainsawing_fallen_tree", alt: "Owner chainsawing a fallen tree in the woods" },
                 ].map((img) => (
@@ -509,12 +511,6 @@ export default function Roadmap() {
                       style={img.position ? { objectPosition: img.position } : undefined}
                       sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                     />
-                  </div>
-                ))}
-                {/* Coming Soon placeholders */}
-                {Array.from({ length: 2 }).map((_, i) => (
-                  <div key={`coming-soon-${i}`} className="relative aspect-[4/3] rounded-lg overflow-hidden bg-[#162838]/10 flex items-center justify-center">
-                    <span className="text-[#162838]/40 text-xs font-semibold tracking-[0.2em] uppercase">Coming Soon</span>
                   </div>
                 ))}
               </div>
@@ -547,7 +543,7 @@ export default function Roadmap() {
                   { src: "station_frames_construction", alt: "Station frames under construction" },
                   { src: "five_stand_stations_row", alt: "Row of 5-stand shooting stations" },
                   { src: "skid_steer_stations_lumber", alt: "Skid steer delivering lumber to stations" },
-                  { src: "shooting_stations_construction", alt: "Shooting stations being built" },
+                  { src: "crew_brush_clearing_chainsaw", alt: "Crew clearing brush with chainsaws" },
                   { src: "station_clay_thrower_field", alt: "Station with clay thrower and field view" },
                   { src: "clay_thrower_trailer_delivery", alt: "Clay thrower delivery on trailer" },
                   { src: "shooter_aiming_field", alt: "Shooter aiming in the field" },
