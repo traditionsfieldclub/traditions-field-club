@@ -7,21 +7,21 @@ export default function VideoHero() {
   const video1Ref = useRef<HTMLVideoElement>(null);
   const video2Ref = useRef<HTMLVideoElement>(null);
   const [activeVideo, setActiveVideo] = useState(0);
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [showVideos, setShowVideos] = useState(false);
   const isTransitioning = useRef(false);
 
   useEffect(() => {
-    // Check if desktop (768px+) — only load videos on desktop
+    // Only show videos on desktop (768px+)
     const mq = window.matchMedia('(min-width: 768px)');
-    setIsDesktop(mq.matches);
+    setShowVideos(mq.matches);
 
-    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    const handler = (e: MediaQueryListEvent) => setShowVideos(e.matches);
     mq.addEventListener('change', handler);
     return () => mq.removeEventListener('change', handler);
   }, []);
 
   useEffect(() => {
-    if (!isDesktop) return;
+    if (!showVideos) return;
 
     const video1 = video1Ref.current;
     const video2 = video2Ref.current;
@@ -67,25 +67,23 @@ export default function VideoHero() {
       video1.removeEventListener('ended', handleVideo1End);
       video2.removeEventListener('ended', handleVideo2End);
     };
-  }, [isDesktop]);
+  }, [showVideos]);
 
   return (
     <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-[#162838]">
-      {/* Mobile: Static poster image */}
-      {!isDesktop && (
-        <Image
-          src="/images/hero-poster.webp"
-          alt="Aerial view of Traditions Field Club sporting clays property"
-          fill
-          priority
-          fetchPriority="high"
-          className="object-cover object-right"
-          sizes="100vw"
-        />
-      )}
+      {/* Poster image — always rendered as base layer */}
+      <Image
+        src="/images/hero-poster.webp"
+        alt="Aerial view of Traditions Field Club sporting clays property"
+        fill
+        priority
+        fetchPriority="high"
+        className="object-cover object-right md:object-center"
+        sizes="100vw"
+      />
 
-      {/* Desktop: Video backgrounds */}
-      {isDesktop && (
+      {/* Desktop: Video backgrounds layered on top */}
+      {showVideos && (
         <>
           <video
             ref={video1Ref}
