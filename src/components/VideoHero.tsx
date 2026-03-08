@@ -60,6 +60,8 @@ export default function VideoHero() {
         autoPlay
         muted
         playsInline
+        preload="metadata"
+        poster="/images/hero-poster.webp"
         aria-label="Aerial view of Traditions Field Club sporting clays property"
         className={`absolute inset-0 w-full h-full object-cover object-right md:object-center transition-opacity duration-[2000ms] ${activeVideo === 0 ? 'opacity-100' : 'opacity-0'}`}
       >
@@ -71,6 +73,7 @@ export default function VideoHero() {
         ref={video2Ref}
         muted
         playsInline
+        preload="none"
         aria-label="Sporting clays shooting and property tour at Traditions Field Club"
         className={`absolute inset-0 w-full h-full object-cover object-right md:object-center transition-opacity duration-[2000ms] ${activeVideo === 1 ? 'opacity-100' : 'opacity-0'}`}
       >

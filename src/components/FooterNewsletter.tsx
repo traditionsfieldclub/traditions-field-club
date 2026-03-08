@@ -44,7 +44,7 @@ export default function FooterNewsletter() {
 
   return (
     <div>
-      <h3 className="text-sm font-semibold uppercase tracking-widest mb-4 text-[#a75235]">
+      <h3 className="text-sm font-semibold uppercase tracking-widest mb-4 text-[#c4764e]">
         Stay Connected
       </h3>
       <p className="text-sm opacity-75 mb-4">

@@ -37,7 +37,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-base font-semibold uppercase tracking-widest mb-4 text-[#a75235]">
+            <h3 className="text-base font-semibold uppercase tracking-widest mb-4 text-[#c4764e]">
               Contact
             </h3>
             <ul className="space-y-3 text-base">
@@ -81,7 +81,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h3 className="text-base font-semibold uppercase tracking-widest mb-4 text-[#a75235]">
+            <h3 className="text-base font-semibold uppercase tracking-widest mb-4 text-[#c4764e]">
               Navigation
             </h3>
             <ul className="space-y-3">
@@ -124,7 +124,7 @@ export default function Footer() {
 
           {/* Navigation Links */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-widest mb-4 text-[#a75235]">
+            <h3 className="text-sm font-semibold uppercase tracking-widest mb-4 text-[#c4764e]">
               Navigation
             </h3>
             <ul className="space-y-2">
@@ -143,7 +143,7 @@ export default function Footer() {
 
           {/* Contact, Hours & Actions */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-widest mb-4 text-[#a75235]">
+            <h3 className="text-sm font-semibold uppercase tracking-widest mb-4 text-[#c4764e]">
               Contact
             </h3>
             <ul className="space-y-3 text-sm">

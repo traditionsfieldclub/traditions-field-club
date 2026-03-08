@@ -117,6 +117,7 @@ export default function Home() {
                     muted
                     loop
                     playsInline
+                    preload="none"
                     className="w-full h-full object-cover object-left"
                     aria-label="Drive through the future sporting clays course at Traditions Field Club"
                     ref={(el) => { if (el) el.playbackRate = 0.8; }}
@@ -326,12 +327,15 @@ export default function Home() {
 
         {/* Full-Width Image Break */}
         <section className="relative h-[300px] md:h-[400px]" role="img" aria-label="Spanish moss hanging from trees in the forest at Traditions Field Club">
-          <div
-            className="absolute inset-0 bg-[#162838] bg-cover bg-center bg-fixed"
-            style={{
-              backgroundImage: "url('/images/spanish_moss_forest.webp')",
-            }}
-          >
+          <div className="absolute inset-0 bg-[#162838]">
+            <Image
+              src="/images/spanish_moss_forest.webp"
+              alt=""
+              fill
+              className="object-cover object-center"
+              sizes="100vw"
+              loading="lazy"
+            />
             <div className="absolute inset-0 bg-[#162838]/60"></div>
           </div>
           <div className="absolute inset-0 flex items-center justify-center">
@@ -402,19 +406,19 @@ export default function Home() {
                 {/* Membership Highlights */}
                 <div className="grid grid-cols-2 gap-4 mb-8">
                   <div className="bg-[#f5f2ec] p-4 rounded-lg">
-                    <h4 className="text-[#162838] font-semibold mb-1">7-Day Access</h4>
+                    <p className="text-[#162838] font-semibold mb-1">7-Day Access</p>
                     <p className="text-sm text-[#333333]">Sun up to sun down</p>
                   </div>
                   <div className="bg-[#f5f2ec] p-4 rounded-lg">
-                    <h4 className="text-[#162838] font-semibold mb-1">Clay Credits</h4>
+                    <p className="text-[#162838] font-semibold mb-1">Clay Credits</p>
                     <p className="text-sm text-[#333333]">Dues convert to value</p>
                   </div>
                   <div className="bg-[#f5f2ec] p-4 rounded-lg">
-                    <h4 className="text-[#162838] font-semibold mb-1">Family Friendly</h4>
+                    <p className="text-[#162838] font-semibold mb-1">Family Friendly</p>
                     <p className="text-sm text-[#333333]">All ages welcome</p>
                   </div>
                   <div className="bg-[#f5f2ec] p-4 rounded-lg">
-                    <h4 className="text-[#162838] font-semibold mb-1">Events</h4>
+                    <p className="text-[#162838] font-semibold mb-1">Events</p>
                     <p className="text-sm text-[#333333]">Member-only access</p>
                   </div>
                 </div>
@@ -610,8 +614,8 @@ export default function Home() {
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
                   <Image
-                    src="/images/chainsaw_felled_tree.webp"
-                    alt="Volunteer clearing trees at Traditions Field Club"
+                    src="/images/trap_setup_team_2.webp"
+                    alt="Volunteers setting up trap machines at Traditions Field Club"
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
