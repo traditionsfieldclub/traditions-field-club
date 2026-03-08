@@ -1,14 +1,28 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 
 export default function VideoHero() {
   const video1Ref = useRef<HTMLVideoElement>(null);
   const video2Ref = useRef<HTMLVideoElement>(null);
   const [activeVideo, setActiveVideo] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
   const isTransitioning = useRef(false);
 
   useEffect(() => {
+    // Check if desktop (768px+) — only load videos on desktop
+    const mq = window.matchMedia('(min-width: 768px)');
+    setIsDesktop(mq.matches);
+
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
+  useEffect(() => {
+    if (!isDesktop) return;
+
     const video1 = video1Ref.current;
     const video2 = video2Ref.current;
     if (!video1 || !video2) return;
@@ -16,6 +30,9 @@ export default function VideoHero() {
     // Set playback speed for both videos
     video1.playbackRate = 0.7;
     video2.playbackRate = 0.8;
+
+    // Start playing video 1
+    video1.play();
 
     const handleVideo1End = () => {
       if (isTransitioning.current) return;
@@ -50,35 +67,49 @@ export default function VideoHero() {
       video1.removeEventListener('ended', handleVideo1End);
       video2.removeEventListener('ended', handleVideo2End);
     };
-  }, []);
+  }, [isDesktop]);
 
   return (
     <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-[#162838]">
-      {/* Video 1 Background */}
-      <video
-        ref={video1Ref}
-        autoPlay
-        muted
-        playsInline
-        preload="metadata"
-        poster="/images/hero-poster.webp"
-        aria-label="Aerial view of Traditions Field Club sporting clays property"
-        className={`absolute inset-0 w-full h-full object-cover object-right md:object-center transition-opacity duration-[2000ms] ${activeVideo === 0 ? 'opacity-100' : 'opacity-0'}`}
-      >
-        <source src="/hero-video.mp4" type="video/mp4" />
-      </video>
+      {/* Mobile: Static poster image */}
+      {!isDesktop && (
+        <Image
+          src="/images/hero-poster.webp"
+          alt="Aerial view of Traditions Field Club sporting clays property"
+          fill
+          priority
+          fetchPriority="high"
+          className="object-cover object-right"
+          sizes="100vw"
+        />
+      )}
 
-      {/* Video 2 Background */}
-      <video
-        ref={video2Ref}
-        muted
-        playsInline
-        preload="none"
-        aria-label="Sporting clays shooting and property tour at Traditions Field Club"
-        className={`absolute inset-0 w-full h-full object-cover object-right md:object-center transition-opacity duration-[2000ms] ${activeVideo === 1 ? 'opacity-100' : 'opacity-0'}`}
-      >
-        <source src="/hero-video2.mp4" type="video/mp4" />
-      </video>
+      {/* Desktop: Video backgrounds */}
+      {isDesktop && (
+        <>
+          <video
+            ref={video1Ref}
+            muted
+            playsInline
+            preload="metadata"
+            aria-label="Aerial view of Traditions Field Club sporting clays property"
+            className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-[2000ms] ${activeVideo === 0 ? 'opacity-100' : 'opacity-0'}`}
+          >
+            <source src="/hero-video.mp4" type="video/mp4" />
+          </video>
+
+          <video
+            ref={video2Ref}
+            muted
+            playsInline
+            preload="none"
+            aria-label="Sporting clays shooting and property tour at Traditions Field Club"
+            className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-[2000ms] ${activeVideo === 1 ? 'opacity-100' : 'opacity-0'}`}
+          >
+            <source src="/hero-video2.mp4" type="video/mp4" />
+          </video>
+        </>
+      )}
 
       {/* Overlay for better text readability */}
       <div className="absolute inset-0 bg-[#162838]/40" />
