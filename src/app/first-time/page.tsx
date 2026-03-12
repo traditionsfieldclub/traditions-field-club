@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
-import Image from "next/image";
+import FadeImage from "@/components/FadeImage";
 
 const steps = [
   {
@@ -222,7 +222,7 @@ export default function FirstTime() {
               >
                 <div className="relative h-[300px] sm:h-[350px] md:h-[400px]">
                   <div className="absolute inset-0 rounded-lg overflow-hidden">
-                    <Image
+                    <FadeImage
                       src="/images/clay_target_thrower.webp"
                       alt="Clay target thrower loaded with orange clays"
                       fill

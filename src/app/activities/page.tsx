@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
-import Image from "next/image";
+import FadeImage from "@/components/FadeImage";
 import Link from "next/link";
 
 export default function Activities() {
@@ -111,7 +111,7 @@ export default function Activities() {
                 }`}
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
-                  <Image
+                  <FadeImage
                     src="/images/shooting_stations_construction.webp"
                     alt="5-Stand shooting stations at Traditions Field Club"
                     fill
@@ -289,7 +289,7 @@ export default function Activities() {
                 }`}
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
-                  <Image
+                  <FadeImage
                     src="/images/shooter_at_stand.webp"
                     alt="Sporting clays shooting at Traditions Field Club"
                     fill
@@ -349,7 +349,7 @@ export default function Activities() {
                 }`}
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
-                  <Image
+                  <FadeImage
                     src="/images/archery_range_shooting.webp"
                     alt="Archery range at Traditions Field Club"
                     fill
@@ -537,9 +537,9 @@ export default function Activities() {
                 }`}
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
-                  <Image
-                    src="/images/shooting_lesson_group.webp"
-                    alt="Group shooting lesson at Traditions Field Club"
+                  <FadeImage
+                    src="/images/coach-shooting-lesson.webp"
+                    alt="Coach instructing a shooter at Traditions Field Club"
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"

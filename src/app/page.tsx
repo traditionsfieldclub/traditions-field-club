@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import VideoHero from "@/components/VideoHero";
 import Link from "next/link";
 import Image from "next/image";
+import FadeImage from "@/components/FadeImage";
 
 export default function Home() {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
@@ -193,7 +194,7 @@ export default function Home() {
                 style={{ transitionDelay: "200ms" }}
               >
                 <div className="relative h-[200px] overflow-hidden">
-                  <Image
+                  <FadeImage
                     src="/images/shooting_stations_construction.webp"
                     alt="5-Stand shooting stations at Traditions Field Club"
                     fill
@@ -235,7 +236,7 @@ export default function Home() {
                 style={{ transitionDelay: "400ms" }}
               >
                 <div className="relative h-[200px] overflow-hidden">
-                  <Image
+                  <FadeImage
                     src="/images/shooter_at_stand.webp"
                     alt="Sporting clays shooting at Traditions Field Club"
                     fill
@@ -278,7 +279,7 @@ export default function Home() {
                 style={{ transitionDelay: "600ms" }}
               >
                 <div className="relative h-[200px] overflow-hidden">
-                  <Image
+                  <FadeImage
                     src="/images/archery_range_shooting.webp"
                     alt="Archery range at Traditions Field Club"
                     fill
@@ -368,7 +369,7 @@ export default function Home() {
                 }`}
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
-                  <Image
+                  <FadeImage
                     src="/images/pond_selfie_2.webp"
                     alt="Members enjoying the property at Traditions Field Club"
                     fill
@@ -614,7 +615,7 @@ export default function Home() {
                 }`}
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
-                  <Image
+                  <FadeImage
                     src="/images/trap_setup_team_2.webp"
                     alt="Volunteers setting up trap machines at Traditions Field Club"
                     fill

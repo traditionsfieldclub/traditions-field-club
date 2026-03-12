@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
-import Image from "next/image";
+import FadeImage from "@/components/FadeImage";
 
 export default function Roadmap() {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
@@ -108,7 +108,7 @@ export default function Roadmap() {
                     : "opacity-0 md:-translate-x-10"
                 }`}
               >
-                <Image
+                <FadeImage
                   src="/images/land_clearing_chainsaw.webp"
                   alt="Land clearing work for Phase 1 at Traditions Field Club"
                   fill
@@ -255,7 +255,7 @@ export default function Roadmap() {
                     : "opacity-0 md:translate-x-10"
                 }`}
               >
-                <Image
+                <FadeImage
                   src="/images/entrance_gate_pines.webp"
                   alt="Entrance gate concept for Traditions Field Club"
                   fill
@@ -287,7 +287,7 @@ export default function Roadmap() {
                     : "opacity-0 md:-translate-x-10"
                 }`}
               >
-                <Image
+                <FadeImage
                   src="/images/lodge_exterior_render.webp"
                   alt="Lodge exterior concept for Traditions Field Club"
                   fill
@@ -418,7 +418,7 @@ export default function Roadmap() {
                     : "opacity-0 md:translate-x-10"
                 }`}
               >
-                <Image
+                <FadeImage
                   src="/images/rv_campground_pines.webp"
                   alt="RV campground concept in pine forest at Traditions Field Club"
                   fill
@@ -503,7 +503,7 @@ export default function Roadmap() {
                   { src: "owner_chainsawing_fallen_tree", alt: "Owner chainsawing a fallen tree in the woods" },
                 ].map((img) => (
                   <div key={img.src} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
-                    <Image
+                    <FadeImage
                       src={`/images/${img.src}.webp`}
                       alt={img.alt}
                       fill
@@ -550,7 +550,7 @@ export default function Roadmap() {
                   { src: "shooting_from_deck_swamp", alt: "Shooting from deck overlooking swamp" },
                 ].map((img) => (
                   <div key={img.src} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
-                    <Image
+                    <FadeImage
                       src={`/images/${img.src}.webp`}
                       alt={img.alt}
                       fill
@@ -596,7 +596,7 @@ export default function Roadmap() {
                   { src: "swamp_trees_water", alt: "Swamp trees reflecting in water" },
                 ].map((img) => (
                   <div key={img.src} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
-                    <Image
+                    <FadeImage
                       src={`/images/${img.src}.webp`}
                       alt={img.alt}
                       fill

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
-import Image from "next/image";
+import FadeImage from "@/components/FadeImage";
 
 const faqs = [
   {
@@ -421,7 +421,7 @@ export default function Membership() {
                     : "opacity-0 -translate-x-10"
                 }`}
               >
-                <Image
+                <FadeImage
                   src="/images/kids_truck_bed_property.webp"
                   alt="Kids hanging out in a truck bed on the property at Traditions Field Club"
                   fill

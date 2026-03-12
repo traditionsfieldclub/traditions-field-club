@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
-import Image from "next/image";
+import FadeImage from "@/components/FadeImage";
 import Link from "next/link";
 
 export default function About() {
@@ -392,7 +392,7 @@ export default function About() {
               }`}
               style={{ transitionDelay: "100ms" }}
             >
-              <Image
+              <FadeImage
                 src="/images/owners_selfie_property.webp"
                 alt="Brian Seifrit and Jim Nicholson, co-owners of Traditions Field Club"
                 fill
