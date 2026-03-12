@@ -541,7 +541,7 @@ export default function Activities() {
                     src="/images/coach-shooting-lesson.webp"
                     alt="Coach instructing a shooter at Traditions Field Club"
                     fill
-                    className="object-cover"
+                    className="object-cover object-[center_30%]"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
