@@ -286,7 +286,7 @@ export default function About() {
                   aria-label="Scenic views of the 410-acre property at Traditions Field Club"
                   className="absolute inset-0 w-full h-full object-cover"
                 >
-                  <source src="/images/land_combined.mp4" type="video/mp4" />
+                  <source src="/images/lowcountry-landscape.mp4" type="video/mp4" />
                 </video>
               </div>
 

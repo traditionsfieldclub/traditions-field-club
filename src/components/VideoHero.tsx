@@ -4,70 +4,24 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 
 export default function VideoHero() {
-  const video1Ref = useRef<HTMLVideoElement>(null);
-  const video2Ref = useRef<HTMLVideoElement>(null);
-  const [activeVideo, setActiveVideo] = useState(0);
-  const [showVideos, setShowVideos] = useState(false);
-  const isTransitioning = useRef(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [showVideo, setShowVideo] = useState(false);
 
   useEffect(() => {
-    // Only show videos on desktop (768px+)
+    // Only show video on desktop (768px+)
     const mq = window.matchMedia('(min-width: 768px)');
-    setShowVideos(mq.matches);
+    setShowVideo(mq.matches);
 
-    const handler = (e: MediaQueryListEvent) => setShowVideos(e.matches);
+    const handler = (e: MediaQueryListEvent) => setShowVideo(e.matches);
     mq.addEventListener('change', handler);
     return () => mq.removeEventListener('change', handler);
   }, []);
 
   useEffect(() => {
-    if (!showVideos) return;
-
-    const video1 = video1Ref.current;
-    const video2 = video2Ref.current;
-    if (!video1 || !video2) return;
-
-    // Set playback speed for both videos
-    video1.playbackRate = 0.7;
-    video2.playbackRate = 0.8;
-
-    // Start playing video 1
-    video1.play();
-
-    const handleVideo1End = () => {
-      if (isTransitioning.current) return;
-      isTransitioning.current = true;
-
-      video2.currentTime = 0;
-      video2.play();
-      setActiveVideo(1);
-
-      setTimeout(() => {
-        isTransitioning.current = false;
-      }, 2500);
-    };
-
-    const handleVideo2End = () => {
-      if (isTransitioning.current) return;
-      isTransitioning.current = true;
-
-      video1.currentTime = 0;
-      video1.play();
-      setActiveVideo(0);
-
-      setTimeout(() => {
-        isTransitioning.current = false;
-      }, 2500);
-    };
-
-    video1.addEventListener('ended', handleVideo1End);
-    video2.addEventListener('ended', handleVideo2End);
-
-    return () => {
-      video1.removeEventListener('ended', handleVideo1End);
-      video2.removeEventListener('ended', handleVideo2End);
-    };
-  }, [showVideos]);
+    if (!showVideo || !videoRef.current) return;
+    videoRef.current.playbackRate = 0.85;
+    videoRef.current.play();
+  }, [showVideo]);
 
   return (
     <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-[#162838]">
@@ -82,31 +36,19 @@ export default function VideoHero() {
         sizes="100vw"
       />
 
-      {/* Desktop: Video backgrounds layered on top */}
-      {showVideos && (
-        <>
-          <video
-            ref={video1Ref}
-            muted
-            playsInline
-            preload="metadata"
-            aria-label="Aerial view of Traditions Field Club sporting clays property"
-            className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-[2000ms] ${activeVideo === 0 ? 'opacity-100' : 'opacity-0'}`}
-          >
-            <source src="/hero-video.mp4" type="video/mp4" />
-          </video>
-
-          <video
-            ref={video2Ref}
-            muted
-            playsInline
-            preload="none"
-            aria-label="Sporting clays shooting and property tour at Traditions Field Club"
-            className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-[2000ms] ${activeVideo === 1 ? 'opacity-100' : 'opacity-0'}`}
-          >
-            <source src="/hero-video2.mp4" type="video/mp4" />
-          </video>
-        </>
+      {/* Desktop: Looping hero video */}
+      {showVideo && (
+        <video
+          ref={videoRef}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-label="Aerial drone footage of sporting clays stations and property at Traditions Field Club"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        >
+          <source src="/hero-video-new.mp4" type="video/mp4" />
+        </video>
       )}
 
       {/* Overlay for better text readability */}
