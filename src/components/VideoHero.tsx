@@ -32,7 +32,7 @@ export default function VideoHero() {
         fill
         priority
         fetchPriority="high"
-        className="object-cover object-right md:object-center"
+        className="object-cover object-[75%_center] md:object-center"
         sizes="100vw"
       />
 
