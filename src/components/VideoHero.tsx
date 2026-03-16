@@ -40,6 +40,7 @@ export default function VideoHero() {
       {showVideo && (
         <video
           ref={videoRef}
+          autoPlay
           muted
           loop
           playsInline
