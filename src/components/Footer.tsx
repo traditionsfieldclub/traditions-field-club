@@ -50,7 +50,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="opacity-75">
-                Lowcountry Hwy, Ruffin, SC 29475
+                13197 Low Country Hwy, Ruffin, SC 29475
               </li>
               <li className="pt-2">
                 <a
@@ -156,7 +156,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="opacity-75">
-                Lowcountry Hwy, Ruffin, SC 29475
+                13197 Low Country Hwy, Ruffin, SC 29475
               </li>
               <li className="pt-2">
                 <a

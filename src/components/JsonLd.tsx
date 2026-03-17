@@ -8,6 +8,7 @@ const localBusiness = {
   email: "info@traditionsfieldclub.com",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "13197 Low Country Hwy",
     addressLocality: "Ruffin",
     addressRegion: "SC",
     postalCode: "29475",

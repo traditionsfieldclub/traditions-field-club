@@ -323,7 +323,7 @@ export default function About() {
                 <ul className="space-y-3 text-[#333333]">
                   <li className="flex items-center gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full flex-shrink-0"></span>
-                    Located along Highway 21 in Ruffin, SC
+                    Located at 13197 Low Country Hwy in Ruffin, SC
                   </li>
                   <li className="flex items-center gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full flex-shrink-0"></span>

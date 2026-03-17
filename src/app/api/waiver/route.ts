@@ -226,7 +226,7 @@ async function generateWaiverPDF(data: {
 
   // === Intro paragraph ===
   drawText(
-    'In consideration of being permitted to participate in shooting sports activities, use facilities, equipment, and services at Traditions Field Club, located on Lowcountry Hwy, Ruffin, SC 29475 ("the Club"), I, for myself and on behalf of my heirs, personal representatives, and assigns, agree as follows:'
+    'In consideration of being permitted to participate in shooting sports activities, use facilities, equipment, and services at Traditions Field Club, located at 13197 Low Country Hwy, Ruffin, SC 29475 ("the Club"), I, for myself and on behalf of my heirs, personal representatives, and assigns, agree as follows:'
   );
   y -= 4;
 
