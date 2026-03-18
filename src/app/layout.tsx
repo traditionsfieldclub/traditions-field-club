@@ -91,6 +91,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="overflow-x-hidden">
       <head>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="preload" href="/images/hero-poster.webp" as="image" type="image/webp" />
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <>
