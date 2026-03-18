@@ -24,7 +24,7 @@ export default function VideoHero() {
   }, [showVideo]);
 
   return (
-    <section className="relative min-h-[70svh] flex items-center justify-center overflow-hidden bg-[#162838]">
+    <section className="relative h-[500px] md:min-h-[70vh] md:h-auto flex items-center justify-center overflow-hidden bg-[#162838]">
       {/* Poster image — always rendered as base layer */}
       <Image
         src="/images/hero-poster.webp"
