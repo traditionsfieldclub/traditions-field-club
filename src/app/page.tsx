@@ -114,14 +114,21 @@ export default function Home() {
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
                   <video
-                    autoPlay
                     muted
                     loop
                     playsInline
                     preload="none"
                     className="w-full h-full object-cover object-left"
                     aria-label="Drive through the future sporting clays course at Traditions Field Club"
-                    ref={(el) => { if (el) el.playbackRate = 0.8; }}
+                    ref={(el) => {
+                      if (!el) return;
+                      el.playbackRate = 0.8;
+                      const observer = new IntersectionObserver(
+                        ([entry]) => { if (entry.isIntersecting) { el.play(); observer.disconnect(); } },
+                        { threshold: 0.25 }
+                      );
+                      observer.observe(el);
+                    }}
                   >
                     <source src="/images/property-drive-view.mp4" type="video/mp4" />
                   </video>

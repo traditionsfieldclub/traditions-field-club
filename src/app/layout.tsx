@@ -91,7 +91,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="overflow-x-hidden">
       <head>
-        <link rel="preload" href="/images/hero-poster.webp" as="image" type="image/webp" />
+        <link rel="preload" href="/images/hero-poster.webp" as="image" type="image/webp" media="(max-width: 767px)" />
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <>
             <Script
