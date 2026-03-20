@@ -61,7 +61,7 @@ export default function VideoHero() {
           className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 tracking-wide"
           style={{ fontFamily: "var(--font-heading), serif" }}
         >
-          Traditions Field Club
+          TRADITIONS FIELD CLUB
         </h1>
         <p className="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
           A premier sporting clays and outdoor club in the heart of South Carolina

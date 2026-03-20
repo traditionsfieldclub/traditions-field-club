@@ -11,7 +11,7 @@ export default function AnnouncementBar() {
           className="text-xs font-bold uppercase tracking-[0.2em]"
           style={{ fontFamily: "var(--font-heading), serif" }}
         >
-          🔨 See where we&apos;re at — Click here
+          🔨 SEE OUR PROGRESS — Click here
         </span>
       </a>
     </div>
