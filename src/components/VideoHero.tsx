@@ -63,7 +63,10 @@ export default function VideoHero() {
         >
           TRADITIONS FIELD CLUB
         </h1>
-        <p className="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
+        <p
+          className="text-base md:text-xl max-w-2xl mx-auto opacity-90 uppercase tracking-[0.25em] font-normal"
+          style={{ fontFamily: "var(--font-heading), serif" }}
+        >
           A premier sporting clays and outdoor club in the heart of South Carolina
         </p>
       </div>
