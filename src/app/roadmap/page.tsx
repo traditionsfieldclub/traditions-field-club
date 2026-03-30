@@ -498,7 +498,7 @@ export default function Roadmap() {
                   { src: "shooter_aiming_station", alt: "Shooter aiming from a covered station" },
                   { src: "station_landscape_crew", alt: "Covered station with crew in the distance" },
                   { src: "trap_machine_atv_1", alt: "Crew working on trap machine setup with ATV nearby" },
-                  { src: "station_landscape_green", alt: "Covered station surrounded by green foliage" },
+                  { src: "station_landscape_green", alt: "Group at Station 04 with shooter holding shotgun" },
                   { src: "crew_chainsaw_field", alt: "Crew members with chainsaws in open field" },
                   { src: "owner_chainsawing_fallen_tree", alt: "Owner chainsawing a fallen tree in the woods" },
                 ].map((img, i) => (
