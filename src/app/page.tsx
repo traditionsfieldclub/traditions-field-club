@@ -241,7 +241,7 @@ export default function Home() {
                     alt="Sporting clays shooting at Traditions Field Club"
                     fill
                     quality={50}
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="object-cover object-[center_calc(50%-10px)] scale-105 group-hover:scale-110 transition-transform duration-300"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-[#162838]/0 group-hover:bg-[#162838]/10 transition-colors duration-300"></div>
