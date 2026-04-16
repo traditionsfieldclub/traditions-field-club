@@ -7,6 +7,7 @@ import type ReactSignatureCanvas from "react-signature-canvas";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
+import { trackEvent } from "@/lib/analytics";
 
 // Dynamic import — react-signature-canvas uses canvas APIs not available during SSR
 const SignatureCanvas = dynamic(() => import("react-signature-canvas"), {
@@ -245,6 +246,7 @@ export default function Waiver() {
         setPdfBase64(result.pdf);
       }
 
+      trackEvent("waiver_signed", { is_minor: formData.isMinor ? "yes" : "no" });
       setIsSubmitted(true);
     } catch {
       setErrorMessage("Network error. Please check your connection and try again.");

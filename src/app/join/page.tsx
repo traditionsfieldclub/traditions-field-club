@@ -6,6 +6,7 @@ import Script from "next/script";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Join() {
   const [formData, setFormData] = useState({
@@ -158,6 +159,7 @@ export default function Join() {
         return;
       }
 
+      trackEvent("membership_apply", { membership_type: formData.membershipType || "unspecified" });
       setIsSubmitted(true);
     } catch {
       setErrorMessage("Unable to submit your application. Please check your connection and try again.");

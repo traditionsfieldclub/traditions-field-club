@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: "https://traditionsfieldclub.com/roadmap",
     images: [{ url: "https://traditionsfieldclub.com/og-image.jpg", width: 1200, height: 630 }],
   },
+  twitter: {
+    title: "Our Roadmap — Building the Future of Traditions",
+    description:
+      "Phase 1 sporting clays and archery, future lodge, trails, camping, pro shop — our long-term vision in South Carolina's Lowcountry.",
+  },
   alternates: {
     canonical: "https://traditionsfieldclub.com/roadmap",
   },

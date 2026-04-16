@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: "https://traditionsfieldclub.com/activities",
     images: [{ url: "https://traditionsfieldclub.com/og-image.jpg", width: 1200, height: 630 }],
   },
+  twitter: {
+    title: "Activities — Sporting Clays, 5-Stand & Archery",
+    description:
+      "12-station sporting clays, 5-stand, and archery in Ruffin, SC. Certified instruction for all levels.",
+  },
   alternates: {
     canonical: "https://traditionsfieldclub.com/activities",
   },

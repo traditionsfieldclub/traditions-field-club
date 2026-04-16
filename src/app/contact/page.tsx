@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
 import NewsletterForm from "@/components/NewsletterForm";
+import { trackEvent } from "@/lib/analytics";
 
 function ContactContent() {
   const searchParams = useSearchParams();
@@ -148,6 +149,7 @@ function ContactContent() {
         throw new Error("Failed to submit");
       }
 
+      trackEvent("contact_submit", { topic: formData.topic || "general" });
       setShowSuccess(true);
       setFormData({
         firstName: "",

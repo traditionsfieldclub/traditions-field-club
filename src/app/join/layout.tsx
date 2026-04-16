@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: "https://traditionsfieldclub.com/join",
     images: [{ url: "https://traditionsfieldclub.com/og-image.jpg", width: 1200, height: 630 }],
   },
+  twitter: {
+    title: "Join Our Membership Waiting List",
+    description:
+      "Sign up for individual, family, corporate, or exclusive membership at Traditions Field Club.",
+  },
   robots: {
     index: false,
     follow: true,

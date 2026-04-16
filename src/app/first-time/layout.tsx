@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: "https://traditionsfieldclub.com/first-time",
     images: [{ url: "https://traditionsfieldclub.com/og-image.jpg", width: 1200, height: 630 }],
   },
+  twitter: {
+    title: "First Time Visitors — What to Know Before You Visit",
+    description:
+      "Plan your first visit to Traditions Field Club — what to bring, safety, and what to expect on sporting clays, 5-stand, and archery.",
+  },
   alternates: {
     canonical: "https://traditionsfieldclub.com/first-time",
   },

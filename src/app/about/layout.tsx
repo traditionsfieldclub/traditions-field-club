@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: "https://traditionsfieldclub.com/about",
     images: [{ url: "https://traditionsfieldclub.com/og-image.jpg", width: 1200, height: 630 }],
   },
+  twitter: {
+    title: "About Us — Our Story, Mission & Founders",
+    description:
+      "Veteran-owned sporting clays club in South Carolina's Lowcountry, founded by Brian Seifrit and Jim Nicholson.",
+  },
   alternates: {
     canonical: "https://traditionsfieldclub.com/about",
   },

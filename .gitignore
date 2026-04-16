@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Local Netlify folder
 .netlify
+
+# SEO fix backups (local only)
+_backups-seo-fix/

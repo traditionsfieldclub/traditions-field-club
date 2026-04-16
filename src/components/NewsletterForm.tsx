@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 interface NewsletterFormProps {
   heading?: string;
@@ -51,6 +52,7 @@ export default function NewsletterForm({
         return;
       }
 
+      trackEvent("newsletter_signup");
       setStatus("success");
       setEmail("");
     } catch {

@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: "https://traditionsfieldclub.com/contact",
     images: [{ url: "https://traditionsfieldclub.com/og-image.jpg", width: 1200, height: 630 }],
   },
+  twitter: {
+    title: "Contact Us — Get in Touch",
+    description:
+      "Contact Traditions Field Club about membership, lessons, corporate events, and visits. info@traditionsfieldclub.com.",
+  },
   alternates: {
     canonical: "https://traditionsfieldclub.com/contact",
   },

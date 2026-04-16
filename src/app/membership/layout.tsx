@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: "https://traditionsfieldclub.com/membership",
     images: [{ url: "https://traditionsfieldclub.com/og-image.jpg", width: 1200, height: 630 }],
   },
+  twitter: {
+    title: "Membership — Individual, Family, Corporate & Exclusive Plans",
+    description:
+      "Join Traditions Field Club. 7-day access, clay credits, member events, guest passes — Lowcountry sporting clays, 5-stand, archery.",
+  },
   alternates: {
     canonical: "https://traditionsfieldclub.com/membership",
   },
