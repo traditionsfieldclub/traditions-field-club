@@ -81,6 +81,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://traditionsfieldclub.com",
   },
+  verification: {
+    other: {
+      "msvalidate.01": "3B1CAA63CF9DB7C61F4F43F5B1F6AD75",
+    },
+  },
 };
 
 export default function RootLayout({

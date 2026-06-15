@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/join", "/waiver", "/privacy-policy", "/terms"],
+        disallow: ["/api/"],
       },
     ],
     sitemap: "https://traditionsfieldclub.com/sitemap.xml",
