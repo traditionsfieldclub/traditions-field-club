@@ -564,7 +564,7 @@ export async function POST(req: NextRequest) {
 
         await resend.emails.send({
           from: "Traditions Field Club <noreply@traditionsfieldclub.com>",
-          to: ["admin@traditionsfieldclub.com"],
+          to: ["admin@traditionsfieldclub.com", "brian@traditionsfieldclub.com", "jim@traditionsfieldclub.com"],
           subject: `Membership Application — ${firstName.trim()} ${lastName.trim()}`,
           html: `
             <h2>New Membership Application</h2>

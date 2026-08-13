@@ -612,7 +612,7 @@ export async function POST(req: NextRequest) {
 
         await resend.emails.send({
           from: "Traditions Field Club <noreply@traditionsfieldclub.com>",
-          to: ["admin@traditionsfieldclub.com"],
+          to: ["admin@traditionsfieldclub.com", "brian@traditionsfieldclub.com", "jim@traditionsfieldclub.com"],
           subject: `Signed Waiver — ${participantName.trim()}`,
           html: `
             <h2>New Waiver Submission</h2>
