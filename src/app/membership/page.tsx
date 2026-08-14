@@ -16,8 +16,12 @@ const faqs = [
     answer: "Members have 7-day access from sun up to sun down. Our office hours are Monday through Friday, 8am to 5pm. After-hours contact is available based on availability."
   },
   {
+    question: "How long does it take to complete a course?",
+    answer: "Approximately 1½ to 2 hours if you're shooting at a leisurely pace."
+  },
+  {
     question: "Can I bring guests to the club?",
-    answer: "Yes! All membership tiers include guest privileges. The number of guest passes varies by membership level, with our Exclusive tier offering unlimited guest passes."
+    answer: "Yes! Both Prime and Corporate memberships include guest privileges, with guest allowances varying by tier."
   },
   {
     question: "Do I need to bring my own equipment?",
@@ -164,6 +168,35 @@ export default function Membership() {
               </div>
             </div>
 
+            {/* Early Access Callout */}
+            <div
+              className={`bg-[#3d5a45] rounded-lg p-6 md:p-8 mb-8 md:mb-10 text-center transition-all duration-700 ease-out ${
+                isVisible("tiers")
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
+              <span className="text-[#f5f2ec]/70 text-sm tracking-[0.3em] uppercase">Early Access</span>
+              <h3
+                className="text-2xl md:text-3xl text-[#f5f2ec] mt-2 mb-3"
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                Sign Up by October 1 — Get Oct–Dec 2026 Free
+              </h3>
+              <p className="text-[#f5f2ec]/90 max-w-2xl mx-auto mb-4">
+                2027 memberships officially launch October 1, 2026. Apply during early access and
+                we&apos;ll cover your membership through the rest of 2026 at no extra cost.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+                <span className="bg-[#f5f2ec] text-[#3d5a45] text-sm font-bold px-4 py-2 rounded-full tracking-wide">
+                  Prime — $500 Value Free
+                </span>
+                <span className="bg-[#f5f2ec] text-[#3d5a45] text-sm font-bold px-4 py-2 rounded-full tracking-wide">
+                  Corporate — $875 Value Free
+                </span>
+              </div>
+            </div>
+
             {/* All Memberships Include */}
             <div className="bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-8 md:mb-10">
               <h3
@@ -175,11 +208,7 @@ export default function Membership() {
               <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 text-[#333333]">
                 <div className="flex items-center gap-3">
                   <span className="w-2 h-2 bg-[#a75235] rounded-full flex-shrink-0"></span>
-                  <span>Access to sporting clays and 5-stand</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="w-2 h-2 bg-[#a75235] rounded-full flex-shrink-0"></span>
-                  <span>Archery range access</span>
+                  <span>Access to sporting clays</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="w-2 h-2 bg-[#a75235] rounded-full flex-shrink-0"></span>
@@ -192,8 +221,8 @@ export default function Membership() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              {/* Basic Membership */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+              {/* Prime Membership */}
               <div
                 className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden flex flex-col transition-all duration-700 ease-out hover:shadow-md ${
                   isVisible("tiers")
@@ -203,74 +232,31 @@ export default function Membership() {
                 style={{ transitionDelay: "100ms" }}
               >
                 <div className="bg-[#162838] p-6 text-center">
-                  <span className="text-[#f5f2ec]/60 text-sm tracking-[0.3em] uppercase">Individual</span>
+                  <span className="text-[#f5f2ec]/60 text-sm tracking-[0.3em] uppercase">Individual &amp; Family</span>
                   <h3
                     className="text-2xl md:text-3xl text-[#f5f2ec] mt-2"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
-                    Basic Membership
+                    Prime Membership
                   </h3>
+                  <p className="mt-3">
+                    <span className="text-3xl md:text-4xl text-[#f5f2ec] font-semibold">$2,000</span>
+                    <span className="text-sm text-[#f5f2ec]/60"> /year</span>
+                  </p>
+                  <p className="mt-3 inline-block bg-[#3d5a45] text-[#f5f2ec] text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">
+                    3 Months Free — $500 Value
+                  </p>
                 </div>
                 <div className="p-6 md:p-8 flex-grow">
                   <p className="text-[#333333] leading-relaxed mb-6">
-                    Perfect for individuals looking to enjoy our sporting clays and archery facilities.
-                    Access the club at your own pace with flexible scheduling and all the essentials
-                    for a great shooting experience.
+                    Perfect for individuals and families looking to make sporting clays part of
+                    their routine, with room to bring along your household or regular shooting
+                    partners. Sign up by October 1 and get October&ndash;December 2026 free.
                   </p>
                   <ul className="space-y-3 text-[#333333] mb-8">
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>500 clays included</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>1 member card</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>1 visitor allowed</span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="p-6 pt-0">
-                  <a
-                    href="/join"
-                    className="block w-full bg-[#a75235] text-[#f5f2ec] px-6 py-3 text-center font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
-                    style={{ fontFamily: "var(--font-heading), serif" }}
-                  >
-                    Apply Now
-                  </a>
-                </div>
-              </div>
-
-              {/* Family Membership */}
-              <div
-                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden flex flex-col transition-all duration-700 ease-out hover:shadow-md ${
-                  isVisible("tiers")
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
-                }`}
-                style={{ transitionDelay: "200ms" }}
-              >
-                <div className="bg-[#162838] p-6 text-center">
-                  <span className="text-[#f5f2ec]/60 text-sm tracking-[0.3em] uppercase">Household</span>
-                  <h3
-                    className="text-2xl md:text-3xl text-[#f5f2ec] mt-2"
-                    style={{ fontFamily: "var(--font-heading), serif" }}
-                  >
-                    Family Membership
-                  </h3>
-                </div>
-                <div className="p-6 md:p-8 flex-grow">
-                  <p className="text-[#333333] leading-relaxed mb-6">
-                    Share the tradition with your loved ones. Family membership includes access for
-                    your entire household, making it easy to introduce the next generation to
-                    the joys of outdoor sporting.
-                  </p>
-                  <ul className="space-y-3 text-[#333333] mb-8">
-                    <li className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>1,000 clays included</span>
+                      <span>1,000 clays included (a $500 value)</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
@@ -278,11 +264,7 @@ export default function Membership() {
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>Up to 6 shooters</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>Youth instruction program discounts</span>
+                      <span>Up to 8 shooters</span>
                     </li>
                   </ul>
                 </div>
@@ -304,7 +286,7 @@ export default function Membership() {
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-10"
                 }`}
-                style={{ transitionDelay: "300ms" }}
+                style={{ transitionDelay: "200ms" }}
               >
                 <div className="bg-[#162838] p-6 text-center">
                   <span className="text-[#f5f2ec]/60 text-sm tracking-[0.3em] uppercase">Business</span>
@@ -314,25 +296,32 @@ export default function Membership() {
                   >
                     Corporate Membership
                   </h3>
+                  <p className="mt-3">
+                    <span className="text-3xl md:text-4xl text-[#f5f2ec] font-semibold">$3,500</span>
+                    <span className="text-sm text-[#f5f2ec]/60"> /year</span>
+                  </p>
+                  <p className="mt-3 inline-block bg-[#3d5a45] text-[#f5f2ec] text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">
+                    3 Months Free — $875 Value
+                  </p>
                 </div>
                 <div className="p-6 md:p-8 flex-grow">
                   <p className="text-[#333333] leading-relaxed mb-6">
                     Build team relationships in a unique setting. Corporate membership provides
                     your organization with a premier venue for team building, client entertainment,
-                    and company events.
+                    and company events. Sign up by October 1 and get October&ndash;December 2026 free.
                   </p>
                   <ul className="space-y-3 text-[#333333] mb-8">
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>1,000 clays included</span>
+                      <span>1,500 clays included (a $750 value)</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>3 member cards</span>
+                      <span>4 member cards</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>Up to 12 shooters</span>
+                      <span>Up to 16 shooters</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
@@ -345,64 +334,6 @@ export default function Membership() {
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
                       <span>Catering and hospitality options</span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="p-6 pt-0">
-                  <a
-                    href="/join"
-                    className="block w-full bg-[#a75235] text-[#f5f2ec] px-6 py-3 text-center font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
-                    style={{ fontFamily: "var(--font-heading), serif" }}
-                  >
-                    Apply Now
-                  </a>
-                </div>
-              </div>
-
-              {/* Exclusive Membership */}
-              <div
-                className={`bg-white rounded-lg shadow-lg border-2 border-[#a75235] overflow-hidden flex flex-col relative transition-all duration-700 ease-out hover:shadow-xl ${
-                  isVisible("tiers")
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
-                }`}
-                style={{ transitionDelay: "400ms" }}
-              >
-                {/* Featured Badge */}
-                <div className="absolute top-4 right-4 bg-[#a75235] text-[#f5f2ec] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider z-10">
-                  Premium
-                </div>
-                <div className="bg-[#162838] p-6 text-center">
-                  <span className="text-[#f5f2ec]/60 text-sm tracking-[0.3em] uppercase">Elite</span>
-                  <h3
-                    className="text-2xl md:text-3xl text-[#f5f2ec] mt-2"
-                    style={{ fontFamily: "var(--font-heading), serif" }}
-                  >
-                    Exclusive Membership
-                  </h3>
-                </div>
-                <div className="p-6 md:p-8 flex-grow">
-                  <p className="text-[#333333] leading-relaxed mb-6">
-                    The ultimate Traditions Field Club experience. Exclusive membership offers
-                    unparalleled access, priority privileges, and recognition as a founding
-                    supporter of our vision.
-                  </p>
-                  <ul className="space-y-3 text-[#333333] mb-8">
-                    <li className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>Unlimited guest passes</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>Private instruction sessions</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>VIP access to all club events</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>Priority access to future phases</span>
                     </li>
                   </ul>
                 </div>
@@ -469,16 +400,8 @@ export default function Membership() {
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-[#f5f2ec] p-4 rounded-lg">
-                    <h4 className="text-[#162838] font-semibold mb-2">Clay Credits</h4>
-                    <p className="text-sm text-[#333333]">Membership dues convert into shooting credits</p>
-                  </div>
-                  <div className="bg-[#f5f2ec] p-4 rounded-lg">
                     <h4 className="text-[#162838] font-semibold mb-2">Key Card Access</h4>
-                    <p className="text-sm text-[#333333]">Convenient entry with your member card</p>
-                  </div>
-                  <div className="bg-[#f5f2ec] p-4 rounded-lg">
-                    <h4 className="text-[#162838] font-semibold mb-2">Volunteer Perks</h4>
-                    <p className="text-sm text-[#333333]">Volunteers can earn shooting clays</p>
+                    <p className="text-sm text-[#333333]">Use your member card for quick, convenient clay purchases on-site</p>
                   </div>
                   <div className="bg-[#f5f2ec] p-4 rounded-lg">
                     <h4 className="text-[#162838] font-semibold mb-2">Community Events</h4>

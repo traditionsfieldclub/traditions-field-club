@@ -46,7 +46,7 @@ export default function PrivacyPolicy() {
               Privacy Policy
             </h1>
             <p className="text-base md:text-lg text-[#f5f2ec] opacity-75">
-              Last updated: March 2026
+              Last updated: August 14, 2026
             </p>
           </div>
         </section>
@@ -100,6 +100,23 @@ export default function PrivacyPolicy() {
                 <p className="leading-relaxed">
                   We may automatically collect certain information when you visit our website, including your IP address,
                   browser type, operating system, access times, and the pages you have viewed.
+                </p>
+              </div>
+
+              {/* Cookies and Tracking Technologies */}
+              <div className="mb-12">
+                <h2
+                  className="text-2xl md:text-3xl text-[#162838] mb-4"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Cookies &amp; Tracking Technologies
+                </h2>
+                <p className="leading-relaxed">
+                  Our website uses cookies and similar tracking technologies, including Google Analytics, to
+                  help us understand how visitors use our site and to improve your experience. Cookies are
+                  small data files stored on your device. You can set your browser to refuse cookies or alert
+                  you when cookies are being sent; however, some parts of our website may not function
+                  properly without them.
                 </p>
               </div>
 
@@ -166,6 +183,24 @@ export default function PrivacyPolicy() {
                   You have the right to access, correct, or delete your personal information. You may also opt out
                   of receiving promotional communications from us at any time by following the unsubscribe instructions
                   in those messages or by contacting us directly.
+                </p>
+              </div>
+
+              {/* Children's Privacy */}
+              <div className="mb-12">
+                <h2
+                  className="text-2xl md:text-3xl text-[#162838] mb-4"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Children&apos;s Privacy
+                </h2>
+                <p className="leading-relaxed">
+                  Our website and services are not directed to children under 13, and we do not knowingly
+                  collect personal information directly from children under 13. As part of our liability
+                  waiver process, a parent or legal guardian may provide limited information about a minor
+                  participant — such as their name and photo/video consent — on the minor&apos;s behalf. This
+                  information is used solely for club safety, liability, and, where consent is given,
+                  promotional purposes related to the minor&apos;s participation in club activities.
                 </p>
               </div>
 

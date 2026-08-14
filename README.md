@@ -50,7 +50,7 @@ Copy `.env.local.example` to `.env.local` and fill in values:
 |---|---|
 | `/` | Home — hero, about, activities, membership preview |
 | `/about` | About the club, mission, team |
-| `/activities` | Sporting clays, 5-stand, archery, etc. |
+| `/activities` | Sporting clays, 5-stand, etc. |
 | `/join` | Membership application / interest form |
 | `/contact` | Contact form (HubSpot + Turnstile) |
 | `/waiver` | Liability waiver (signature, PDF gen, email) |

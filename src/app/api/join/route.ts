@@ -55,16 +55,14 @@ const MAX_LENGTHS: Record<string, number> = {
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // --- Whitelist Values ---
-const VALID_MEMBERSHIP_TYPES = ["basic", "family", "corporate", "exclusive", "undecided"];
+const VALID_MEMBERSHIP_TYPES = ["prime", "corporate", "undecided"];
 const VALID_EXPERIENCE_LEVELS = ["beginner", "novice", "intermediate", "advanced", "competitive"];
 const VALID_HOW_HEARD = ["friend", "member", "social", "search", "event", "signage", "other"];
 
 // --- Display Labels ---
 const MEMBERSHIP_LABELS: Record<string, string> = {
-  basic: "Basic Membership (Individual)",
-  family: "Family Membership (Household)",
+  prime: "Prime Membership (Individual & Family)",
   corporate: "Corporate Membership (Business)",
-  exclusive: "Exclusive Membership (Premium)",
   undecided: "Undecided — Would like to discuss options",
 };
 
@@ -263,6 +261,7 @@ async function generateApplicationPDF(data: {
 
   // Submitted date
   drawText(`Submitted: ${data.submittedDate}`, { usedFont: font, size: 9, color: rgb(0.4, 0.4, 0.4) });
+  drawText("Form last updated: August 14, 2026", { usedFont: font, size: 9, color: rgb(0.4, 0.4, 0.4) });
   y -= 6;
 
   // === Personal Information ===

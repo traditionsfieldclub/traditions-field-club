@@ -292,6 +292,9 @@ export default function Join() {
             <p className="text-lg md:text-xl text-[#f5f2ec] max-w-2xl mx-auto opacity-90">
               Begin your journey with Traditions Field Club
             </p>
+            <p className="text-sm text-[#f5f2ec]/60 mt-3">
+              Updated August 14, 2026
+            </p>
           </div>
         </section>
 
@@ -325,6 +328,12 @@ export default function Join() {
                   Complete the form below to be placed on our membership waiting list. All submissions are reviewed
                   by our team, and we&apos;ll be in touch to discuss membership options and schedule your
                   first visit.
+                </p>
+                <p className="text-sm text-[#333333] mt-4">
+                  Forgot to sign our waiver?{" "}
+                  <Link href="/waiver" className="text-[#a75235] font-semibold hover:underline">
+                    Click here now →
+                  </Link>
                 </p>
               </div>
 
@@ -495,10 +504,8 @@ export default function Join() {
                     className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent bg-white"
                   >
                     <option value="">Select a membership type...</option>
-                    <option value="basic">Basic Membership (Individual)</option>
-                    <option value="family">Family Membership (Household)</option>
+                    <option value="prime">Prime Membership (Individual & Family)</option>
                     <option value="corporate">Corporate Membership (Business)</option>
-                    <option value="exclusive">Exclusive Membership (Premium)</option>
                     <option value="undecided">Not sure yet - would like to discuss options</option>
                   </select>
                   <p className="text-sm text-[#666666] mt-2">
@@ -508,8 +515,8 @@ export default function Join() {
                   </p>
                 </div>
 
-                {/* Family Members - Show only if Family membership selected */}
-                {formData.membershipType === "family" && (
+                {/* Family Members - Show only if Prime membership selected */}
+                {formData.membershipType === "prime" && (
                   <div className="mt-6 pt-6 border-t border-[#e8e4dc]">
                     <h4 className="text-md font-semibold text-[#162838] mb-4">Family Members</h4>
                     <div className="grid grid-cols-1 gap-4">

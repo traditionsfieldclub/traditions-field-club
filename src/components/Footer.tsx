@@ -1,17 +1,29 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import FooterNewsletter from "./FooterNewsletter";
 
 const navLinks = [
   { label: "First Time", href: "/first-time" },
   { label: "Activities", href: "/activities" },
-  { label: "About", href: "/about" },
   { label: "Roadmap", href: "/roadmap" },
   { label: "Membership", href: "/membership" },
+  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  const handleNavClick = (href: string) => (e: React.MouseEvent) => {
+    if (pathname === href) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <footer className="bg-[#162838] text-[#f5f2ec]">
       {/* Main Footer Content */}
@@ -89,6 +101,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
+                    onClick={handleNavClick(link.href)}
                     className="text-base opacity-75 hover:opacity-100 hover:text-[#a75235] transition-colors"
                   >
                     {link.label}
@@ -132,6 +145,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
+                    onClick={handleNavClick(link.href)}
                     className="text-sm opacity-75 hover:opacity-100 hover:text-[#a75235] transition-colors"
                   >
                     {link.label}
@@ -198,7 +212,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col items-center text-center gap-3 lg:flex-row lg:justify-between lg:text-left text-sm opacity-60">
             <p>
-              &copy; 2026 Traditions Field Club. All rights reserved.
+              &copy; {new Date().getFullYear()} Traditions Field Club. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
               <Link

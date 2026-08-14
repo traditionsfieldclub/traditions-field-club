@@ -5,9 +5,51 @@ import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
 import FadeImage from "@/components/FadeImage";
+import Lightbox, { type LightboxImage } from "@/components/Lightbox";
+
+const julSepImages: LightboxImage[] = [
+  { src: "/images/pavilion_exterior_windows_installed.webp", alt: "Pavilion exterior with windows installed" },
+  { src: "/images/pavilion_concrete_slab_poured.webp", alt: "Freshly poured concrete slab for the Pavilion" },
+  { src: "/images/pavilion_completed_exterior_2.webp", alt: "Completed Pavilion exterior" },
+  { src: "/images/youth_shotgun_instruction.webp", alt: "A young shooter getting shotgun instruction" },
+  { src: "/images/pavilion_interior_sheathed_windows.webp", alt: "Close-up of the Pavilion's sheathing and windows" },
+];
+
+const aprJunImages: LightboxImage[] = [
+  { src: "/images/pavilion_interior_floor_grading.webp", alt: "Interior floor grading for the Pavilion" },
+  { src: "/images/pavilion_floor_prep_rebar.webp", alt: "Rebar laid out for the Pavilion's concrete floor" },
+  { src: "/images/pavilion_front_symmetric_view.webp", alt: "Symmetric front view of the Pavilion" },
+  { src: "/images/pavilion_frame_tree_canopy.webp", alt: "Early Pavilion framing rising under the tree canopy" },
+  { src: "/images/pavilion_truss_framing_scissor_lift.webp", alt: "Roof trusses going up on a scissor lift" },
+  { src: "/images/crew_plumbing_trench_install.webp", alt: "Crew installing the plumbing trench" },
+  { src: "/images/swamp_creek_reflection_1.webp", alt: "Swamp creek reflection on the property" },
+  { src: "/images/wild_blackberries_closeup.webp", alt: "Wild blackberries growing on the property" },
+];
+
+const exploringLandImages: LightboxImage[] = [
+  { src: "/images/property_view_land.webp", alt: "Property view of the land" },
+  { src: "/images/cypress_swamp_creek_2.webp", alt: "Cypress swamp and creek" },
+  { src: "/images/spanish_moss_forest.webp", alt: "Forest with Spanish moss" },
+  { src: "/images/open_field_treeline.webp", alt: "Open field with treeline" },
+];
+
+const clearingBuildingImages: LightboxImage[] = [
+  { src: "/images/crew_brush_clearing_chainsaw.webp", alt: "Crew clearing brush with chainsaws" },
+  { src: "/images/station_frames_construction.webp", alt: "Station frames under construction" },
+  { src: "/images/shooter_aiming_field.webp", alt: "Shooter aiming in the field" },
+  { src: "/images/shooting_from_deck_swamp.webp", alt: "Shooting from deck overlooking swamp" },
+];
+
+const course1TestingImages: LightboxImage[] = [
+  { src: "/images/team_group_photo_1.webp", alt: "The crew posing together on the property" },
+  { src: "/images/shooter_aiming_station.webp", alt: "Shooter aiming from a covered station" },
+  { src: "/images/trap_setup_team_2.webp", alt: "Two crew members setting up a clay trap machine on the course" },
+  { src: "/images/station_landscape_crew.webp", alt: "Covered station with crew in the distance" },
+];
 
 export default function Roadmap() {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+  const [lightboxImage, setLightboxImage] = useState<LightboxImage | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
   useEffect(() => {
@@ -53,6 +95,15 @@ export default function Roadmap() {
             <p className="text-lg md:text-xl text-[#f5f2ec] max-w-2xl mx-auto opacity-90">
               Our journey from vision to reality — see what&apos;s coming next
             </p>
+            <a
+              href="#progress"
+              className="inline-flex items-center gap-2 mt-8 text-[#f5f2ec] text-sm tracking-[0.2em] uppercase border-b border-[#f5f2ec]/40 pb-1 hover:border-[#f5f2ec] transition-colors"
+            >
+              See Our Progress
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </a>
           </div>
         </section>
 
@@ -85,8 +136,8 @@ export default function Roadmap() {
             </div>
             <p className="text-lg text-[#333333] leading-relaxed">
               Traditions Field Club is being built in phases, each one bringing us closer to our vision
-              of a premier outdoor sporting destination. From our initial sporting clays courses to
-              future camping facilities and a barn-style lodge, every phase is designed to enhance
+              of a premier outdoor sporting destination. From our sporting clays courses to a future
+              Pavilion, hunting and outdoor recreation, every phase is designed to enhance
               your experience while preserving the natural beauty of the land.
             </p>
           </div>
@@ -127,11 +178,11 @@ export default function Roadmap() {
               >
                 <div className="flex items-center gap-4 mb-3">
                   <span className="h-[1px] w-8 md:w-12 bg-[#a75235]"></span>
-                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Current Phase</span>
+                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Open Now</span>
                 </div>
                 <div className="flex items-center gap-4 mb-4">
-                  <span className="bg-[#3d5a45] text-[#f5f2ec] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                    In Progress
+                  <span className="bg-[#a75235] text-[#f5f2ec] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    Complete
                   </span>
                 </div>
                 <h2
@@ -141,22 +192,13 @@ export default function Roadmap() {
                   Phase 1: Foundation
                 </h2>
                 <p className="text-[#333333] leading-relaxed mb-6">
-                  Establishing the core shooting sports facilities and building the foundation
-                  for everything to come. This phase focuses on creating a world-class sporting
-                  clays experience from day one.
+                  We&apos;ve established the core shooting sports facilities and built the foundation
+                  for everything to come — a world-class sporting clays experience, open today.
                 </p>
                 <ul className="space-y-3 text-[#333333]">
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
                     <span>2 sporting clays courses — 15 stations (intermediate to advanced) and 12 stations (beginner to intermediate)</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Dedicated 5-stand facility</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Outdoor archery range</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
@@ -198,47 +240,43 @@ export default function Roadmap() {
               >
                 <div className="flex items-center gap-4 mb-3">
                   <span className="h-[1px] w-8 md:w-12 bg-[#a75235]"></span>
-                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Coming Soon</span>
+                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Opening Soon</span>
                 </div>
                 <div className="flex items-center gap-4 mb-4">
-                  <span className="bg-[#162838] text-[#f5f2ec] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                    Planned
+                  <span className="bg-[#3d5a45] text-[#f5f2ec] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    In Progress
                   </span>
                 </div>
                 <h2
                   className="text-3xl md:text-4xl text-[#162838] mb-6"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
-                  Phase 2: Expansion
+                  Phase 2: Pavilion
                 </h2>
                 <p className="text-[#333333] leading-relaxed mb-6">
-                  Growing our facilities to accommodate more members and enhance the overall
-                  experience with improved amenities and additional course options.
+                  Bringing the Pavilion to life — bathrooms, a kitchen, and outdoor seating built
+                  for barbecues, group gatherings, and family hangout time while others are out shooting.
                 </p>
                 <ul className="space-y-3 text-[#333333]">
+                  <li className="flex items-start gap-3">
+                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                    <span>Air-conditioned bathrooms</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                    <span>Full kitchen and outdoor seating for group gatherings</span>
+                  </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
                     <span>Pro shop with equipment and supplies</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                    <span>Space for barbecues, events, and family hangout time while others shoot</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
                     <span>Key card member access system</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Covered pavilion for events and gatherings</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Hunting — duck blinds, food plots, tower shoots, deer stands</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Primitive camping</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Outdoor event spaces</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
@@ -255,17 +293,12 @@ export default function Roadmap() {
                     : "opacity-0 md:translate-x-10"
                 }`}
               >
-                <FadeImage
-                  src="/images/entrance_gate_pines.webp"
-                  alt="Entrance gate concept for Traditions Field Club"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-[#162838]/50 flex items-center justify-center">
-                  <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
+                <div className="absolute inset-0 bg-[#e8e4dc] border-2 border-dashed border-[#162838]/20 flex flex-col items-center justify-center gap-3">
+                  <svg className="w-12 h-12 text-[#162838]/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14M4 8h16M4 4h16v16H4V4z" />
+                  </svg>
+                  <span className="text-[#162838]/40 text-sm font-semibold tracking-[0.2em] uppercase text-center px-6">Completed Pavilion Image</span>
                 </div>
-                <p className="absolute bottom-2 left-0 right-0 text-center text-[10px] text-white/60 italic">*Rendering — subject to change</p>
               </div>
             </div>
           </div>
@@ -287,17 +320,13 @@ export default function Roadmap() {
                     : "opacity-0 md:-translate-x-10"
                 }`}
               >
-                <FadeImage
-                  src="/images/lodge_exterior_render.webp"
-                  alt="Lodge exterior concept for Traditions Field Club"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-[#162838]/50 flex items-center justify-center">
-                  <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
+                <div className="absolute inset-0 bg-[#e8e4dc] border-2 border-dashed border-[#162838]/20 flex flex-col items-center justify-center gap-3">
+                  <svg className="w-12 h-12 text-[#162838]/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14M4 8h16M4 4h16v16H4V4z" />
+                  </svg>
+                  <span className="text-[#162838]/40 text-sm font-semibold tracking-[0.2em] uppercase text-center px-6">Image of Hunting &amp; Outdoors</span>
+                  <span className="text-[#162838]/40 text-xs font-semibold tracking-[0.2em] uppercase text-center px-6">Bird&apos;s-Eye Land View</span>
                 </div>
-                <p className="absolute bottom-2 left-0 right-0 text-center text-[10px] text-white/60 italic">*Rendering — subject to change</p>
               </div>
 
               {/* Content */}
@@ -314,35 +343,35 @@ export default function Roadmap() {
                 </div>
                 <div className="flex items-center gap-4 mb-4">
                   <span className="bg-[#162838] text-[#f5f2ec] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                    Planned
+                    Coming Soon
                   </span>
                 </div>
                 <h2
                   className="text-3xl md:text-4xl text-[#162838] mb-6"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
-                  Phase 3: Recreation
+                  Phase 3: Hunting &amp; Outdoors
                 </h2>
                 <p className="text-[#333333] leading-relaxed mb-6">
-                  Transforming the property into a full outdoor recreation destination
-                  with trails, camping, and facilities for extended stays.
+                  Expanding into the natural side of the property — hunting, fishing, and guided
+                  outdoor experiences that let members connect even deeper with the land.
                 </p>
                 <ul className="space-y-3 text-[#333333]">
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Walking paths and hiking trails</span>
+                    <span>Hunting — duck blinds, deer stands, food plots</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Barn-style lodge with Southern charm</span>
+                    <span>Fishing access</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Hosted events with food truck or private catering options</span>
+                    <span>Guided wing shoots</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Duck blinds and wildlife viewing areas</span>
+                    <span>Natural-style property tours</span>
                   </li>
                 </ul>
               </div>
@@ -372,40 +401,36 @@ export default function Roadmap() {
                 </div>
                 <div className="flex items-center gap-4 mb-4">
                   <span className="bg-[#162838] text-[#f5f2ec] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                    Long-Term
+                    Future
                   </span>
                 </div>
                 <h2
                   className="text-3xl md:text-4xl text-[#162838] mb-6"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
-                  Phase 4: The Lodge
+                  Phase 4: Recreation
                 </h2>
                 <p className="text-[#333333] leading-relaxed mb-6">
-                  The crown jewel of our vision — a barn-style lodge that serves as the heart
-                  of Traditions Field Club, welcoming families, hosting events, and creating
-                  memories for generations to come.
+                  Long-term, we&apos;re envisioning a full outdoor recreation destination — trails,
+                  farm-based activities, and ways to stay active outdoors, for members and their
+                  families to enjoy for years to come.
                 </p>
                 <ul className="space-y-3 text-[#333333]">
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Primitive camping areas</span>
+                    <span>Farm build-out</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>RV lot with hookups</span>
+                    <span>Hiking and walking trails</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Event and banquet facilities</span>
+                    <span>Outdoor fitness opportunities</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Overnight accommodations</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Corporate retreat packages</span>
+                    <span>Additional recreational amenities as the vision grows</span>
                   </li>
                 </ul>
               </div>
@@ -419,16 +444,12 @@ export default function Roadmap() {
                 }`}
               >
                 <FadeImage
-                  src="/images/rv_campground_pines.webp"
-                  alt="RV campground concept in pine forest at Traditions Field Club"
+                  src="/images/kids_running_trail_bridge.webp"
+                  alt="Kids running across a trail bridge in the woods at Traditions Field Club"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-[#162838]/50 flex items-center justify-center">
-                  <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
-                </div>
-                <p className="absolute bottom-2 left-0 right-0 text-center text-[10px] text-white/60 italic">*Rendering — subject to change</p>
               </div>
             </div>
           </div>
@@ -469,144 +490,206 @@ export default function Roadmap() {
               </p>
             </div>
 
-            {/* March 2026 */}
+            {/* Jul-Sep 2026 */}
             <div className="mb-16">
               <div className="flex items-center gap-4 mb-8">
                 <span className="bg-[#a75235] text-[#f5f2ec] text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">
-                  March 2026
+                  Jul – Sep 2026
                 </span>
                 <span className="h-[1px] flex-grow bg-[#162838]/15"></span>
               </div>
-              <h3
-                className="text-2xl text-[#162838] mb-2"
-                style={{ fontFamily: "var(--font-heading), serif" }}
-              >
-                Course 1 Testing — Team Tested, Team Approved
-              </h3>
-              <p className="text-[#333333] mb-6">
-                Course 1 is nearly complete. Clay throwers dialed in, stations prepped, and a team takes their first shots.
-                Meanwhile, clearing continues as the property keeps taking shape.
+              <p className="text-[#333333] mb-4 text-sm max-w-3xl">
+                The Pavilion continues to take shape — windows in, exterior coming together.
               </p>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                {[
-                  { src: "team_group_photo_1", alt: "The crew posing together on the property" },
-                  { src: "group_station_hangout", alt: "Group of shooters at a covered station" },
-                  { src: "trap_setup_team_2", alt: "Two crew members setting up a clay trap machine on the course" },
-                  { src: "two_shooters_portrait", alt: "Two shooters posing at a station with shotgun" },
-                  { src: "group_station_truck", alt: "Group at a shooting station with truck" },
-                  { src: "trap_loading_closeup_1", alt: "Loading clay targets into a trap machine up close" },
-                  { src: "shooter_aiming_station", alt: "Shooter aiming from a covered station" },
-                  { src: "station_landscape_crew", alt: "Covered station with crew in the distance" },
-                  { src: "trap_machine_atv_1", alt: "Crew working on trap machine setup with ATV nearby" },
-                  { src: "station_landscape_green", alt: "Group at Station 04 with shooter holding shotgun" },
-                  { src: "crew_chainsaw_field", alt: "Crew members with chainsaws in open field" },
-                  { src: "owner_chainsawing_fallen_tree", alt: "Owner chainsawing a fallen tree in the woods" },
-                ].map((img, i) => (
-                  <div key={img.src || `empty-${i}`} className="relative aspect-[4/3] rounded-lg overflow-hidden group bg-[#e8e4dc]">
-                    {img.src ? (
-                      <FadeImage
-                        src={`/images/${img.src}.webp`}
-                        alt={img.alt}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-  
-                        sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      />
-                    ) : null}
-                  </div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {julSepImages.map((img) => (
+                  <button
+                    key={img.src}
+                    type="button"
+                    onClick={() => setLightboxImage(img)}
+                    aria-label={`View larger image: ${img.alt}`}
+                    className="relative aspect-[4/3] rounded-lg overflow-hidden group block w-full p-0 border-0 bg-transparent cursor-zoom-in"
+                  >
+                    <FadeImage
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 640px) 50vw, 25vw"
+                    />
+                    <div className="absolute inset-0 bg-[#162838]/0 group-hover:bg-[#162838]/25 transition-colors duration-300 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16zM11 8v6M8 11h6" />
+                      </svg>
+                    </div>
+                  </button>
                 ))}
               </div>
             </div>
 
-            {/* February 2026 */}
+            {/* Apr-Jun 2026 */}
             <div className="mb-16">
               <div className="flex items-center gap-4 mb-8">
                 <span className="bg-[#3d5a45] text-[#f5f2ec] text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">
-                  February 2026
+                  Apr – Jun 2026
                 </span>
                 <span className="h-[1px] flex-grow bg-[#162838]/15"></span>
               </div>
-              <h3
-                className="text-2xl text-[#162838] mb-2"
-                style={{ fontFamily: "var(--font-heading), serif" }}
-              >
-                Clearing, Building &amp; First Shots Fired
-              </h3>
-              <p className="text-[#333333] mb-6">
-                Chainsaws running, trees coming down, stations going up, and the first rounds
-                echoing across the property. It&apos;s happening.
+              <p className="text-[#333333] mb-4 text-sm max-w-3xl">
+                Groundwork underway — floor prep, the concrete slab, and the Pavilion&apos;s first
+                framing rising under the pines.
               </p>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                {[
-                  { src: "cleared_field_worker", alt: "Worker in cleared field" },
-                  { src: "trail_bridge_building_1", alt: "Building a trail bridge" },
-                  { src: "pond_work_crew", alt: "Work crew at the pond" },
-                  { src: "crew_surveying_woods", alt: "Crew surveying the woods" },
-                  { src: "station_frames_construction", alt: "Station frames under construction" },
-                  { src: "five_stand_stations_row", alt: "Row of 5-stand shooting stations" },
-                  { src: "skid_steer_stations_lumber", alt: "Skid steer delivering lumber to stations" },
-                  { src: "crew_brush_clearing_chainsaw", alt: "Crew clearing brush with chainsaws" },
-                  { src: "station_clay_thrower_field", alt: "Station with clay thrower and field view" },
-                  { src: "clay_thrower_trailer_delivery", alt: "Clay thrower delivery on trailer" },
-                  { src: "shooter_aiming_field", alt: "Shooter aiming in the field" },
-                  { src: "shooting_from_deck_swamp", alt: "Shooting from deck overlooking swamp" },
-                ].map((img) => (
-                  <div key={img.src} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {aprJunImages.map((img) => (
+                  <button
+                    key={img.src}
+                    type="button"
+                    onClick={() => setLightboxImage(img)}
+                    aria-label={`View larger image: ${img.alt}`}
+                    className="relative aspect-[4/3] rounded-lg overflow-hidden group block w-full p-0 border-0 bg-transparent cursor-zoom-in"
+                  >
                     <FadeImage
-                      src={`/images/${img.src}.webp`}
+                      src={img.src}
                       alt={img.alt}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                      sizes="(max-width: 640px) 50vw, 25vw"
                     />
-                  </div>
+                    <div className="absolute inset-0 bg-[#162838]/0 group-hover:bg-[#162838]/25 transition-colors duration-300 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16zM11 8v6M8 11h6" />
+                      </svg>
+                    </div>
+                  </button>
                 ))}
               </div>
             </div>
 
-            {/* January 2026 */}
+            {/* Jan-Mar 2026 */}
             <div>
               <div className="flex items-center gap-4 mb-8">
                 <span className="bg-[#162838] text-[#f5f2ec] text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">
-                  January 2026
+                  Jan – Mar 2026
                 </span>
                 <span className="h-[1px] flex-grow bg-[#162838]/15"></span>
               </div>
-              <h3
-                className="text-2xl text-[#162838] mb-2"
-                style={{ fontFamily: "var(--font-heading), serif" }}
-              >
-                Exploring the Land
-              </h3>
-              <p className="text-[#333333] mb-6">
-                Walking the property for the first time, surveying the terrain, and discovering
-                the natural beauty that would become Traditions Field Club.
+              <p className="text-[#333333] mb-10 max-w-3xl">
+                From walking the raw land for the first time to running the first live rounds on
+                Course 1 — here&apos;s how the first three months came together.
               </p>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                {[
-                  { src: "property_view_land", alt: "Property view of the land" },
-                  { src: "zillow_aerial_property_map", alt: "Aerial property map of the land" },
-                  { src: "open_field_treeline", alt: "Open field with treeline" },
-                  { src: "cleared_land_panoramic", alt: "Panoramic view of cleared land" },
-                  { src: "brush_pile_clearing", alt: "Brush pile during land clearing" },
-                  { src: "log_pile_trail", alt: "Log pile along trail" },
-                  { src: "debris_pile_field", alt: "Debris pile in open field" },
-                  { src: "cypress_trees_leaf_floor", alt: "Cypress trees with leaf-covered floor" },
-                  { src: "cypress_swamp_creek_2", alt: "Cypress swamp and creek" },
-                  { src: "bridge_construction_workers", alt: "Workers building a trail bridge" },
-                  { src: "spanish_moss_forest", alt: "Forest with Spanish moss" },
-                  { src: "swamp_trees_water", alt: "Swamp trees reflecting in water" },
-                ].map((img) => (
-                  <div key={img.src} className="relative aspect-[4/3] rounded-lg overflow-hidden group">
-                    <FadeImage
-                      src={`/images/${img.src}.webp`}
-                      alt={img.alt}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                    />
-                  </div>
-                ))}
+
+              {/* Exploring the Land */}
+              <div className="mb-10">
+                <h3
+                  className="text-xl text-[#162838] mb-2"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Exploring the Land
+                </h3>
+                <p className="text-[#333333] mb-4 text-sm">
+                  Walking the property for the first time, surveying the terrain, and discovering
+                  the natural beauty that would become Traditions Field Club.
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  {exploringLandImages.map((img) => (
+                    <button
+                      key={img.src}
+                      type="button"
+                      onClick={() => setLightboxImage(img)}
+                      aria-label={`View larger image: ${img.alt}`}
+                      className="relative aspect-[4/3] rounded-lg overflow-hidden group block w-full p-0 border-0 bg-transparent cursor-zoom-in"
+                    >
+                      <FadeImage
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        sizes="(max-width: 640px) 50vw, 25vw"
+                      />
+                      <div className="absolute inset-0 bg-[#162838]/0 group-hover:bg-[#162838]/25 transition-colors duration-300 flex items-center justify-center">
+                        <svg className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16zM11 8v6M8 11h6" />
+                        </svg>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Clearing, Building & First Shots Fired */}
+              <div className="mb-10">
+                <h3
+                  className="text-xl text-[#162838] mb-2"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Clearing, Building &amp; First Shots Fired
+                </h3>
+                <p className="text-[#333333] mb-4 text-sm">
+                  Chainsaws running, trees coming down, stations going up, and the first rounds
+                  echoing across the property. It&apos;s happening.
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  {clearingBuildingImages.map((img) => (
+                    <button
+                      key={img.src}
+                      type="button"
+                      onClick={() => setLightboxImage(img)}
+                      aria-label={`View larger image: ${img.alt}`}
+                      className="relative aspect-[4/3] rounded-lg overflow-hidden group block w-full p-0 border-0 bg-transparent cursor-zoom-in"
+                    >
+                      <FadeImage
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        sizes="(max-width: 640px) 50vw, 25vw"
+                      />
+                      <div className="absolute inset-0 bg-[#162838]/0 group-hover:bg-[#162838]/25 transition-colors duration-300 flex items-center justify-center">
+                        <svg className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16zM11 8v6M8 11h6" />
+                        </svg>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Course 1 Testing */}
+              <div>
+                <h3
+                  className="text-xl text-[#162838] mb-2"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Course 1 Testing — Team Tested, Team Approved
+                </h3>
+                <p className="text-[#333333] mb-4 text-sm">
+                  Course 1 is nearly complete. Clay throwers dialed in, stations prepped, and a team takes their first shots.
+                  Meanwhile, clearing continues as the property keeps taking shape.
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  {course1TestingImages.map((img) => (
+                    <button
+                      key={img.src}
+                      type="button"
+                      onClick={() => setLightboxImage(img)}
+                      aria-label={`View larger image: ${img.alt}`}
+                      className="relative aspect-[4/3] rounded-lg overflow-hidden group block w-full p-0 border-0 bg-transparent cursor-zoom-in"
+                    >
+                      <FadeImage
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        sizes="(max-width: 640px) 50vw, 25vw"
+                      />
+                      <div className="absolute inset-0 bg-[#162838]/0 group-hover:bg-[#162838]/25 transition-colors duration-300 flex items-center justify-center">
+                        <svg className="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16zM11 8v6M8 11h6" />
+                        </svg>
+                      </div>
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -653,6 +736,10 @@ export default function Roadmap() {
           </div>
         </section>
       </main>
+
+      {lightboxImage && (
+        <Lightbox image={lightboxImage} onClose={() => setLightboxImage(null)} />
+      )}
 
       <Footer />
     </div>

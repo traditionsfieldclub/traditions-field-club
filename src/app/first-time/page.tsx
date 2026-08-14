@@ -29,13 +29,13 @@ const steps = [
     number: "04",
     title: "Learn the Layout",
     description:
-      "Your guide will walk you through our facilities, showing you the sporting clays courses, 5-Stand area, archery range, and amenities. You'll learn how to navigate the grounds, understand the different stations, and discover all the features that make Traditions Field Club special.",
+      "Your guide will walk you through our facilities, showing you the sporting clays courses and amenities. You'll learn how to navigate the grounds, understand the different stations, and discover all the features that make Traditions Field Club special.",
   },
   {
     number: "05",
     title: "Enjoy Your Shoot",
     description:
-      "Now comes the fun part! Whether you're trying sporting clays, 5-Stand, or archery, our staff will be nearby to assist if needed. Take your time, enjoy the beautiful surroundings, and challenge yourself at your own pace. Don't worry if you're new—everyone starts somewhere, and our supportive environment is perfect for learning.",
+      "Now comes the fun part! Our staff will be nearby to assist if needed as you take on the course. Take your time, enjoy the beautiful surroundings, and challenge yourself at your own pace. Don't worry if you're new—everyone starts somewhere, and our supportive environment is perfect for learning.",
   },
   {
     number: "06",
@@ -53,6 +53,10 @@ const faqs = [
   {
     question: "How long should I plan for my first visit?",
     answer: "Plan for about 2-3 hours for your first visit. This allows time for check-in, the safety briefing, orientation of the grounds, and your shooting session. You're welcome to stay longer if you'd like more time on the range.",
+  },
+  {
+    question: "How long does it take to complete a course?",
+    answer: "Approximately 1½ to 2 hours if you're shooting at a leisurely pace.",
   },
   {
     question: "Can I bring my children?",
@@ -345,6 +349,10 @@ export default function FirstTime() {
                     <li className="flex items-start gap-2">
                       <span className="text-[#a75235] mt-0.5">&#8226;</span>
                       <span><strong>Ammunition</strong> available for purchase</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#a75235] mt-0.5">&#8226;</span>
+                      <span><strong>Refreshments</strong> — water and snacks available on-site</span>
                     </li>
                   </ul>
                 </div>

@@ -35,6 +35,8 @@ export default function Waiver() {
     isMinor: false,
     parentName: "",
     parentRelationship: "",
+    additionalMinors: [] as string[],
+    minorPhotoConsent: false,
     // Acknowledgments
     acknowledgeSafety: false,
     acknowledgeRisk: false,
@@ -151,6 +153,25 @@ export default function Waiver() {
     setFormData((prev) => ({
       ...prev,
       [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const addAdditionalMinor = () => {
+    setFormData((prev) => ({ ...prev, additionalMinors: [...prev.additionalMinors, ""] }));
+  };
+
+  const updateAdditionalMinor = (index: number, value: string) => {
+    setFormData((prev) => {
+      const next = [...prev.additionalMinors];
+      next[index] = value;
+      return { ...prev, additionalMinors: next };
+    });
+  };
+
+  const removeAdditionalMinor = (index: number) => {
+    setFormData((prev) => ({
+      ...prev,
+      additionalMinors: prev.additionalMinors.filter((_, i) => i !== index),
     }));
   };
 
@@ -335,6 +356,9 @@ export default function Waiver() {
             <p className="text-lg text-[#f5f2ec] max-w-2xl mx-auto opacity-90 mt-4">
               Please read and complete the waiver before your visit
             </p>
+            <p className="text-sm text-[#f5f2ec]/60 mt-3">
+              Updated August 14, 2026
+            </p>
           </div>
         </section>
 
@@ -383,7 +407,7 @@ export default function Waiver() {
 
                   <h3 className="text-lg font-semibold text-[#162838] mt-6">1. ACKNOWLEDGMENT OF RISKS</h3>
                   <p>
-                    I understand and acknowledge that participation in shooting sports activities, including but not limited to sporting clays, 5-stand, trap, skeet, and archery, involves inherent risks that cannot be eliminated regardless of the care taken to avoid injuries. These risks include, but are not limited to:
+                    I understand and acknowledge that participation in shooting sports activities, including but not limited to sporting clays, 5-stand, trap, and skeet, involves inherent risks that cannot be eliminated regardless of the care taken to avoid injuries. These risks include, but are not limited to:
                   </p>
                   <ul className="list-disc pl-6 space-y-1">
                     <li>Accidental discharge of firearms</li>
@@ -677,11 +701,68 @@ export default function Waiver() {
                         placeholder="Parent, Guardian, etc."
                       />
                     </div>
+                    {/* Additional Minor Participants */}
+                    <div className="md:col-span-2">
+                      <label className="block text-sm font-medium text-[#333333] mb-2">
+                        Additional Minor Participants (optional)
+                      </label>
+                      <p className="text-sm text-[#666666] mb-3">
+                        Signing for more than one child? Add their names below instead of filling out a
+                        separate waiver for each.
+                      </p>
+                      {formData.additionalMinors.map((name, index) => (
+                        <div key={index} className="flex items-center gap-3 mb-3">
+                          <input
+                            type="text"
+                            value={name}
+                            onChange={(e) => updateAdditionalMinor(index, e.target.value)}
+                            className="flex-1 px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                            placeholder="Full name"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => removeAdditionalMinor(index)}
+                            aria-label="Remove"
+                            className="text-[#a75235] hover:text-[#162838] transition-colors p-2 cursor-pointer"
+                          >
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
+                        </div>
+                      ))}
+                      <button
+                        type="button"
+                        onClick={addAdditionalMinor}
+                        className="text-[#3d5a45] font-semibold text-sm hover:underline cursor-pointer"
+                      >
+                        + Add Another Youth
+                      </button>
+                    </div>
+
+                    {/* Minor Photo/Video Consent */}
+                    <div className="md:col-span-2">
+                      <label className="flex items-start gap-3 cursor-pointer bg-[#f5f2ec] p-4 rounded-lg">
+                        <input
+                          type="checkbox"
+                          name="minorPhotoConsent"
+                          checked={formData.minorPhotoConsent}
+                          onChange={handleChange}
+                          className="w-5 h-5 mt-0.5 shrink-0 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
+                        />
+                        <span className="text-[#333333] text-sm">
+                          I grant Traditions Field Club permission to photograph or record video of the minor
+                          participant(s) listed above and use those images for promotional, educational, and
+                          marketing purposes.
+                        </span>
+                      </label>
+                    </div>
+
                     <div className="md:col-span-2">
                       <p className="text-sm text-[#666666] bg-[#f5f2ec] p-4 rounded-lg">
-                        By signing below, I certify that I am the parent or legal guardian of the minor named above
+                        By signing below, I certify that I am the parent or legal guardian of the minor(s) named above
                         and have the legal authority to execute this waiver on their behalf. I agree to all terms
-                        of this waiver on behalf of the minor and accept full responsibility for their participation.
+                        of this waiver on behalf of the minor(s) and accept full responsibility for their participation.
                       </p>
                     </div>
                   </div>

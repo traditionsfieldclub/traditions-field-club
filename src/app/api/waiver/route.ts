@@ -69,6 +69,8 @@ async function generateWaiverPDF(data: {
   isMinor: boolean;
   parentName: string;
   parentRelationship: string;
+  additionalMinors: string[];
+  minorPhotoConsent: boolean;
   signedDate: string;
   signatureDataUrl: string;
 }): Promise<Uint8Array> {
@@ -217,6 +219,10 @@ async function generateWaiverPDF(data: {
   });
   y -= 20;
 
+  // === Form version note ===
+  drawText("Form last updated: August 14, 2026", { usedFont: font, size: 9, color: rgb(0.4, 0.4, 0.4) });
+  y -= 6;
+
   // === Warning ===
   drawText(
     "PLEASE READ CAREFULLY BEFORE SIGNING. THIS IS A LEGAL DOCUMENT THAT AFFECTS YOUR RIGHTS.",
@@ -233,7 +239,7 @@ async function generateWaiverPDF(data: {
   // === Section 1 ===
   drawHeading("1. ACKNOWLEDGMENT OF RISKS");
   drawText(
-    "I understand and acknowledge that participation in shooting sports activities, including but not limited to sporting clays, 5-stand, trap, skeet, and archery, involves inherent risks that cannot be eliminated regardless of the care taken to avoid injuries. These risks include, but are not limited to:"
+    "I understand and acknowledge that participation in shooting sports activities, including but not limited to sporting clays, 5-stand, trap, and skeet, involves inherent risks that cannot be eliminated regardless of the care taken to avoid injuries. These risks include, but are not limited to:"
   );
   y -= 2;
   const risks = [
@@ -302,6 +308,13 @@ async function generateWaiverPDF(data: {
   drawText(
     "I grant the Club permission to use photographs, video recordings, and other media of my participation in activities for promotional, educational, and marketing purposes without compensation."
   );
+  if (data.isMinor) {
+    drawText(
+      data.minorPhotoConsent
+        ? "For the minor participant(s) listed below, the parent/guardian additionally GRANTS permission to photograph or record video of the minor(s) for promotional, educational, and marketing purposes."
+        : "For the minor participant(s) listed below, the parent/guardian does NOT grant permission to photograph or record video of the minor(s) for promotional, educational, and marketing purposes."
+    );
+  }
 
   // === Section 8 ===
   drawHeading("8. GOVERNING LAW AND DISPUTE RESOLUTION");
@@ -331,6 +344,10 @@ async function generateWaiverPDF(data: {
 
   if (data.isMinor) {
     infoLines.push(`Minor Participant — Parent/Guardian: ${data.parentName} (${data.parentRelationship})`);
+    if (data.additionalMinors.length > 0) {
+      infoLines.push(`Additional Minor Participants: ${data.additionalMinors.join(", ")}`);
+    }
+    infoLines.push(`Minor Photo/Video Consent: ${data.minorPhotoConsent ? "Granted" : "Not granted"}`);
   }
 
   for (const line of infoLines) {
@@ -434,6 +451,8 @@ export async function POST(req: NextRequest) {
       isMinor,
       parentName,
       parentRelationship,
+      additionalMinors,
+      minorPhotoConsent,
       signedDate,
       signatureDataUrl,
       companyFax, // honeypot
@@ -510,6 +529,25 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // 7b. Sanitize additional minor names — drop blanks, cap count and length
+    const cleanedAdditionalMinors: string[] = Array.isArray(additionalMinors)
+      ? additionalMinors
+          .filter((n: unknown): n is string => typeof n === "string" && n.trim().length > 0)
+          .map((n: string) => n.trim())
+      : [];
+
+    if (cleanedAdditionalMinors.length > 10) {
+      return NextResponse.json(
+        { error: "Too many additional minor participants" },
+        { status: 400 }
+      );
+    }
+    for (const name of cleanedAdditionalMinors) {
+      if (name.length > 200) {
+        return NextResponse.json({ error: "Field too long" }, { status: 400 });
+      }
+    }
+
     // 8. Validate field lengths
     const textFields: Record<string, string> = {
       participantName,
@@ -567,6 +605,8 @@ export async function POST(req: NextRequest) {
       isMinor: !!isMinor,
       parentName: (parentName || "").trim(),
       parentRelationship: (parentRelationship || "").trim(),
+      additionalMinors: cleanedAdditionalMinors,
+      minorPhotoConsent: !!minorPhotoConsent,
       signedDate,
       signatureDataUrl,
     });
@@ -600,6 +640,8 @@ export async function POST(req: NextRequest) {
             (parentRelationship || "").trim(),          // Parent/Guardian Relationship
             signedDate,                                // Date Signed
             "",                                        // Notes
+            cleanedAdditionalMinors.join(", "),         // Additional Minor Participants
+            isMinor ? (minorPhotoConsent ? "Yes" : "No") : "",  // Minor Photo/Video Consent
           ],
         }),
       }
@@ -622,6 +664,8 @@ export async function POST(req: NextRequest) {
             <p><strong>Date of Birth:</strong> ${esc(dateOfBirth)}</p>
             <p><strong>Emergency Contact:</strong> ${esc(emergencyContactName.trim())} — ${esc(emergencyContactPhone.trim())}</p>
             ${isMinor ? `<p><strong>Minor — Parent/Guardian:</strong> ${esc(parentName.trim())} (${esc(parentRelationship.trim())})</p>` : ""}
+            ${isMinor && cleanedAdditionalMinors.length > 0 ? `<p><strong>Additional Minor Participants:</strong> ${esc(cleanedAdditionalMinors.join(", "))}</p>` : ""}
+            ${isMinor ? `<p><strong>Minor Photo/Video Consent:</strong> ${minorPhotoConsent ? "Granted" : "Not granted"}</p>` : ""}
             <p><strong>Signed:</strong> ${esc(signedDate)}</p>
             <p>The signed waiver PDF is attached.</p>
           `,

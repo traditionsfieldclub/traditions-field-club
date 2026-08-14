@@ -25,11 +25,10 @@ export const metadata: Metadata = {
     template: "%s | Traditions Field Club",
   },
   description:
-    "Traditions Field Club is a veteran-owned sporting clays, 5-stand, and archery club in South Carolina's Lowcountry near Ruffin, SC. Family-friendly memberships, certified instruction, and corporate events. Open 7 days, sunrise to sunset.",
+    "Traditions Field Club is a veteran-owned sporting clays and 5-stand club in South Carolina's Lowcountry near Ruffin, SC. Family-friendly memberships, certified instruction, and corporate events. Open 7 days, sunrise to sunset.",
   keywords: [
     "sporting clays South Carolina",
     "5-stand shooting",
-    "archery range SC",
     "shooting club Lowcountry",
     "veteran owned sporting club",
     "family friendly shooting range",
@@ -45,7 +44,7 @@ export const metadata: Metadata = {
     title:
       "Traditions Field Club | Premier Sporting Clays Club in South Carolina",
     description:
-      "Traditions Field Club is a veteran-owned sporting clays, 5-stand, and archery club in South Carolina's Lowcountry near Ruffin, SC. Family-friendly memberships, certified instruction, and corporate events. Open 7 days, sunrise to sunset.",
+      "Traditions Field Club is a veteran-owned sporting clays and 5-stand club in South Carolina's Lowcountry near Ruffin, SC. Family-friendly memberships, certified instruction, and corporate events. Open 7 days, sunrise to sunset.",
     url: "https://traditionsfieldclub.com",
     siteName: "Traditions Field Club",
     locale: "en_US",
@@ -64,7 +63,7 @@ export const metadata: Metadata = {
     title:
       "Traditions Field Club | Premier Sporting Clays Club in South Carolina",
     description:
-      "Traditions Field Club is a veteran-owned sporting clays, 5-stand, and archery club in South Carolina's Lowcountry near Ruffin, SC. Family-friendly memberships, certified instruction, and corporate events. Open 7 days, sunrise to sunset.",
+      "Traditions Field Club is a veteran-owned sporting clays and 5-stand club in South Carolina's Lowcountry near Ruffin, SC. Family-friendly memberships, certified instruction, and corporate events. Open 7 days, sunrise to sunset.",
     images: ["https://traditionsfieldclub.com/og-image.jpg"],
   },
   robots: {

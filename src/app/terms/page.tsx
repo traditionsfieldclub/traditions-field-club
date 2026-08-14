@@ -46,7 +46,7 @@ export default function TermsOfService() {
               Terms of Service
             </h1>
             <p className="text-base md:text-lg text-[#f5f2ec] opacity-75">
-              Last updated: March 2026
+              Last updated: August 14, 2026
             </p>
           </div>
         </section>
@@ -221,6 +221,25 @@ export default function TermsOfService() {
                 </ul>
               </div>
 
+              {/* Payment, Refunds & Cancellation */}
+              <div className="mb-12">
+                <h2
+                  className="text-2xl md:text-3xl text-[#162838] mb-4"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Payment, Refunds &amp; Cancellation
+                </h2>
+                <p className="leading-relaxed">
+                  Membership dues and fees are due as specified at the time of enrollment. Membership is
+                  billed on an annual basis unless otherwise stated at signup. Except where required by law
+                  or expressly stated in a current promotional offer, membership dues are non-refundable
+                  once paid. Members wishing to cancel must provide written notice to the Club; cancellation
+                  takes effect at the end of the then-current membership term, and no partial-term refunds
+                  will be issued. The Club reserves the right to change membership pricing for future terms
+                  with reasonable advance notice.
+                </p>
+              </div>
+
               {/* Assumption of Risk */}
               <div className="mb-12">
                 <h2
@@ -287,6 +306,22 @@ export default function TermsOfService() {
                   and agents shall not be liable for any direct, indirect, incidental, special, consequential, or
                   punitive damages arising from your use of our facilities or services, including but not limited
                   to personal injury, property damage, or loss of enjoyment.
+                </p>
+              </div>
+
+              {/* Governing Law */}
+              <div className="mb-12">
+                <h2
+                  className="text-2xl md:text-3xl text-[#162838] mb-4"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Governing Law &amp; Dispute Resolution
+                </h2>
+                <p className="leading-relaxed">
+                  These Terms of Service shall be governed by the laws of the State of South Carolina.
+                  Any dispute arising from these Terms shall be resolved exclusively in the courts of
+                  Colleton County, South Carolina. If any portion of these Terms is found to be
+                  unenforceable, the remaining portions shall remain in full force and effect.
                 </p>
               </div>
 

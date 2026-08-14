@@ -121,7 +121,7 @@ export default function About() {
                   of heritage outdoor sports.
                 </p>
                 <p className="text-[#333333] leading-relaxed">
-                  From walking trails and camping areas to a future barn-style lodge,
+                  From a future Pavilion to hunting, fishing, and outdoor recreation,
                   we&apos;re building a place where memories are made, skills are passed down through generations,
                   and the traditions of Southern outdoor life are celebrated and preserved.
                 </p>
@@ -154,7 +154,7 @@ export default function About() {
                 className="text-3xl md:text-4xl text-[#162838]"
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
-                Our Values
+                Core Values
               </h2>
               <div className="flex justify-center mt-4">
                 <span className="h-[1px] w-16 bg-[#a75235]"></span>
@@ -162,7 +162,32 @@ export default function About() {
             </div>
 
             {/* Values Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
+              {/* Christ-Centered */}
+              <div
+                className={`bg-white p-6 rounded-lg shadow-sm border border-[#e8e4dc] text-center transition-all duration-700 ease-out hover:shadow-md ${
+                  isVisible("values")
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
+                }`}
+                style={{ transitionDelay: "0ms" }}
+              >
+                <div className="w-16 h-16 bg-[#a75235] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4v16m8-8H4" />
+                  </svg>
+                </div>
+                <h3
+                  className="text-xl text-[#162838] mb-3"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Christ-Centered
+                </h3>
+                <p className="text-[#333333] text-sm leading-relaxed">
+                  Rooted in Christian faith, guiding how we treat every family that walks through our gates.
+                </p>
+              </div>
+
               {/* Veteran-Owned */}
               <div
                 className={`bg-white p-6 rounded-lg shadow-sm border border-[#e8e4dc] text-center transition-all duration-700 ease-out hover:shadow-md ${
@@ -259,7 +284,7 @@ export default function About() {
                   Community-Driven
                 </h3>
                 <p className="text-[#333333] text-sm leading-relaxed">
-                  Built by volunteers and members who share a passion for preserving outdoor traditions.
+                  Built by members who share a passion for preserving outdoor traditions.
                 </p>
               </div>
             </div>
@@ -324,6 +349,10 @@ export default function About() {
                   <li className="flex items-center gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full flex-shrink-0"></span>
                     Located at 13197 Low Country Hwy in Ruffin, SC
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="w-2 h-2 bg-[#a75235] rounded-full flex-shrink-0"></span>
+                    30 minutes from Orangeburg
                   </li>
                   <li className="flex items-center gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full flex-shrink-0"></span>

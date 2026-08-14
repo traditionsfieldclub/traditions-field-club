@@ -137,7 +137,7 @@ export async function POST(req: NextRequest) {
     }
 
     // 8. Validate topic is an expected value
-    const VALID_TOPICS = ["membership", "lessons", "volunteer", "partnerships", "general", "scheduling", "other"];
+    const VALID_TOPICS = ["membership", "lessons", "partnerships", "general", "scheduling", "other"];
     if (!VALID_TOPICS.includes(topic)) {
       return NextResponse.json({ error: "Invalid topic" }, { status: 400 });
     }

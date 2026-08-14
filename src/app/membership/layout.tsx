@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Membership — Individual, Family, Corporate & Exclusive Plans",
+  title: "Membership — Prime & Corporate Plans",
   description:
-    "Join Traditions Field Club with membership options for individuals, families, and businesses. 7-day access from sunrise to sunset, clay credits, member events, guest passes, and volunteer perks. Located in South Carolina's Lowcountry.",
+    "Join Traditions Field Club with membership options for individuals, families, and businesses. 7-day access from sunrise to sunset, member events, and guest passes. Located in South Carolina's Lowcountry.",
   openGraph: {
-    title: "Membership — Individual, Family, Corporate & Exclusive Plans",
+    title: "Membership — Prime & Corporate Plans",
     description:
-      "Join Traditions Field Club with membership options for individuals, families, and businesses. 7-day access from sunrise to sunset, clay credits, member events, guest passes, and volunteer perks. Located in South Carolina's Lowcountry.",
+      "Join Traditions Field Club with membership options for individuals, families, and businesses. 7-day access from sunrise to sunset, member events, and guest passes. Located in South Carolina's Lowcountry.",
     url: "https://traditionsfieldclub.com/membership",
     images: [{ url: "https://traditionsfieldclub.com/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
-    title: "Membership — Individual, Family, Corporate & Exclusive Plans",
+    title: "Membership — Prime & Corporate Plans",
     description:
-      "Join Traditions Field Club. 7-day access, clay credits, member events, guest passes — Lowcountry sporting clays, 5-stand, archery.",
+      "Join Traditions Field Club. 7-day access, member events, guest passes — Lowcountry sporting clays, 5-stand.",
   },
   alternates: {
     canonical: "https://traditionsfieldclub.com/membership",

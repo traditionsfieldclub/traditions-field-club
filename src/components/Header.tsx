@@ -8,15 +8,22 @@ import { useState } from "react";
 const navItems = [
   { label: "First Time", href: "/first-time" },
   { label: "Activities", href: "/activities" },
-  { label: "About", href: "/about" },
   { label: "Roadmap", href: "/roadmap" },
   { label: "Membership", href: "/membership" },
+  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  const handleNavClick = (href: string) => (e: React.MouseEvent) => {
+    if (pathname === href) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <>
@@ -44,6 +51,7 @@ export default function Header() {
               <Link
                 key={item.label}
                 href={item.href}
+                onClick={handleNavClick(item.href)}
                 className={`group text-xs xl:text-sm font-bold uppercase tracking-wide xl:tracking-widest transition-colors duration-200 relative whitespace-nowrap ${
                   pathname === item.href ? "text-[#a75235]" : "text-[#162838] hover:text-[#a75235]"
                 }`}
@@ -60,7 +68,7 @@ export default function Header() {
               className="bg-[#a75235] text-[#f5f2ec] text-xs xl:text-sm font-bold uppercase tracking-wide xl:tracking-widest px-3 xl:px-5 py-2 hover:bg-[#162838] transition-colors duration-200 rounded whitespace-nowrap"
               style={{ fontFamily: "var(--font-heading), serif" }}
             >
-              Join Our Waitlist
+              Become A Member
             </Link>
           </nav>
 
@@ -109,7 +117,10 @@ export default function Header() {
                   pathname === item.href ? "text-[#a75235]" : "text-[#162838] hover:text-[#a75235]"
                 }`}
                 style={{ fontFamily: "var(--font-heading), serif" }}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => {
+                  setMobileMenuOpen(false);
+                  handleNavClick(item.href)(e);
+                }}
               >
                 {item.label}
               </Link>
@@ -121,7 +132,7 @@ export default function Header() {
               style={{ fontFamily: "var(--font-heading), serif" }}
               onClick={() => setMobileMenuOpen(false)}
             >
-              Join Our Waitlist
+              Become A Member
             </Link>
           </div>
         </nav>

@@ -74,7 +74,7 @@ export default function Home() {
                 <p className="text-lg text-[#333333] leading-relaxed mb-6">
                   Traditions Field Club is more than a shooting range—it&apos;s a destination.
                   Nestled in the quiet rural beauty of South Carolina, we offer world-class
-                  sporting clays, 5-stand, and archery in an environment that honors the
+                  sporting clays and 5-stand in an environment that honors the
                   heritage of Southern outdoor traditions.
                 </p>
                 <p className="text-[#333333] leading-relaxed mb-6">
@@ -88,11 +88,11 @@ export default function Home() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
-                    href="/about"
+                    href="/first-time"
                     className="inline-block bg-[#3d5a45] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg text-center"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
-                    Our Story
+                    First Time Here?
                   </Link>
                   <Link
                     href="/contact"
@@ -183,8 +183,8 @@ export default function Home() {
             </div>
 
             {/* Activities Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* 5-Stand */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+              {/* Sporting Clays */}
               <div
                 className={`group bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out hover:shadow-lg ${
                   isVisible("activities")
@@ -195,13 +195,58 @@ export default function Home() {
               >
                 <div className="relative h-[200px] overflow-hidden">
                   <FadeImage
+                    src="/images/shooter_at_stand.webp"
+                    alt="Sporting clays shooting at Traditions Field Club"
+                    fill
+                    quality={50}
+                    className="object-cover object-[center_calc(50%-10px)] scale-105 group-hover:scale-110 transition-transform duration-300"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-[#162838]/0 group-hover:bg-[#162838]/10 transition-colors duration-300"></div>
+                </div>
+                <div className="p-6">
+                  <h3
+                    className="text-2xl text-[#162838] mb-3"
+                    style={{ fontFamily: "var(--font-heading), serif" }}
+                  >
+                    Sporting Clays
+                  </h3>
+                  <p className="text-[#333333] text-sm leading-relaxed mb-4">
+                    Often called &quot;golf with a shotgun,&quot; our two courses wind through
+                    the natural beauty of South Carolina&apos;s fields.
+                  </p>
+                  <Link
+                    href="/activities#sporting-clays"
+                    className="inline-flex items-center text-[#a75235] font-semibold text-sm hover:text-[#162838] transition-colors group-hover:translate-x-1 duration-300"
+                  >
+                    Learn More
+                    <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+
+              {/* 5-Stand */}
+              <div
+                className={`group bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out hover:shadow-lg ${
+                  isVisible("activities")
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
+                }`}
+                style={{ transitionDelay: "400ms" }}
+              >
+                <div className="relative h-[200px] overflow-hidden">
+                  <FadeImage
                     src="/images/shooting_stations_construction.webp"
                     alt="5-Stand shooting stations at Traditions Field Club"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-[#162838]/0 group-hover:bg-[#162838]/10 transition-colors duration-300"></div>
+                  <div className="absolute inset-0 bg-[#162838]/40 flex items-center justify-center">
+                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
+                  </div>
                 </div>
                 <div className="p-6">
                   <h3
@@ -226,92 +271,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Sporting Clays */}
-              <div
-                className={`group bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out hover:shadow-lg ${
-                  isVisible("activities")
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
-                }`}
-                style={{ transitionDelay: "400ms" }}
-              >
-                <div className="relative h-[200px] overflow-hidden">
-                  <FadeImage
-                    src="/images/shooter_at_stand.webp"
-                    alt="Sporting clays shooting at Traditions Field Club"
-                    fill
-                    quality={50}
-                    className="object-cover object-[center_calc(50%-10px)] scale-105 group-hover:scale-110 transition-transform duration-300"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-[#162838]/0 group-hover:bg-[#162838]/10 transition-colors duration-300"></div>
-                </div>
-                <div className="p-6">
-                  <h3
-                    className="text-2xl text-[#162838] mb-3"
-                    style={{ fontFamily: "var(--font-heading), serif" }}
-                  >
-                    Sporting Clays
-                  </h3>
-                  <p className="text-[#333333] text-sm leading-relaxed mb-4">
-                    Often called &quot;golf with a shotgun,&quot; our courses wind through
-                    the natural beauty of South Carolina&apos;s fields.
-                  </p>
-                  <Link
-                    href="/activities#sporting-clays"
-                    className="inline-flex items-center text-[#a75235] font-semibold text-sm hover:text-[#162838] transition-colors group-hover:translate-x-1 duration-300"
-                  >
-                    Learn More
-                    <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
-                </div>
-              </div>
-
-              {/* Archery */}
-              <div
-                className={`group bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out hover:shadow-lg ${
-                  isVisible("activities")
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
-                }`}
-                style={{ transitionDelay: "600ms" }}
-              >
-                <div className="relative h-[200px] overflow-hidden">
-                  <FadeImage
-                    src="/images/archery_range_shooting.webp"
-                    alt="Archery range at Traditions Field Club"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-[#162838]/40 flex items-center justify-center">
-                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3
-                    className="text-2xl text-[#162838] mb-3"
-                    style={{ fontFamily: "var(--font-heading), serif" }}
-                  >
-                    Archery
-                  </h3>
-                  <p className="text-[#333333] text-sm leading-relaxed mb-4">
-                    A dedicated outdoor range designed with youth and beginners in mind.
-                    All ages and skill levels welcome.
-                  </p>
-                  <Link
-                    href="/activities#archery"
-                    className="inline-flex items-center text-[#a75235] font-semibold text-sm hover:text-[#162838] transition-colors group-hover:translate-x-1 duration-300"
-                  >
-                    Learn More
-                    <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </Link>
-                </div>
-              </div>
             </div>
 
             {/* View All Link */}
@@ -412,14 +371,10 @@ export default function Home() {
                     <p className="text-sm text-[#333333]">Sun up to sun down</p>
                   </div>
                   <div className="bg-[#f5f2ec] p-4 rounded-lg">
-                    <p className="text-[#162838] font-semibold mb-1">Clay Credits</p>
-                    <p className="text-sm text-[#333333]">Dues convert to value</p>
-                  </div>
-                  <div className="bg-[#f5f2ec] p-4 rounded-lg">
                     <p className="text-[#162838] font-semibold mb-1">Family Friendly</p>
                     <p className="text-sm text-[#333333]">All ages welcome</p>
                   </div>
-                  <div className="bg-[#f5f2ec] p-4 rounded-lg">
+                  <div className="bg-[#f5f2ec] p-4 rounded-lg col-span-2">
                     <p className="text-[#162838] font-semibold mb-1">Events</p>
                     <p className="text-sm text-[#333333]">Member-only access</p>
                   </div>
@@ -438,7 +393,7 @@ export default function Home() {
                     className="inline-block bg-transparent border-2 border-[#a75235] text-[#a75235] px-8 py-3 font-semibold tracking-wide hover:bg-[#a75235] hover:text-[#f5f2ec] transition-colors rounded-lg text-center"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
-                    Join Our Waitlist
+                    Become A Member
                   </Link>
                 </div>
               </div>
@@ -485,10 +440,10 @@ export default function Home() {
             {/* Roadmap Timeline */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {[
-                { phase: "Phase 1", title: "Foundation", status: "In Progress", desc: "Sporting clays, 5-stand, archery range" },
-                { phase: "Phase 2", title: "Expansion", status: "Planned", desc: "Pro shop, key card system, pavilion" },
-                { phase: "Phase 3", title: "Recreation", status: "Planned", desc: "Trails, camping, RV lot" },
-                { phase: "Phase 4", title: "The Lodge", status: "Long-Term", desc: "Barn-style lodge, events, catering" },
+                { phase: "Phase 1", title: "Foundation", status: "Complete", desc: "2 sporting clays courses" },
+                { phase: "Phase 2", title: "Pavilion", status: "In Progress", desc: "Bathrooms, kitchen, shop\nFamily hangout space" },
+                { phase: "Phase 3", title: "Hunting & Outdoors", status: "Coming Soon", desc: "Hunting, fishing, duck blinds\nGuided wing shoots" },
+                { phase: "Phase 4", title: "Recreation", status: "Future", desc: "Farm build-out, hiking, outdoor recreation" },
               ].map((item, index) => (
                 <div
                   key={item.phase}
@@ -500,12 +455,18 @@ export default function Home() {
                   style={{ transitionDelay: `${(index + 1) * 150}ms` }}
                 >
                   <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 ${
-                    item.status === "In Progress" ? "bg-[#3d5a45]" : "bg-[#f5f2ec]/10"
+                    item.status === "Complete" ? "bg-[#a75235]" : item.status === "In Progress" ? "bg-[#3d5a45]" : "bg-[#f5f2ec]/10"
                   }`}>
-                    <span className="text-[#f5f2ec] font-bold">{index + 1}</span>
+                    {item.status === "Complete" ? (
+                      <svg className="w-6 h-6 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    ) : (
+                      <span className="text-[#f5f2ec] font-bold">{index + 1}</span>
+                    )}
                   </div>
                   <span className={`text-xs uppercase tracking-wider ${
-                    item.status === "In Progress" ? "text-[#3d5a45]" : "text-[#f5f2ec]/50"
+                    item.status === "Complete" ? "text-[#a75235]" : item.status === "In Progress" ? "text-[#3d5a45]" : "text-[#f5f2ec]/50"
                   }`}>
                     {item.status}
                   </span>
@@ -515,7 +476,7 @@ export default function Home() {
                   >
                     {item.title}
                   </h3>
-                  <p className="text-sm text-[#f5f2ec]/60">{item.desc}</p>
+                  <p className="text-sm text-[#f5f2ec]/60 whitespace-pre-line">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -533,96 +494,68 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Volunteer Callout */}
+        {/* Founders Teaser */}
         <section
-          id="volunteer"
-          ref={(el) => { sectionRefs.current["volunteer"] = el; }}
+          id="founders-teaser"
+          ref={(el) => { sectionRefs.current["founders-teaser"] = el; }}
           className="py-20 md:py-28 bg-[#f5f2ec] overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* Content */}
+              {/* Photo */}
               <div
-                className={`transition-all duration-1000 ease-out ${
-                  isVisible("volunteer")
+                className={`relative h-[350px] md:h-[400px] order-2 lg:order-1 transition-all duration-1000 ease-out ${
+                  isVisible("founders-teaser")
                     ? "opacity-100 translate-x-0"
                     : "opacity-0 -translate-x-10"
+                }`}
+              >
+                <div className="absolute inset-0 rounded-lg overflow-hidden">
+                  <FadeImage
+                    src="/images/owners_selfie_property.webp"
+                    alt="Brian Seifrit and Jim Nicholson, co-owners of Traditions Field Club"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                {/* Decorative accent */}
+                <div className="hidden sm:block absolute -bottom-4 -right-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
+                <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 bg-[#3d5a45]/10 rounded-lg -z-10"></div>
+              </div>
+
+              {/* Content */}
+              <div
+                className={`order-1 lg:order-2 transition-all duration-1000 ease-out delay-200 ${
+                  isVisible("founders-teaser")
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 translate-x-10"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-4">
                   <span className="h-[1px] w-8 md:w-12 bg-[#a75235]"></span>
                   <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">
-                    Get Involved
+                    Our Founders
                   </span>
                 </div>
                 <h2
                   className="text-3xl md:text-4xl lg:text-5xl text-[#162838] mb-6"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
-                  Volunteer With Us
+                  Meet Brian &amp; Jim
                 </h2>
-                <p className="text-lg text-[#333333] leading-relaxed mb-6">
-                  Traditions Field Club is built on community. Our volunteer program offers
-                  the opportunity to be part of something meaningful while enjoying exclusive perks.
+                <p className="text-lg text-[#333333] leading-relaxed mb-8">
+                  Founded by Brian Seifrit and Jim Nicholson, guided by Christian faith and a
+                  commitment to family, Traditions Field Club is built to bring people together
+                  over a shared love of the outdoors.
                 </p>
-                <ul className="space-y-4 mb-8">
-                  <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span className="text-[#333333]">
-                      <strong className="text-[#162838]">Earn Clays</strong> — Volunteers can earn shooting clays
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span className="text-[#333333]">
-                      <strong className="text-[#162838]">Build Community</strong> — Work alongside fellow enthusiasts
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span className="text-[#333333]">
-                      <strong className="text-[#162838]">Shape the Club</strong> — Help build the future of Traditions
-                    </span>
-                  </li>
-                </ul>
                 <Link
-                  href="/contact?topic=volunteer"
-                  className="inline-block bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
+                  href="/about"
+                  className="inline-block bg-[#3d5a45] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg text-center"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
-                  Become a Volunteer
+                  Learn Their Story
                 </Link>
-              </div>
-
-              {/* Image Placeholder */}
-              <div
-                className={`relative h-[400px] transition-all duration-1000 ease-out delay-200 ${
-                  isVisible("volunteer")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
-                }`}
-              >
-                <div className="absolute inset-0 rounded-lg overflow-hidden">
-                  <FadeImage
-                    src="/images/trap_setup_team_2.webp"
-                    alt="Volunteers setting up trap machines at Traditions Field Club"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
               </div>
             </div>
           </div>

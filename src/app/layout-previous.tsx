@@ -1,0 +1,119 @@
+import type { Metadata } from "next";
+import { Nanum_Myeongjo, Lato } from "next/font/google";
+import "./globals.css";
+import FloatingContact from "@/components/FloatingContact";
+import JsonLd from "@/components/JsonLd";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
+
+const nanumMyeongjo = Nanum_Myeongjo({
+  variable: "--font-heading",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+const lato = Lato({
+  variable: "--font-body",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://traditionsfieldclub.com"),
+  title: {
+    default:
+      "Traditions Field Club | Premier Sporting Clays Club in South Carolina",
+    template: "%s | Traditions Field Club",
+  },
+  description:
+    "Traditions Field Club is a veteran-owned sporting clays, 5-stand, and archery club in South Carolina's Lowcountry near Ruffin, SC. Family-friendly memberships, certified instruction, and corporate events. Open 7 days, sunrise to sunset.",
+  keywords: [
+    "sporting clays South Carolina",
+    "5-stand shooting",
+    "archery range SC",
+    "shooting club Lowcountry",
+    "veteran owned sporting club",
+    "family friendly shooting range",
+    "clay shooting Ruffin SC",
+    "outdoor club near Charleston",
+    "sporting clays near Hilton Head",
+    "corporate team building shooting",
+    "youth shooting programs SC",
+  ],
+  authors: [{ name: "Traditions Field Club" }],
+  creator: "Traditions Field Club",
+  openGraph: {
+    title:
+      "Traditions Field Club | Premier Sporting Clays Club in South Carolina",
+    description:
+      "Traditions Field Club is a veteran-owned sporting clays, 5-stand, and archery club in South Carolina's Lowcountry near Ruffin, SC. Family-friendly memberships, certified instruction, and corporate events. Open 7 days, sunrise to sunset.",
+    url: "https://traditionsfieldclub.com",
+    siteName: "Traditions Field Club",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "https://traditionsfieldclub.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Traditions Field Club — Sporting Clays in South Carolina's Lowcountry",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Traditions Field Club | Premier Sporting Clays Club in South Carolina",
+    description:
+      "Traditions Field Club is a veteran-owned sporting clays, 5-stand, and archery club in South Carolina's Lowcountry near Ruffin, SC. Family-friendly memberships, certified instruction, and corporate events. Open 7 days, sunrise to sunset.",
+    images: ["https://traditionsfieldclub.com/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://traditionsfieldclub.com",
+  },
+  verification: {
+    other: {
+      "msvalidate.01": "3B1CAA63CF9DB7C61F4F43F5B1F6AD75",
+    },
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className="overflow-x-hidden">
+      <head>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="preload" href="/images/hero-poster.webp" as="image" type="image/webp" />
+        <GoogleAnalytics />
+      </head>
+      <body
+        className={`${nanumMyeongjo.variable} ${lato.variable} antialiased overflow-x-hidden w-full max-w-full`}
+        style={{ fontFamily: "var(--font-body), sans-serif" }}
+      >
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-[#162838] focus:text-[#f5f2ec] focus:px-4 focus:py-2 focus:rounded"
+        >
+          Skip to main content
+        </a>
+        {children}
+        <FloatingContact />
+        <JsonLd />
+      </body>
+    </html>
+  );
+}

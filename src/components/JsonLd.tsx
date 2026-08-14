@@ -39,7 +39,7 @@ const localBusiness = {
   "@id": `${BASE_URL}#localbusiness`,
   name: "Traditions Field Club",
   description:
-    "A veteran-owned premier sporting clays, 5-stand, and archery club in South Carolina's Lowcountry. Family-friendly memberships, certified instruction, corporate events, and youth programs.",
+    "A veteran-owned premier sporting clays and 5-stand club in South Carolina's Lowcountry. Family-friendly memberships, certified instruction, corporate events, and youth programs.",
   url: BASE_URL,
   image: [`${BASE_URL}/og-image.jpg`],
   logo: `${BASE_URL}/logo.png`,
@@ -84,15 +84,13 @@ const localBusiness = {
   ],
   sameAs: ["https://www.instagram.com/traditionsfieldclub/"],
   keywords:
-    "sporting clays, 5-stand, archery, shooting club, South Carolina, Lowcountry, veteran-owned, family-friendly",
+    "sporting clays, 5-stand, shooting club, South Carolina, Lowcountry, veteran-owned, family-friendly",
   founder: [
     { "@type": "Person", name: "Brian Seifrit" },
     { "@type": "Person", name: "Jim Nicholson" },
   ],
   amenityFeature: [
     { "@type": "LocationFeatureSpecification", name: "Sporting Clays Course", value: true },
-    { "@type": "LocationFeatureSpecification", name: "5-Stand Facility", value: true },
-    { "@type": "LocationFeatureSpecification", name: "Archery Range", value: true },
     { "@type": "LocationFeatureSpecification", name: "Certified Instruction", value: true },
     { "@type": "LocationFeatureSpecification", name: "Corporate Events", value: true },
     { "@type": "LocationFeatureSpecification", name: "Youth Programs", value: true },
@@ -101,16 +99,6 @@ const localBusiness = {
     {
       "@type": "Offer",
       name: "Sporting Clays",
-      category: "Recreation",
-    },
-    {
-      "@type": "Offer",
-      name: "5-Stand Shooting",
-      category: "Recreation",
-    },
-    {
-      "@type": "Offer",
-      name: "Archery",
       category: "Recreation",
     },
     {

@@ -87,124 +87,29 @@ export default function Activities() {
               <span className="h-[1px] w-16 bg-[#a75235]"></span>
             </div>
             <p className="text-lg text-[#333333] leading-relaxed">
-              At Traditions Field Club, we offer a variety of shooting sports designed to challenge and delight
-              enthusiasts of all skill levels. From the fast-paced action of 5-Stand to the scenic journey of
-              sporting clays, each experience connects you with the traditions of Southern outdoor sports.
+              At Traditions Field Club, we offer shooting sports designed to challenge and delight
+              enthusiasts of all skill levels. The scenic journey of sporting clays connects you with
+              the traditions of Southern outdoor sports.
             </p>
-          </div>
-        </section>
-
-        {/* 5-Stand Section - Image Left */}
-        <section
-          id="5-stand"
-          ref={(el) => { sectionRefs.current["5-stand"] = el; }}
-          className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* Image */}
-              <div
-                className={`relative h-[300px] sm:h-[350px] md:h-[450px] transition-all duration-1000 ease-out ${
-                  isVisible("5-stand")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
-                }`}
+            <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
+              <a
+                href="#sporting-clays"
+                className="px-5 py-2 rounded-full border-2 border-[#3d5a45] text-[#3d5a45] text-sm font-semibold uppercase tracking-wide hover:bg-[#3d5a45] hover:text-[#f5f2ec] transition-colors"
               >
-                <div className="absolute inset-0 rounded-lg overflow-hidden">
-                  <FadeImage
-                    src="/images/shooting_stations_construction.webp"
-                    alt="5-Stand shooting stations at Traditions Field Club"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-                {/* Decorative accent */}
-                <div className="hidden sm:block absolute -bottom-4 -right-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
-                <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 bg-[#3d5a45]/10 rounded-lg -z-10"></div>
-              </div>
-
-              {/* Content */}
-              <div
-                className={`transition-all duration-1000 ease-out delay-200 ${
-                  isVisible("5-stand")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
-                }`}
+                Now
+              </a>
+              <a
+                href="#5-stand"
+                className="px-5 py-2 rounded-full border-2 border-[#a75235] text-[#a75235] text-sm font-semibold uppercase tracking-wide hover:bg-[#a75235] hover:text-[#f5f2ec] transition-colors"
               >
-                <div className="flex items-center gap-4 mb-4">
-                  <span className="h-[1px] w-8 md:w-12 bg-[#a75235]"></span>
-                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Shooting Sports</span>
-                </div>
-                <h2
-                  className="text-3xl md:text-4xl lg:text-5xl text-[#162838] mb-6"
-                  style={{ fontFamily: "var(--font-heading), serif" }}
-                >
-                  5-Stand
-                </h2>
-                <p className="text-lg text-[#333333] mb-4 leading-relaxed">
-                  Our dedicated 5-Stand facility offers an exciting and challenging shooting experience for all skill levels.
-                  With five shooting stations and multiple trap machines presenting targets from various angles and distances,
-                  you&apos;ll enjoy a dynamic round that tests your reflexes and marksmanship.
-                </p>
-                <p className="text-[#333333] mb-6 leading-relaxed">
-                  Perfect for those looking to sharpen their skills or enjoy a quick session, 5-Stand provides the thrill
-                  of sporting clays in a compact format.
-                </p>
-                <ul className="space-y-3 text-[#333333] mb-8">
-                  <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span>Five shooting stations with varied presentations</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span>Multiple target combinations per station</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span>Suitable for beginners and experienced shooters</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Full-Width Image Break */}
-        <section
-          id="imagebreak"
-          ref={(el) => { sectionRefs.current["imagebreak"] = el; }}
-          className="relative h-[300px] md:h-[400px]"
-        >
-          <div
-            className="absolute inset-0 bg-[#162838]"
-          >
-            <div className="absolute inset-0 bg-[#162838]/60"></div>
-          </div>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center px-4">
-              <p
-                className={`text-[#f5f2ec]/70 text-lg md:text-xl tracking-wide transition-all duration-1000 ease-out ${
-                  isVisible("imagebreak")
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-6"
-                }`}
-                style={{ fontFamily: "var(--font-heading), serif" }}
+                Coming Soon
+              </a>
+              <a
+                href="#future"
+                className="px-5 py-2 rounded-full border-2 border-[#162838] text-[#162838] text-sm font-semibold uppercase tracking-wide hover:bg-[#162838] hover:text-[#f5f2ec] transition-colors"
               >
-                — Where Tradition Meets Excellence —
-              </p>
+                Future
+              </a>
             </div>
           </div>
         </section>
@@ -213,9 +118,14 @@ export default function Activities() {
         <section
           id="sporting-clays"
           ref={(el) => { sectionRefs.current["sporting-clays"] = el; }}
-          className="py-16 md:py-24 bg-white scroll-mt-32 overflow-hidden"
+          className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-center gap-4 mb-10">
+              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+              <span className="text-[#3d5a45] text-sm font-bold tracking-[0.3em] uppercase">Now</span>
+              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Content - First on mobile, second on desktop */}
               <div
@@ -236,13 +146,15 @@ export default function Activities() {
                   Sporting Clays
                 </h2>
                 <p className="text-lg text-[#333333] mb-4 leading-relaxed">
-                  Often called &quot;golf with a shotgun,&quot; our sporting clays courses wind through the natural
-                  beauty of South Carolina&apos;s southern fields. Each station presents unique target presentations
-                  that simulate the flight patterns of various game birds.
+                  Often called &quot;golf with a shotgun,&quot; our sporting clays courses wind through South
+                  Carolina&apos;s natural beauty — rolling fields, mature pines, and quiet Lowcountry scenery
+                  that shifts from stand to stand. Each station offers a different view and a different target
+                  presentation, simulating the flight patterns of various game birds.
                 </p>
                 <p className="text-[#333333] mb-6 leading-relaxed">
-                  Our courses feature 15 stations across beautifully maintained grounds, with a second course
-                  designed for newer shooters coming soon. The varying terrain creates a truly memorable shooting environment.
+                  We offer two courses — a 15-station course winding through our most scenic terrain, and a
+                  12-station course designed for newer shooters. Both showcase the natural variety of the
+                  property, so every round feels a little different.
                 </p>
                 <ul className="space-y-3 text-[#333333] mb-8">
                   <li className="flex items-start gap-3">
@@ -251,7 +163,15 @@ export default function Activities() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span>15 stations across scenic terrain</span>
+                    <span>Two courses — 15 stations and 12 stations</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Varied natural scenery at every stand</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -268,14 +188,6 @@ export default function Activities() {
                       </svg>
                     </span>
                     <span>Certified instruction available</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span>Second 12-station course for beginners coming soon</span>
                   </li>
                 </ul>
               </div>
@@ -305,165 +217,20 @@ export default function Activities() {
           </div>
         </section>
 
-        {/* Full-Width Image Break 2 */}
-        <section
-          id="imagebreak2"
-          ref={(el) => { sectionRefs.current["imagebreak2"] = el; }}
-          className="relative h-[300px] md:h-[400px]"
-        >
-          <div
-            className="absolute inset-0 bg-[#162838]"
-          >
-            <div className="absolute inset-0 bg-[#162838]/60"></div>
-          </div>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center px-4">
-              <p
-                className={`text-[#f5f2ec]/70 text-lg md:text-xl tracking-wide transition-all duration-1000 ease-out ${
-                  isVisible("imagebreak2")
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-6"
-                }`}
-                style={{ fontFamily: "var(--font-heading), serif" }}
-              >
-                — For Every Generation —
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Archery Section - Image Left */}
-        <section
-          id="archery"
-          ref={(el) => { sectionRefs.current["archery"] = el; }}
-          className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* Image */}
-              <div
-                className={`relative h-[300px] sm:h-[350px] md:h-[450px] transition-all duration-1000 ease-out ${
-                  isVisible("archery")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
-                }`}
-              >
-                <div className="absolute inset-0 rounded-lg overflow-hidden">
-                  <FadeImage
-                    src="/images/archery_range_shooting.webp"
-                    alt="Archery range at Traditions Field Club"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-[#162838]/40 flex items-center justify-center">
-                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
-                  </div>
-                </div>
-                {/* Decorative accent */}
-                <div className="hidden sm:block absolute -bottom-4 -right-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
-                <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 bg-[#3d5a45]/10 rounded-lg -z-10"></div>
-              </div>
-
-              {/* Content */}
-              <div
-                className={`transition-all duration-1000 ease-out delay-200 ${
-                  isVisible("archery")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
-                }`}
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <span className="h-[1px] w-8 md:w-12 bg-[#a75235]"></span>
-                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Traditional Sport</span>
-                </div>
-                <h2
-                  className="text-3xl md:text-4xl lg:text-5xl text-[#162838] mb-6"
-                  style={{ fontFamily: "var(--font-heading), serif" }}
-                >
-                  Archery
-                </h2>
-                <p className="text-lg text-[#333333] mb-4 leading-relaxed">
-                  Discover the timeless art of archery at our dedicated outdoor range. Whether you&apos;re
-                  drawn to traditional recurve bows, modern compounds, or want to introduce your family
-                  to this rewarding discipline, our archery facilities provide a safe and welcoming environment.
-                </p>
-                <p className="text-[#333333] mb-6 leading-relaxed">
-                  Our range is designed with youth and beginners in mind, featuring proper safety measures
-                  and distance markers for progressive skill development.
-                </p>
-                <ul className="space-y-3 text-[#333333] mb-8">
-                  <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span>Youth and family-friendly programs</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span>Beginner instruction available</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span>Safe, well-maintained outdoor range</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Full-Width Image Break 3 */}
-        <section
-          id="imagebreak3"
-          ref={(el) => { sectionRefs.current["imagebreak3"] = el; }}
-          className="relative h-[300px] md:h-[400px]"
-        >
-          <div
-            className="absolute inset-0 bg-[#162838]"
-          >
-            <div className="absolute inset-0 bg-[#162838]/60"></div>
-          </div>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center px-4">
-              <p
-                className={`text-[#f5f2ec]/70 text-lg md:text-xl tracking-wide transition-all duration-1000 ease-out ${
-                  isVisible("imagebreak3")
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-6"
-                }`}
-                style={{ fontFamily: "var(--font-heading), serif" }}
-              >
-                — Sharpen Your Skills —
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* Lessons & Instruction Section */}
         <section
           id="lessons"
           ref={(el) => { sectionRefs.current["lessons"] = el; }}
-          className="py-16 md:py-24 bg-white scroll-mt-32 overflow-hidden"
+          className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* Content - First on mobile, second on desktop */}
+              {/* Content */}
               <div
-                className={`order-2 lg:order-1 transition-all duration-1000 ease-out ${
+                className={`order-2 transition-all duration-1000 ease-out delay-200 ${
                   isVisible("lessons")
                     ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
+                    : "opacity-0 translate-x-10"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-4">
@@ -528,12 +295,12 @@ export default function Activities() {
                 </Link>
               </div>
 
-              {/* Image - Second on mobile, first on desktop */}
+              {/* Image */}
               <div
-                className={`relative h-[300px] sm:h-[350px] md:h-[450px] order-1 lg:order-2 transition-all duration-1000 ease-out delay-200 ${
+                className={`relative h-[300px] sm:h-[350px] md:h-[450px] order-1 transition-all duration-1000 ease-out ${
                   isVisible("lessons")
                     ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    : "opacity-0 -translate-x-10"
                 }`}
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
@@ -548,6 +315,342 @@ export default function Activities() {
                 {/* Decorative accent */}
                 <div className="hidden sm:block absolute -bottom-4 -left-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
                 <div className="hidden sm:block absolute -top-4 -right-4 w-24 h-24 bg-[#3d5a45]/10 rounded-lg -z-10"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Full-Width Image Break */}
+        <section
+          id="imagebreak"
+          ref={(el) => { sectionRefs.current["imagebreak"] = el; }}
+          className="relative h-[300px] md:h-[400px]"
+        >
+          <div
+            className="absolute inset-0 bg-[#162838]"
+          >
+            <div className="absolute inset-0 bg-[#162838]/60"></div>
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center px-4">
+              <p
+                className={`text-[#f5f2ec]/70 text-lg md:text-xl tracking-wide transition-all duration-1000 ease-out ${
+                  isVisible("imagebreak")
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-6"
+                }`}
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                — Coming Soon —
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* 5-Stand Section - Image Left */}
+        <section
+          id="5-stand"
+          ref={(el) => { sectionRefs.current["5-stand"] = el; }}
+          className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-center gap-4 mb-10">
+              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+              <span className="text-[#a75235] text-sm font-bold tracking-[0.3em] uppercase">Coming Soon</span>
+              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              {/* Image */}
+              <div
+                className={`relative h-[300px] sm:h-[350px] md:h-[450px] order-1 lg:order-2 transition-all duration-1000 ease-out delay-200 ${
+                  isVisible("5-stand")
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 translate-x-10"
+                }`}
+              >
+                <div className="absolute inset-0 rounded-lg overflow-hidden">
+                  <FadeImage
+                    src="/images/shooting_stations_construction.webp"
+                    alt="5-Stand shooting stations at Traditions Field Club"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-[#162838]/40 flex items-center justify-center">
+                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
+                  </div>
+                </div>
+                {/* Decorative accent */}
+                <div className="hidden sm:block absolute -bottom-4 -right-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
+                <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 bg-[#3d5a45]/10 rounded-lg -z-10"></div>
+              </div>
+
+              {/* Content */}
+              <div
+                className={`order-2 lg:order-1 transition-all duration-1000 ease-out ${
+                  isVisible("5-stand")
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-10"
+                }`}
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="h-[1px] w-8 md:w-12 bg-[#a75235]"></span>
+                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Shooting Sports</span>
+                </div>
+                <h2
+                  className="text-3xl md:text-4xl lg:text-5xl text-[#162838] mb-6"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  5-Stand
+                </h2>
+                <p className="text-lg text-[#333333] mb-4 leading-relaxed">
+                  Our dedicated 5-Stand facility will offer an exciting and challenging shooting experience for all skill levels.
+                  With five shooting stations and multiple trap machines presenting targets from various angles and distances,
+                  you&apos;ll enjoy a dynamic round that tests your reflexes and marksmanship.
+                </p>
+                <p className="text-[#333333] mb-6 leading-relaxed">
+                  Perfect for those looking to sharpen their skills or enjoy a quick session, 5-Stand will provide the thrill
+                  of sporting clays in a compact format.
+                </p>
+                <ul className="space-y-3 text-[#333333] mb-8">
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Five shooting stations with varied presentations</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Multiple target combinations per station</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Suitable for beginners and experienced shooters</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Virtual Training Section - Image Left */}
+        <section
+          id="virtual-training"
+          ref={(el) => { sectionRefs.current["virtual-training"] = el; }}
+          className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              {/* Image Placeholder */}
+              <div
+                className={`relative h-[300px] sm:h-[350px] md:h-[450px] order-1 transition-all duration-1000 ease-out ${
+                  isVisible("virtual-training")
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-10"
+                }`}
+              >
+                <div className="absolute inset-0 rounded-lg overflow-hidden bg-[#e8e4dc] border-2 border-dashed border-[#162838]/20 flex flex-col items-center justify-center gap-3">
+                  <svg className="w-12 h-12 text-[#162838]/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  </svg>
+                  <span className="text-[#162838]/40 text-sm font-semibold tracking-[0.2em] uppercase">Image Coming Soon</span>
+                  <div className="absolute inset-0 bg-[#162838]/40 flex items-center justify-center">
+                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
+                  </div>
+                </div>
+                {/* Decorative accent */}
+                <div className="hidden sm:block absolute -bottom-4 -right-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
+                <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 bg-[#3d5a45]/10 rounded-lg -z-10"></div>
+              </div>
+
+              {/* Content */}
+              <div
+                className={`order-2 transition-all duration-1000 ease-out delay-200 ${
+                  isVisible("virtual-training")
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 translate-x-10"
+                }`}
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="h-[1px] w-8 md:w-12 bg-[#a75235]"></span>
+                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Train Anytime</span>
+                </div>
+                <h2
+                  className="text-3xl md:text-4xl lg:text-5xl text-[#162838] mb-6"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Virtual Training
+                </h2>
+                <p className="text-lg text-[#333333] mb-6 leading-relaxed">
+                  Can&apos;t make it to the range? Our virtual training program will let you sharpen your
+                  fundamentals from anywhere, with certified instructors reviewing your technique remotely.
+                </p>
+                <ul className="space-y-3 text-[#333333] mb-8">
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Shotgun mount fundamentals</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Stance, posture, and target acquisition</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Swing mechanics and follow-through</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Remote technique review with a certified instructor</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Full-Width Image Break 3 */}
+        <section
+          id="imagebreak3"
+          ref={(el) => { sectionRefs.current["imagebreak3"] = el; }}
+          className="relative h-[300px] md:h-[400px]"
+        >
+          <div
+            className="absolute inset-0 bg-[#162838]"
+          >
+            <div className="absolute inset-0 bg-[#162838]/60"></div>
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center px-4">
+              <p
+                className={`text-[#f5f2ec]/70 text-lg md:text-xl tracking-wide transition-all duration-1000 ease-out ${
+                  isVisible("imagebreak3")
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-6"
+                }`}
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                — In The Works —
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Future Section - In The Works teaser */}
+        <section
+          id="future"
+          ref={(el) => { sectionRefs.current["future"] = el; }}
+          className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+              className={`text-center mb-12 transition-all duration-1000 ease-out ${
+                isVisible("future")
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
+              <div className="flex items-center justify-center gap-4 mb-4">
+                <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+                <span className="text-[#a75235] text-sm font-bold tracking-[0.3em] uppercase">Future</span>
+                <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+              </div>
+              <h2
+                className="text-3xl md:text-4xl text-[#162838] mb-6"
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                In The Works
+              </h2>
+              <div className="flex justify-center mb-6">
+                <span className="h-[1px] w-16 bg-[#a75235]"></span>
+              </div>
+              <p className="text-lg text-[#333333] leading-relaxed max-w-2xl mx-auto">
+                As Traditions Field Club continues to grow, here&apos;s a look at what we&apos;re planning
+                down the road.
+              </p>
+            </div>
+
+            <div
+              className={`grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-1000 ease-out delay-200 ${
+                isVisible("future")
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
+              <div className="bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 text-center">
+                <div className="w-12 h-12 bg-[#162838]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-6 h-6 text-[#162838]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                  </svg>
+                </div>
+                <h3
+                  className="text-xl text-[#162838] mb-2"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Night Shooting
+                </h3>
+                <p className="text-sm text-[#333333]">
+                  Low-light and after-dark sessions for members looking for a new kind of challenge.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 text-center">
+                <div className="w-12 h-12 bg-[#162838]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-6 h-6 text-[#162838]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                  </svg>
+                </div>
+                <h3
+                  className="text-xl text-[#162838] mb-2"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Tournaments &amp; Leagues
+                </h3>
+                <p className="text-sm text-[#333333]">
+                  Competitive events and leagues for members who want to test their skills against each other.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 text-center">
+                <div className="w-12 h-12 bg-[#162838]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-6 h-6 text-[#162838]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                </div>
+                <h3
+                  className="text-xl text-[#162838] mb-2"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Youth Shooting &amp; Events
+                </h3>
+                <p className="text-sm text-[#333333]">
+                  Dedicated programs and events built around introducing young shooters to the sport.
+                </p>
               </div>
             </div>
           </div>
