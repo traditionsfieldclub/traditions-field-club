@@ -1,18 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
 
 export default function FloatingContact() {
   const [isOpen, setIsOpen] = useState(false);
   const [nearFooter, setNearFooter] = useState(false);
-  const pathname = usePathname();
 
-  // Fade the FAB out as the footer scrolls into view so it doesn't overlap footer content.
-  // Re-attaches on every route change — FloatingContact lives in the root layout (mounts once)
-  // but Footer is rendered per-page, so its DOM node is replaced on every navigation.
+  // Fade the FAB out as the footer scrolls into view so it doesn't overlap footer content
   useEffect(() => {
-    setNearFooter(false);
     const footer = document.querySelector('footer');
     if (!footer) return;
 
@@ -25,7 +20,7 @@ export default function FloatingContact() {
     );
     observer.observe(footer);
     return () => observer.disconnect();
-  }, [pathname]);
+  }, []);
 
   return (
     <>

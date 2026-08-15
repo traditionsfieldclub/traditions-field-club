@@ -109,10 +109,10 @@ export default function Membership() {
           className="py-16 md:py-24 bg-white overflow-hidden"
         >
           <div
-            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-1000 ease-out ${
+            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-500 ease-out ${
               isVisible("intro")
                 ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
+                : "opacity-0 translate-y-3"
             }`}
           >
             <div className="flex items-center justify-center gap-4 mb-4">
@@ -146,10 +146,10 @@ export default function Membership() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div
-              className={`text-center mb-12 transition-all duration-1000 ease-out ${
+              className={`text-center mb-12 transition-all duration-500 ease-out ${
                 isVisible("tiers")
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-3"
               }`}
             >
               <div className="flex items-center justify-center gap-4 mb-4">
@@ -173,7 +173,7 @@ export default function Membership() {
               className={`bg-[#3d5a45] rounded-lg p-6 md:p-8 mb-8 md:mb-10 text-center transition-all duration-700 ease-out ${
                 isVisible("tiers")
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-3"
               }`}
             >
               <span className="text-[#f5f2ec]/70 text-sm tracking-[0.3em] uppercase">Early Access</span>
@@ -227,7 +227,7 @@ export default function Membership() {
                 className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden flex flex-col transition-all duration-700 ease-out hover:shadow-md ${
                   isVisible("tiers")
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
+                    : "opacity-0 translate-y-3"
                 }`}
                 style={{ transitionDelay: "100ms" }}
               >
@@ -243,12 +243,15 @@ export default function Membership() {
                     <span className="text-3xl md:text-4xl text-[#f5f2ec] font-semibold">$2,000</span>
                     <span className="text-sm text-[#f5f2ec]/60"> /year</span>
                   </p>
+                  <p className="mt-3 inline-block bg-[#3d5a45] text-[#f5f2ec] text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">
+                    3 Months Free — $500 Value
+                  </p>
                 </div>
                 <div className="p-6 md:p-8 flex-grow">
                   <p className="text-[#333333] leading-relaxed mb-6">
                     Perfect for individuals and families looking to make sporting clays part of
                     their routine, with room to bring along your household or regular shooting
-                    partners.
+                    partners. Sign up by October 1 and get October&ndash;December 2026 free.
                   </p>
                   <ul className="space-y-3 text-[#333333] mb-8">
                     <li className="flex items-start gap-3">
@@ -262,10 +265,6 @@ export default function Membership() {
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
                       <span>Up to 8 shooters</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-[#3d5a45] rounded-full mt-2 flex-shrink-0"></span>
-                      <span><strong className="text-[#3d5a45]">$500 value</strong> — Oct&ndash;Dec 2026 free if you sign up by Oct 1</span>
                     </li>
                   </ul>
                 </div>
@@ -285,7 +284,7 @@ export default function Membership() {
                 className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden flex flex-col transition-all duration-700 ease-out hover:shadow-md ${
                   isVisible("tiers")
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
+                    : "opacity-0 translate-y-3"
                 }`}
                 style={{ transitionDelay: "200ms" }}
               >
@@ -301,12 +300,15 @@ export default function Membership() {
                     <span className="text-3xl md:text-4xl text-[#f5f2ec] font-semibold">$3,500</span>
                     <span className="text-sm text-[#f5f2ec]/60"> /year</span>
                   </p>
+                  <p className="mt-3 inline-block bg-[#3d5a45] text-[#f5f2ec] text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">
+                    3 Months Free — $875 Value
+                  </p>
                 </div>
                 <div className="p-6 md:p-8 flex-grow">
                   <p className="text-[#333333] leading-relaxed mb-6">
                     Build team relationships in a unique setting. Corporate membership provides
                     your organization with a premier venue for team building, client entertainment,
-                    and company events.
+                    and company events. Sign up by October 1 and get October&ndash;December 2026 free.
                   </p>
                   <ul className="space-y-3 text-[#333333] mb-8">
                     <li className="flex items-start gap-3">
@@ -320,10 +322,6 @@ export default function Membership() {
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
                       <span>Up to 16 shooters</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-[#3d5a45] rounded-full mt-2 flex-shrink-0"></span>
-                      <span><strong className="text-[#3d5a45]">$875 value</strong> — Oct&ndash;Dec 2026 free if you sign up by Oct 1</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
@@ -362,10 +360,10 @@ export default function Membership() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div
-                className={`relative h-[300px] sm:h-[350px] md:h-[450px] rounded-lg overflow-hidden transition-all duration-1000 ease-out ${
+                className={`relative h-[300px] sm:h-[350px] md:h-[450px] rounded-lg overflow-hidden transition-all duration-500 ease-out ${
                   isVisible("benefits")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <FadeImage
@@ -379,10 +377,10 @@ export default function Membership() {
 
               {/* Content */}
               <div
-                className={`transition-all duration-1000 ease-out delay-200 ${
+                className={`transition-all duration-500 ease-out delay-100 ${
                   isVisible("benefits")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-4">
@@ -403,7 +401,7 @@ export default function Membership() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="bg-[#f5f2ec] p-4 rounded-lg">
                     <h4 className="text-[#162838] font-semibold mb-2">Key Card Access</h4>
-                    <p className="text-sm text-[#333333]">Convenient entry with your member card</p>
+                    <p className="text-sm text-[#333333]">Use your member card for quick, convenient clay purchases on-site</p>
                   </div>
                   <div className="bg-[#f5f2ec] p-4 rounded-lg">
                     <h4 className="text-[#162838] font-semibold mb-2">Community Events</h4>
@@ -424,10 +422,10 @@ export default function Membership() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div
-              className={`text-center mb-12 transition-all duration-1000 ease-out ${
+              className={`text-center mb-12 transition-all duration-500 ease-out ${
                 isVisible("faq")
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-3"
               }`}
             >
               <div className="flex items-center justify-center gap-4 mb-4">
@@ -454,7 +452,7 @@ export default function Membership() {
                   className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out ${
                     isVisible("faq")
                       ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10"
+                      : "opacity-0 translate-y-3"
                   }`}
                   style={{ transitionDelay: `${(index + 1) * 100}ms` }}
                 >
@@ -494,10 +492,10 @@ export default function Membership() {
 
             {/* More Questions */}
             <div
-              className={`text-center mt-10 transition-all duration-1000 ease-out delay-500 ${
+              className={`text-center mt-10 transition-all duration-500 ease-out delay-500 ${
                 isVisible("faq")
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-3"
               }`}
             >
               <p className="text-[#333333] mb-4">Still have questions?</p>

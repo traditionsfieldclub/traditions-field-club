@@ -140,10 +140,10 @@ export default function FirstTime() {
           className="py-16 md:py-24 bg-white overflow-hidden"
         >
           <div
-            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-1000 ease-out ${
+            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-500 ease-out ${
               isVisible("intro")
                 ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
+                : "opacity-0 translate-y-3"
             }`}
           >
             <div className="flex items-center justify-center gap-4 mb-4">
@@ -179,10 +179,10 @@ export default function FirstTime() {
               {steps.map((step, index) => (
                 <div
                   key={step.number}
-                  className={`relative transition-all duration-700 ease-out ${
+                  className={`relative transition-all duration-500 ease-out ${
                     isVisible("steps")
                       ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10"
+                      : "opacity-0 translate-y-3"
                   }`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
@@ -232,10 +232,10 @@ export default function FirstTime() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div
-                className={`transition-all duration-1000 ease-out ${
+                className={`transition-all duration-500 ease-out ${
                   isVisible("bring")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="relative h-[300px] sm:h-[350px] md:h-[400px]">
@@ -263,10 +263,10 @@ export default function FirstTime() {
 
               {/* Content */}
               <div
-                className={`transition-all duration-1000 ease-out delay-200 ${
+                className={`transition-all duration-500 ease-out delay-100 ${
                   isVisible("bring")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-4">
@@ -370,10 +370,10 @@ export default function FirstTime() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div
-              className={`text-center mb-12 transition-all duration-1000 ease-out ${
+              className={`text-center mb-12 transition-all duration-500 ease-out ${
                 isVisible("faq")
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-3"
               }`}
             >
               <div className="flex items-center justify-center gap-4 mb-4">
@@ -397,10 +397,10 @@ export default function FirstTime() {
               {faqs.map((faq, index) => (
                 <div
                   key={index}
-                  className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out ${
+                  className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-500 ease-out ${
                     isVisible("faq")
                       ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10"
+                      : "opacity-0 translate-y-3"
                   }`}
                   style={{ transitionDelay: `${(index + 1) * 100}ms` }}
                 >

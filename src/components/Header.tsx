@@ -27,9 +27,12 @@ export default function Header() {
 
   return (
     <>
-    {/* Spacer for fixed announcement bar + header */}
-    <div className="h-[132px]"></div>
-    <header className="fixed top-[36px] left-0 right-0 z-50 bg-white border-b border-gray-200">
+    {/* Spacer for fixed announcement bar + header — announcement height is dynamic (wraps to 2 lines on narrow screens) */}
+    <div style={{ height: "calc(var(--announcement-height, 36px) + 96px)" }}></div>
+    <header
+      className="fixed left-0 right-0 z-50 bg-white border-b border-gray-200"
+      style={{ top: "var(--announcement-height, 36px)" }}
+    >
       {/* Main Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center lg:justify-between h-24 relative">

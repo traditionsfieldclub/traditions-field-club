@@ -53,10 +53,10 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Content */}
               <div
-                className={`transition-all duration-1000 ease-out ${
+                className={`transition-all duration-500 ease-out ${
                   isVisible("intro")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-4">
@@ -106,10 +106,10 @@ export default function Home() {
 
               {/* Intro Video */}
               <div
-                className={`relative h-[400px] md:h-[500px] transition-all duration-1000 ease-out delay-300 ${
+                className={`relative h-[400px] md:h-[500px] transition-all duration-500 ease-out delay-300 ${
                   isVisible("intro")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
@@ -154,10 +154,10 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div
-              className={`text-center mb-16 transition-all duration-1000 ease-out ${
+              className={`text-center mb-16 transition-all duration-500 ease-out ${
                 isVisible("activities")
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-3"
               }`}
             >
               <div className="flex items-center justify-center gap-4 mb-4">
@@ -186,10 +186,10 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
               {/* Sporting Clays */}
               <div
-                className={`group bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out hover:shadow-lg ${
+                className={`group bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-500 ease-out hover:shadow-lg ${
                   isVisible("activities")
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
+                    : "opacity-0 translate-y-3"
                 }`}
                 style={{ transitionDelay: "200ms" }}
               >
@@ -229,10 +229,10 @@ export default function Home() {
 
               {/* 5-Stand */}
               <div
-                className={`group bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out hover:shadow-lg ${
+                className={`group bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-500 ease-out hover:shadow-lg ${
                   isVisible("activities")
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
+                    : "opacity-0 translate-y-3"
                 }`}
                 style={{ transitionDelay: "400ms" }}
               >
@@ -321,10 +321,10 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Membership Image */}
               <div
-                className={`relative h-[400px] order-2 lg:order-1 transition-all duration-1000 ease-out ${
+                className={`relative h-[400px] order-2 lg:order-1 transition-all duration-500 ease-out ${
                   isVisible("membership")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
@@ -340,10 +340,10 @@ export default function Home() {
 
               {/* Content */}
               <div
-                className={`order-1 lg:order-2 transition-all duration-1000 ease-out delay-200 ${
+                className={`order-1 lg:order-2 transition-all duration-500 ease-out delay-100 ${
                   isVisible("membership")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-4">
@@ -410,10 +410,10 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div
-              className={`text-center mb-16 transition-all duration-1000 ease-out ${
+              className={`text-center mb-16 transition-all duration-500 ease-out ${
                 isVisible("roadmap")
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-3"
               }`}
             >
               <div className="flex items-center justify-center gap-4 mb-4">
@@ -447,10 +447,10 @@ export default function Home() {
               ].map((item, index) => (
                 <div
                   key={item.phase}
-                  className={`text-center transition-all duration-700 ease-out ${
+                  className={`text-center transition-all duration-500 ease-out ${
                     isVisible("roadmap")
                       ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10"
+                      : "opacity-0 translate-y-3"
                   }`}
                   style={{ transitionDelay: `${(index + 1) * 150}ms` }}
                 >
@@ -504,10 +504,10 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Photo */}
               <div
-                className={`relative h-[350px] md:h-[400px] order-2 lg:order-1 transition-all duration-1000 ease-out ${
+                className={`relative h-[350px] md:h-[400px] order-2 lg:order-1 transition-all duration-500 ease-out ${
                   isVisible("founders-teaser")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
@@ -526,10 +526,10 @@ export default function Home() {
 
               {/* Content */}
               <div
-                className={`order-1 lg:order-2 transition-all duration-1000 ease-out delay-200 ${
+                className={`order-1 lg:order-2 transition-all duration-500 ease-out delay-100 ${
                   isVisible("founders-teaser")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-4">

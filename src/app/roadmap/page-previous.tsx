@@ -443,12 +443,13 @@ export default function Roadmap() {
                     : "opacity-0 md:translate-x-10"
                 }`}
               >
-                <div className="absolute inset-0 bg-[#e8e4dc] border-2 border-dashed border-[#162838]/20 flex flex-col items-center justify-center gap-3">
-                  <svg className="w-12 h-12 text-[#162838]/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14M4 8h16M4 4h16v16H4V4z" />
-                  </svg>
-                  <span className="text-[#162838]/40 text-sm font-semibold tracking-[0.2em] uppercase text-center px-6">Outdoor Trail Photo</span>
-                </div>
+                <FadeImage
+                  src="/images/kids_running_trail_bridge.webp"
+                  alt="Kids running across a trail bridge in the woods at Traditions Field Club"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               </div>
             </div>
           </div>

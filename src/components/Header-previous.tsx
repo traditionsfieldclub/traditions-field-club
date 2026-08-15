@@ -18,6 +18,13 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  const handleNavClick = (href: string) => (e: React.MouseEvent) => {
+    if (pathname === href) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <>
     {/* Spacer for fixed announcement bar + header */}
@@ -44,6 +51,7 @@ export default function Header() {
               <Link
                 key={item.label}
                 href={item.href}
+                onClick={handleNavClick(item.href)}
                 className={`group text-xs xl:text-sm font-bold uppercase tracking-wide xl:tracking-widest transition-colors duration-200 relative whitespace-nowrap ${
                   pathname === item.href ? "text-[#a75235]" : "text-[#162838] hover:text-[#a75235]"
                 }`}
@@ -109,7 +117,10 @@ export default function Header() {
                   pathname === item.href ? "text-[#a75235]" : "text-[#162838] hover:text-[#a75235]"
                 }`}
                 style={{ fontFamily: "var(--font-heading), serif" }}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => {
+                  setMobileMenuOpen(false);
+                  handleNavClick(item.href)(e);
+                }}
               >
                 {item.label}
               </Link>

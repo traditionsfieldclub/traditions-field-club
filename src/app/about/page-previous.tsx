@@ -69,10 +69,10 @@ export default function About() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
               {/* Mission */}
               <div
-                className={`transition-all duration-1000 ease-out ${
+                className={`transition-all duration-500 ease-out ${
                   isVisible("mission")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-4">
@@ -99,10 +99,10 @@ export default function About() {
 
               {/* Vision */}
               <div
-                className={`transition-all duration-1000 ease-out delay-200 ${
+                className={`transition-all duration-500 ease-out delay-100 ${
                   isVisible("mission")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-4">
@@ -121,7 +121,7 @@ export default function About() {
                   of heritage outdoor sports.
                 </p>
                 <p className="text-[#333333] leading-relaxed">
-                  From walking trails and camping areas to a future barn-style lodge,
+                  From a future Pavilion to hunting, fishing, and outdoor recreation,
                   we&apos;re building a place where memories are made, skills are passed down through generations,
                   and the traditions of Southern outdoor life are celebrated and preserved.
                 </p>
@@ -139,10 +139,10 @@ export default function About() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div
-              className={`text-center mb-12 transition-all duration-1000 ease-out ${
+              className={`text-center mb-12 transition-all duration-500 ease-out ${
                 isVisible("values")
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-3"
               }`}
             >
               <div className="flex items-center justify-center gap-4 mb-4">
@@ -168,7 +168,7 @@ export default function About() {
                 className={`bg-white p-6 rounded-lg shadow-sm border border-[#e8e4dc] text-center transition-all duration-700 ease-out hover:shadow-md ${
                   isVisible("values")
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
+                    : "opacity-0 translate-y-3"
                 }`}
                 style={{ transitionDelay: "0ms" }}
               >
@@ -193,7 +193,7 @@ export default function About() {
                 className={`bg-white p-6 rounded-lg shadow-sm border border-[#e8e4dc] text-center transition-all duration-700 ease-out hover:shadow-md ${
                   isVisible("values")
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
+                    : "opacity-0 translate-y-3"
                 }`}
                 style={{ transitionDelay: "100ms" }}
               >
@@ -218,7 +218,7 @@ export default function About() {
                 className={`bg-white p-6 rounded-lg shadow-sm border border-[#e8e4dc] text-center transition-all duration-700 ease-out hover:shadow-md ${
                   isVisible("values")
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
+                    : "opacity-0 translate-y-3"
                 }`}
                 style={{ transitionDelay: "200ms" }}
               >
@@ -243,7 +243,7 @@ export default function About() {
                 className={`bg-white p-6 rounded-lg shadow-sm border border-[#e8e4dc] text-center transition-all duration-700 ease-out hover:shadow-md ${
                   isVisible("values")
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
+                    : "opacity-0 translate-y-3"
                 }`}
                 style={{ transitionDelay: "300ms" }}
               >
@@ -268,7 +268,7 @@ export default function About() {
                 className={`bg-white p-6 rounded-lg shadow-sm border border-[#e8e4dc] text-center transition-all duration-700 ease-out hover:shadow-md ${
                   isVisible("values")
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
+                    : "opacity-0 translate-y-3"
                 }`}
                 style={{ transitionDelay: "400ms" }}
               >
@@ -317,10 +317,10 @@ export default function About() {
 
               {/* Content */}
               <div
-                className={`transition-all duration-1000 ease-out delay-200 ${
+                className={`transition-all duration-500 ease-out delay-100 ${
                   isVisible("land")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-4">
@@ -377,10 +377,10 @@ export default function About() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div
-              className={`text-center mb-12 transition-all duration-1000 ease-out ${
+              className={`text-center mb-12 transition-all duration-500 ease-out ${
                 isVisible("owners")
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-3"
               }`}
             >
               <div className="flex items-center justify-center gap-4 mb-4">
@@ -401,10 +401,10 @@ export default function About() {
 
             {/* Shared Intro */}
             <div
-              className={`max-w-3xl mx-auto text-center mb-12 transition-all duration-1000 ease-out ${
+              className={`max-w-3xl mx-auto text-center mb-12 transition-all duration-500 ease-out ${
                 isVisible("owners")
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-3"
               }`}
             >
               <p className="text-[#333333] leading-relaxed">
@@ -417,7 +417,7 @@ export default function About() {
               className={`relative h-[300px] sm:h-[350px] md:h-[400px] max-w-3xl mx-auto mb-12 rounded-lg overflow-hidden transition-all duration-700 ease-out ${
                 isVisible("owners")
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-3"
               }`}
               style={{ transitionDelay: "100ms" }}
             >
@@ -437,7 +437,7 @@ export default function About() {
                 className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out hover:shadow-md ${
                   isVisible("owners")
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
+                    : "opacity-0 translate-y-3"
                 }`}
                 style={{ transitionDelay: "200ms" }}
               >
@@ -463,7 +463,7 @@ export default function About() {
                 className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out hover:shadow-md ${
                   isVisible("owners")
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
+                    : "opacity-0 translate-y-3"
                 }`}
                 style={{ transitionDelay: "350ms" }}
               >

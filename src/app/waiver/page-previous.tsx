@@ -356,6 +356,9 @@ export default function Waiver() {
             <p className="text-lg text-[#f5f2ec] max-w-2xl mx-auto opacity-90 mt-4">
               Please read and complete the waiver before your visit
             </p>
+            <p className="text-sm text-[#f5f2ec]/60 mt-3">
+              Updated August 14, 2026
+            </p>
           </div>
         </section>
 

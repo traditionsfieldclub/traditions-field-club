@@ -121,6 +121,11 @@ export default function Activities() {
           className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-center gap-4 mb-10">
+              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+              <span className="text-[#3d5a45] text-sm font-bold tracking-[0.3em] uppercase">Now</span>
+              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Content - First on mobile, second on desktop */}
               <div
@@ -220,12 +225,12 @@ export default function Activities() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* Content - First on mobile, second on desktop */}
+              {/* Content */}
               <div
-                className={`order-2 lg:order-1 transition-all duration-1000 ease-out ${
+                className={`order-2 transition-all duration-1000 ease-out delay-200 ${
                   isVisible("lessons")
                     ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
+                    : "opacity-0 translate-x-10"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-4">
@@ -290,12 +295,12 @@ export default function Activities() {
                 </Link>
               </div>
 
-              {/* Image - Second on mobile, first on desktop */}
+              {/* Image */}
               <div
-                className={`relative h-[300px] sm:h-[350px] md:h-[450px] order-1 lg:order-2 transition-all duration-1000 ease-out delay-200 ${
+                className={`relative h-[300px] sm:h-[350px] md:h-[450px] order-1 transition-all duration-1000 ease-out ${
                   isVisible("lessons")
                     ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    : "opacity-0 -translate-x-10"
                 }`}
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
@@ -349,13 +354,18 @@ export default function Activities() {
           className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-center gap-4 mb-10">
+              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+              <span className="text-[#a75235] text-sm font-bold tracking-[0.3em] uppercase">Coming Soon</span>
+              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Image */}
               <div
-                className={`relative h-[300px] sm:h-[350px] md:h-[450px] transition-all duration-1000 ease-out ${
+                className={`relative h-[300px] sm:h-[350px] md:h-[450px] order-1 lg:order-2 transition-all duration-1000 ease-out delay-200 ${
                   isVisible("5-stand")
                     ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
+                    : "opacity-0 translate-x-10"
                 }`}
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
@@ -377,10 +387,10 @@ export default function Activities() {
 
               {/* Content */}
               <div
-                className={`transition-all duration-1000 ease-out delay-200 ${
+                className={`order-2 lg:order-1 transition-all duration-1000 ease-out ${
                   isVisible("5-stand")
                     ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    : "opacity-0 -translate-x-10"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-4">
@@ -443,7 +453,7 @@ export default function Activities() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Image Placeholder */}
               <div
-                className={`relative h-[300px] sm:h-[350px] md:h-[450px] transition-all duration-1000 ease-out ${
+                className={`relative h-[300px] sm:h-[350px] md:h-[450px] order-1 transition-all duration-1000 ease-out ${
                   isVisible("virtual-training")
                     ? "opacity-100 translate-x-0"
                     : "opacity-0 -translate-x-10"
@@ -465,7 +475,7 @@ export default function Activities() {
 
               {/* Content */}
               <div
-                className={`transition-all duration-1000 ease-out delay-200 ${
+                className={`order-2 transition-all duration-1000 ease-out delay-200 ${
                   isVisible("virtual-training")
                     ? "opacity-100 translate-x-0"
                     : "opacity-0 translate-x-10"
@@ -567,7 +577,7 @@ export default function Activities() {
             >
               <div className="flex items-center justify-center gap-4 mb-4">
                 <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
-                <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Looking Ahead</span>
+                <span className="text-[#a75235] text-sm font-bold tracking-[0.3em] uppercase">Future</span>
                 <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
               </div>
               <h2

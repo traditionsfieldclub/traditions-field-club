@@ -30,7 +30,6 @@ export default function FooterNewsletter() {
         body: JSON.stringify({
           email: email.trim(),
           formLoadedAt: formLoadedAt.current,
-          honeypot,
         }),
       });
 

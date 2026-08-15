@@ -27,10 +27,10 @@ export default function Footer() {
   return (
     <footer className="bg-[#162838] text-[#f5f2ec]">
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-12">
 
-        {/* Mobile Layout (single column, centered) */}
-        <div className="lg:hidden space-y-10 text-center">
+        {/* Mobile Layout (single column, centered) — max-w keeps it from stretching sparse at tablet widths */}
+        <div className="lg:hidden space-y-10 text-center max-w-md mx-auto">
           {/* Logo & About */}
           <div>
             <Link href="/" className="inline-block mb-4">
@@ -64,6 +64,9 @@ export default function Footer() {
               <li className="opacity-75">
                 13197 Low Country Hwy, Ruffin, SC 29475
               </li>
+              <li className="opacity-75">
+                Sunrise to Sunset
+              </li>
               <li className="pt-2">
                 <a
                   href="https://instagram.com/traditionsfieldclub"
@@ -77,18 +80,15 @@ export default function Footer() {
                   <span>@traditionsfieldclub</span>
                 </a>
               </li>
+              <li className="opacity-40">
+                <div className="inline-flex items-center justify-center gap-2 cursor-default">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+                  </svg>
+                  <span>Facebook — Coming Soon</span>
+                </div>
+              </li>
             </ul>
-            <div className="mt-6 pt-4 border-t border-[#f5f2ec]/10">
-              <p className="text-base opacity-75 mb-4">
-                Sunrise to Sunset
-              </p>
-              <Link
-                href="/waiver"
-                className="inline-block bg-[#a75235] text-[#f5f2ec] px-10 py-3 rounded text-base font-semibold uppercase tracking-widest hover:bg-[#8a4229] transition-colors duration-200"
-              >
-                Sign Waiver
-              </Link>
-            </div>
           </div>
 
           {/* Navigation */}
@@ -108,6 +108,14 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/waiver"
+                  className="text-base font-semibold opacity-90 hover:opacity-100 hover:text-[#a75235] transition-colors"
+                >
+                  Sign Waiver →
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -125,9 +133,9 @@ export default function Footer() {
               <Image
                 src="/logo.png"
                 alt="Traditions Field Club"
-                width={120}
-                height={45}
-                className="h-[60px] w-auto brightness-0 invert"
+                width={152}
+                height={57}
+                className="h-[76px] w-auto brightness-0 invert"
               />
             </Link>
             <p className="text-sm opacity-75 leading-relaxed max-w-[200px]">
@@ -140,7 +148,7 @@ export default function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-widest mb-4 text-[#c4764e]">
               Navigation
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-1.5">
               {navLinks.map((link) => (
                 <li key={link.label}>
                   <Link
@@ -172,6 +180,9 @@ export default function Footer() {
               <li className="opacity-75">
                 13197 Low Country Hwy, Ruffin, SC 29475
               </li>
+              <li className="opacity-75">
+                Sunrise to Sunset
+              </li>
               <li className="pt-2">
                 <a
                   href="https://instagram.com/traditionsfieldclub"
@@ -185,18 +196,15 @@ export default function Footer() {
                   <span>@traditionsfieldclub</span>
                 </a>
               </li>
+              <li className="opacity-40">
+                <div className="inline-flex items-center gap-2 cursor-default">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+                  </svg>
+                  <span>Facebook — Coming Soon</span>
+                </div>
+              </li>
             </ul>
-            <div className="mt-6 pt-4 border-t border-[#f5f2ec]/10">
-              <p className="text-sm opacity-75 mb-3">
-                Sunrise to Sunset
-              </p>
-              <Link
-                href="/waiver"
-                className="inline-block bg-[#a75235] text-[#f5f2ec] px-6 py-2 rounded-md text-sm font-medium uppercase tracking-wider hover:bg-[#8a4229] transition-colors duration-200"
-              >
-                Sign Waiver
-              </Link>
-            </div>
           </div>
 
           {/* Newsletter Subscribe */}
@@ -214,7 +222,13 @@ export default function Footer() {
             <p>
               &copy; {new Date().getFullYear()} Traditions Field Club. All rights reserved.
             </p>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-10 lg:gap-6">
+              <Link
+                href="/waiver"
+                className="hidden lg:inline-block hover:opacity-100 hover:text-[#a75235] transition-colors"
+              >
+                Sign Waiver
+              </Link>
               <Link
                 href="/privacy-policy"
                 className="hover:opacity-100 hover:text-[#a75235] transition-colors"

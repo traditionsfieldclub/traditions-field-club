@@ -320,8 +320,8 @@ export default function Join() {
 
               {/* Intro */}
               <div
-                className={`text-center mb-10 transition-all duration-700 ${
-                  isVisible("application") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                className={`text-center mb-10 transition-all duration-500 ${
+                  isVisible("application") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
                 }`}
               >
                 <p className="text-[#333333] max-w-2xl mx-auto">
@@ -339,8 +339,8 @@ export default function Join() {
 
               {/* Personal Information */}
               <div
-                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-6 transition-all duration-700 delay-100 ${
-                  isVisible("application") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-6 transition-all duration-500 delay-100 ${
+                  isVisible("application") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
                 }`}
               >
                 <h3
@@ -481,8 +481,8 @@ export default function Join() {
 
               {/* Membership Selection */}
               <div
-                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-6 transition-all duration-700 delay-200 ${
-                  isVisible("application") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-6 transition-all duration-500 delay-200 ${
+                  isVisible("application") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
                 }`}
               >
                 <h3
@@ -553,8 +553,8 @@ export default function Join() {
 
               {/* Shooting Experience */}
               <div
-                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-6 transition-all duration-700 delay-300 ${
-                  isVisible("application") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-6 transition-all duration-500 delay-300 ${
+                  isVisible("application") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
                 }`}
               >
                 <h3
@@ -623,8 +623,8 @@ export default function Join() {
 
               {/* Emergency Contact */}
               <div
-                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-6 transition-all duration-700 delay-400 ${
-                  isVisible("application") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-6 transition-all duration-500 delay-400 ${
+                  isVisible("application") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
                 }`}
               >
                 <h3
@@ -682,8 +682,8 @@ export default function Join() {
 
               {/* Additional Information */}
               <div
-                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-6 transition-all duration-700 delay-500 ${
-                  isVisible("application") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-6 transition-all duration-500 delay-500 ${
+                  isVisible("application") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
                 }`}
               >
                 <h3
@@ -710,8 +710,8 @@ export default function Join() {
 
               {/* Agreements */}
               <div
-                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-6 transition-all duration-700 delay-600 ${
-                  isVisible("application") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-6 transition-all duration-500 delay-600 ${
+                  isVisible("application") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
                 }`}
               >
                 <h3

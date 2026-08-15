@@ -29,13 +29,13 @@ const steps = [
     number: "04",
     title: "Learn the Layout",
     description:
-      "Your guide will walk you through our facilities, showing you the sporting clays courses, 5-Stand area, and amenities. You'll learn how to navigate the grounds, understand the different stations, and discover all the features that make Traditions Field Club special.",
+      "Your guide will walk you through our facilities, showing you the sporting clays courses and amenities. You'll learn how to navigate the grounds, understand the different stations, and discover all the features that make Traditions Field Club special.",
   },
   {
     number: "05",
     title: "Enjoy Your Shoot",
     description:
-      "Now comes the fun part! Whether you're trying sporting clays or 5-Stand, our staff will be nearby to assist if needed. Take your time, enjoy the beautiful surroundings, and challenge yourself at your own pace. Don't worry if you're new—everyone starts somewhere, and our supportive environment is perfect for learning.",
+      "Now comes the fun part! Our staff will be nearby to assist if needed as you take on the course. Take your time, enjoy the beautiful surroundings, and challenge yourself at your own pace. Don't worry if you're new—everyone starts somewhere, and our supportive environment is perfect for learning.",
   },
   {
     number: "06",
@@ -140,10 +140,10 @@ export default function FirstTime() {
           className="py-16 md:py-24 bg-white overflow-hidden"
         >
           <div
-            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-1000 ease-out ${
+            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-500 ease-out ${
               isVisible("intro")
                 ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
+                : "opacity-0 translate-y-3"
             }`}
           >
             <div className="flex items-center justify-center gap-4 mb-4">
@@ -182,7 +182,7 @@ export default function FirstTime() {
                   className={`relative transition-all duration-700 ease-out ${
                     isVisible("steps")
                       ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10"
+                      : "opacity-0 translate-y-3"
                   }`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
@@ -232,10 +232,10 @@ export default function FirstTime() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div
-                className={`transition-all duration-1000 ease-out ${
+                className={`transition-all duration-500 ease-out ${
                   isVisible("bring")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="relative h-[300px] sm:h-[350px] md:h-[400px]">
@@ -263,10 +263,10 @@ export default function FirstTime() {
 
               {/* Content */}
               <div
-                className={`transition-all duration-1000 ease-out delay-200 ${
+                className={`transition-all duration-500 ease-out delay-100 ${
                   isVisible("bring")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-4">
@@ -350,6 +350,10 @@ export default function FirstTime() {
                       <span className="text-[#a75235] mt-0.5">&#8226;</span>
                       <span><strong>Ammunition</strong> available for purchase</span>
                     </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#a75235] mt-0.5">&#8226;</span>
+                      <span><strong>Refreshments</strong> — water and snacks available on-site</span>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -366,10 +370,10 @@ export default function FirstTime() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div
-              className={`text-center mb-12 transition-all duration-1000 ease-out ${
+              className={`text-center mb-12 transition-all duration-500 ease-out ${
                 isVisible("faq")
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-3"
               }`}
             >
               <div className="flex items-center justify-center gap-4 mb-4">
@@ -396,7 +400,7 @@ export default function FirstTime() {
                   className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out ${
                     isVisible("faq")
                       ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10"
+                      : "opacity-0 translate-y-3"
                   }`}
                   style={{ transitionDelay: `${(index + 1) * 100}ms` }}
                 >

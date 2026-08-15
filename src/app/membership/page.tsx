@@ -109,10 +109,10 @@ export default function Membership() {
           className="py-16 md:py-24 bg-white overflow-hidden"
         >
           <div
-            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-1000 ease-out ${
+            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-500 ease-out ${
               isVisible("intro")
                 ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
+                : "opacity-0 translate-y-3"
             }`}
           >
             <div className="flex items-center justify-center gap-4 mb-4">
@@ -146,10 +146,10 @@ export default function Membership() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div
-              className={`text-center mb-12 transition-all duration-1000 ease-out ${
+              className={`text-center mb-12 transition-all duration-500 ease-out ${
                 isVisible("tiers")
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-3"
               }`}
             >
               <div className="flex items-center justify-center gap-4 mb-4">
@@ -170,10 +170,10 @@ export default function Membership() {
 
             {/* Early Access Callout */}
             <div
-              className={`bg-[#3d5a45] rounded-lg p-6 md:p-8 mb-8 md:mb-10 text-center transition-all duration-700 ease-out ${
+              className={`bg-[#3d5a45] rounded-lg p-6 md:p-8 mb-8 md:mb-10 text-center transition-all duration-500 ease-out ${
                 isVisible("tiers")
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-3"
               }`}
             >
               <span className="text-[#f5f2ec]/70 text-sm tracking-[0.3em] uppercase">Early Access</span>
@@ -224,10 +224,10 @@ export default function Membership() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
               {/* Prime Membership */}
               <div
-                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden flex flex-col transition-all duration-700 ease-out hover:shadow-md ${
+                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden flex flex-col transition-all duration-500 ease-out hover:shadow-md ${
                   isVisible("tiers")
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
+                    : "opacity-0 translate-y-3"
                 }`}
                 style={{ transitionDelay: "100ms" }}
               >
@@ -281,10 +281,10 @@ export default function Membership() {
 
               {/* Corporate Membership */}
               <div
-                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden flex flex-col transition-all duration-700 ease-out hover:shadow-md ${
+                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden flex flex-col transition-all duration-500 ease-out hover:shadow-md ${
                   isVisible("tiers")
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
+                    : "opacity-0 translate-y-3"
                 }`}
                 style={{ transitionDelay: "200ms" }}
               >
@@ -360,10 +360,10 @@ export default function Membership() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div
-                className={`relative h-[300px] sm:h-[350px] md:h-[450px] rounded-lg overflow-hidden transition-all duration-1000 ease-out ${
+                className={`relative h-[300px] sm:h-[350px] md:h-[450px] rounded-lg overflow-hidden transition-all duration-500 ease-out ${
                   isVisible("benefits")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <FadeImage
@@ -377,10 +377,10 @@ export default function Membership() {
 
               {/* Content */}
               <div
-                className={`transition-all duration-1000 ease-out delay-200 ${
+                className={`transition-all duration-500 ease-out delay-100 ${
                   isVisible("benefits")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-4">
@@ -422,10 +422,10 @@ export default function Membership() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div
-              className={`text-center mb-12 transition-all duration-1000 ease-out ${
+              className={`text-center mb-12 transition-all duration-500 ease-out ${
                 isVisible("faq")
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-3"
               }`}
             >
               <div className="flex items-center justify-center gap-4 mb-4">
@@ -449,10 +449,10 @@ export default function Membership() {
               {faqs.map((faq, index) => (
                 <div
                   key={index}
-                  className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out ${
+                  className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-500 ease-out ${
                     isVisible("faq")
                       ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10"
+                      : "opacity-0 translate-y-3"
                   }`}
                   style={{ transitionDelay: `${(index + 1) * 100}ms` }}
                 >
@@ -492,10 +492,10 @@ export default function Membership() {
 
             {/* More Questions */}
             <div
-              className={`text-center mt-10 transition-all duration-1000 ease-out delay-500 ${
+              className={`text-center mt-10 transition-all duration-500 ease-out delay-500 ${
                 isVisible("faq")
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-3"
               }`}
             >
               <p className="text-[#333333] mb-4">Still have questions?</p>

@@ -66,10 +66,10 @@ export default function Activities() {
           className="py-16 md:py-24 bg-white overflow-hidden"
         >
           <div
-            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-1000 ease-out ${
+            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-500 ease-out ${
               isVisible("intro")
                 ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
+                : "opacity-0 translate-y-3"
             }`}
           >
             <div className="flex items-center justify-center gap-4 mb-4">
@@ -129,10 +129,10 @@ export default function Activities() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Content - First on mobile, second on desktop */}
               <div
-                className={`order-2 lg:order-1 transition-all duration-1000 ease-out ${
+                className={`order-2 lg:order-1 transition-all duration-500 ease-out ${
                   isVisible("sporting-clays")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-4">
@@ -194,10 +194,10 @@ export default function Activities() {
 
               {/* Image - Second on mobile, first on desktop */}
               <div
-                className={`relative h-[300px] sm:h-[350px] md:h-[450px] order-1 lg:order-2 transition-all duration-1000 ease-out delay-200 ${
+                className={`relative h-[300px] sm:h-[350px] md:h-[450px] order-1 lg:order-2 transition-all duration-500 ease-out delay-100 ${
                   isVisible("sporting-clays")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
@@ -227,10 +227,10 @@ export default function Activities() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Content */}
               <div
-                className={`order-2 transition-all duration-1000 ease-out delay-200 ${
+                className={`order-2 transition-all duration-500 ease-out delay-100 ${
                   isVisible("lessons")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-4">
@@ -297,10 +297,10 @@ export default function Activities() {
 
               {/* Image */}
               <div
-                className={`relative h-[300px] sm:h-[350px] md:h-[450px] order-1 transition-all duration-1000 ease-out ${
+                className={`relative h-[300px] sm:h-[350px] md:h-[450px] order-1 transition-all duration-500 ease-out ${
                   isVisible("lessons")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
@@ -334,10 +334,10 @@ export default function Activities() {
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center px-4">
               <p
-                className={`text-[#f5f2ec]/70 text-lg md:text-xl tracking-wide transition-all duration-1000 ease-out ${
+                className={`text-[#f5f2ec]/70 text-lg md:text-xl tracking-wide transition-all duration-500 ease-out ${
                   isVisible("imagebreak")
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-6"
+                    : "opacity-0 translate-y-3"
                 }`}
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
@@ -362,10 +362,10 @@ export default function Activities() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Image */}
               <div
-                className={`relative h-[300px] sm:h-[350px] md:h-[450px] order-1 lg:order-2 transition-all duration-1000 ease-out delay-200 ${
+                className={`relative h-[300px] sm:h-[350px] md:h-[450px] order-1 lg:order-2 transition-all duration-500 ease-out delay-100 ${
                   isVisible("5-stand")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
@@ -387,10 +387,10 @@ export default function Activities() {
 
               {/* Content */}
               <div
-                className={`order-2 lg:order-1 transition-all duration-1000 ease-out ${
+                className={`order-2 lg:order-1 transition-all duration-500 ease-out ${
                   isVisible("5-stand")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-4">
@@ -453,10 +453,10 @@ export default function Activities() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Image Placeholder */}
               <div
-                className={`relative h-[300px] sm:h-[350px] md:h-[450px] order-1 transition-all duration-1000 ease-out ${
+                className={`relative h-[300px] sm:h-[350px] md:h-[450px] order-1 transition-all duration-500 ease-out ${
                   isVisible("virtual-training")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden bg-[#e8e4dc] border-2 border-dashed border-[#162838]/20 flex flex-col items-center justify-center gap-3">
@@ -475,10 +475,10 @@ export default function Activities() {
 
               {/* Content */}
               <div
-                className={`order-2 transition-all duration-1000 ease-out delay-200 ${
+                className={`order-2 transition-all duration-500 ease-out delay-100 ${
                   isVisible("virtual-training")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-4">
@@ -548,10 +548,10 @@ export default function Activities() {
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center px-4">
               <p
-                className={`text-[#f5f2ec]/70 text-lg md:text-xl tracking-wide transition-all duration-1000 ease-out ${
+                className={`text-[#f5f2ec]/70 text-lg md:text-xl tracking-wide transition-all duration-500 ease-out ${
                   isVisible("imagebreak3")
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-6"
+                    : "opacity-0 translate-y-3"
                 }`}
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
@@ -569,10 +569,10 @@ export default function Activities() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div
-              className={`text-center mb-12 transition-all duration-1000 ease-out ${
+              className={`text-center mb-12 transition-all duration-500 ease-out ${
                 isVisible("future")
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-3"
               }`}
             >
               <div className="flex items-center justify-center gap-4 mb-4">
@@ -596,10 +596,10 @@ export default function Activities() {
             </div>
 
             <div
-              className={`grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-1000 ease-out delay-200 ${
+              className={`grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-500 ease-out delay-100 ${
                 isVisible("future")
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-3"
               }`}
             >
               <div className="bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 text-center">

@@ -60,7 +60,12 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { email, formLoadedAt, cfTurnstileToken } = body;
+    const { email, formLoadedAt, cfTurnstileToken, honeypot } = body;
+
+    // Honeypot check — if filled, it's a bot
+    if (honeypot) {
+      return NextResponse.json({ success: true }); // Silent rejection
+    }
 
     // 3. Turnstile verification
     if (TURNSTILE_SECRET_KEY && cfTurnstileToken) {

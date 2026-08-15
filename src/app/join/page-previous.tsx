@@ -292,6 +292,9 @@ export default function Join() {
             <p className="text-lg md:text-xl text-[#f5f2ec] max-w-2xl mx-auto opacity-90">
               Begin your journey with Traditions Field Club
             </p>
+            <p className="text-sm text-[#f5f2ec]/60 mt-3">
+              Updated August 14, 2026
+            </p>
           </div>
         </section>
 
@@ -325,6 +328,12 @@ export default function Join() {
                   Complete the form below to be placed on our membership waiting list. All submissions are reviewed
                   by our team, and we&apos;ll be in touch to discuss membership options and schedule your
                   first visit.
+                </p>
+                <p className="text-sm text-[#333333] mt-4">
+                  Forgot to sign our waiver?{" "}
+                  <Link href="/waiver" className="text-[#a75235] font-semibold hover:underline">
+                    Click here now →
+                  </Link>
                 </p>
               </div>
 

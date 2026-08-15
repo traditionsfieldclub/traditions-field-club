@@ -23,10 +23,10 @@ function ContactContent() {
     companyFax: "",
   });
 
-  // Pre-fill topic from URL param (e.g. /contact?topic=volunteer)
+  // Pre-fill topic from URL param (e.g. /contact?topic=membership)
   useEffect(() => {
     const topic = searchParams.get("topic");
-    const validTopics = ["membership", "lessons", "volunteer", "partnerships", "general", "scheduling", "other"];
+    const validTopics = ["membership", "lessons", "partnerships", "general", "scheduling", "other"];
     if (topic && validTopics.includes(topic)) {
       setFormData((prev) => ({ ...prev, topic }));
     }
@@ -436,7 +436,6 @@ function ContactContent() {
                       <option value="">Select a topic...</option>
                       <option value="membership">Membership Inquiry</option>
                       <option value="lessons">Lessons</option>
-                      <option value="volunteer">Volunteer</option>
                       <option value="partnerships">Partnerships</option>
                       <option value="general">General Inquiry</option>
                       <option value="scheduling">Scheduling / Group Events</option>
@@ -594,6 +593,10 @@ function ContactContent() {
                     Travel Times
                   </h3>
                   <ul className="space-y-2 text-[#333333]">
+                    <li className="flex items-center">
+                      <span className="w-2 h-2 bg-[#a75235] rounded-full mr-3 flex-shrink-0"></span>
+                      30 minutes from Orangeburg
+                    </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mr-3 flex-shrink-0"></span>
                       1.5 hours from Charleston

@@ -114,10 +114,10 @@ export default function Roadmap() {
           className="py-16 md:py-24 bg-white overflow-hidden"
         >
           <div
-            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-1000 ease-out ${
+            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-500 ease-out ${
               isVisible("intro")
                 ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
+                : "opacity-0 translate-y-3"
             }`}
           >
             <div className="flex items-center justify-center gap-4 mb-4">
@@ -153,10 +153,10 @@ export default function Roadmap() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Phase 1 Image */}
               <div
-                className={`relative h-[250px] sm:h-[300px] md:h-[400px] rounded-lg overflow-hidden transition-all duration-1000 ease-out ${
+                className={`relative h-[250px] sm:h-[300px] md:h-[400px] rounded-lg overflow-hidden transition-all duration-500 ease-out ${
                   isVisible("phase1")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 md:-translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 md:translate-y-3"
                 }`}
               >
                 <FadeImage
@@ -170,10 +170,10 @@ export default function Roadmap() {
 
               {/* Content */}
               <div
-                className={`transition-all duration-1000 ease-out delay-200 ${
+                className={`transition-all duration-500 ease-out delay-100 ${
                   isVisible("phase1")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 md:translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 md:translate-y-3"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-3">
@@ -232,10 +232,10 @@ export default function Roadmap() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Content - First on mobile */}
               <div
-                className={`order-2 lg:order-1 transition-all duration-1000 ease-out ${
+                className={`order-2 lg:order-1 transition-all duration-500 ease-out ${
                   isVisible("phase2")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 md:-translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 md:translate-y-3"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-3">
@@ -287,10 +287,10 @@ export default function Roadmap() {
 
               {/* Phase 2 Image */}
               <div
-                className={`relative h-[250px] sm:h-[300px] md:h-[400px] rounded-lg overflow-hidden order-1 lg:order-2 transition-all duration-1000 ease-out delay-200 ${
+                className={`relative h-[250px] sm:h-[300px] md:h-[400px] rounded-lg overflow-hidden order-1 lg:order-2 transition-all duration-500 ease-out delay-100 ${
                   isVisible("phase2")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 md:translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 md:translate-y-3"
                 }`}
               >
                 <div className="absolute inset-0 bg-[#e8e4dc] border-2 border-dashed border-[#162838]/20 flex flex-col items-center justify-center gap-3">
@@ -314,10 +314,10 @@ export default function Roadmap() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Phase 3 Image */}
               <div
-                className={`relative h-[250px] sm:h-[300px] md:h-[400px] rounded-lg overflow-hidden transition-all duration-1000 ease-out ${
+                className={`relative h-[250px] sm:h-[300px] md:h-[400px] rounded-lg overflow-hidden transition-all duration-500 ease-out ${
                   isVisible("phase3")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 md:-translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 md:translate-y-3"
                 }`}
               >
                 <div className="absolute inset-0 bg-[#e8e4dc] border-2 border-dashed border-[#162838]/20 flex flex-col items-center justify-center gap-3">
@@ -331,10 +331,10 @@ export default function Roadmap() {
 
               {/* Content */}
               <div
-                className={`transition-all duration-1000 ease-out delay-200 ${
+                className={`transition-all duration-500 ease-out delay-100 ${
                   isVisible("phase3")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 md:translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 md:translate-y-3"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-3">
@@ -389,10 +389,10 @@ export default function Roadmap() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Content - First on mobile */}
               <div
-                className={`order-2 lg:order-1 transition-all duration-1000 ease-out ${
+                className={`order-2 lg:order-1 transition-all duration-500 ease-out ${
                   isVisible("phase4")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 md:-translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 md:translate-y-3"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-3">
@@ -437,10 +437,10 @@ export default function Roadmap() {
 
               {/* Phase 4 Image */}
               <div
-                className={`relative h-[250px] sm:h-[300px] md:h-[400px] rounded-lg overflow-hidden order-1 lg:order-2 transition-all duration-1000 ease-out delay-200 ${
+                className={`relative h-[250px] sm:h-[300px] md:h-[400px] rounded-lg overflow-hidden order-1 lg:order-2 transition-all duration-500 ease-out delay-100 ${
                   isVisible("phase4")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 md:translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 md:translate-y-3"
                 }`}
               >
                 <FadeImage
@@ -464,10 +464,10 @@ export default function Roadmap() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div
-              className={`text-center mb-16 transition-all duration-1000 ease-out ${
+              className={`text-center mb-16 transition-all duration-500 ease-out ${
                 isVisible("progress")
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-3"
               }`}
             >
               <div className="flex items-center justify-center gap-4 mb-4">
