@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   twitter: {
     title: "Membership — Prime & Corporate Plans",
     description:
-      "Join Traditions Field Club. 7-day access, member events, guest passes — Lowcountry sporting clays, 5-stand.",
+      "Join Traditions Field Club. 7-day access, member events, guest passes — Lowcountry sporting clays.",
   },
   alternates: {
     canonical: "https://traditionsfieldclub.com/membership",
