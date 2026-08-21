@@ -352,11 +352,12 @@ export default function Join() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-[#333333] mb-2">
+                    <label htmlFor="firstName" className="block text-sm font-medium text-[#333333] mb-2">
                       First Name <span className="text-[#a75235]">*</span>
                     </label>
                     <input
                       type="text"
+                      id="firstName"
                       name="firstName"
                       required
                       value={formData.firstName}
@@ -366,11 +367,12 @@ export default function Join() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#333333] mb-2">
+                    <label htmlFor="lastName" className="block text-sm font-medium text-[#333333] mb-2">
                       Last Name <span className="text-[#a75235]">*</span>
                     </label>
                     <input
                       type="text"
+                      id="lastName"
                       name="lastName"
                       required
                       value={formData.lastName}
@@ -380,11 +382,12 @@ export default function Join() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#333333] mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-[#333333] mb-2">
                       Email <span className="text-[#a75235]">*</span>
                     </label>
                     <input
                       type="email"
+                      id="email"
                       name="email"
                       required
                       value={formData.email}
@@ -394,11 +397,12 @@ export default function Join() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#333333] mb-2">
+                    <label htmlFor="phone" className="block text-sm font-medium text-[#333333] mb-2">
                       Phone <span className="text-[#a75235]">*</span>
                     </label>
                     <input
                       type="tel"
+                      id="phone"
                       name="phone"
                       required
                       value={formData.phone}
@@ -408,11 +412,12 @@ export default function Join() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#333333] mb-2">
+                    <label htmlFor="dateOfBirth" className="block text-sm font-medium text-[#333333] mb-2">
                       Date of Birth <span className="text-[#a75235]">*</span>
                     </label>
                     <input
                       type="date"
+                      id="dateOfBirth"
                       name="dateOfBirth"
                       required
                       value={formData.dateOfBirth}
@@ -421,11 +426,12 @@ export default function Join() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#333333] mb-2">
+                    <label htmlFor="address" className="block text-sm font-medium text-[#333333] mb-2">
                       Street Address <span className="text-[#a75235]">*</span>
                     </label>
                     <input
                       type="text"
+                      id="address"
                       name="address"
                       required
                       value={formData.address}
@@ -435,11 +441,12 @@ export default function Join() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#333333] mb-2">
+                    <label htmlFor="city" className="block text-sm font-medium text-[#333333] mb-2">
                       City <span className="text-[#a75235]">*</span>
                     </label>
                     <input
                       type="text"
+                      id="city"
                       name="city"
                       required
                       value={formData.city}
@@ -449,11 +456,12 @@ export default function Join() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#333333] mb-2">
+                    <label htmlFor="state" className="block text-sm font-medium text-[#333333] mb-2">
                       State <span className="text-[#a75235]">*</span>
                     </label>
                     <input
                       type="text"
+                      id="state"
                       name="state"
                       required
                       value={formData.state}
@@ -463,11 +471,12 @@ export default function Join() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#333333] mb-2">
+                    <label htmlFor="zip" className="block text-sm font-medium text-[#333333] mb-2">
                       ZIP Code <span className="text-[#a75235]">*</span>
                     </label>
                     <input
                       type="text"
+                      id="zip"
                       name="zip"
                       required
                       value={formData.zip}
@@ -493,10 +502,11 @@ export default function Join() {
                 </h3>
 
                 <div>
-                  <label className="block text-sm font-medium text-[#333333] mb-2">
+                  <label htmlFor="membershipType" className="block text-sm font-medium text-[#333333] mb-2">
                     Which membership are you interested in? <span className="text-[#a75235]">*</span>
                   </label>
                   <select
+                    id="membershipType"
                     name="membershipType"
                     required
                     value={formData.membershipType}
@@ -521,11 +531,12 @@ export default function Join() {
                     <h4 className="text-md font-semibold text-[#162838] mb-4">Family Members</h4>
                     <div className="grid grid-cols-1 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-[#333333] mb-2">
+                        <label htmlFor="spouseName" className="block text-sm font-medium text-[#333333] mb-2">
                           Spouse/Partner Name
                         </label>
                         <input
                           type="text"
+                          id="spouseName"
                           name="spouseName"
                           value={formData.spouseName}
                           onChange={handleChange}
@@ -534,10 +545,11 @@ export default function Join() {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-[#333333] mb-2">
+                        <label htmlFor="childrenInfo" className="block text-sm font-medium text-[#333333] mb-2">
                           Children (names and ages)
                         </label>
                         <textarea
+                          id="childrenInfo"
                           name="childrenInfo"
                           value={formData.childrenInfo}
                           onChange={handleChange}
@@ -566,10 +578,11 @@ export default function Join() {
 
                 <div className="grid grid-cols-1 gap-4 md:gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-[#333333] mb-2">
+                    <label htmlFor="experienceLevel" className="block text-sm font-medium text-[#333333] mb-2">
                       Experience Level <span className="text-[#a75235]">*</span>
                     </label>
                     <select
+                      id="experienceLevel"
                       name="experienceLevel"
                       required
                       value={formData.experienceLevel}
@@ -585,11 +598,12 @@ export default function Join() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#333333] mb-2">
+                    <label htmlFor="previousClubs" className="block text-sm font-medium text-[#333333] mb-2">
                       Previous Club Memberships
                     </label>
                     <input
                       type="text"
+                      id="previousClubs"
                       name="previousClubs"
                       value={formData.previousClubs}
                       onChange={handleChange}
@@ -598,10 +612,11 @@ export default function Join() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#333333] mb-2">
+                    <label htmlFor="howHeard" className="block text-sm font-medium text-[#333333] mb-2">
                       How did you hear about us? <span className="text-[#a75235]">*</span>
                     </label>
                     <select
+                      id="howHeard"
                       name="howHeard"
                       required
                       value={formData.howHeard}
@@ -636,11 +651,12 @@ export default function Join() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-[#333333] mb-2">
+                    <label htmlFor="emergencyName" className="block text-sm font-medium text-[#333333] mb-2">
                       Contact Name <span className="text-[#a75235]">*</span>
                     </label>
                     <input
                       type="text"
+                      id="emergencyName"
                       name="emergencyName"
                       required
                       value={formData.emergencyName}
@@ -650,11 +666,12 @@ export default function Join() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#333333] mb-2">
+                    <label htmlFor="emergencyPhone" className="block text-sm font-medium text-[#333333] mb-2">
                       Contact Phone <span className="text-[#a75235]">*</span>
                     </label>
                     <input
                       type="tel"
+                      id="emergencyPhone"
                       name="emergencyPhone"
                       required
                       value={formData.emergencyPhone}
@@ -664,11 +681,12 @@ export default function Join() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#333333] mb-2">
+                    <label htmlFor="emergencyRelationship" className="block text-sm font-medium text-[#333333] mb-2">
                       Relationship <span className="text-[#a75235]">*</span>
                     </label>
                     <input
                       type="text"
+                      id="emergencyRelationship"
                       name="emergencyRelationship"
                       required
                       value={formData.emergencyRelationship}
@@ -694,10 +712,11 @@ export default function Join() {
                 </h3>
 
                 <div>
-                  <label className="block text-sm font-medium text-[#333333] mb-2">
+                  <label htmlFor="additionalInfo" className="block text-sm font-medium text-[#333333] mb-2">
                     Is there anything else you&apos;d like us to know?
                   </label>
                   <textarea
+                    id="additionalInfo"
                     name="additionalInfo"
                     value={formData.additionalInfo}
                     onChange={handleChange}
