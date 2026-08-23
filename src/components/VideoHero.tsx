@@ -68,7 +68,7 @@ export default function VideoHero() {
           width={1400}
           height={798}
           priority
-          className="h-32 md:h-36 lg:h-44 w-auto mx-auto mb-4 lg:mb-8"
+          className="h-32 md:h-40 lg:h-44 w-auto mx-auto mb-4 lg:mb-8"
         />
         <p
           className="text-base md:text-xl lg:text-2xl max-w-2xl mx-auto opacity-90 uppercase tracking-[0.25em] font-normal"
