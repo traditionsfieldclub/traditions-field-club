@@ -29,8 +29,8 @@ export default function Footer() {
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-12">
 
-        {/* Mobile Layout (single column, centered) */}
-        <div className="lg:hidden space-y-10 text-center">
+        {/* Mobile Layout (single column, centered) — max-w keeps it from stretching sparse at tablet widths */}
+        <div className="lg:hidden space-y-10 text-center max-w-md mx-auto">
           {/* Logo & About */}
           <div>
             <Link href="/" className="inline-block mb-4">
@@ -148,7 +148,7 @@ export default function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-widest mb-4 text-[#c4764e]">
               Navigation
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-1.5">
               {navLinks.map((link) => (
                 <li key={link.label}>
                   <Link

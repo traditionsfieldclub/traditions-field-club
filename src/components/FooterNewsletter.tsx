@@ -52,7 +52,7 @@ export default function FooterNewsletter() {
 
   return (
     <div>
-      <h3 className="text-sm font-semibold uppercase tracking-widest mb-4 text-[#c4764e]">
+      <h3 className="text-sm font-semibold uppercase tracking-widest mb-4 text-[#889d80]">
         Stay Connected
       </h3>
       <p className="text-sm opacity-75 mb-4">
@@ -83,12 +83,12 @@ export default function FooterNewsletter() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-lg border border-[#f5f2ec]/20 bg-[#f5f2ec]/10 text-[#f5f2ec] placeholder-[#f5f2ec]/40 focus:outline-none focus:border-[#a75235] transition-colors text-sm"
+              className="w-full px-4 py-2.5 rounded-lg border border-[#f5f2ec]/20 bg-[#f5f2ec]/10 text-[#f5f2ec] placeholder-[#f5f2ec]/40 focus:outline-none focus:border-[#889d80] transition-colors text-sm"
             />
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="w-full bg-[#a75235] text-[#f5f2ec] px-6 py-2 rounded-md text-sm font-medium uppercase tracking-wider hover:bg-[#8a4229] transition-colors disabled:opacity-50 cursor-pointer"
+              className="w-full bg-[#4d5c47] text-[#f5f2ec] px-6 py-2 rounded-md text-sm font-medium uppercase tracking-wider hover:bg-[#162838] transition-colors disabled:opacity-50 cursor-pointer"
             >
               {status === "submitting" ? "..." : "Subscribe"}
             </button>

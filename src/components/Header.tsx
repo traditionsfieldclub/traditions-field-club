@@ -62,20 +62,20 @@ export default function Header() {
                 onClick={handleNavClick(item.href)}
                 className={`group text-sm xl:text-base font-bold uppercase tracking-wide xl:tracking-widest transition-colors duration-200 relative whitespace-nowrap ${
                   pathname === item.href
-                    ? "text-[#a75235]"
-                    : "text-white hover:text-[#c4764e] [text-shadow:0_1px_4px_rgba(0,0,0,0.5)]"
+                    ? "text-[#889d80]"
+                    : "text-white hover:text-[#889d80] [text-shadow:0_1px_4px_rgba(0,0,0,0.5)]"
                 }`}
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
                 {item.label}
-                <span className={`absolute left-0 -bottom-1 h-[1px] bg-[#a75235] transition-all duration-300 ease-out ${
+                <span className={`absolute left-0 -bottom-1 h-[1px] bg-[#889d80] transition-all duration-300 ease-out ${
                   pathname === item.href ? "w-full" : "w-0 group-hover:w-full"
                 }`}></span>
               </Link>
             ))}
             <Link
               href="/join"
-              className="bg-[#a75235] text-[#f5f2ec] text-sm xl:text-base font-bold uppercase tracking-wide xl:tracking-widest px-4 xl:px-6 py-2 hover:bg-[#162838] transition-colors duration-200 rounded whitespace-nowrap"
+              className="bg-[#4d5c47] text-[#f5f2ec] text-sm xl:text-base font-bold uppercase tracking-wide xl:tracking-widest px-4 xl:px-6 py-2 hover:bg-[#162838] transition-colors duration-200 rounded whitespace-nowrap"
               style={{ fontFamily: "var(--font-heading), serif" }}
             >
               Become A Member
@@ -86,7 +86,7 @@ export default function Header() {
               close control lives on the panel itself instead of toggling in place. */}
           {!mobileMenuOpen && (
             <button
-              className="lg:hidden transition-colors absolute right-0 -translate-y-[20px] text-white hover:text-[#c4764e]"
+              className="lg:hidden transition-colors absolute right-0 -translate-y-[20px] text-white hover:text-[#889d80]"
               onClick={() => setMobileMenuOpen(true)}
               aria-label="Open menu"
               aria-expanded={mobileMenuOpen}
@@ -128,7 +128,7 @@ export default function Header() {
                 key={item.label}
                 href={item.href}
                 className={`text-sm font-bold uppercase tracking-widest transition-colors duration-200 py-2 ${
-                  pathname === item.href ? "text-[#a75235]" : "text-[#162838] hover:text-[#a75235]"
+                  pathname === item.href ? "text-[#4d5c47]" : "text-[#162838] hover:text-[#4d5c47]"
                 }`}
                 style={{ fontFamily: "var(--font-heading), serif" }}
                 onClick={(e) => {
@@ -142,7 +142,7 @@ export default function Header() {
             {/* Join Button */}
             <Link
               href="/join"
-              className="bg-[#a75235] text-[#f5f2ec] text-sm font-bold uppercase tracking-widest px-5 py-3 text-center hover:bg-[#162838] transition-colors duration-200 rounded mt-2"
+              className="bg-[#4d5c47] text-[#f5f2ec] text-sm font-bold uppercase tracking-widest px-5 py-3 text-center hover:bg-[#162838] transition-colors duration-200 rounded mt-2"
               style={{ fontFamily: "var(--font-heading), serif" }}
               onClick={() => setMobileMenuOpen(false)}
             >
