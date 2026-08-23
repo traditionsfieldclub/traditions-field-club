@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import FooterNewsletter from "./FooterNewsletter";
 
 const navLinks = [
+  { label: "Home", href: "/" },
   { label: "First Time", href: "/first-time" },
   { label: "Activities", href: "/activities" },
   { label: "Roadmap", href: "/roadmap" },
