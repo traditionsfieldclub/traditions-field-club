@@ -28,7 +28,7 @@ export default function VideoHero() {
   }, [showVideo]);
 
   return (
-    <section className="relative h-[500px] md:min-h-[70vh] md:h-auto flex items-center justify-center overflow-hidden bg-[#162838]">
+    <section className="relative h-[500px] md:min-h-[70vh] md:h-auto lg:min-h-[calc(70vh+220px)] flex items-center justify-center overflow-hidden bg-[#162838]">
       {/* Poster image — always rendered as base layer */}
       <Image
         src="/images/hero-poster.webp"
@@ -61,18 +61,28 @@ export default function VideoHero() {
 
       {/* Content */}
       <div className="relative z-10 text-center text-[#f5f2ec] px-4">
-        <h1
-          className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 tracking-wide"
-          style={{ fontFamily: "var(--font-heading), serif" }}
-        >
-          TRADITIONS FIELD CLUB
-        </h1>
+        {/* Logo image (crest + wordmark, already white) in place of the old text heading, at every breakpoint */}
+        <Image
+          src="/logo-white-full.png"
+          alt="Traditions Field Club"
+          width={1400}
+          height={798}
+          priority
+          className="h-24 sm:h-28 md:h-32 lg:h-44 w-auto mx-auto mb-4 lg:mb-8"
+        />
         <p
-          className="text-base md:text-xl max-w-2xl mx-auto opacity-90 uppercase tracking-[0.25em] font-normal"
+          className="text-base md:text-xl lg:text-2xl max-w-2xl mx-auto opacity-90 uppercase tracking-[0.25em] font-normal"
           style={{ fontFamily: "var(--font-heading), serif" }}
         >
           A premier sporting clays and outdoor club in the heart of South Carolina
         </p>
+      </div>
+
+      {/* Scroll cue — standard hint that there's more below, rather than shrinking the hero to force it into view */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-[#f5f2ec]/80 animate-scroll-cue">
+        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+        </svg>
       </div>
     </section>
   );
