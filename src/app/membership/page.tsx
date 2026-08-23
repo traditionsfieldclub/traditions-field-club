@@ -170,7 +170,7 @@ export default function Membership() {
 
             {/* Early Access Callout */}
             <div
-              className={`bg-[#3d5a45] rounded-lg p-6 md:p-8 mb-8 md:mb-10 text-center transition-all duration-500 ease-out ${
+              className={`bg-[#4d5c47] rounded-lg p-6 md:p-8 mb-8 md:mb-10 text-center transition-all duration-500 ease-out ${
                 isVisible("tiers")
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-3"
@@ -188,10 +188,10 @@ export default function Membership() {
                 we&apos;ll cover your membership through the rest of 2026 at no extra cost.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-                <span className="bg-[#f5f2ec] text-[#3d5a45] text-sm font-bold px-4 py-2 rounded-full tracking-wide">
+                <span className="bg-[#f5f2ec] text-[#4d5c47] text-sm font-bold px-4 py-2 rounded-full tracking-wide">
                   Prime — $500 Value Free
                 </span>
-                <span className="bg-[#f5f2ec] text-[#3d5a45] text-sm font-bold px-4 py-2 rounded-full tracking-wide">
+                <span className="bg-[#f5f2ec] text-[#4d5c47] text-sm font-bold px-4 py-2 rounded-full tracking-wide">
                   Corporate — $875 Value Free
                 </span>
               </div>
@@ -243,7 +243,7 @@ export default function Membership() {
                     <span className="text-3xl md:text-4xl text-[#f5f2ec] font-semibold">$2,000</span>
                     <span className="text-sm text-[#f5f2ec]/60"> /year</span>
                   </p>
-                  <p className="mt-3 inline-block bg-[#3d5a45] text-[#f5f2ec] text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">
+                  <p className="mt-3 inline-block bg-[#4d5c47] text-[#f5f2ec] text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">
                     3 Months Free — $500 Value
                   </p>
                 </div>
@@ -300,7 +300,7 @@ export default function Membership() {
                     <span className="text-3xl md:text-4xl text-[#f5f2ec] font-semibold">$3,500</span>
                     <span className="text-sm text-[#f5f2ec]/60"> /year</span>
                   </p>
-                  <p className="mt-3 inline-block bg-[#3d5a45] text-[#f5f2ec] text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">
+                  <p className="mt-3 inline-block bg-[#4d5c47] text-[#f5f2ec] text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">
                     3 Months Free — $875 Value
                   </p>
                 </div>
@@ -511,7 +511,7 @@ export default function Membership() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 md:py-20 bg-[#3d5a45]">
+        <section className="py-16 md:py-20 bg-[#4d5c47]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             {/* Decorative Header */}
             <div className="flex items-center justify-center gap-4 mb-4">
@@ -542,7 +542,7 @@ export default function Membership() {
               </a>
               <a
                 href="/roadmap"
-                className="inline-block bg-transparent border-2 border-[#f5f2ec] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#f5f2ec] hover:text-[#3d5a45] transition-colors rounded-lg"
+                className="inline-block bg-transparent border-2 border-[#f5f2ec] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#f5f2ec] hover:text-[#4d5c47] transition-colors rounded-lg"
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
                 View Our Roadmap

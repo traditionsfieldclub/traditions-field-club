@@ -165,7 +165,7 @@ export default function About() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
               {/* Christ-Centered */}
               <div
-                className={`bg-white p-6 rounded-lg shadow-sm border border-[#e8e4dc] text-center transition-all duration-700 ease-out hover:shadow-md ${
+                className={`bg-white p-6 rounded-lg shadow-sm border border-[#e8e4dc] text-center transition-all duration-500 ease-out hover:shadow-md ${
                   isVisible("values")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-3"
@@ -190,7 +190,7 @@ export default function About() {
 
               {/* Veteran-Owned */}
               <div
-                className={`bg-white p-6 rounded-lg shadow-sm border border-[#e8e4dc] text-center transition-all duration-700 ease-out hover:shadow-md ${
+                className={`bg-white p-6 rounded-lg shadow-sm border border-[#e8e4dc] text-center transition-all duration-500 ease-out hover:shadow-md ${
                   isVisible("values")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-3"
@@ -215,7 +215,7 @@ export default function About() {
 
               {/* Family-Friendly */}
               <div
-                className={`bg-white p-6 rounded-lg shadow-sm border border-[#e8e4dc] text-center transition-all duration-700 ease-out hover:shadow-md ${
+                className={`bg-white p-6 rounded-lg shadow-sm border border-[#e8e4dc] text-center transition-all duration-500 ease-out hover:shadow-md ${
                   isVisible("values")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-3"
@@ -240,7 +240,7 @@ export default function About() {
 
               {/* Safety-First */}
               <div
-                className={`bg-white p-6 rounded-lg shadow-sm border border-[#e8e4dc] text-center transition-all duration-700 ease-out hover:shadow-md ${
+                className={`bg-white p-6 rounded-lg shadow-sm border border-[#e8e4dc] text-center transition-all duration-500 ease-out hover:shadow-md ${
                   isVisible("values")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-3"
@@ -265,7 +265,7 @@ export default function About() {
 
               {/* Community-Driven */}
               <div
-                className={`bg-white p-6 rounded-lg shadow-sm border border-[#e8e4dc] text-center transition-all duration-700 ease-out hover:shadow-md ${
+                className={`bg-white p-6 rounded-lg shadow-sm border border-[#e8e4dc] text-center transition-all duration-500 ease-out hover:shadow-md ${
                   isVisible("values")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-3"
@@ -414,7 +414,7 @@ export default function About() {
 
             {/* Shared Owners Photo */}
             <div
-              className={`relative h-[300px] sm:h-[350px] md:h-[400px] max-w-3xl mx-auto mb-12 rounded-lg overflow-hidden transition-all duration-700 ease-out ${
+              className={`relative h-[300px] sm:h-[350px] md:h-[400px] max-w-3xl mx-auto mb-12 rounded-lg overflow-hidden transition-all duration-500 ease-out ${
                 isVisible("owners")
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-3"
@@ -434,7 +434,7 @@ export default function About() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
               {/* Brian - Left */}
               <div
-                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out hover:shadow-md ${
+                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-500 ease-out hover:shadow-md ${
                   isVisible("owners")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-3"
@@ -460,7 +460,7 @@ export default function About() {
 
               {/* Jim - Right */}
               <div
-                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out hover:shadow-md ${
+                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-500 ease-out hover:shadow-md ${
                   isVisible("owners")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-3"

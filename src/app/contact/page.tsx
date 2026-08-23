@@ -349,7 +349,7 @@ function ContactContent() {
                         value={formData.firstName}
                         onChange={handleChange}
                         onFocus={handleFocus}
-                        className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent transition-colors"
+                        className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent transition-colors"
                         placeholder="John"
                       />
                     </div>
@@ -368,7 +368,7 @@ function ContactContent() {
                         value={formData.lastName}
                         onChange={handleChange}
                         onFocus={handleFocus}
-                        className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent transition-colors"
+                        className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent transition-colors"
                         placeholder="Smith"
                       />
                     </div>
@@ -390,7 +390,7 @@ function ContactContent() {
                       value={formData.email}
                       onChange={handleChange}
                       onFocus={handleFocus}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent transition-colors"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -411,7 +411,7 @@ function ContactContent() {
                       value={formData.phone}
                       onChange={handleChange}
                       onFocus={handleFocus}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent transition-colors"
                       placeholder="(555) 123-4567"
                     />
                   </div>
@@ -431,7 +431,7 @@ function ContactContent() {
                       value={formData.topic}
                       onChange={handleChange}
                       onFocus={handleFocus}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent transition-colors bg-white"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent transition-colors bg-white"
                     >
                       <option value="">Select a topic...</option>
                       <option value="membership">Membership Inquiry</option>
@@ -458,7 +458,7 @@ function ContactContent() {
                       value={formData.message}
                       onChange={handleChange}
                       onFocus={handleFocus}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent transition-colors resize-none"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent transition-colors resize-none"
                       placeholder="Tell us more about your inquiry..."
                     />
                   </div>
@@ -623,7 +623,7 @@ function ContactContent() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
                     href="/activities"
-                    className="inline-block bg-[#3d5a45] text-[#f5f2ec] px-6 py-3 text-center font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
+                    className="inline-block bg-[#4d5c47] text-[#f5f2ec] px-6 py-3 text-center font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
                     View Activities
@@ -675,7 +675,7 @@ function ContactContent() {
       {showSuccess && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4" role="alert">
           <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-8 text-center">
-            <div className="w-16 h-16 bg-[#3d5a45] rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="w-16 h-16 bg-[#4d5c47] rounded-full flex items-center justify-center mx-auto mb-6">
               <svg className="w-8 h-8 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>

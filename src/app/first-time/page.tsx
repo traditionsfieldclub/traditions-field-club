@@ -251,7 +251,7 @@ export default function FirstTime() {
                   </div>
                   {/* Decorative accent */}
                   <div className="hidden sm:block absolute -bottom-4 -right-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
-                  <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 bg-[#3d5a45]/10 rounded-lg -z-10"></div>
+                  <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 bg-[#4d5c47]/10 rounded-lg -z-10"></div>
                 </div>
                 <p
                   className="text-center text-2xl md:text-3xl text-[#162838] mt-8"
@@ -285,7 +285,7 @@ export default function FirstTime() {
                 </p>
                 <ul className="space-y-4 text-[#333333]">
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -293,7 +293,7 @@ export default function FirstTime() {
                     <span><strong>Valid ID</strong> — Required for all visitors</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -301,7 +301,7 @@ export default function FirstTime() {
                     <span><strong>Closed-toe shoes</strong> — Required on the range</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -309,7 +309,7 @@ export default function FirstTime() {
                     <span><strong>Weather-appropriate clothing</strong> — We shoot rain or shine</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -317,7 +317,7 @@ export default function FirstTime() {
                     <span><strong>Eye and ear protection</strong> — Available on-site if needed</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -327,12 +327,12 @@ export default function FirstTime() {
                 </ul>
 
                 {/* Available On-Site Callout */}
-                <div className="mt-8 bg-[#f5f2ec] border border-[#3d5a45]/20 rounded-lg p-5">
+                <div className="mt-8 bg-[#f5f2ec] border border-[#4d5c47]/20 rounded-lg p-5">
                   <h3
                     className="text-lg text-[#162838] mb-3 flex items-center gap-2"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
-                    <svg className="w-5 h-5 text-[#3d5a45]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-[#4d5c47]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     Available On-Site
@@ -441,7 +441,7 @@ export default function FirstTime() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 md:py-20 bg-[#3d5a45]">
+        <section className="py-16 md:py-20 bg-[#4d5c47]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             {/* Decorative Header */}
             <div className="flex items-center justify-center gap-4 mb-4">
@@ -472,7 +472,7 @@ export default function FirstTime() {
               </a>
               <a
                 href="/contact"
-                className="inline-block bg-transparent border-2 border-[#f5f2ec] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#f5f2ec] hover:text-[#3d5a45] transition-colors rounded-lg"
+                className="inline-block bg-transparent border-2 border-[#f5f2ec] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#f5f2ec] hover:text-[#4d5c47] transition-colors rounded-lg"
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
                 Contact Us

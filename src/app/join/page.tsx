@@ -176,7 +176,7 @@ export default function Join() {
         <main className="flex-grow flex items-center justify-center bg-[#f5f2ec] py-16">
           <div className="max-w-2xl mx-auto px-4 text-center">
             <div className="bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-8 md:p-12">
-              <div className="w-16 h-16 bg-[#3d5a45] rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-[#4d5c47] rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg className="w-8 h-8 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
@@ -231,7 +231,7 @@ export default function Join() {
         <main className="flex-grow flex items-center justify-center bg-[#f5f2ec] py-16">
           <div className="max-w-2xl mx-auto px-4 text-center">
             <div className="bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-8 md:p-12">
-              <div className="w-16 h-16 bg-[#3d5a45] rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-[#4d5c47] rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg className="w-8 h-8 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
@@ -362,7 +362,7 @@ export default function Join() {
                       required
                       value={formData.firstName}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                       placeholder="John"
                     />
                   </div>
@@ -377,7 +377,7 @@ export default function Join() {
                       required
                       value={formData.lastName}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                       placeholder="Smith"
                     />
                   </div>
@@ -392,7 +392,7 @@ export default function Join() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -407,7 +407,7 @@ export default function Join() {
                       required
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                       placeholder="(555) 123-4567"
                     />
                   </div>
@@ -422,7 +422,7 @@ export default function Join() {
                       required
                       value={formData.dateOfBirth}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                     />
                   </div>
                   <div>
@@ -436,7 +436,7 @@ export default function Join() {
                       required
                       value={formData.address}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                       placeholder="123 Main Street"
                     />
                   </div>
@@ -451,7 +451,7 @@ export default function Join() {
                       required
                       value={formData.city}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                       placeholder="Charleston"
                     />
                   </div>
@@ -466,7 +466,7 @@ export default function Join() {
                       required
                       value={formData.state}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                       placeholder="SC"
                     />
                   </div>
@@ -481,7 +481,7 @@ export default function Join() {
                       required
                       value={formData.zip}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                       placeholder="29401"
                     />
                   </div>
@@ -511,7 +511,7 @@ export default function Join() {
                     required
                     value={formData.membershipType}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent bg-white"
+                    className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent bg-white"
                   >
                     <option value="">Select a membership type...</option>
                     <option value="prime">Prime Membership (Individual & Family)</option>
@@ -540,7 +540,7 @@ export default function Join() {
                           name="spouseName"
                           value={formData.spouseName}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                          className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                           placeholder="Full name"
                         />
                       </div>
@@ -554,7 +554,7 @@ export default function Join() {
                           value={formData.childrenInfo}
                           onChange={handleChange}
                           rows={3}
-                          className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent resize-none"
+                          className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent resize-none"
                           placeholder="e.g., John Jr. (14), Sarah (11)"
                         />
                       </div>
@@ -587,7 +587,7 @@ export default function Join() {
                       required
                       value={formData.experienceLevel}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent bg-white"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent bg-white"
                     >
                       <option value="">Select your experience level...</option>
                       <option value="beginner">Beginner - New to shooting sports</option>
@@ -607,7 +607,7 @@ export default function Join() {
                       name="previousClubs"
                       value={formData.previousClubs}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                       placeholder="List any previous shooting clubs (optional)"
                     />
                   </div>
@@ -621,7 +621,7 @@ export default function Join() {
                       required
                       value={formData.howHeard}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent bg-white"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent bg-white"
                     >
                       <option value="">Select an option...</option>
                       <option value="friend">Friend or Family Referral</option>
@@ -661,7 +661,7 @@ export default function Join() {
                       required
                       value={formData.emergencyName}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                       placeholder="Full name"
                     />
                   </div>
@@ -676,7 +676,7 @@ export default function Join() {
                       required
                       value={formData.emergencyPhone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                       placeholder="(555) 123-4567"
                     />
                   </div>
@@ -691,7 +691,7 @@ export default function Join() {
                       required
                       value={formData.emergencyRelationship}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                       placeholder="Spouse, Parent, etc."
                     />
                   </div>
@@ -721,7 +721,7 @@ export default function Join() {
                     value={formData.additionalInfo}
                     onChange={handleChange}
                     rows={4}
-                    className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent resize-none"
+                    className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent resize-none"
                     placeholder="Questions, special requests, or anything else you'd like to share..."
                   />
                 </div>
@@ -747,7 +747,7 @@ export default function Join() {
                       name="agreeRules"
                       checked={formData.agreeRules}
                       onChange={handleChange}
-                      className="w-5 h-5 shrink-0 mt-0.5 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
+                      className="w-5 h-5 shrink-0 mt-0.5 text-[#4d5c47] border-[#e8e4dc] rounded focus:ring-[#4d5c47]"
                     />
                     <span className="text-[#333333]">
                       I agree to abide by all <Link href="/terms" className="text-[#a75235] hover:underline">club rules and policies</Link>, including all safety regulations.
@@ -760,7 +760,7 @@ export default function Join() {
                       name="agreeWaiver"
                       checked={formData.agreeWaiver}
                       onChange={handleChange}
-                      className="w-5 h-5 shrink-0 mt-0.5 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
+                      className="w-5 h-5 shrink-0 mt-0.5 text-[#4d5c47] border-[#e8e4dc] rounded focus:ring-[#4d5c47]"
                     />
                     <span className="text-[#333333]">
                       I understand that I will be required to sign a <Link href="/waiver" className="text-[#a75235] hover:underline">liability waiver</Link> before participating in any activities.
@@ -773,7 +773,7 @@ export default function Join() {
                       name="agreeApproval"
                       checked={formData.agreeApproval}
                       onChange={handleChange}
-                      className="w-5 h-5 shrink-0 mt-0.5 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
+                      className="w-5 h-5 shrink-0 mt-0.5 text-[#4d5c47] border-[#e8e4dc] rounded focus:ring-[#4d5c47]"
                     />
                     <span className="text-[#333333]">
                       I understand that membership is subject to approval and that submitting this application does not guarantee acceptance.

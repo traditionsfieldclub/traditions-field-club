@@ -89,7 +89,7 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
                     href="/first-time"
-                    className="inline-block bg-[#3d5a45] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg text-center"
+                    className="inline-block bg-[#4d5c47] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg text-center"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
                     First Time Here?
@@ -139,7 +139,7 @@ export default function Home() {
                 </div>
                 {/* Decorative accent */}
                 <div className="hidden sm:block absolute -bottom-4 -right-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
-                <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 bg-[#3d5a45]/10 rounded-lg -z-10"></div>
+                <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 bg-[#4d5c47]/10 rounded-lg -z-10"></div>
               </div>
             </div>
           </div>
@@ -455,7 +455,7 @@ export default function Home() {
                   style={{ transitionDelay: `${(index + 1) * 150}ms` }}
                 >
                   <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 ${
-                    item.status === "Complete" ? "bg-[#a75235]" : item.status === "In Progress" ? "bg-[#3d5a45]" : "bg-[#f5f2ec]/10"
+                    item.status === "Complete" ? "bg-[#a75235]" : item.status === "In Progress" ? "bg-[#4d5c47]" : "bg-[#f5f2ec]/10"
                   }`}>
                     {item.status === "Complete" ? (
                       <svg className="w-6 h-6 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -466,7 +466,7 @@ export default function Home() {
                     )}
                   </div>
                   <span className={`text-xs uppercase tracking-wider ${
-                    item.status === "Complete" ? "text-[#a75235]" : item.status === "In Progress" ? "text-[#3d5a45]" : "text-[#f5f2ec]/50"
+                    item.status === "Complete" ? "text-[#a75235]" : item.status === "In Progress" ? "text-[#4d5c47]" : "text-[#f5f2ec]/50"
                   }`}>
                     {item.status}
                   </span>
@@ -485,7 +485,7 @@ export default function Home() {
             <div className="text-center mt-12">
               <Link
                 href="/roadmap"
-                className="inline-block bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#3d5a45] transition-colors rounded-lg"
+                className="inline-block bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#4d5c47] transition-colors rounded-lg"
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
                 View Full Roadmap
@@ -521,7 +521,7 @@ export default function Home() {
                 </div>
                 {/* Decorative accent */}
                 <div className="hidden sm:block absolute -bottom-4 -right-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
-                <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 bg-[#3d5a45]/10 rounded-lg -z-10"></div>
+                <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 bg-[#4d5c47]/10 rounded-lg -z-10"></div>
               </div>
 
               {/* Content */}
@@ -551,7 +551,7 @@ export default function Home() {
                 </p>
                 <Link
                   href="/about"
-                  className="inline-block bg-[#3d5a45] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg text-center"
+                  className="inline-block bg-[#4d5c47] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg text-center"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
                   Learn Their Story

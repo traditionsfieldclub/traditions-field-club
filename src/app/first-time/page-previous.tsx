@@ -179,7 +179,7 @@ export default function FirstTime() {
               {steps.map((step, index) => (
                 <div
                   key={step.number}
-                  className={`relative transition-all duration-700 ease-out ${
+                  className={`relative transition-all duration-500 ease-out ${
                     isVisible("steps")
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-3"
@@ -397,7 +397,7 @@ export default function FirstTime() {
               {faqs.map((faq, index) => (
                 <div
                   key={index}
-                  className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out ${
+                  className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-500 ease-out ${
                     isVisible("faq")
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-3"

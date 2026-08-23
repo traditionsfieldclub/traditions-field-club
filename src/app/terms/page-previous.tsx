@@ -58,10 +58,10 @@ export default function TermsOfService() {
           className="py-16 md:py-20 bg-white overflow-hidden"
         >
           <div
-            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 ease-out ${
+            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ease-out ${
               isVisible("safety")
                 ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
+                : "opacity-0 translate-y-3"
             }`}
           >
             <div className="text-center mb-8">
@@ -178,10 +178,10 @@ export default function TermsOfService() {
           className="py-16 md:py-24 bg-white overflow-hidden"
         >
           <div
-            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-1000 ease-out ${
+            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ease-out ${
               isVisible("content")
                 ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
+                : "opacity-0 translate-y-3"
             }`}
           >
             <div className="prose prose-lg max-w-none text-[#333333]">

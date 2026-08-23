@@ -384,8 +384,8 @@ export default function Waiver() {
 
               {/* Waiver Document */}
               <div
-                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-8 transition-all duration-700 ${
-                  isVisible("waiver") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-8 transition-all duration-500 ${
+                  isVisible("waiver") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
                 }`}
               >
                 <h2
@@ -479,8 +479,8 @@ export default function Waiver() {
 
               {/* Participant Information */}
               <div
-                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-8 transition-all duration-700 delay-100 ${
-                  isVisible("waiver") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-8 transition-all duration-500 delay-100 ${
+                  isVisible("waiver") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
                 }`}
               >
                 <h3
@@ -649,8 +649,8 @@ export default function Waiver() {
 
               {/* Minor Section */}
               <div
-                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-8 transition-all duration-700 delay-200 ${
-                  isVisible("waiver") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-8 transition-all duration-500 delay-200 ${
+                  isVisible("waiver") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
                 }`}
               >
                 <h3
@@ -771,8 +771,8 @@ export default function Waiver() {
 
               {/* Acknowledgments */}
               <div
-                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-8 transition-all duration-700 delay-300 ${
-                  isVisible("waiver") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-8 transition-all duration-500 delay-300 ${
+                  isVisible("waiver") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
                 }`}
               >
                 <h3
@@ -852,8 +852,8 @@ export default function Waiver() {
 
               {/* Signature */}
               <div
-                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-8 transition-all duration-700 delay-400 ${
-                  isVisible("waiver") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-8 transition-all duration-500 delay-400 ${
+                  isVisible("waiver") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
                 }`}
               >
                 <h3

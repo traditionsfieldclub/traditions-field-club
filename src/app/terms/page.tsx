@@ -88,7 +88,7 @@ export default function TermsOfService() {
             <div className="bg-[#f5f2ec] rounded-lg p-6 md:p-8 shadow-lg border border-gray-200">
               <ul className="space-y-4 text-[#333333]">
                 <li className="flex items-start gap-4">
-                  <span className="w-8 h-8 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="w-8 h-8 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-[#f5f2ec] text-sm font-bold">1</span>
                   </span>
                   <div>
@@ -97,7 +97,7 @@ export default function TermsOfService() {
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <span className="w-8 h-8 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="w-8 h-8 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-[#f5f2ec] text-sm font-bold">2</span>
                   </span>
                   <div>
@@ -106,7 +106,7 @@ export default function TermsOfService() {
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <span className="w-8 h-8 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="w-8 h-8 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-[#f5f2ec] text-sm font-bold">3</span>
                   </span>
                   <div>
@@ -115,7 +115,7 @@ export default function TermsOfService() {
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <span className="w-8 h-8 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="w-8 h-8 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-[#f5f2ec] text-sm font-bold">4</span>
                   </span>
                   <div>
@@ -124,7 +124,7 @@ export default function TermsOfService() {
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <span className="w-8 h-8 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="w-8 h-8 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-[#f5f2ec] text-sm font-bold">5</span>
                   </span>
                   <div>
@@ -133,7 +133,7 @@ export default function TermsOfService() {
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <span className="w-8 h-8 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="w-8 h-8 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-[#f5f2ec] text-sm font-bold">6</span>
                   </span>
                   <div>
@@ -142,7 +142,7 @@ export default function TermsOfService() {
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <span className="w-8 h-8 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="w-8 h-8 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-[#f5f2ec] text-sm font-bold">7</span>
                   </span>
                   <div>
@@ -151,7 +151,7 @@ export default function TermsOfService() {
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <span className="w-8 h-8 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="w-8 h-8 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                     <span className="text-[#f5f2ec] text-sm font-bold">8</span>
                   </span>
                   <div>
@@ -161,7 +161,7 @@ export default function TermsOfService() {
                 </li>
               </ul>
 
-              <div className="mt-8 p-4 bg-[#f5f2ec] rounded-lg border-l-4 border-[#3d5a45]">
+              <div className="mt-8 p-4 bg-[#f5f2ec] rounded-lg border-l-4 border-[#4d5c47]">
                 <p className="text-[#162838] font-semibold">
                   Violation of any safety rule may result in immediate removal from the premises and termination
                   of membership without refund. Safety is non-negotiable.

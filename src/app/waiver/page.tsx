@@ -285,7 +285,7 @@ export default function Waiver() {
         <main className="flex-grow flex items-center justify-center bg-[#f5f2ec] py-16">
           <div className="max-w-2xl mx-auto px-4 text-center">
             <div className="bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-8 md:p-12">
-              <div className="w-16 h-16 bg-[#3d5a45] rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-[#4d5c47] rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg className="w-8 h-8 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
@@ -304,7 +304,7 @@ export default function Waiver() {
               {pdfBase64 && (
                 <button
                   onClick={() => downloadPDF(pdfBase64)}
-                  className="inline-flex items-center gap-2 bg-[#3d5a45] text-[#f5f2ec] px-6 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg mb-4"
+                  className="inline-flex items-center gap-2 bg-[#4d5c47] text-[#f5f2ec] px-6 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg mb-4"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -501,7 +501,7 @@ export default function Waiver() {
                       required
                       value={formData.participantName}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                       placeholder="Enter your full legal name"
                     />
                   </div>
@@ -516,7 +516,7 @@ export default function Waiver() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                       placeholder="email@example.com"
                     />
                   </div>
@@ -531,7 +531,7 @@ export default function Waiver() {
                       required
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                       placeholder="(555) 123-4567"
                     />
                   </div>
@@ -546,7 +546,7 @@ export default function Waiver() {
                       required
                       value={formData.dateOfBirth}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                     />
                   </div>
 
@@ -560,7 +560,7 @@ export default function Waiver() {
                       required
                       value={formData.address}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                       placeholder="123 Main Street"
                     />
                   </div>
@@ -575,7 +575,7 @@ export default function Waiver() {
                       required
                       value={formData.city}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                       placeholder="City"
                     />
                   </div>
@@ -590,7 +590,7 @@ export default function Waiver() {
                       required
                       value={formData.state}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                       placeholder="SC"
                     />
                   </div>
@@ -605,7 +605,7 @@ export default function Waiver() {
                       required
                       value={formData.zip}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                       placeholder="29475"
                     />
                   </div>
@@ -625,7 +625,7 @@ export default function Waiver() {
                         required
                         value={formData.emergencyContactName}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                        className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                         placeholder="Contact name"
                       />
                     </div>
@@ -639,7 +639,7 @@ export default function Waiver() {
                         required
                         value={formData.emergencyContactPhone}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                        className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                         placeholder="(555) 123-4567"
                       />
                     </div>
@@ -666,7 +666,7 @@ export default function Waiver() {
                     name="isMinor"
                     checked={formData.isMinor}
                     onChange={handleChange}
-                    className="w-5 h-5 mt-0.5 shrink-0 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
+                    className="w-5 h-5 mt-0.5 shrink-0 text-[#4d5c47] border-[#e8e4dc] rounded focus:ring-[#4d5c47]"
                   />
                   <span className="text-[#333333]">This waiver is for a minor participant</span>
                 </label>
@@ -683,7 +683,7 @@ export default function Waiver() {
                         required={formData.isMinor}
                         value={formData.parentName}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                        className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                         placeholder="Parent/Guardian full name"
                       />
                     </div>
@@ -697,7 +697,7 @@ export default function Waiver() {
                         required={formData.isMinor}
                         value={formData.parentRelationship}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                        className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                         placeholder="Parent, Guardian, etc."
                       />
                     </div>
@@ -716,7 +716,7 @@ export default function Waiver() {
                             type="text"
                             value={name}
                             onChange={(e) => updateAdditionalMinor(index, e.target.value)}
-                            className="flex-1 px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                            className="flex-1 px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                             placeholder="Full name"
                           />
                           <button
@@ -734,7 +734,7 @@ export default function Waiver() {
                       <button
                         type="button"
                         onClick={addAdditionalMinor}
-                        className="text-[#3d5a45] font-semibold text-sm hover:underline cursor-pointer"
+                        className="text-[#4d5c47] font-semibold text-sm hover:underline cursor-pointer"
                       >
                         + Add Another Youth
                       </button>
@@ -748,7 +748,7 @@ export default function Waiver() {
                           name="minorPhotoConsent"
                           checked={formData.minorPhotoConsent}
                           onChange={handleChange}
-                          className="w-5 h-5 mt-0.5 shrink-0 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
+                          className="w-5 h-5 mt-0.5 shrink-0 text-[#4d5c47] border-[#e8e4dc] rounded focus:ring-[#4d5c47]"
                         />
                         <span className="text-[#333333] text-sm">
                           I grant Traditions Field Club permission to photograph or record video of the minor
@@ -789,7 +789,7 @@ export default function Waiver() {
                       name="acknowledgeSafety"
                       checked={formData.acknowledgeSafety}
                       onChange={handleChange}
-                      className="w-5 h-5 mt-0.5 shrink-0 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
+                      className="w-5 h-5 mt-0.5 shrink-0 text-[#4d5c47] border-[#e8e4dc] rounded focus:ring-[#4d5c47]"
                     />
                     <span className="text-[#333333]">
                       I have read and understand the <strong>safety rules</strong> outlined in this waiver and agree to follow them at all times.
@@ -802,7 +802,7 @@ export default function Waiver() {
                       name="acknowledgeRisk"
                       checked={formData.acknowledgeRisk}
                       onChange={handleChange}
-                      className="w-5 h-5 mt-0.5 shrink-0 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
+                      className="w-5 h-5 mt-0.5 shrink-0 text-[#4d5c47] border-[#e8e4dc] rounded focus:ring-[#4d5c47]"
                     />
                     <span className="text-[#333333]">
                       I understand and <strong>voluntarily assume all risks</strong> associated with participating in shooting sports activities, including the risk of serious injury or death.
@@ -815,7 +815,7 @@ export default function Waiver() {
                       name="acknowledgeRelease"
                       checked={formData.acknowledgeRelease}
                       onChange={handleChange}
-                      className="w-5 h-5 mt-0.5 shrink-0 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
+                      className="w-5 h-5 mt-0.5 shrink-0 text-[#4d5c47] border-[#e8e4dc] rounded focus:ring-[#4d5c47]"
                     />
                     <span className="text-[#333333]">
                       I <strong>release and waive</strong> all claims against Traditions Field Club, its owners, employees, and agents for any injury or damage arising from my participation.
@@ -828,7 +828,7 @@ export default function Waiver() {
                       name="acknowledgeRules"
                       checked={formData.acknowledgeRules}
                       onChange={handleChange}
-                      className="w-5 h-5 mt-0.5 shrink-0 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
+                      className="w-5 h-5 mt-0.5 shrink-0 text-[#4d5c47] border-[#e8e4dc] rounded focus:ring-[#4d5c47]"
                     />
                     <span className="text-[#333333]">
                       I agree to abide by all <strong>club rules and policies</strong> and understand that violation may result in removal from the premises.
@@ -841,7 +841,7 @@ export default function Waiver() {
                       name="agreeToTerms"
                       checked={formData.agreeToTerms}
                       onChange={handleChange}
-                      className="w-5 h-5 mt-0.5 shrink-0 text-[#3d5a45] border-[#e8e4dc] rounded focus:ring-[#3d5a45]"
+                      className="w-5 h-5 mt-0.5 shrink-0 text-[#4d5c47] border-[#e8e4dc] rounded focus:ring-[#4d5c47]"
                     />
                     <span className="text-[#333333]">
                       I have read this entire waiver, <strong>understand its contents</strong>, and agree to be bound by its terms.
@@ -908,7 +908,7 @@ export default function Waiver() {
                     required
                     value={formData.signedDate}
                     onChange={handleChange}
-                    className="w-full max-w-xs px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3d5a45] focus:border-transparent"
+                    className="w-full max-w-xs px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                   />
                 </div>
               </div>

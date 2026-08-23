@@ -243,7 +243,7 @@ export default function Roadmap() {
                   <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Opening Soon</span>
                 </div>
                 <div className="flex items-center gap-4 mb-4">
-                  <span className="bg-[#3d5a45] text-[#f5f2ec] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                  <span className="bg-[#4d5c47] text-[#f5f2ec] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                     In Progress
                   </span>
                 </div>
@@ -530,7 +530,7 @@ export default function Roadmap() {
             {/* Apr-Jun 2026 */}
             <div className="mb-16">
               <div className="flex items-center gap-4 mb-8">
-                <span className="bg-[#3d5a45] text-[#f5f2ec] text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">
+                <span className="bg-[#4d5c47] text-[#f5f2ec] text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider">
                   Apr – Jun 2026
                 </span>
                 <span className="h-[1px] flex-grow bg-[#162838]/15"></span>
@@ -696,7 +696,7 @@ export default function Roadmap() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 md:py-20 bg-[#3d5a45]">
+        <section className="py-16 md:py-20 bg-[#4d5c47]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             {/* Decorative Header */}
             <div className="flex items-center justify-center gap-4 mb-4">
@@ -727,7 +727,7 @@ export default function Roadmap() {
               </a>
               <a
                 href="/contact"
-                className="inline-block bg-transparent border-2 border-[#f5f2ec] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#f5f2ec] hover:text-[#3d5a45] transition-colors rounded-lg"
+                className="inline-block bg-transparent border-2 border-[#f5f2ec] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#f5f2ec] hover:text-[#4d5c47] transition-colors rounded-lg"
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
                 Get in Touch
