@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Our Roadmap — Building the Future of Traditions",
   description:
-    "See the development roadmap for Traditions Field Club. From Phase 1 sporting clays to a future Pavilion, hunting, fishing, and outdoor recreation. Follow our journey building a premier outdoor destination in South Carolina.",
+    "Follow our development roadmap — from Phase 1 sporting clays to a future Pavilion, hunting, fishing, and outdoor recreation in South Carolina's Lowcountry.",
   openGraph: {
     title: "Our Roadmap — Building the Future of Traditions",
     description:
-      "See the development roadmap for Traditions Field Club. From Phase 1 sporting clays to a future Pavilion, hunting, fishing, and outdoor recreation. Follow our journey building a premier outdoor destination in South Carolina.",
+      "Follow our development roadmap — from Phase 1 sporting clays to a future Pavilion, hunting, fishing, and outdoor recreation in South Carolina's Lowcountry.",
     url: "https://traditionsfieldclub.com/roadmap",
     images: [{ url: "https://traditionsfieldclub.com/og-image.jpg", width: 1200, height: 630 }],
   },

@@ -304,8 +304,8 @@ export default function Roadmap() {
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-[#162838]/40 flex items-center justify-center">
-                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Rendering Of</span>
+                  <div className="absolute inset-0 flex items-end justify-center pb-4">
+                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase">Rendering Image</span>
                   </div>
                 </div>
               </div>
@@ -334,11 +334,11 @@ export default function Roadmap() {
                     src="/images/hunting_outdoors_fly_fishing.webp"
                     alt="Member fly fishing on the property at Traditions Field Club"
                     fill
-                    className="object-cover object-[center_65%]"
+                    className="object-cover object-[center_69%]"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-[#162838]/40 flex items-center justify-center">
-                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
+                  <div className="absolute inset-0 flex items-end justify-center pb-4">
+                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase">Coming Soon</span>
                   </div>
                 </div>
               </div>
@@ -464,8 +464,8 @@ export default function Roadmap() {
                   className="object-cover object-[center_70%]"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-[#162838]/40 flex items-center justify-center">
-                  <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
+                <div className="absolute inset-0 flex items-end justify-center pb-4">
+                  <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase">Coming Soon</span>
                 </div>
               </div>
             </div>

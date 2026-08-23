@@ -91,7 +91,6 @@ const localBusiness = {
   ],
   amenityFeature: [
     { "@type": "LocationFeatureSpecification", name: "Sporting Clays Course", value: true },
-    { "@type": "LocationFeatureSpecification", name: "5-Stand Facility", value: true },
     { "@type": "LocationFeatureSpecification", name: "Certified Instruction", value: true },
     { "@type": "LocationFeatureSpecification", name: "Corporate Events", value: true },
     { "@type": "LocationFeatureSpecification", name: "Youth Programs", value: true },
@@ -100,11 +99,6 @@ const localBusiness = {
     {
       "@type": "Offer",
       name: "Sporting Clays",
-      category: "Recreation",
-    },
-    {
-      "@type": "Offer",
-      name: "5-Stand Shooting",
       category: "Recreation",
     },
     {

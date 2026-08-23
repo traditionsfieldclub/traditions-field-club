@@ -118,7 +118,7 @@ export default function Activities() {
         <section
           id="sporting-clays"
           ref={(el) => { sectionRefs.current["sporting-clays"] = el; }}
-          className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+          className="pt-16 pb-8 md:pt-8 md:pb-24 lg:pt-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-center gap-4 mb-10">
@@ -221,7 +221,7 @@ export default function Activities() {
         <section
           id="lessons"
           ref={(el) => { sectionRefs.current["lessons"] = el; }}
-          className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+          className="pt-8 pb-16 md:pt-8 md:pb-24 lg:pt-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -328,20 +328,18 @@ export default function Activities() {
         >
           <div
             className="absolute inset-0 bg-[#162838]"
-          >
-            <div className="absolute inset-0 bg-[#162838]/60"></div>
-          </div>
+          ></div>
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center px-4">
               <p
-                className={`text-[#f5f2ec]/70 text-lg md:text-xl tracking-wide transition-all duration-500 ease-out ${
+                className={`text-[#f5f2ec]/70 text-lg min-[375px]:text-xl md:text-2xl tracking-wide uppercase transition-all duration-500 ease-out ${
                   isVisible("imagebreak")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-3"
                 }`}
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
-                — Coming Soon —
+                What&apos;s Next
               </p>
             </div>
           </div>
@@ -351,7 +349,7 @@ export default function Activities() {
         <section
           id="5-stand"
           ref={(el) => { sectionRefs.current["5-stand"] = el; }}
-          className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+          className="pt-16 pb-8 md:pt-8 md:pb-24 lg:pt-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-center gap-4 mb-10">
@@ -371,13 +369,13 @@ export default function Activities() {
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
                   <FadeImage
                     src="/images/shooting_stations_construction.webp"
-                    alt="5-Stand shooting stations at Traditions Field Club"
+                    alt="Site prepared for the future 5-Stand shooting stations — coming soon"
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-[#162838]/40 flex items-center justify-center">
-                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
+                  <div className="absolute inset-0 flex items-end justify-center pb-4">
+                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase">Coming Soon</span>
                   </div>
                 </div>
                 {/* Decorative accent */}
@@ -447,7 +445,7 @@ export default function Activities() {
         <section
           id="virtual-training"
           ref={(el) => { sectionRefs.current["virtual-training"] = el; }}
-          className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+          className="pt-8 pb-16 md:pt-8 md:pb-24 lg:pt-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -467,8 +465,8 @@ export default function Activities() {
                     className="object-cover object-[22%_center] min-[500px]:object-center"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-[#162838]/40 flex items-center justify-center">
-                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
+                  <div className="absolute inset-0 flex items-end justify-center pb-4">
+                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase">Coming Soon</span>
                   </div>
                 </div>
                 {/* Decorative accent */}
@@ -545,20 +543,18 @@ export default function Activities() {
         >
           <div
             className="absolute inset-0 bg-[#162838]"
-          >
-            <div className="absolute inset-0 bg-[#162838]/60"></div>
-          </div>
+          ></div>
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center px-4">
               <p
-                className={`text-[#f5f2ec]/70 text-lg md:text-xl tracking-wide transition-all duration-500 ease-out ${
+                className={`text-[#f5f2ec]/70 text-lg min-[375px]:text-xl md:text-2xl tracking-wide uppercase transition-all duration-500 ease-out ${
                   isVisible("imagebreak3")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-3"
                 }`}
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
-                — In The Works —
+                In The Works
               </p>
             </div>
           </div>
@@ -568,7 +564,7 @@ export default function Activities() {
         <section
           id="future"
           ref={(el) => { sectionRefs.current["future"] = el; }}
-          className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+          className="py-16 md:pt-8 md:pb-24 lg:pt-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div

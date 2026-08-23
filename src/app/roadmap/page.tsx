@@ -290,7 +290,7 @@ export default function Roadmap() {
 
               {/* Phase 2 Image */}
               <div
-                className={`relative h-[200px] min-[414px]:h-[250px] sm:h-[300px] md:h-[400px] rounded-lg overflow-hidden order-1 lg:order-2 transition-all duration-500 ease-out delay-100 ${
+                className={`relative h-[200px] min-[414px]:h-[250px] sm:h-[300px] md:h-[400px] lg:h-[320px] rounded-lg overflow-hidden order-1 lg:order-2 transition-all duration-500 ease-out delay-100 ${
                   isVisible("phase2")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 md:translate-y-3"
@@ -304,8 +304,8 @@ export default function Roadmap() {
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-[#162838]/40 flex items-center justify-center">
-                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Rendering Of</span>
+                  <div className="absolute inset-0 flex items-end justify-center pb-4">
+                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase">Rendering Image</span>
                   </div>
                 </div>
               </div>
@@ -337,8 +337,8 @@ export default function Roadmap() {
                     className="object-cover object-[center_69%]"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-[#162838]/40 flex items-center justify-center">
-                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
+                  <div className="absolute inset-0 flex items-end justify-center pb-4">
+                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase">Coming Soon</span>
                   </div>
                 </div>
               </div>
@@ -464,8 +464,8 @@ export default function Roadmap() {
                   className="object-cover object-[center_70%]"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-[#162838]/40 flex items-center justify-center">
-                  <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
+                <div className="absolute inset-0 flex items-end justify-center pb-4">
+                  <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase">Coming Soon</span>
                 </div>
               </div>
             </div>

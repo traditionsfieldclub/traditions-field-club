@@ -239,13 +239,13 @@ export default function Home() {
                 <div className="relative h-[200px] overflow-hidden">
                   <FadeImage
                     src="/images/shooting_stations_construction.webp"
-                    alt="5-Stand shooting stations at Traditions Field Club"
+                    alt="Site prepared for the future 5-Stand shooting stations — coming soon"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-[#162838]/40 flex items-center justify-center">
-                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
+                  <div className="absolute inset-0 flex items-end justify-center pb-4">
+                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase">Coming Soon</span>
                   </div>
                 </div>
                 <div className="p-6">
@@ -302,10 +302,12 @@ export default function Home() {
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center px-4">
               <p
-                className="text-[#f5f2ec]/70 text-base min-[375px]:text-lg md:text-xl tracking-wide"
+                className="text-[#f5f2ec]/70 text-lg min-[375px]:text-xl md:text-2xl tracking-wide uppercase"
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
-                — New Traditions Begin Here —
+                New Traditions
+                <br />
+                Begin Here
               </p>
             </div>
           </div>
