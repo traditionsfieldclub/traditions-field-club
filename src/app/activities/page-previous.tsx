@@ -94,7 +94,7 @@ export default function Activities() {
             <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
               <a
                 href="#sporting-clays"
-                className="px-5 py-2 rounded-full border-2 border-[#3d5a45] text-[#3d5a45] text-sm font-semibold uppercase tracking-wide hover:bg-[#3d5a45] hover:text-[#f5f2ec] transition-colors"
+                className="px-5 py-2 rounded-full border-2 border-[#4d5c47] text-[#4d5c47] text-sm font-semibold uppercase tracking-wide hover:bg-[#4d5c47] hover:text-[#f5f2ec] transition-colors"
               >
                 Now
               </a>
@@ -123,7 +123,7 @@ export default function Activities() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-center gap-4 mb-10">
               <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
-              <span className="text-[#3d5a45] text-sm font-bold tracking-[0.3em] uppercase">Now</span>
+              <span className="text-[#4d5c47] text-sm font-bold tracking-[0.3em] uppercase">Now</span>
               <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -158,7 +158,7 @@ export default function Activities() {
                 </p>
                 <ul className="space-y-3 text-[#333333] mb-8">
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -166,7 +166,7 @@ export default function Activities() {
                     <span>Two courses — 15 stations and 12 stations</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -174,7 +174,7 @@ export default function Activities() {
                     <span>Varied natural scenery at every stand</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -182,7 +182,7 @@ export default function Activities() {
                     <span>Realistic game bird flight simulations</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -211,7 +211,7 @@ export default function Activities() {
                 </div>
                 {/* Decorative accent */}
                 <div className="hidden sm:block absolute -bottom-4 -left-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
-                <div className="hidden sm:block absolute -top-4 -right-4 w-24 h-24 bg-[#3d5a45]/10 rounded-lg -z-10"></div>
+                <div className="hidden sm:block absolute -top-4 -right-4 w-24 h-24 bg-[#4d5c47]/10 rounded-lg -z-10"></div>
               </div>
             </div>
           </div>
@@ -254,7 +254,7 @@ export default function Activities() {
                 </p>
                 <ul className="space-y-3 text-[#333333] mb-8">
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -262,7 +262,7 @@ export default function Activities() {
                     <span>Certified shooting instructor on staff</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -270,7 +270,7 @@ export default function Activities() {
                     <span>Private and group sessions available</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -278,7 +278,7 @@ export default function Activities() {
                     <span>Beginner through advanced skill levels</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -314,7 +314,7 @@ export default function Activities() {
                 </div>
                 {/* Decorative accent */}
                 <div className="hidden sm:block absolute -bottom-4 -left-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
-                <div className="hidden sm:block absolute -top-4 -right-4 w-24 h-24 bg-[#3d5a45]/10 rounded-lg -z-10"></div>
+                <div className="hidden sm:block absolute -top-4 -right-4 w-24 h-24 bg-[#4d5c47]/10 rounded-lg -z-10"></div>
               </div>
             </div>
           </div>
@@ -382,7 +382,7 @@ export default function Activities() {
                 </div>
                 {/* Decorative accent */}
                 <div className="hidden sm:block absolute -bottom-4 -right-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
-                <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 bg-[#3d5a45]/10 rounded-lg -z-10"></div>
+                <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 bg-[#4d5c47]/10 rounded-lg -z-10"></div>
               </div>
 
               {/* Content */}
@@ -414,7 +414,7 @@ export default function Activities() {
                 </p>
                 <ul className="space-y-3 text-[#333333] mb-8">
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -422,7 +422,7 @@ export default function Activities() {
                     <span>Five shooting stations with varied presentations</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -430,7 +430,7 @@ export default function Activities() {
                     <span>Multiple target combinations per station</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -453,24 +453,27 @@ export default function Activities() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Image Placeholder */}
               <div
-                className={`relative h-[300px] sm:h-[350px] md:h-[450px] order-1 transition-all duration-500 ease-out ${
+                className={`relative h-[300px] sm:h-[350px] md:h-[450px] lg:h-[360px] order-1 transition-all duration-500 ease-out ${
                   isVisible("virtual-training")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-3"
                 }`}
               >
-                <div className="absolute inset-0 rounded-lg overflow-hidden bg-[#e8e4dc] border-2 border-dashed border-[#162838]/20 flex flex-col items-center justify-center gap-3">
-                  <svg className="w-12 h-12 text-[#162838]/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                  </svg>
-                  <span className="text-[#162838]/40 text-sm font-semibold tracking-[0.2em] uppercase">Image Coming Soon</span>
+                <div className="absolute inset-0 rounded-lg overflow-hidden">
+                  <FadeImage
+                    src="/images/virtual_training_vr_shooting.webp"
+                    alt="Member using virtual reality equipment for shotgun training at Traditions Field Club"
+                    fill
+                    className="object-cover object-[22%_center] min-[500px]:object-center"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
                   <div className="absolute inset-0 bg-[#162838]/40 flex items-center justify-center">
                     <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
                   </div>
                 </div>
                 {/* Decorative accent */}
                 <div className="hidden sm:block absolute -bottom-4 -right-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
-                <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 bg-[#3d5a45]/10 rounded-lg -z-10"></div>
+                <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 bg-[#4d5c47]/10 rounded-lg -z-10"></div>
               </div>
 
               {/* Content */}
@@ -497,7 +500,7 @@ export default function Activities() {
                 </p>
                 <ul className="space-y-3 text-[#333333] mb-8">
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -505,7 +508,7 @@ export default function Activities() {
                     <span>Shotgun mount fundamentals</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -513,7 +516,7 @@ export default function Activities() {
                     <span>Stance, posture, and target acquisition</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -521,7 +524,7 @@ export default function Activities() {
                     <span>Swing mechanics and follow-through</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#3d5a45] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -657,7 +660,7 @@ export default function Activities() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 md:py-20 bg-[#3d5a45]">
+        <section className="py-16 md:py-20 bg-[#4d5c47]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             {/* Decorative Header */}
             <div className="flex items-center justify-center gap-4 mb-4">
@@ -688,7 +691,7 @@ export default function Activities() {
               </Link>
               <Link
                 href="/contact"
-                className="inline-block bg-transparent border-2 border-[#f5f2ec] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#f5f2ec] hover:text-[#3d5a45] transition-colors rounded-lg"
+                className="inline-block bg-transparent border-2 border-[#f5f2ec] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#f5f2ec] hover:text-[#4d5c47] transition-colors rounded-lg"
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
                 Contact Us

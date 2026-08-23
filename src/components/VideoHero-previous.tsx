@@ -28,7 +28,7 @@ export default function VideoHero() {
   }, [showVideo]);
 
   return (
-    <section className="relative h-[500px] md:min-h-[70vh] md:h-auto lg:min-h-[calc(70vh+220px)] flex items-center justify-center overflow-hidden bg-[#162838]">
+    <section className="relative h-[500px] sm:h-[600px] md:min-h-[70vh] md:h-auto lg:min-h-[calc(70vh+220px)] flex items-center justify-center overflow-hidden bg-[#162838]">
       {/* Poster image — always rendered as base layer */}
       <Image
         src="/images/hero-poster.webp"
@@ -68,10 +68,10 @@ export default function VideoHero() {
           width={1400}
           height={798}
           priority
-          className="h-36 md:h-44 lg:h-48 w-auto mx-auto"
+          className="h-[146px] md:h-44 lg:h-48 w-auto mx-auto"
         />
         {/* Blank space between the logo and tagline (no visible line) */}
-        <div className="h-6 md:h-8 lg:h-12"></div>
+        <div className="h-[34px] md:h-[42px] lg:h-12"></div>
         <p
           className="text-base md:text-xl lg:text-2xl max-w-2xl mx-auto opacity-90 uppercase tracking-[0.25em] font-normal"
           style={{ fontFamily: "var(--font-heading), serif" }}

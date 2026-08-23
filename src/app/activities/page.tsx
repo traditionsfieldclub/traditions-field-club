@@ -118,7 +118,7 @@ export default function Activities() {
         <section
           id="sporting-clays"
           ref={(el) => { sectionRefs.current["sporting-clays"] = el; }}
-          className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+          className="py-16 md:pt-8 md:pb-24 lg:pt-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-center gap-4 mb-10">
@@ -221,7 +221,7 @@ export default function Activities() {
         <section
           id="lessons"
           ref={(el) => { sectionRefs.current["lessons"] = el; }}
-          className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+          className="py-16 md:pt-8 md:pb-24 lg:pt-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -351,7 +351,7 @@ export default function Activities() {
         <section
           id="5-stand"
           ref={(el) => { sectionRefs.current["5-stand"] = el; }}
-          className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+          className="py-16 md:pt-8 md:pb-24 lg:pt-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-center gap-4 mb-10">
@@ -447,23 +447,26 @@ export default function Activities() {
         <section
           id="virtual-training"
           ref={(el) => { sectionRefs.current["virtual-training"] = el; }}
-          className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+          className="py-16 md:pt-8 md:pb-24 lg:pt-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Image Placeholder */}
               <div
-                className={`relative h-[300px] sm:h-[350px] md:h-[450px] order-1 transition-all duration-500 ease-out ${
+                className={`relative h-[300px] sm:h-[350px] md:h-[450px] lg:h-[360px] order-1 transition-all duration-500 ease-out ${
                   isVisible("virtual-training")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-3"
                 }`}
               >
-                <div className="absolute inset-0 rounded-lg overflow-hidden bg-[#e8e4dc] border-2 border-dashed border-[#162838]/20 flex flex-col items-center justify-center gap-3">
-                  <svg className="w-12 h-12 text-[#162838]/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                  </svg>
-                  <span className="text-[#162838]/40 text-sm font-semibold tracking-[0.2em] uppercase">Image Coming Soon</span>
+                <div className="absolute inset-0 rounded-lg overflow-hidden">
+                  <FadeImage
+                    src="/images/virtual_training_vr_shooting.webp"
+                    alt="Member using virtual reality equipment for shotgun training at Traditions Field Club"
+                    fill
+                    className="object-cover object-[22%_center] min-[500px]:object-center"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
                   <div className="absolute inset-0 bg-[#162838]/40 flex items-center justify-center">
                     <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
                   </div>
@@ -565,7 +568,7 @@ export default function Activities() {
         <section
           id="future"
           ref={(el) => { sectionRefs.current["future"] = el; }}
-          className="py-16 md:py-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+          className="py-16 md:pt-8 md:pb-24 lg:pt-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div

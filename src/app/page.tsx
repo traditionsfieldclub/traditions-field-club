@@ -302,10 +302,10 @@ export default function Home() {
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center px-4">
               <p
-                className="text-[#f5f2ec]/70 text-lg md:text-xl tracking-wide"
+                className="text-[#f5f2ec]/70 text-base min-[375px]:text-lg md:text-xl tracking-wide"
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
-                — Where Tradition Meets Excellence —
+                — New Traditions Begin Here —
               </p>
             </div>
           </div>

@@ -8,22 +8,25 @@ import FadeImage from "@/components/FadeImage";
 import Lightbox, { type LightboxImage } from "@/components/Lightbox";
 
 const julSepImages: LightboxImage[] = [
-  { src: "/images/pavilion_exterior_windows_installed.webp", alt: "Pavilion exterior with windows installed" },
-  { src: "/images/pavilion_concrete_slab_poured.webp", alt: "Freshly poured concrete slab for the Pavilion" },
   { src: "/images/pavilion_completed_exterior_2.webp", alt: "Completed Pavilion exterior" },
+  { src: "/images/property_sunset_silhouette.webp", alt: "Sunset over the property" },
+  { src: "/images/pavilion_exterior_windows_installed.webp", alt: "Pavilion exterior with windows installed" },
+  { src: "/images/blackwater_creek_reflection.webp", alt: "Blackwater creek reflection on the property" },
+  { src: "/images/pavilion_concrete_slab_poured.webp", alt: "Freshly poured concrete slab for the Pavilion" },
   { src: "/images/youth_shotgun_instruction.webp", alt: "A young shooter getting shotgun instruction" },
+  { src: "/images/shooting_stations_field_view.webp", alt: "Shooting stations across the field" },
   { src: "/images/pavilion_interior_sheathed_windows.webp", alt: "Close-up of the Pavilion's sheathing and windows" },
 ];
 
 const aprJunImages: LightboxImage[] = [
-  { src: "/images/pavilion_interior_floor_grading.webp", alt: "Interior floor grading for the Pavilion" },
-  { src: "/images/pavilion_floor_prep_rebar.webp", alt: "Rebar laid out for the Pavilion's concrete floor" },
-  { src: "/images/pavilion_front_symmetric_view.webp", alt: "Symmetric front view of the Pavilion" },
   { src: "/images/pavilion_frame_tree_canopy.webp", alt: "Early Pavilion framing rising under the tree canopy" },
   { src: "/images/pavilion_truss_framing_scissor_lift.webp", alt: "Roof trusses going up on a scissor lift" },
-  { src: "/images/crew_plumbing_trench_install.webp", alt: "Crew installing the plumbing trench" },
   { src: "/images/swamp_creek_reflection_1.webp", alt: "Swamp creek reflection on the property" },
+  { src: "/images/pavilion_interior_floor_grading.webp", alt: "Interior floor grading for the Pavilion" },
   { src: "/images/wild_blackberries_closeup.webp", alt: "Wild blackberries growing on the property" },
+  { src: "/images/pavilion_floor_prep_rebar.webp", alt: "Rebar laid out for the Pavilion's concrete floor" },
+  { src: "/images/crew_plumbing_trench_install.webp", alt: "Crew installing the plumbing trench" },
+  { src: "/images/pavilion_front_symmetric_view.webp", alt: "Symmetric front view of the Pavilion" },
 ];
 
 const exploringLandImages: LightboxImage[] = [
@@ -287,17 +290,23 @@ export default function Roadmap() {
 
               {/* Phase 2 Image */}
               <div
-                className={`relative h-[250px] sm:h-[300px] md:h-[400px] rounded-lg overflow-hidden order-1 lg:order-2 transition-all duration-500 ease-out delay-100 ${
+                className={`relative h-[200px] min-[414px]:h-[250px] sm:h-[300px] md:h-[400px] rounded-lg overflow-hidden order-1 lg:order-2 transition-all duration-500 ease-out delay-100 ${
                   isVisible("phase2")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 md:translate-y-3"
                 }`}
               >
-                <div className="absolute inset-0 bg-[#e8e4dc] border-2 border-dashed border-[#162838]/20 flex flex-col items-center justify-center gap-3">
-                  <svg className="w-12 h-12 text-[#162838]/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14M4 8h16M4 4h16v16H4V4z" />
-                  </svg>
-                  <span className="text-[#162838]/40 text-sm font-semibold tracking-[0.2em] uppercase text-center px-6">Completed Pavilion Image</span>
+                <div className="absolute inset-0">
+                  <FadeImage
+                    src="/images/pavilion_rendering.webp"
+                    alt="Architectural rendering of the completed Pavilion at Traditions Field Club"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-[#162838]/40 flex items-center justify-center">
+                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Rendering Of</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -320,12 +329,17 @@ export default function Roadmap() {
                     : "opacity-0 md:translate-y-3"
                 }`}
               >
-                <div className="absolute inset-0 bg-[#e8e4dc] border-2 border-dashed border-[#162838]/20 flex flex-col items-center justify-center gap-3">
-                  <svg className="w-12 h-12 text-[#162838]/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14M4 8h16M4 4h16v16H4V4z" />
-                  </svg>
-                  <span className="text-[#162838]/40 text-sm font-semibold tracking-[0.2em] uppercase text-center px-6">Image of Hunting &amp; Outdoors</span>
-                  <span className="text-[#162838]/40 text-xs font-semibold tracking-[0.2em] uppercase text-center px-6">Bird&apos;s-Eye Land View</span>
+                <div className="absolute inset-0">
+                  <FadeImage
+                    src="/images/hunting_outdoors_fly_fishing.webp"
+                    alt="Member fly fishing on the property at Traditions Field Club"
+                    fill
+                    className="object-cover object-[center_69%]"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-[#162838]/40 flex items-center justify-center">
+                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
+                  </div>
                 </div>
               </div>
 
@@ -444,12 +458,15 @@ export default function Roadmap() {
                 }`}
               >
                 <FadeImage
-                  src="/images/kids_running_trail_bridge.webp"
-                  alt="Kids running across a trail bridge in the woods at Traditions Field Club"
+                  src="/images/recreation_hiking_trail_group.webp"
+                  alt="Members hiking a wooded trail at Traditions Field Club"
                   fill
-                  className="object-cover"
+                  className="object-cover object-[center_70%]"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
+                <div className="absolute inset-0 bg-[#162838]/40 flex items-center justify-center">
+                  <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase bg-[#162838]/60 px-4 py-2 rounded">Coming Soon</span>
+                </div>
               </div>
             </div>
           </div>
