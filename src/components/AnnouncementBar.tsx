@@ -26,7 +26,7 @@ export default function AnnouncementBar() {
     <div ref={barRef} className="fixed top-0 left-0 right-0 z-[60]">
       <a
         href="/membership"
-        className="block bg-[#162838] text-[#f5f2ec] py-2 text-center hover:bg-[#1e3a50] transition-colors"
+        className="block bg-[#a75235] text-[#f5f2ec] py-2 text-center hover:bg-[#162838] transition-colors"
       >
         <span
           className="text-xs min-[375px]:text-sm sm:text-xs font-bold uppercase tracking-[0.1em] min-[375px]:tracking-[0.15em] sm:tracking-[0.2em]"

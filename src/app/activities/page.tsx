@@ -41,9 +41,9 @@ export default function Activities() {
         {/* Hero Section */}
         <section className="relative py-20 md:py-28 lg:py-32">
           <div
-            className="absolute inset-0 bg-[#3d5a45]"
+            className="absolute inset-0 bg-[#162838]"
           >
-            <div className="absolute inset-0 bg-[#3d5a45]/70"></div>
+            <div className="absolute inset-0 bg-[#162838]/70"></div>
           </div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

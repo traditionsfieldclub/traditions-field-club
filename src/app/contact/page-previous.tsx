@@ -207,10 +207,10 @@ function ContactContent() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Decorative Header */}
             <div
-              className={`text-center mb-12 transition-all duration-1000 ease-out ${
+              className={`text-center mb-12 transition-all duration-500 ease-out ${
                 isVisible("contact")
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-3"
               }`}
             >
               <div className="flex items-center justify-center gap-4 mb-4">
@@ -231,10 +231,10 @@ function ContactContent() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
               {/* Left Column - Contact Info */}
               <div
-                className={`transition-all duration-1000 ease-out delay-100 ${
+                className={`transition-all duration-500 ease-out delay-100 ${
                   isVisible("contact")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 {/* Address */}
@@ -312,10 +312,10 @@ function ContactContent() {
 
               {/* Right Column - Form */}
               <div
-                className={`transition-all duration-1000 ease-out delay-200 ${
+                className={`transition-all duration-500 ease-out delay-100 ${
                   isVisible("contact")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -503,7 +503,7 @@ function ContactContent() {
             <div className="text-center px-4 max-w-5xl">
               {/* Top Decorative Line */}
               <div
-                className={`flex items-center justify-center gap-4 mb-6 transition-all duration-1000 ease-out ${
+                className={`flex items-center justify-center gap-4 mb-6 transition-all duration-500 ease-out ${
                   isVisible("imagebreak")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-6"
@@ -518,7 +518,7 @@ function ContactContent() {
 
               {/* Main Heading - Single Line */}
               <h2
-                className={`text-xl sm:text-2xl md:text-4xl lg:text-5xl text-[#f5f2ec] mb-6 tracking-wide transition-all duration-1000 ease-out delay-200 ${
+                className={`text-xl sm:text-2xl md:text-4xl lg:text-5xl text-[#f5f2ec] mb-6 tracking-wide transition-all duration-500 ease-out delay-100 ${
                   isVisible("imagebreak")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-8"
@@ -530,7 +530,7 @@ function ContactContent() {
 
               {/* Elegant Tagline */}
               <p
-                className={`text-[#f5f2ec]/70 text-sm sm:text-base md:text-lg tracking-wide mb-8 transition-all duration-1000 ease-out delay-400 ${
+                className={`text-[#f5f2ec]/70 text-sm sm:text-base md:text-lg tracking-wide mb-8 transition-all duration-500 ease-out delay-400 ${
                   isVisible("imagebreak")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-8"
@@ -542,7 +542,7 @@ function ContactContent() {
 
               {/* Bottom Decorative Line */}
               <div
-                className={`flex justify-center transition-all duration-1000 ease-out delay-500 ${
+                className={`flex justify-center transition-all duration-500 ease-out delay-500 ${
                   isVisible("imagebreak")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-6"
@@ -564,10 +564,10 @@ function ContactContent() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Left Column - Location Info */}
               <div
-                className={`transition-all duration-1000 ease-out ${
+                className={`transition-all duration-500 ease-out ${
                   isVisible("location")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 -translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-4">
@@ -640,10 +640,10 @@ function ContactContent() {
 
               {/* Right Column - Google Map */}
               <div
-                className={`h-[300px] sm:h-[350px] lg:h-full min-h-[300px] lg:min-h-[400px] transition-all duration-1000 ease-out delay-200 ${
+                className={`h-[300px] sm:h-[350px] lg:h-full min-h-[300px] lg:min-h-[400px] transition-all duration-500 ease-out delay-100 ${
                   isVisible("location")
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
                 }`}
               >
                 <iframe
