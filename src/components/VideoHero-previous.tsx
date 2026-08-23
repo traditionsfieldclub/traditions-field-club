@@ -70,10 +70,8 @@ export default function VideoHero() {
           priority
           className="h-36 md:h-44 lg:h-48 w-auto mx-auto"
         />
-        {/* Divider between logo and tagline */}
-        <div className="flex items-center justify-center my-3 md:my-4 lg:my-5">
-          <span className="h-[2px] w-36 md:w-44 lg:w-48 bg-[#f5f2ec]/50 animate-divider-grow"></span>
-        </div>
+        {/* Blank space between the logo and tagline (no visible line) */}
+        <div className="h-6 md:h-8 lg:h-12"></div>
         <p
           className="text-base md:text-xl lg:text-2xl max-w-2xl mx-auto opacity-90 uppercase tracking-[0.25em] font-normal"
           style={{ fontFamily: "var(--font-heading), serif" }}

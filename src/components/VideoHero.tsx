@@ -68,7 +68,7 @@ export default function VideoHero() {
           width={1400}
           height={798}
           priority
-          className="h-36 md:h-44 lg:h-48 w-auto mx-auto"
+          className="h-[146px] md:h-44 lg:h-48 w-auto mx-auto"
         />
         {/* Blank space between the logo and tagline (no visible line) */}
         <div className="h-6 md:h-8 lg:h-12"></div>
