@@ -305,7 +305,7 @@ export default function Roadmap() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 flex items-end justify-center pb-4">
-                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase">Rendering Image</span>
+                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase">Rendered Image</span>
                   </div>
                 </div>
               </div>

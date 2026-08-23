@@ -290,7 +290,7 @@ export default function Roadmap() {
 
               {/* Phase 2 Image */}
               <div
-                className={`relative h-[200px] min-[414px]:h-[250px] sm:h-[300px] md:h-[400px] rounded-lg overflow-hidden order-1 lg:order-2 transition-all duration-500 ease-out delay-100 ${
+                className={`relative h-[200px] min-[414px]:h-[250px] sm:h-[300px] md:h-[400px] lg:h-[320px] rounded-lg overflow-hidden order-1 lg:order-2 transition-all duration-500 ease-out delay-100 ${
                   isVisible("phase2")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 md:translate-y-3"
