@@ -186,7 +186,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
               {/* Sporting Clays */}
               <div
-                className={`group bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out hover:shadow-lg ${
+                className={`group bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-500 ease-out hover:shadow-lg ${
                   isVisible("activities")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-3"
@@ -229,7 +229,7 @@ export default function Home() {
 
               {/* 5-Stand */}
               <div
-                className={`group bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-700 ease-out hover:shadow-lg ${
+                className={`group bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-500 ease-out hover:shadow-lg ${
                   isVisible("activities")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-3"
@@ -447,7 +447,7 @@ export default function Home() {
               ].map((item, index) => (
                 <div
                   key={item.phase}
-                  className={`text-center transition-all duration-700 ease-out ${
+                  className={`text-center transition-all duration-500 ease-out ${
                     isVisible("roadmap")
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-3"

@@ -20,7 +20,11 @@ export default function VideoHero() {
   useEffect(() => {
     if (!showVideo || !videoRef.current) return;
     videoRef.current.playbackRate = 0.85;
-    videoRef.current.play();
+    // play() returns a Promise that can reject (e.g. browser pauses
+    // background video to save power) — swallow it so it doesn't
+    // surface as an unhandled rejection. The video stays paused
+    // harmlessly if that happens.
+    videoRef.current.play().catch(() => {});
   }, [showVideo]);
 
   return (

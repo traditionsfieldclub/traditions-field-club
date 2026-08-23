@@ -29,10 +29,17 @@ export default function AnnouncementBar() {
         className="block bg-[#162838] text-[#f5f2ec] py-2 text-center hover:bg-[#1e3a50] transition-colors"
       >
         <span
-          className="text-xs font-bold uppercase tracking-[0.2em]"
+          className="text-xs min-[375px]:text-sm sm:text-xs font-bold uppercase tracking-[0.1em] min-[375px]:tracking-[0.15em] sm:tracking-[0.2em]"
           style={{ fontFamily: "var(--font-heading), serif" }}
         >
-          🎯 GET IN EARLY — 2027 Membership Launches Oct. 1
+          <span className="sm:hidden">
+            GET IN EARLY!
+            <br />
+            2027 Membership Launches Oct. 1
+          </span>
+          <span className="hidden sm:inline">
+            GET IN EARLY! — 2027 Membership Launches Oct. 1
+          </span>
         </span>
       </a>
     </div>
