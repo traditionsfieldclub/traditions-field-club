@@ -60,7 +60,7 @@ export default function VideoHero() {
       <div className="absolute inset-0 bg-[#162838]/40" />
 
       {/* Content */}
-      <div className="relative z-10 text-center text-[#f5f2ec] px-4">
+      <div className="relative z-10 text-center text-[#f5f2ec] px-4 lg:-translate-y-8">
         {/* Logo image (crest + wordmark, already white) in place of the old text heading, at every breakpoint */}
         <Image
           src="/logo-white-full.png"
@@ -68,8 +68,12 @@ export default function VideoHero() {
           width={1400}
           height={798}
           priority
-          className="h-32 md:h-36 lg:h-44 w-auto mx-auto mb-4 lg:mb-8"
+          className="h-32 md:h-40 lg:h-48 w-auto mx-auto mb-4 lg:mb-0"
         />
+        {/* Divider between logo and tagline — desktop only for now, pending review */}
+        <div className="hidden lg:flex items-center justify-center my-5">
+          <span className="h-[2px] w-48 bg-[#f5f2ec]/50 animate-divider-grow"></span>
+        </div>
         <p
           className="text-base md:text-xl lg:text-2xl max-w-2xl mx-auto opacity-90 uppercase tracking-[0.25em] font-normal"
           style={{ fontFamily: "var(--font-heading), serif" }}
