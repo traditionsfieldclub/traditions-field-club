@@ -145,7 +145,7 @@ export default function Activities() {
                 >
                   Sporting Clays
                 </h2>
-                <p className="text-lg text-[#333333] mb-4 leading-relaxed">
+                <p className="text-[#333333] mb-4 leading-relaxed">
                   Often called &quot;golf with a shotgun,&quot; our sporting clays courses wind through South
                   Carolina&apos;s natural beauty — rolling fields, mature pines, and quiet Lowcountry scenery
                   that shifts from stand to stand. Each station offers a different view and a different target
@@ -243,7 +243,7 @@ export default function Activities() {
                 >
                   Lessons & Instruction
                 </h2>
-                <p className="text-lg text-[#333333] mb-4 leading-relaxed">
+                <p className="text-[#333333] mb-4 leading-relaxed">
                   Whether you&apos;re picking up a shotgun for the first time or looking to refine your technique,
                   our certified instructor is here to help you reach your goals. Private and group lessons are
                   available for shooters of all ages and skill levels.
@@ -401,7 +401,7 @@ export default function Activities() {
                 >
                   5-Stand
                 </h2>
-                <p className="text-lg text-[#333333] mb-4 leading-relaxed">
+                <p className="text-[#333333] mb-4 leading-relaxed">
                   Our dedicated 5-Stand facility will offer an exciting and challenging shooting experience for all skill levels.
                   With five shooting stations and multiple trap machines presenting targets from various angles and distances,
                   you&apos;ll enjoy a dynamic round that tests your reflexes and marksmanship.

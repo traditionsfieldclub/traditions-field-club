@@ -71,7 +71,7 @@ export default function Home() {
                 >
                   A Premier Sporting Club in the Heart of the Lowcountry
                 </h2>
-                <p className="text-lg text-[#333333] leading-relaxed mb-6">
+                <p className="text-[#333333] leading-relaxed mb-6">
                   Traditions Field Club is more than a shooting range—it&apos;s a destination.
                   Nestled in the quiet rural beauty of South Carolina, we offer world-class
                   sporting clays and 5-stand in an environment that honors the

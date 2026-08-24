@@ -305,12 +305,9 @@ export default function Home() {
                 className="text-[#f5f2ec]/70 text-lg min-[375px]:text-xl md:text-2xl tracking-wide uppercase"
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
-                <span className="lg:hidden">
-                  New Traditions
-                  <br />
-                  Begin Here
-                </span>
-                <span className="hidden lg:inline">New Traditions Begin Here</span>
+                New Traditions
+                <br />
+                Begin Here
               </p>
             </div>
           </div>

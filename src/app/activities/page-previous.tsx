@@ -118,7 +118,7 @@ export default function Activities() {
         <section
           id="sporting-clays"
           ref={(el) => { sectionRefs.current["sporting-clays"] = el; }}
-          className="pt-16 pb-8 md:pt-8 md:pb-24 lg:pt-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+          className="pt-16 pb-8 md:pt-8 md:pb-24 lg:pt-24 lg:pb-12 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-center gap-4 mb-10">
@@ -221,7 +221,7 @@ export default function Activities() {
         <section
           id="lessons"
           ref={(el) => { sectionRefs.current["lessons"] = el; }}
-          className="pt-8 pb-16 md:pt-8 md:pb-24 lg:pt-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+          className="pt-8 pb-16 md:pt-8 md:pb-24 lg:pt-12 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -349,7 +349,7 @@ export default function Activities() {
         <section
           id="5-stand"
           ref={(el) => { sectionRefs.current["5-stand"] = el; }}
-          className="pt-16 pb-8 md:pt-8 md:pb-24 lg:pt-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+          className="pt-16 pb-8 md:pt-8 md:pb-24 lg:pt-24 lg:pb-12 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-center gap-4 mb-10">
@@ -445,7 +445,7 @@ export default function Activities() {
         <section
           id="virtual-training"
           ref={(el) => { sectionRefs.current["virtual-training"] = el; }}
-          className="pt-8 pb-16 md:pt-8 md:pb-24 lg:pt-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+          className="pt-8 pb-16 md:pt-8 md:pb-24 lg:pt-12 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
