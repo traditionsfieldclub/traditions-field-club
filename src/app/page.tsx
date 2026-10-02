@@ -239,14 +239,11 @@ export default function Home() {
                 <div className="relative h-[200px] overflow-hidden">
                   <FadeImage
                     src="/images/shooting_stations_construction.webp"
-                    alt="Site prepared for the future 5-Stand shooting stations — coming soon"
+                    alt="5-Stand shooting stations at Traditions Field Club"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
-                  <div className="absolute inset-0 flex items-end justify-center pb-4">
-                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase">Coming Soon</span>
-                  </div>
                 </div>
                 <div className="p-6">
                   <h3
