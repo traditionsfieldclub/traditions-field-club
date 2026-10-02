@@ -19,6 +19,14 @@ const SignatureCanvas = dynamic(() => import("react-signature-canvas"), {
   ),
 }) as React.ComponentType<ReactSignatureCanvas["props"] & { ref?: React.Ref<ReactSignatureCanvas> }>;
 
+// Must match VALID_MEMBERSHIP_TYPES in src/app/api/waiver/route.ts
+const WAIVER_MEMBERSHIP_TYPES = [
+  "Prime Membership ($2,000/year)",
+  "Corporate Membership ($3,500/year)",
+  "Member for a Day ($100)",
+  "Day guest",
+];
+
 export default function Waiver() {
   const [formData, setFormData] = useState({
     participantName: "",
@@ -31,6 +39,7 @@ export default function Waiver() {
     emergencyContactName: "",
     emergencyContactPhone: "",
     dateOfBirth: "",
+    membershipType: "",
     // Minor fields
     isMinor: false,
     parentName: "",
@@ -504,6 +513,27 @@ export default function Waiver() {
                       className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent"
                       placeholder="Enter your full legal name"
                     />
+                  </div>
+
+                  <div className="md:col-span-2">
+                    <label htmlFor="membershipType" className="block text-sm font-medium text-[#333333] mb-2">
+                      Membership type <span className="text-[#a75235]">*</span>
+                    </label>
+                    <select
+                      id="membershipType"
+                      name="membershipType"
+                      required
+                      value={formData.membershipType}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-[#e8e4dc] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#4d5c47] focus:border-transparent bg-white"
+                    >
+                      <option value="">Select one</option>
+                      {WAIVER_MEMBERSHIP_TYPES.map((type) => (
+                        <option key={type} value={type}>
+                          {type}
+                        </option>
+                      ))}
+                    </select>
                   </div>
 
                   <div>
