@@ -44,6 +44,15 @@ const MAX_LENGTHS: Record<string, number> = {
   parentRelationship: 100,
 };
 
+// --- Whitelist Values ---
+// Must match WAIVER_MEMBERSHIP_TYPES in src/app/waiver/page.tsx
+const VALID_MEMBERSHIP_TYPES = [
+  "Prime Membership ($2,000/year)",
+  "Corporate Membership ($3,500/year)",
+  "Member for a Day ($100)",
+  "Day guest",
+];
+
 // --- Email Validation ---
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -66,6 +75,7 @@ async function generateWaiverPDF(data: {
   emergencyContactName: string;
   emergencyContactPhone: string;
   dateOfBirth: string;
+  membershipType: string;
   isMinor: boolean;
   parentName: string;
   parentRelationship: string;
@@ -336,6 +346,7 @@ async function generateWaiverPDF(data: {
   const infoLines = [
     `Name: ${data.participantName}`,
     `Date of Birth: ${data.dateOfBirth}`,
+    `Membership Type: ${data.membershipType}`,
     `Email: ${data.email}`,
     `Phone: ${data.phone}`,
     `Address: ${data.address}, ${data.city}, ${data.state} ${data.zip}`,
@@ -448,6 +459,7 @@ export async function POST(req: NextRequest) {
       emergencyContactName,
       emergencyContactPhone,
       dateOfBirth,
+      membershipType,
       isMinor,
       parentName,
       parentRelationship,
@@ -512,6 +524,7 @@ export async function POST(req: NextRequest) {
       !emergencyContactName ||
       !emergencyContactPhone ||
       !dateOfBirth ||
+      !membershipType ||
       !signedDate ||
       !signatureDataUrl
     ) {
@@ -580,6 +593,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid email format" }, { status: 400 });
     }
 
+    // 9b. Whitelist membership type
+    if (!VALID_MEMBERSHIP_TYPES.includes(membershipType)) {
+      return NextResponse.json({ error: "Invalid membership type" }, { status: 400 });
+    }
+
     // 10. Validate signature data URL size (max ~500KB base64)
     if (signatureDataUrl.length > 700000) {
       return NextResponse.json({ error: "Signature data too large" }, { status: 400 });
@@ -602,6 +620,7 @@ export async function POST(req: NextRequest) {
       emergencyContactName: emergencyContactName.trim(),
       emergencyContactPhone: emergencyContactPhone.trim(),
       dateOfBirth,
+      membershipType,
       isMinor: !!isMinor,
       parentName: (parentName || "").trim(),
       parentRelationship: (parentRelationship || "").trim(),
@@ -642,6 +661,7 @@ export async function POST(req: NextRequest) {
             "",                                        // Notes
             cleanedAdditionalMinors.join(", "),         // Additional Minor Participants
             isMinor ? (minorPhotoConsent ? "Yes" : "No") : "",  // Minor Photo/Video Consent
+            membershipType,                            // Membership Type (keep LAST so existing columns don't shift)
           ],
         }),
       }
@@ -655,10 +675,11 @@ export async function POST(req: NextRequest) {
         await resend.emails.send({
           from: "Traditions Field Club <noreply@traditionsfieldclub.com>",
           to: ["admin@traditionsfieldclub.com", "brian@traditionsfieldclub.com", "jim@traditionsfieldclub.com"],
-          subject: `Signed Waiver — ${participantName.trim()}`,
+          subject: `Signed Waiver — ${participantName.trim()} — ${membershipType}`,
           html: `
             <h2>New Waiver Submission</h2>
             <p><strong>Participant:</strong> ${esc(participantName.trim())}</p>
+            <p><strong>Membership Type:</strong> ${esc(membershipType)}</p>
             <p><strong>Email:</strong> ${esc(email.trim())}</p>
             <p><strong>Phone:</strong> ${esc(phone.trim())}</p>
             <p><strong>Date of Birth:</strong> ${esc(dateOfBirth)}</p>
