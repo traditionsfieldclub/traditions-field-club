@@ -324,6 +324,43 @@ export default function Membership() {
                 </div>
               </div>
             </div>
+
+            {/* Member for a Day - Try it first */}
+            <div
+              className={`max-w-4xl mx-auto mt-6 md:mt-8 bg-white rounded-lg shadow-sm border border-[#e8e4dc] border-l-4 border-l-[#4d5c47] p-6 md:p-8 transition-all duration-500 ease-out hover:shadow-md ${
+                isVisible("tiers")
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-3"
+              }`}
+              style={{ transitionDelay: "300ms" }}
+            >
+              <div className="flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
+                <div className="flex-grow text-center md:text-left">
+                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Try it first</span>
+                  <div className="flex flex-wrap items-baseline justify-center md:justify-start gap-x-3 gap-y-1 mt-2 mb-2">
+                    <h3
+                      className="text-xl md:text-2xl text-[#162838]"
+                      style={{ fontFamily: "var(--font-heading), serif" }}
+                    >
+                      Member for a Day
+                    </h3>
+                    <span className="text-2xl text-[#162838] font-semibold">$100</span>
+                  </div>
+                  <p className="text-[#333333] leading-relaxed">
+                    50 targets at signature stations on Riverside and Evergreen, guided by our team.
+                  </p>
+                </div>
+                <div className="flex-shrink-0">
+                  <a
+                    href="/contact?topic=scheduling"
+                    className="inline-block w-full md:w-auto border-2 border-[#a75235] text-[#a75235] px-8 py-3 text-center font-semibold tracking-wide hover:bg-[#a75235] hover:text-[#f5f2ec] transition-colors rounded-lg"
+                    style={{ fontFamily: "var(--font-heading), serif" }}
+                  >
+                    Book a visit
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
