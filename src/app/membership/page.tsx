@@ -183,7 +183,7 @@ export default function Membership() {
                 2027 Memberships Available Now
               </h3>
               <p className="text-[#f5f2ec]/90 max-w-2xl mx-auto">
-                Join today and start shooting Riverside, Evergreen and the 5-stand for the rest of 2026.
+                Join today and start shooting Riverside and Evergreen Courses and the 5-stand for the rest of 2026.
               </p>
             </div>
 
