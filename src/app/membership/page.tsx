@@ -349,6 +349,9 @@ export default function Membership() {
                   <p className="text-[#333333] leading-relaxed">
                     50 targets at signature stations on Riverside and Evergreen, guided by our team.
                   </p>
+                  <p className="text-sm text-[#666666] italic mt-2">
+                    Join within 30 days and your $100 goes toward your Prime membership.
+                  </p>
                 </div>
                 <div className="flex-shrink-0">
                   <a
