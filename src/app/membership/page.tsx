@@ -168,7 +168,7 @@ export default function Membership() {
               </div>
             </div>
 
-            {/* Early Access Callout */}
+            {/* 2027 Memberships Callout */}
             <div
               className={`bg-[#4d5c47] rounded-lg p-6 md:p-8 mb-8 md:mb-10 text-center transition-all duration-500 ease-out ${
                 isVisible("tiers")
@@ -176,25 +176,15 @@ export default function Membership() {
                   : "opacity-0 translate-y-3"
               }`}
             >
-              <span className="text-[#f5f2ec]/70 text-sm tracking-[0.3em] uppercase">Early Access</span>
               <h3
-                className="text-2xl md:text-3xl text-[#f5f2ec] mt-2 mb-3"
+                className="text-2xl md:text-3xl text-[#f5f2ec] mb-3"
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
-                Sign Up by October 1 — Get Oct–Dec 2026 Free
+                2027 Memberships Available Now
               </h3>
-              <p className="text-[#f5f2ec]/90 max-w-2xl mx-auto mb-4">
-                2027 memberships officially launch October 1, 2026. Apply during early access and
-                we&apos;ll cover your membership through the rest of 2026 at no extra cost.
+              <p className="text-[#f5f2ec]/90 max-w-2xl mx-auto">
+                Join today and start shooting Riverside, Evergreen and the 5-stand for the rest of 2026.
               </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-                <span className="bg-[#f5f2ec] text-[#4d5c47] text-sm font-bold px-4 py-2 rounded-full tracking-wide">
-                  Prime — $500 Value Free
-                </span>
-                <span className="bg-[#f5f2ec] text-[#4d5c47] text-sm font-bold px-4 py-2 rounded-full tracking-wide">
-                  Corporate — $875 Value Free
-                </span>
-              </div>
             </div>
 
             {/* All Memberships Include */}
@@ -243,21 +233,14 @@ export default function Membership() {
                     <span className="text-3xl md:text-4xl text-[#f5f2ec] font-semibold">$2,000</span>
                     <span className="text-sm text-[#f5f2ec]/60"> /year</span>
                   </p>
-                  <p className="mt-3 inline-block bg-[#4d5c47] text-[#f5f2ec] text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">
-                    3 Months Free — $500 Value
-                  </p>
                 </div>
                 <div className="p-6 md:p-8 flex-grow">
                   <p className="text-[#333333] leading-relaxed mb-6">
                     Perfect for individuals and families looking to make sporting clays part of
                     their routine, with room to bring along your household or regular shooting
-                    partners. Sign up by October 1 and get October&ndash;December 2026 free.
+                    partners.
                   </p>
                   <ul className="space-y-3 text-[#333333] mb-8">
-                    <li className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>1,000 clays included (a $500 value)</span>
-                    </li>
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
                       <span>2 member cards</span>
@@ -300,21 +283,14 @@ export default function Membership() {
                     <span className="text-3xl md:text-4xl text-[#f5f2ec] font-semibold">$3,500</span>
                     <span className="text-sm text-[#f5f2ec]/60"> /year</span>
                   </p>
-                  <p className="mt-3 inline-block bg-[#4d5c47] text-[#f5f2ec] text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">
-                    3 Months Free — $875 Value
-                  </p>
                 </div>
                 <div className="p-6 md:p-8 flex-grow">
                   <p className="text-[#333333] leading-relaxed mb-6">
                     Build team relationships in a unique setting. Corporate membership provides
                     your organization with a premier venue for team building, client entertainment,
-                    and company events. Sign up by October 1 and get October&ndash;December 2026 free.
+                    and company events.
                   </p>
                   <ul className="space-y-3 text-[#333333] mb-8">
-                    <li className="flex items-start gap-3">
-                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                      <span>1,500 clays included (a $750 value)</span>
-                    </li>
                     <li className="flex items-start gap-3">
                       <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
                       <span>4 member cards</span>

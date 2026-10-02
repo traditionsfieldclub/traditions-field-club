@@ -33,12 +33,10 @@ export default function AnnouncementBar() {
           style={{ fontFamily: "var(--font-heading), serif" }}
         >
           <span className="sm:hidden">
-            GET IN EARLY!
-            <br />
-            2027 Membership Launches Oct. 1
+            2027 Memberships Available Now
           </span>
           <span className="hidden sm:inline">
-            GET IN EARLY! — 2027 Membership Launches Oct. 1
+            2027 Memberships Available Now
           </span>
         </span>
       </a>

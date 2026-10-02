@@ -99,7 +99,7 @@ export default function Activities() {
                 Now
               </a>
               <a
-                href="#5-stand"
+                href="#virtual-training"
                 className="px-5 py-2 rounded-full border-2 border-[#a75235] text-[#a75235] text-sm font-semibold uppercase tracking-wide hover:bg-[#a75235] hover:text-[#f5f2ec] transition-colors"
               >
                 Coming Soon
@@ -221,7 +221,7 @@ export default function Activities() {
         <section
           id="lessons"
           ref={(el) => { sectionRefs.current["lessons"] = el; }}
-          className="pt-8 pb-16 md:pt-8 md:pb-24 lg:pt-12 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+          className="pt-8 pb-8 md:pt-8 md:pb-24 lg:pt-12 lg:pb-12 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -320,43 +320,13 @@ export default function Activities() {
           </div>
         </section>
 
-        {/* Full-Width Image Break */}
-        <section
-          id="imagebreak"
-          ref={(el) => { sectionRefs.current["imagebreak"] = el; }}
-          className="relative h-[300px] md:h-[400px]"
-        >
-          <div
-            className="absolute inset-0 bg-[#162838]"
-          ></div>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center px-4">
-              <p
-                className={`text-[#f5f2ec]/70 text-lg min-[375px]:text-xl md:text-2xl tracking-wide uppercase transition-all duration-500 ease-out ${
-                  isVisible("imagebreak")
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-3"
-                }`}
-                style={{ fontFamily: "var(--font-heading), serif" }}
-              >
-                What&apos;s Next
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* 5-Stand Section - Image Left */}
+        {/* 5-Stand Section - Image Right */}
         <section
           id="5-stand"
           ref={(el) => { sectionRefs.current["5-stand"] = el; }}
-          className="pt-16 pb-8 md:pt-8 md:pb-24 lg:pt-24 lg:pb-12 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+          className="pt-8 pb-16 md:pt-8 md:pb-24 lg:pt-12 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-center gap-4 mb-10">
-              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
-              <span className="text-[#a75235] text-sm font-bold tracking-[0.3em] uppercase">Coming Soon</span>
-              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
-            </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Image */}
               <div
@@ -369,14 +339,11 @@ export default function Activities() {
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
                   <FadeImage
                     src="/images/shooting_stations_construction.webp"
-                    alt="Site prepared for the future 5-Stand shooting stations — coming soon"
+                    alt="5-Stand shooting stations at Traditions Field Club"
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 flex items-end justify-center pb-4">
-                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase">Coming Soon</span>
-                  </div>
                 </div>
                 {/* Decorative accent */}
                 <div className="hidden sm:block absolute -bottom-4 -right-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
@@ -402,12 +369,12 @@ export default function Activities() {
                   5-Stand
                 </h2>
                 <p className="text-[#333333] mb-4 leading-relaxed">
-                  Our dedicated 5-Stand facility will offer an exciting and challenging shooting experience for all skill levels.
+                  Our dedicated 5-Stand facility offers an exciting and challenging shooting experience for all skill levels.
                   With five shooting stations and multiple trap machines presenting targets from various angles and distances,
                   you&apos;ll enjoy a dynamic round that tests your reflexes and marksmanship.
                 </p>
                 <p className="text-[#333333] mb-6 leading-relaxed">
-                  Perfect for those looking to sharpen their skills or enjoy a quick session, 5-Stand will provide the thrill
+                  Perfect for those looking to sharpen their skills or enjoy a quick session, 5-Stand provides the thrill
                   of sporting clays in a compact format.
                 </p>
                 <ul className="space-y-3 text-[#333333] mb-8">
@@ -441,13 +408,43 @@ export default function Activities() {
           </div>
         </section>
 
+        {/* Full-Width Image Break */}
+        <section
+          id="imagebreak"
+          ref={(el) => { sectionRefs.current["imagebreak"] = el; }}
+          className="relative h-[300px] md:h-[400px]"
+        >
+          <div
+            className="absolute inset-0 bg-[#162838]"
+          ></div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center px-4">
+              <p
+                className={`text-[#f5f2ec]/70 text-lg min-[375px]:text-xl md:text-2xl tracking-wide uppercase transition-all duration-500 ease-out ${
+                  isVisible("imagebreak")
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
+                }`}
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                What&apos;s Next
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Virtual Training Section - Image Left */}
         <section
           id="virtual-training"
           ref={(el) => { sectionRefs.current["virtual-training"] = el; }}
-          className="pt-8 pb-16 md:pt-8 md:pb-24 lg:pt-12 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+          className="pt-16 pb-16 md:pt-8 md:pb-24 lg:pt-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-center gap-4 mb-10">
+              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+              <span className="text-[#a75235] text-sm font-bold tracking-[0.3em] uppercase">Coming Soon</span>
+              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               {/* Image Placeholder */}
               <div
