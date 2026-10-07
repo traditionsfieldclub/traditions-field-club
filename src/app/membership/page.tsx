@@ -186,7 +186,7 @@ export default function Membership() {
                 Join today and start shooting Riverside and Evergreen Courses and the 5-stand for the rest of 2026.
               </p>
               <p className="text-[#f5f2ec] font-semibold max-w-2xl mx-auto mt-3">
-                We&apos;re opening with 100 founding memberships. More will follow as the club grows.
+                Join our founding class of 100 members.
               </p>
             </div>
 
