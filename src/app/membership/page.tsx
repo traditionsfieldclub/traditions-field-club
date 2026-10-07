@@ -350,7 +350,7 @@ export default function Membership() {
                     <span className="text-2xl text-[#162838] font-semibold">$100</span>
                   </div>
                   <p className="text-[#333333] leading-relaxed">
-                    50 targets at signature stations on Riverside and Evergreen, guided by our team.
+                    50 targets at select signature stations we pick for your group, guided by our team.
                   </p>
                   <p className="text-sm text-[#666666] italic mt-2">
                     Join within 30 days and your $100 goes toward your Prime membership.
