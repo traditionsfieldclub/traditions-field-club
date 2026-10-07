@@ -33,10 +33,10 @@ export default function AnnouncementBar() {
           style={{ fontFamily: "var(--font-heading), serif" }}
         >
           <span className="sm:hidden">
-            2027 Memberships Available Now
+            100 Founding Memberships Available Now
           </span>
           <span className="hidden sm:inline">
-            2027 Memberships Available Now
+            2027 Memberships Available Now &middot; 100 Founding Memberships
           </span>
         </span>
       </a>
