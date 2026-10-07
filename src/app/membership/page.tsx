@@ -236,6 +236,7 @@ export default function Membership() {
                     <span className="text-3xl md:text-4xl text-[#f5f2ec] font-semibold">$2,000</span>
                     <span className="text-sm text-[#f5f2ec]/60"> /year</span>
                   </p>
+                  <p className="mt-1 text-sm text-[#f5f2ec]/70">or $500 quarterly</p>
                 </div>
                 <div className="p-6 md:p-8 flex-grow">
                   <p className="text-[#333333] leading-relaxed mb-6">
@@ -286,6 +287,7 @@ export default function Membership() {
                     <span className="text-3xl md:text-4xl text-[#f5f2ec] font-semibold">$3,500</span>
                     <span className="text-sm text-[#f5f2ec]/60"> /year</span>
                   </p>
+                  <p className="mt-1 text-sm text-[#f5f2ec]/70">or $875 quarterly</p>
                 </div>
                 <div className="p-6 md:p-8 flex-grow">
                   <p className="text-[#333333] leading-relaxed mb-6">
@@ -327,6 +329,10 @@ export default function Membership() {
                 </div>
               </div>
             </div>
+
+            <p className="max-w-4xl mx-auto mt-4 text-center text-sm text-[#333333]/80">
+              Annual or quarterly billing available.
+            </p>
 
             {/* Member for a Day - Try it first */}
             <div
