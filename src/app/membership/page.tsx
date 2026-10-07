@@ -353,6 +353,9 @@ export default function Membership() {
                     50 targets at signature stations on Riverside and Evergreen, guided by our team.
                   </p>
                   <p className="text-sm text-[#666666] italic mt-2">
+                    Join within 30 days and your $100 goes toward your Prime membership.
+                  </p>
+                  <p className="text-sm text-[#666666] italic mt-1">
                     Eye and ear protection provided. Shells and shotgun rental available for an additional charge.
                   </p>
                 </div>
