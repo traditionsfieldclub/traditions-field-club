@@ -362,7 +362,7 @@ export default function Membership() {
                     Join within 30 days and your $100 goes toward your Prime membership.
                   </p>
                   <p className="text-sm text-[#666666] italic mt-1">
-                    Eye and ear protection provided. Shells and shotgun rental available for an additional charge.
+                    Shotgun rental, shells, and eye and ear protection all included.
                   </p>
                 </div>
                 <div className="flex-shrink-0">
