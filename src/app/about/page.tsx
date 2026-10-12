@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
+import Picture from "@/components/Picture";
 import FadeImage from "@/components/FadeImage";
 import Link from "next/link";
 
@@ -441,6 +442,9 @@ export default function About() {
                 }`}
                 style={{ transitionDelay: "200ms" }}
               >
+                <div className="relative h-[340px] md:h-[400px] overflow-hidden">
+                  <Picture name="founder-brian" alt="Brian Seifrit, co-owner of Traditions Field Club" imgClassName="absolute inset-0 w-full h-full object-cover object-top" />
+                </div>
                 <div className="p-6 md:p-8">
                   <h3
                     className="text-2xl text-[#162838] mb-2"
@@ -467,6 +471,9 @@ export default function About() {
                 }`}
                 style={{ transitionDelay: "350ms" }}
               >
+                <div className="relative h-[340px] md:h-[400px] overflow-hidden">
+                  <Picture name="founder-jim" alt="Jim Nicholson, co-owner of Traditions Field Club" imgClassName="absolute inset-0 w-full h-full object-cover object-top" />
+                </div>
                 <div className="p-6 md:p-8">
                   <h3
                     className="text-2xl text-[#162838] mb-2"

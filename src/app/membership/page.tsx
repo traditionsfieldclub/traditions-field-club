@@ -403,8 +403,13 @@ export default function Membership() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
               <div className="lg:col-span-2">
-                <div className="relative h-[360px] md:h-[440px] rounded-lg overflow-hidden mb-6">
-                  <Picture name="photo-host-stand" alt="A host at the stand rail at Traditions Field Club" imgClassName="absolute inset-0 w-full h-full object-cover object-top" />
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="relative h-[300px] md:h-[440px] rounded-lg overflow-hidden">
+                    <Picture name="photo-brian-stand" alt="Brian Seifrit, co-founder, at the stand" imgClassName="absolute inset-0 w-full h-full object-cover object-[60%_30%]" />
+                  </div>
+                  <div className="relative h-[300px] md:h-[440px] rounded-lg overflow-hidden">
+                    <Picture name="photo-host-stand" alt="Jim Nicholson, co-founder, at the stand rail" imgClassName="absolute inset-0 w-full h-full object-cover object-[60%_30%]" />
+                  </div>
                 </div>
               </div>
               <div className="lg:col-span-3">
