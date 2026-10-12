@@ -173,11 +173,13 @@ export default function Home() {
                     loop
                     playsInline
                     preload="none"
-                    className="w-full h-full object-cover object-left"
-                    aria-label="Drive through the future sporting clays course at Traditions Field Club"
+                    poster="/media/first-course-poster.jpg"
+                    className="w-full h-full object-cover object-center"
+                    aria-label="Drone footage of the shooting stands and the river on the Riverside course at Traditions Field Club"
                     ref={(el) => { if (el) el.playbackRate = 0.8; }}
                   >
-                    <source src="/images/property-drive-view.mp4" type="video/mp4" />
+                    <source src="/media/first-course.webm" type="video/webm" />
+                    <source src="/media/first-course.mp4" type="video/mp4" />
                   </video>
                   {/* Subtle overlay */}
                   <div className="absolute inset-0 bg-[#162838]/30"></div>
