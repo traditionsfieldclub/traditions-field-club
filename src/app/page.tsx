@@ -8,6 +8,7 @@ import VideoHero from "@/components/VideoHero";
 import Link from "next/link";
 import Image from "next/image";
 import FadeImage from "@/components/FadeImage";
+import Picture from "@/components/Picture";
 
 export default function Home() {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
@@ -42,6 +43,59 @@ export default function Home() {
       <main id="main" className="flex-grow">
         {/* Hero Section with Video */}
         <VideoHero />
+
+        {/* Riverside Feature */}
+        <section id="riverside" className="py-16 md:py-24 bg-[#f5f2ec] overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10 md:mb-14">
+              <div className="flex items-center justify-center gap-4 mb-4">
+                <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+                <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">The Land as Our Canvas</span>
+                <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+              </div>
+              <h2
+                className="text-3xl md:text-4xl lg:text-5xl text-[#162838] mb-4"
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                Shoot Along the River
+              </h2>
+              <p className="text-lg text-[#333333] max-w-2xl mx-auto">
+                We designed this course with the land as our canvas. The Riverside course winds through the headwaters and leads to picturesque presentations along the Little Salkehatchie River, with river views. Out on the bridge, there&apos;s a clay thrower waiting
+                for you. Come see it for yourself.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              <div className="relative h-[280px] md:h-[400px] rounded-lg overflow-hidden">
+                <Picture
+                  name="riverside-river"
+                  alt="The river on the Riverside Course, lined with tall hardwoods"
+                  imgClassName="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+              <div className="relative h-[280px] md:h-[400px] rounded-lg overflow-hidden">
+                <Picture
+                  name="riverside-bridge"
+                  alt="The bridge over the river on the Riverside Course"
+                  imgClassName="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            <div className="text-center mt-10">
+              <Link
+                href="/contact?topic=scheduling"
+                className="inline-block bg-[#4d5c47] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                Book a Visit
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Sunset Band */}
+        <section className="relative h-[260px] md:h-[420px] bg-[#162838]" role="img" aria-label="Sunset over the pines at Traditions Field Club">
+          <Picture name="sunset-band" alt="" imgClassName="absolute inset-0 w-full h-full object-cover object-center" />
+        </section>
 
         {/* What the Club Is Section */}
         <section
@@ -119,11 +173,13 @@ export default function Home() {
                     loop
                     playsInline
                     preload="none"
-                    className="w-full h-full object-cover object-left"
-                    aria-label="Drive through the future sporting clays course at Traditions Field Club"
+                    poster="/media/first-course-poster.jpg"
+                    className="w-full h-full object-cover object-center"
+                    aria-label="Drone footage of the shooting stands and the river at Traditions Field Club"
                     ref={(el) => { if (el) el.playbackRate = 0.8; }}
                   >
-                    <source src="/images/property-drive-view.mp4" type="video/mp4" />
+                    <source src="/media/first-course.webm" type="video/webm" />
+                    <source src="/media/first-course.mp4" type="video/mp4" />
                   </video>
                   {/* Subtle overlay */}
                   <div className="absolute inset-0 bg-[#162838]/30"></div>

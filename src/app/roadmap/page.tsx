@@ -331,10 +331,10 @@ export default function Roadmap() {
               >
                 <div className="absolute inset-0">
                   <FadeImage
-                    src="/images/hunting_outdoors_fly_fishing.webp"
-                    alt="Member fly fishing on the property at Traditions Field Club"
+                    src="/media/swamp-aerial.webp"
+                    alt="Aerial view of the swamp and wetlands at Traditions Field Club"
                     fill
-                    className="object-cover object-[center_69%]"
+                    className="object-cover object-center"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 flex items-end justify-center pb-4">

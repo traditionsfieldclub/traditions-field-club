@@ -31,7 +31,7 @@ export default function VideoHero() {
     <section className="relative h-[500px] sm:h-[600px] md:min-h-[70vh] md:h-auto lg:min-h-[calc(70vh+220px)] flex items-center justify-center overflow-hidden bg-[#162838]">
       {/* Poster image — always rendered as base layer */}
       <Image
-        src="/images/hero-poster.webp"
+        src="/media/hero-v2-poster.webp"
         alt="Aerial view of Traditions Field Club sporting clays property"
         fill
         priority
@@ -49,10 +49,12 @@ export default function VideoHero() {
           loop
           playsInline
           preload="metadata"
-          aria-label="Aerial drone footage of sporting clays stations and property at Traditions Field Club"
+          poster="/media/hero-v2-poster.jpg"
+          aria-label="Drone footage of the forest, river and shooting stands at Traditions Field Club"
           className="absolute inset-0 w-full h-full object-cover object-center"
         >
-          <source src="/hero-video-new.mp4" type="video/mp4" />
+          <source src="/media/hero-v2.webm" type="video/webm" />
+          <source src="/media/hero-v2.mp4" type="video/mp4" />
         </video>
       )}
 
