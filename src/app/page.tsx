@@ -60,8 +60,7 @@ export default function Home() {
                 Shoot Along the River
               </h2>
               <p className="text-lg text-[#333333] max-w-2xl mx-auto">
-                Stands 1, 2, 3 and 13 on the Riverside Course now sit right on the water, with
-                river views from every one. Out on the bridge, there&apos;s a clay thrower waiting
+                Stands 12–15 sit along the old Salkehatchie River, with river views from every one. Out on the bridge, there&apos;s a clay thrower waiting
                 for you. Come see it for yourself.
               </p>
             </div>
