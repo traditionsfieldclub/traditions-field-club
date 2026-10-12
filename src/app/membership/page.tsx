@@ -197,7 +197,7 @@ export default function Membership() {
                 <Picture name="forest-trails-aerial" alt="Aerial view of the forest and trails at Traditions Field Club" imgClassName="absolute inset-0 w-full h-full object-cover" />
               </div>
               <div className="relative h-[240px] md:h-[300px] rounded-lg overflow-hidden">
-                <Picture name="photo-shooter-swing" alt="A shooter swinging on a target at a stand" imgClassName="absolute inset-0 w-full h-full object-cover object-top" />
+                <Picture name="sunset-stand" alt="A covered shooting stand at sunset at Traditions Field Club" imgClassName="absolute inset-0 w-full h-full object-cover object-bottom" />
               </div>
               <div className="relative h-[240px] md:h-[300px] rounded-lg overflow-hidden">
                 <Picture name="sunset-trail" alt="Sunset along a trail at Traditions Field Club" imgClassName="absolute inset-0 w-full h-full object-cover" />
