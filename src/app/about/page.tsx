@@ -491,6 +491,11 @@ export default function About() {
           </div>
         </section>
 
+        {/* Sunset Band */}
+        <section className="relative h-[260px] md:h-[420px] bg-[#162838]" role="img" aria-label="Sunset over the sand road at Traditions Field Club">
+          <Picture name="sunset-road" alt="" imgClassName="absolute inset-0 w-full h-full object-cover object-center" />
+        </section>
+
         {/* CTA Section */}
         <section className="py-16 md:py-20 bg-[#4d5c47]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

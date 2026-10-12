@@ -192,12 +192,18 @@ export default function Membership() {
             </div>
 
             {/* Property images */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto mb-8 md:mb-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto mb-8 md:mb-10">
               <div className="relative h-[240px] md:h-[300px] rounded-lg overflow-hidden">
                 <Picture name="forest-trails-aerial" alt="Aerial view of the forest and trails at Traditions Field Club" imgClassName="absolute inset-0 w-full h-full object-cover" />
               </div>
               <div className="relative h-[240px] md:h-[300px] rounded-lg overflow-hidden">
                 <Picture name="photo-shooter-swing" alt="A shooter swinging on a target at a stand" imgClassName="absolute inset-0 w-full h-full object-cover object-top" />
+              </div>
+              <div className="relative h-[240px] md:h-[300px] rounded-lg overflow-hidden">
+                <Picture name="sunset-trail" alt="Sunset along a trail at Traditions Field Club" imgClassName="absolute inset-0 w-full h-full object-cover" />
+              </div>
+              <div className="relative h-[240px] md:h-[300px] rounded-lg overflow-hidden">
+                <Picture name="sunset-pink" alt="Pink sunset sky over the pines at Traditions Field Club" imgClassName="absolute inset-0 w-full h-full object-cover" />
               </div>
             </div>
 
@@ -360,7 +366,7 @@ export default function Membership() {
                     <Picture name="photo-shooter-stand" alt="A guest mounting a shotgun at a stand" imgClassName="absolute inset-0 w-full h-full object-cover" />
                   </div>
                   <div className="relative h-[140px] rounded-lg overflow-hidden">
-                    <Picture name="arrival-road" alt="The sand road leading into the property" imgClassName="absolute inset-0 w-full h-full object-cover" />
+                    <Picture name="sunset-mfad" alt="Sunset over a shooting stand at Traditions Field Club" imgClassName="absolute inset-0 w-full h-full object-cover" />
                   </div>
                 </div>
                 <div className="flex-grow text-center md:text-left">
@@ -430,11 +436,11 @@ export default function Membership() {
                     muted
                     playsInline
                     preload="none"
-                    poster="/media/horizon-aerial.jpg"
+                    poster="/media/property-reel-v2-poster.jpg"
                     className="w-full h-full object-cover"
                     aria-label="Highlight reel of the Traditions Field Club property"
                   >
-                    <source src="/media/highlight-reel.mp4" type="video/mp4" />
+                    <source src="/media/property-reel-v2.mp4" type="video/mp4" />
                   </video>
                 </div>
                 <a
@@ -446,6 +452,43 @@ export default function Membership() {
                 </a>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* The Wild Side teaser */}
+        <section id="wild-side" className="py-16 md:py-24 bg-[#1f2a1c] overflow-hidden">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span className="text-[#f5f2ec]/60 text-sm tracking-[0.3em] uppercase">Members Only</span>
+            <h2
+              className="text-3xl md:text-4xl text-[#f5f2ec] mt-2 mb-4"
+              style={{ fontFamily: "var(--font-heading), serif" }}
+            >
+              The Wild Side
+            </h2>
+            <p className="text-[#f5f2ec]/85 max-w-2xl mx-auto mb-8">
+              Membership grants access to our wild side. Prime and Corporate members get to see what lies beyond the courses.
+            </p>
+            <div className="rounded-lg overflow-hidden bg-black aspect-video max-w-4xl mx-auto">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="none"
+                poster="/media/wild-side-teaser-poster.jpg"
+                className="w-full h-full object-cover"
+                aria-label="A glimpse of the wild side of the Traditions Field Club property"
+              >
+                <source src="/media/wild-side-teaser.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <a
+              href="/join"
+              className="inline-block mt-8 bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#f5f2ec] hover:text-[#162838] transition-colors rounded-lg"
+              style={{ fontFamily: "var(--font-heading), serif" }}
+            >
+              Become a Member
+            </a>
           </div>
         </section>
 

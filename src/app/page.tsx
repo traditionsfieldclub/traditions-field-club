@@ -92,6 +92,11 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Sunset Band */}
+        <section className="relative h-[260px] md:h-[420px] bg-[#162838]" role="img" aria-label="Sunset over the pines at Traditions Field Club">
+          <Picture name="sunset-band" alt="" imgClassName="absolute inset-0 w-full h-full object-cover object-center" />
+        </section>
+
         {/* What the Club Is Section */}
         <section
           id="intro"
