@@ -50,7 +50,7 @@ export default function Home() {
             <div className="text-center mb-10 md:mb-14">
               <div className="flex items-center justify-center gap-4 mb-4">
                 <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
-                <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">New on Riverside</span>
+                <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">The Land as Our Canvas</span>
                 <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
               </div>
               <h2
@@ -60,7 +60,7 @@ export default function Home() {
                 Shoot Along the River
               </h2>
               <p className="text-lg text-[#333333] max-w-2xl mx-auto">
-                Stands 12–15 sit along the old Salkehatchie River, with river views from stands 14 and 15. Out on the bridge, there&apos;s a clay thrower waiting
+                We designed this course with the land as our canvas. Stands 12–15 sit along the old Salkehatchie River, with river views from stands 14 and 15. Out on the bridge, there&apos;s a clay thrower waiting
                 for you. Come see it for yourself.
               </p>
             </div>
