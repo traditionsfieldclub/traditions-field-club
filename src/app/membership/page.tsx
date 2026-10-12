@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
+import Picture from "@/components/Picture";
 import FadeImage from "@/components/FadeImage";
 
 const faqs = [
@@ -190,6 +191,16 @@ export default function Membership() {
               </p>
             </div>
 
+            {/* Property images */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto mb-8 md:mb-10">
+              <div className="relative h-[240px] md:h-[300px] rounded-lg overflow-hidden">
+                <Picture name="forest-trails-aerial" alt="Aerial view of the forest and trails at Traditions Field Club" imgClassName="absolute inset-0 w-full h-full object-cover" />
+              </div>
+              <div className="relative h-[240px] md:h-[300px] rounded-lg overflow-hidden">
+                <Picture name="photo-shooter-swing" alt="A shooter swinging on a target at a stand" imgClassName="absolute inset-0 w-full h-full object-cover object-top" />
+              </div>
+            </div>
+
             {/* All Memberships Include */}
             <div className="bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 mb-8 md:mb-10">
               <h3
@@ -344,6 +355,14 @@ export default function Membership() {
               style={{ transitionDelay: "300ms" }}
             >
               <div className="flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
+                <div className="grid grid-cols-2 gap-3 md:w-[260px] flex-shrink-0">
+                  <div className="relative h-[140px] rounded-lg overflow-hidden">
+                    <Picture name="photo-shooter-stand" alt="A guest mounting a shotgun at a stand" imgClassName="absolute inset-0 w-full h-full object-cover" />
+                  </div>
+                  <div className="relative h-[140px] rounded-lg overflow-hidden">
+                    <Picture name="arrival-road" alt="The sand road leading into the property" imgClassName="absolute inset-0 w-full h-full object-cover" />
+                  </div>
+                </div>
                 <div className="flex-grow text-center md:text-left">
                   <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Try it first</span>
                   <div className="flex flex-wrap items-baseline justify-center md:justify-start gap-x-3 gap-y-1 mt-2 mb-2">
@@ -374,6 +393,52 @@ export default function Membership() {
                     Book a visit
                   </a>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Corporate and Hosted Events */}
+        <section id="corporate-events" className="py-16 md:py-24 bg-[#162838] overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+              <div className="lg:col-span-2">
+                <div className="relative h-[360px] md:h-[440px] rounded-lg overflow-hidden mb-6">
+                  <Picture name="photo-host-stand" alt="A host at the stand rail at Traditions Field Club" imgClassName="absolute inset-0 w-full h-full object-cover object-top" />
+                </div>
+              </div>
+              <div className="lg:col-span-3">
+                <span className="text-[#f5f2ec]/60 text-sm tracking-[0.3em] uppercase">Corporate &amp; Hosted Events</span>
+                <h2
+                  className="text-3xl md:text-4xl text-[#f5f2ec] mt-2 mb-4"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Bring Your People Out
+                </h2>
+                <p className="text-[#f5f2ec]/85 leading-relaxed mb-6">
+                  Hosting clients or your team? Take a look around the property, then reach out and
+                  we&apos;ll help you plan the day.
+                </p>
+                <div className="rounded-lg overflow-hidden bg-black aspect-video">
+                  <video
+                    controls
+                    muted
+                    playsInline
+                    preload="none"
+                    poster="/media/horizon-aerial.jpg"
+                    className="w-full h-full object-cover"
+                    aria-label="Highlight reel of the Traditions Field Club property"
+                  >
+                    <source src="/media/highlight-reel.mp4" type="video/mp4" />
+                  </video>
+                </div>
+                <a
+                  href="/contact"
+                  className="inline-block mt-6 bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#f5f2ec] hover:text-[#162838] transition-colors rounded-lg"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Plan an Event
+                </a>
               </div>
             </div>
           </div>
