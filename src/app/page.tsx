@@ -60,7 +60,7 @@ export default function Home() {
                 Shoot Along the River
               </h2>
               <p className="text-lg text-[#333333] max-w-2xl mx-auto">
-                We designed this course with the land as our canvas. The Riverside course winds through the headwaters and leads to picturesque presentations along the Little Salkehatchie River, with river views from stands 14 and 15. Out on the bridge, there&apos;s a clay thrower waiting
+                We designed this course with the land as our canvas. The Riverside course winds through the headwaters and leads to picturesque presentations along the Little Salkehatchie River, with river views. Out on the bridge, there&apos;s a clay thrower waiting
                 for you. Come see it for yourself.
               </p>
             </div>
