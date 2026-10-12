@@ -175,7 +175,7 @@ export default function Home() {
                     preload="none"
                     poster="/media/first-course-poster.jpg"
                     className="w-full h-full object-cover object-center"
-                    aria-label="Drone footage of the shooting stands and the river on the Riverside course at Traditions Field Club"
+                    aria-label="Drone footage of the shooting stands and the river at Traditions Field Club"
                     ref={(el) => { if (el) el.playbackRate = 0.8; }}
                   >
                     <source src="/media/first-course.webm" type="video/webm" />
