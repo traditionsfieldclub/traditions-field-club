@@ -269,7 +269,7 @@ export default function Home() {
                   </h3>
                   <p className="text-[#333333] text-sm leading-relaxed mb-4">
                     Often called &quot;golf with a shotgun,&quot; our two courses wind through
-                    the natural beauty of South Carolina&apos;s fields.
+                    Lowcountry pines and live oaks to the headwaters of the Little Salkehatchie River.
                   </p>
                   <Link
                     href="/activities#sporting-clays"
