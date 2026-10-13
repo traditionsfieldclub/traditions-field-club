@@ -251,8 +251,8 @@ export default function Home() {
               >
                 <div className="relative h-[200px] overflow-hidden">
                   <FadeImage
-                    src="/images/shooter_at_stand.webp"
-                    alt="Sporting clays shooting at Traditions Field Club"
+                    src="/media/clays-river-deck.webp"
+                    alt="A shooter on a deck stand along the river at Traditions Field Club"
                     fill
                     quality={50}
                     className="object-cover object-[center_calc(50%-10px)] scale-105 group-hover:scale-110 transition-transform duration-300"
@@ -269,7 +269,7 @@ export default function Home() {
                   </h3>
                   <p className="text-[#333333] text-sm leading-relaxed mb-4">
                     Often called &quot;golf with a shotgun,&quot; our two courses wind through
-                    the natural beauty of South Carolina&apos;s fields.
+                    Lowcountry pines, magnolias and live oaks to the headwaters of the Little Salkehatchie River.
                   </p>
                   <Link
                     href="/activities#sporting-clays"
@@ -293,6 +293,7 @@ export default function Home() {
                 style={{ transitionDelay: "400ms" }}
               >
                 <div className="relative h-[200px] overflow-hidden">
+                  {/* 5-Stand photo: swap this src when Jim's new 5-stand photo arrives */}
                   <FadeImage
                     src="/images/shooting_stations_construction.webp"
                     alt="5-Stand shooting stations at Traditions Field Club"
