@@ -202,10 +202,10 @@ export default function Activities() {
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
                   <FadeImage
-                    src="/images/shooter_at_stand.webp"
-                    alt="Sporting clays shooting at Traditions Field Club"
+                    src="/media/clays-stand-sunset.webp"
+                    alt="A covered shooting stand at sunset on the sporting clays course at Traditions Field Club"
                     fill
-                    className="object-cover"
+                    className="object-cover object-[center_65%]"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
