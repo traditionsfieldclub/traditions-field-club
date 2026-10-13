@@ -9,6 +9,7 @@ const organization = {
   logo: `${BASE_URL}/logo.png`,
   image: `${BASE_URL}/og-image.jpg`,
   email: "info@traditionsfieldclub.com",
+  telephone: "+1-843-321-8152",
   sameAs: ["https://www.instagram.com/traditionsfieldclub/"],
   founder: [
     { "@type": "Person", name: "Brian Seifrit" },
@@ -18,6 +19,7 @@ const organization = {
     "@type": "ContactPoint",
     contactType: "customer service",
     email: "info@traditionsfieldclub.com",
+  telephone: "+1-843-321-8152",
     areaServed: "US",
     availableLanguage: "English",
   },
@@ -44,6 +46,7 @@ const localBusiness = {
   image: [`${BASE_URL}/og-image.jpg`],
   logo: `${BASE_URL}/logo.png`,
   email: "info@traditionsfieldclub.com",
+  telephone: "+1-843-321-8152",
   priceRange: "$$",
   address: {
     "@type": "PostalAddress",

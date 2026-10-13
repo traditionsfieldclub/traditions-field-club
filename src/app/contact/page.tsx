@@ -258,9 +258,12 @@ function ContactContent() {
                   >
                     Phone
                   </h3>
-                  <p className="text-[#333333]">
-                    Coming Soon
-                  </p>
+                  <a
+                    href="tel:+18433218152"
+                    className="text-[#333333] hover:text-[#a75235] transition-colors"
+                  >
+                    (843) 321-8152
+                  </a>
                 </div>
 
                 {/* Email */}
