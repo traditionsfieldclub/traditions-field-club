@@ -147,12 +147,12 @@ export default function Activities() {
                 </h2>
                 <p className="text-[#333333] mb-4 leading-relaxed">
                   Often called &quot;golf with a shotgun,&quot; our sporting clays courses wind through South
-                  Carolina&apos;s natural beauty — rolling fields, mature pines, and quiet Lowcountry scenery
+                  Carolina&apos;s natural beauty: rolling fields, mature pines, and quiet Lowcountry scenery
                   that shifts from stand to stand. Each station offers a different view and a different target
                   presentation, simulating the flight patterns of various game birds.
                 </p>
                 <p className="text-[#333333] mb-6 leading-relaxed">
-                  We offer two courses — a 15-station course winding through our most scenic terrain, and a
+                  We offer two courses: a 15-station course winding through our most scenic terrain, and a
                   12-station course designed for newer shooters. Both showcase the natural variety of the
                   property, so every round feels a little different.
                 </p>
@@ -163,7 +163,7 @@ export default function Activities() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span>Two courses — 15 stations and 12 stations</span>
+                    <span>Two courses: 15 stations and 12 stations</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
