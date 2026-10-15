@@ -501,7 +501,7 @@ export default function Activities() {
                 </h2>
                 <p className="text-lg text-[#333333] mb-6 leading-relaxed">
                   Beyond the courses, there&apos;s more of the property waiting. Membership opens the door to
-                  your wild side, with guided hunts on shared land for Prime and Corporate members.
+                  your wild side.
                 </p>
                 <ul className="space-y-3 text-[#333333] mb-8">
                   <li className="flex items-start gap-3">
