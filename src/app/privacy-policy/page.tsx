@@ -198,7 +198,7 @@ export default function PrivacyPolicy() {
                   Our website and services are not directed to children under 13, and we do not knowingly
                   collect personal information directly from children under 13. As part of our liability
                   waiver process, a parent or legal guardian may provide limited information about a minor
-                  participant — such as their name and photo/video consent — on the minor&apos;s behalf. This
+                  participant, such as their name and photo/video consent, on the minor&apos;s behalf. This
                   information is used solely for club safety, liability, and, where consent is given,
                   promotional purposes related to the minor&apos;s participation in club activities.
                 </p>

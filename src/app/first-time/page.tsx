@@ -17,7 +17,7 @@ const steps = [
     number: "02",
     title: "Arrival",
     description:
-      "When you arrive at Traditions Field Club, you'll be greeted by our friendly staff at the main entrance. We recommend arriving 15-20 minutes before your scheduled time to allow for check-in and preparation. Don't forget to bring a valid ID and wear appropriate outdoor attire—closed-toe shoes are required on the range.",
+      "When you arrive at Traditions Field Club, you'll be greeted by our friendly staff at the main entrance. We recommend arriving 15-20 minutes before your scheduled time to allow for check-in and preparation. Don't forget to bring a valid ID and wear appropriate outdoor attire. Closed-toe shoes are required on the range.",
   },
   {
     number: "03",
@@ -35,7 +35,7 @@ const steps = [
     number: "05",
     title: "Enjoy Your Shoot",
     description:
-      "Now comes the fun part! Our staff will be nearby to assist if needed as you take on the course. Take your time, enjoy the beautiful surroundings, and challenge yourself at your own pace. Don't worry if you're new—everyone starts somewhere, and our supportive environment is perfect for learning.",
+      "Now comes the fun part! Our staff will be nearby to assist if needed as you take on the course. Take your time, enjoy the beautiful surroundings, and challenge yourself at your own pace. Don't worry if you're new. Everyone starts somewhere, and our supportive environment is perfect for learning.",
   },
   {
     number: "06",
@@ -64,7 +64,7 @@ const faqs = [
   },
   {
     question: "What if I don't have my own shotgun?",
-    answer: "No problem—rentals are available on-site. Just let us know when you schedule your visit so we can have equipment ready for you. We also have ammunition and other supplies available for purchase.",
+    answer: "No problem, rentals are available on-site. Just let us know when you schedule your visit so we can have equipment ready for you. We also have ammunition and other supplies available for purchase.",
   },
 ];
 
@@ -290,7 +290,7 @@ export default function FirstTime() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span><strong>Valid ID</strong> — Required for all visitors</span>
+                    <span><strong>Valid ID</strong>: Required for all visitors</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -298,7 +298,7 @@ export default function FirstTime() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span><strong>Closed-toe shoes</strong> — Required on the range</span>
+                    <span><strong>Closed-toe shoes</strong>: Required on the range</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -306,7 +306,7 @@ export default function FirstTime() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span><strong>Weather-appropriate clothing</strong> — We shoot rain or shine</span>
+                    <span><strong>Weather-appropriate clothing</strong>: We shoot rain or shine</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -314,7 +314,7 @@ export default function FirstTime() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span><strong>Eye and ear protection</strong> — Available on-site if needed</span>
+                    <span><strong>Eye and ear protection</strong>: Available on-site if needed</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -322,7 +322,7 @@ export default function FirstTime() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span><strong>Your own firearm</strong> — Optional; rentals available</span>
+                    <span><strong>Your own firearm</strong>: Optional; rentals available</span>
                   </li>
                 </ul>
 
@@ -352,7 +352,7 @@ export default function FirstTime() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-[#a75235] mt-0.5">&#8226;</span>
-                      <span><strong>Refreshments</strong> — water and snacks available on-site</span>
+                      <span><strong>Refreshments</strong>: water and snacks available on-site</span>
                     </li>
                   </ul>
                 </div>

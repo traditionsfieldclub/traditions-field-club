@@ -92,7 +92,7 @@ export default function About() {
                   world-class shooting sports in a safe, welcoming environment.
                 </p>
                 <p className="text-[#333333] leading-relaxed">
-                  Our commitment extends beyond the sport itself—we are stewards of the land,
+                  Our commitment extends beyond the sport itself. We are stewards of the land,
                   educators of safety and skill, and builders of a community united by shared values
                   and a love for the outdoors.
                 </p>
@@ -117,7 +117,7 @@ export default function About() {
                   Our Vision
                 </h2>
                 <p className="text-[#333333] leading-relaxed mb-4">
-                  We envision Traditions Field Club as more than a shooting range—it&apos;s a destination.
+                  We envision Traditions Field Club as more than a shooting range. It&apos;s a destination.
                   A place where the beauty of South Carolina&apos;s Lowcountry meets the refined traditions
                   of heritage outdoor sports.
                 </p>
@@ -341,7 +341,7 @@ export default function About() {
                   an atmosphere unlike any other.
                 </p>
                 <p className="text-[#333333] leading-relaxed mb-6">
-                  We are stewards of this land—dedicated to conservation, preservation, and responsible land stewardship for generations to come.
+                  We are stewards of this land, dedicated to conservation, preservation, and responsible land stewardship for generations to come.
                   Our courses wind through the natural terrain, designed to showcase the landscape
                   while providing a world-class sporting experience. Here, you&apos;ll find deer trails,
                   wildlife, and the kind of tranquility that can only be found away from the rush of modern life.
@@ -349,7 +349,7 @@ export default function About() {
                 <ul className="space-y-3 text-[#333333]">
                   <li className="flex items-center gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full flex-shrink-0"></span>
-                    Located at 13197 Low Country Hwy in Ruffin, SC
+                    About an hour from Hilton Head, Bluffton, Beaufort and Edisto
                   </li>
                   <li className="flex items-center gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full flex-shrink-0"></span>
@@ -483,7 +483,7 @@ export default function About() {
                   </h3>
                   <p className="text-[#a75235] text-sm uppercase tracking-wider mb-4">Co-Owner</p>
                   <p className="text-[#333333] leading-relaxed">
-                    Jim Nicholson brings a complementary professional background focused on recognizing individual strengths and guiding people toward achieving their personal and professional goals. His expertise in leadership development and employee growth directly supports the club&apos;s emphasis on mentorship, character-building, and community—ensuring members grow not only in outdoor skill but also in purpose and integrity.
+                    Jim Nicholson brings a complementary professional background focused on recognizing individual strengths and guiding people toward achieving their personal and professional goals. His expertise in leadership development and employee growth directly supports the club&apos;s emphasis on mentorship, character-building, and community, ensuring members grow not only in outdoor skill but also in purpose and integrity.
                   </p>
                 </div>
               </div>

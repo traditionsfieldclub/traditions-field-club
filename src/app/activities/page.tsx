@@ -147,12 +147,12 @@ export default function Activities() {
                 </h2>
                 <p className="text-[#333333] mb-4 leading-relaxed">
                   Often called &quot;golf with a shotgun,&quot; our sporting clays courses wind through South
-                  Carolina&apos;s natural beauty — rolling fields, mature pines, and quiet Lowcountry scenery
+                  Carolina&apos;s natural beauty: rolling fields, mature pines, and quiet Lowcountry scenery
                   that shifts from stand to stand. Each station offers a different view and a different target
                   presentation, simulating the flight patterns of various game birds.
                 </p>
                 <p className="text-[#333333] mb-6 leading-relaxed">
-                  We offer two courses — a 15-station course winding through our most scenic terrain, and a
+                  We offer two courses: a 15-station course winding through our most scenic terrain, and a
                   12-station course designed for newer shooters. Both showcase the natural variety of the
                   property, so every round feels a little different.
                 </p>
@@ -163,7 +163,7 @@ export default function Activities() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span>Two courses — 15 stations and 12 stations</span>
+                    <span>Two courses: 15 stations and 12 stations</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -338,11 +338,21 @@ export default function Activities() {
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
                   <FadeImage
-                    src="/images/shooting_stations_construction.webp"
-                    alt="5-Stand shooting stations at Traditions Field Club"
+                    src="/images/five_stand_sunset.webp"
+                    alt="Two covered 5-stand shooting stations silhouetted against a Lowcountry sunset, with a tall pine and treeline behind"
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                {/* Sunrise inset: first light from the 5-stand */}
+                <div className="hidden sm:block absolute -bottom-8 -left-6 w-[130px] md:w-[170px] aspect-[3/4] rounded-lg overflow-hidden shadow-xl ring-4 ring-[#f5f2ec] z-10">
+                  <FadeImage
+                    src="/images/five_stand_sunrise.webp"
+                    alt="Shooter's view down a shotgun barrel at sunrise, morning fog over the 5-stand field and pine treeline"
+                    fill
+                    className="object-cover"
+                    sizes="170px"
                   />
                 </div>
                 {/* Decorative accent */}
@@ -360,18 +370,18 @@ export default function Activities() {
               >
                 <div className="flex items-center gap-4 mb-4">
                   <span className="h-[1px] w-8 md:w-12 bg-[#a75235]"></span>
-                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Shooting Sports</span>
+                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">The 5-Stand</span>
                 </div>
                 <h2
                   className="text-3xl md:text-4xl lg:text-5xl text-[#162838] mb-6"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
-                  5-Stand
+                  Fourteen Machines. One Stand. Endless Presentations.
                 </h2>
                 <p className="text-[#333333] mb-4 leading-relaxed">
-                  Our dedicated 5-Stand facility offers an exciting and challenging shooting experience for all skill levels.
-                  With five shooting stations and multiple trap machines presenting targets from various angles and distances,
-                  you&apos;ll enjoy a dynamic round that tests your reflexes and marksmanship.
+                  Most 5-stand courses run six to eight machines. Ours runs fourteen, so no two rounds ever have to look the same.
+                  From first light to last light, five stations and fourteen machines present targets from every angle and distance
+                  for a dynamic round that tests your reflexes and marksmanship.
                 </p>
                 <p className="text-[#333333] mb-6 leading-relaxed">
                   Perfect for those looking to sharpen their skills or enjoy a quick session, 5-Stand provides the thrill
@@ -384,7 +394,7 @@ export default function Activities() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span>Five shooting stations with varied presentations</span>
+                    <span>Five stations, fourteen machines</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">

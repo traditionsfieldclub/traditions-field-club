@@ -131,7 +131,7 @@ export default function Membership() {
               <span className="h-[1px] w-16 bg-[#a75235]"></span>
             </div>
             <p className="text-lg text-[#333333] leading-relaxed">
-              At Traditions Field Club, membership is more than access—it&apos;s an invitation to be part of
+              At Traditions Field Club, membership is more than access. It&apos;s an invitation to be part of
               something special. Choose the membership tier that fits your lifestyle and enjoy exclusive
               benefits, from priority access to member-only events.
             </p>

@@ -205,14 +205,14 @@ export default function Join() {
                   className="inline-block bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
-                  No — Sign Waiver Now
+                  No, Sign Waiver Now
                 </Link>
                 <button
                   onClick={() => setShowPostSubmit(true)}
                   className="inline-block bg-transparent border-2 border-[#162838] text-[#162838] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] hover:text-[#f5f2ec] transition-colors rounded-lg cursor-pointer"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
-                  Yes — Already Signed
+                  Yes, Already Signed
                 </button>
               </div>
             </div>

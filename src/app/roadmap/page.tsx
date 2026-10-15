@@ -96,7 +96,7 @@ export default function Roadmap() {
               Roadmap
             </h1>
             <p className="text-lg md:text-xl text-[#f5f2ec] max-w-2xl mx-auto opacity-90">
-              Our journey from vision to reality — see what&apos;s coming next
+              Our journey from vision to reality. See what&apos;s coming next
             </p>
             <a
               href="#progress"
@@ -196,12 +196,12 @@ export default function Roadmap() {
                 </h2>
                 <p className="text-[#333333] leading-relaxed mb-6">
                   We&apos;ve established the core shooting sports facilities and built the foundation
-                  for everything to come — a world-class sporting clays experience, open today.
+                  for everything to come: a world-class sporting clays experience, open today.
                 </p>
                 <ul className="space-y-3 text-[#333333]">
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>2 sporting clays courses — 15 stations (intermediate to advanced) and 12 stations (beginner to intermediate)</span>
+                    <span>2 sporting clays courses: 15 stations (intermediate to advanced) and 12 stations (beginner to intermediate)</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
@@ -257,7 +257,7 @@ export default function Roadmap() {
                   Phase 2: Pavilion
                 </h2>
                 <p className="text-[#333333] leading-relaxed mb-6">
-                  Bringing the Pavilion to life — bathrooms, a kitchen, and outdoor seating built
+                  Bringing the Pavilion to life: bathrooms, a kitchen, and outdoor seating built
                   for barbecues, group gatherings, and family hangout time while others are out shooting.
                 </p>
                 <ul className="space-y-3 text-[#333333]">
@@ -367,13 +367,13 @@ export default function Roadmap() {
                   Phase 3: Hunting &amp; Outdoors
                 </h2>
                 <p className="text-[#333333] leading-relaxed mb-6">
-                  Expanding into the natural side of the property — hunting, fishing, and guided
+                  Expanding into the natural side of the property: hunting, fishing, and guided
                   outdoor experiences that let members connect even deeper with the land.
                 </p>
                 <ul className="space-y-3 text-[#333333]">
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Hunting — duck blinds, deer stands, food plots</span>
+                    <span>Hunting: duck blinds, deer stands, food plots</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
@@ -425,7 +425,7 @@ export default function Roadmap() {
                   Phase 4: Recreation
                 </h2>
                 <p className="text-[#333333] leading-relaxed mb-6">
-                  Long-term, we&apos;re envisioning a full outdoor recreation destination — trails,
+                  Long-term, we&apos;re envisioning a full outdoor recreation destination: trails,
                   farm-based activities, and ways to stay active outdoors, for members and their
                   families to enjoy for years to come.
                 </p>
@@ -516,7 +516,7 @@ export default function Roadmap() {
                 <span className="h-[1px] flex-grow bg-[#162838]/15"></span>
               </div>
               <p className="text-[#333333] mb-4 text-sm max-w-3xl">
-                The Pavilion continues to take shape — windows in, exterior coming together.
+                The Pavilion continues to take shape, windows in, exterior coming together.
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {julSepImages.map((img) => (
@@ -553,7 +553,7 @@ export default function Roadmap() {
                 <span className="h-[1px] flex-grow bg-[#162838]/15"></span>
               </div>
               <p className="text-[#333333] mb-4 text-sm max-w-3xl">
-                Groundwork underway — floor prep, the concrete slab, and the Pavilion&apos;s first
+                Groundwork underway: floor prep, the concrete slab, and the Pavilion&apos;s first
                 framing rising under the pines.
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -592,7 +592,7 @@ export default function Roadmap() {
               </div>
               <p className="text-[#333333] mb-10 max-w-3xl">
                 From walking the raw land for the first time to running the first live rounds on
-                Course 1 — here&apos;s how the first three months came together.
+                Course 1: here&apos;s how the first three months came together.
               </p>
 
               {/* Exploring the Land */}
@@ -677,7 +677,7 @@ export default function Roadmap() {
                   className="text-xl text-[#162838] mb-2"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
-                  Course 1 Testing — Team Tested, Team Approved
+                  Course 1 Testing: Team Tested, Team Approved
                 </h3>
                 <p className="text-[#333333] mb-4 text-sm">
                   Course 1 is nearly complete. Clay throwers dialed in, stations prepped, and a team takes their first shots.

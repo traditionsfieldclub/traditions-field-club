@@ -25,14 +25,13 @@ export const metadata: Metadata = {
     template: "%s | Traditions Field Club",
   },
   description:
-    "Veteran-owned sporting clays club in South Carolina's Lowcountry near Ruffin, SC. Family-friendly memberships, certified instruction, and corporate events.",
+    "Veteran-owned sporting clays club in South Carolina's Lowcountry, about an hour from Hilton Head, Bluffton, Beaufort and Edisto. Family-friendly memberships, certified instruction, and corporate events.",
   keywords: [
     "sporting clays South Carolina",
     "5-stand shooting",
     "shooting club Lowcountry",
     "veteran owned sporting club",
     "family friendly shooting range",
-    "clay shooting Ruffin SC",
     "outdoor club near Charleston",
     "sporting clays near Hilton Head",
     "corporate team building shooting",
@@ -44,7 +43,7 @@ export const metadata: Metadata = {
     title:
       "Traditions Field Club | Premier Sporting Clays Club in South Carolina",
     description:
-      "Veteran-owned sporting clays club in South Carolina's Lowcountry near Ruffin, SC. Family-friendly memberships, certified instruction, and corporate events.",
+      "Veteran-owned sporting clays club in South Carolina's Lowcountry, about an hour from Hilton Head, Bluffton, Beaufort and Edisto. Family-friendly memberships, certified instruction, and corporate events.",
     url: "https://traditionsfieldclub.com",
     siteName: "Traditions Field Club",
     locale: "en_US",
@@ -54,7 +53,7 @@ export const metadata: Metadata = {
         url: "https://traditionsfieldclub.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Traditions Field Club — Sporting Clays in South Carolina's Lowcountry",
+        alt: "Traditions Field Club: Sporting Clays in South Carolina's Lowcountry",
       },
     ],
   },
@@ -63,7 +62,7 @@ export const metadata: Metadata = {
     title:
       "Traditions Field Club | Premier Sporting Clays Club in South Carolina",
     description:
-      "Veteran-owned sporting clays club in South Carolina's Lowcountry near Ruffin, SC. Family-friendly memberships, certified instruction, and corporate events.",
+      "Veteran-owned sporting clays club in South Carolina's Lowcountry, about an hour from Hilton Head, Bluffton, Beaufort and Edisto. Family-friendly memberships, certified instruction, and corporate events.",
     images: ["https://traditionsfieldclub.com/og-image.jpg"],
   },
   robots: {

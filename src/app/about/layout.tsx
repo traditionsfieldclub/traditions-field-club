@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us — Our Story, Mission & Founders",
+  title: "About Us: Our Story, Mission & Founders",
   description:
     "Learn about Traditions Field Club, a veteran-owned sporting clays club in South Carolina's Lowcountry. Founded by Brian Seifrit and Jim Nicholson, we're dedicated to preserving Southern outdoor traditions for families and future generations.",
   openGraph: {
-    title: "About Us — Our Story, Mission & Founders",
+    title: "About Us: Our Story, Mission & Founders",
     description:
       "Learn about Traditions Field Club, a veteran-owned sporting clays club in South Carolina's Lowcountry. Founded by Brian Seifrit and Jim Nicholson, we're dedicated to preserving Southern outdoor traditions for families and future generations.",
     url: "https://traditionsfieldclub.com/about",
     images: [{ url: "https://traditionsfieldclub.com/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
-    title: "About Us — Our Story, Mission & Founders",
+    title: "About Us: Our Story, Mission & Founders",
     description:
       "Veteran-owned sporting clays club in South Carolina's Lowcountry, founded by Brian Seifrit and Jim Nicholson.",
   },

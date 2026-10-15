@@ -246,7 +246,10 @@ function ContactContent() {
                     Address
                   </h3>
                   <p className="text-[#333333]">
-                    13197 Low Country Hwy, Ruffin, SC 29475
+                    Lowcountry, South Carolina
+                  </p>
+                  <p className="text-sm text-[#333333]/70 mt-1">
+                    For directions: 13197 Low Country Hwy, Ruffin, SC 29475
                   </p>
                 </div>
 
@@ -540,7 +543,7 @@ function ContactContent() {
                 }`}
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
-                — A safe, professional environment for training &amp; team building —
+                A safe, professional environment for training &amp; team building
               </p>
 
               {/* Bottom Decorative Line */}
@@ -584,8 +587,7 @@ function ContactContent() {
                   Centrally Located
                 </h2>
                 <p className="text-base sm:text-lg text-[#333333] mb-6 leading-relaxed">
-                  Traditions Field Club is located strategically in the quiet rural areas of South Carolina.
-                  Located at 13197 Low Country Hwy, Ruffin, SC 29475.
+                  A scenic drive through the Lowcountry, about an hour from Hilton Head, Bluffton, Beaufort and Edisto.
                 </p>
 
                 <div className="mb-8">
@@ -621,6 +623,9 @@ function ContactContent() {
                       1 hour 45 minutes from Columbia
                     </li>
                   </ul>
+                  <p className="text-sm text-[#333333]/70 mt-4">
+                    For directions: 13197 Low Country Hwy, Ruffin, SC 29475
+                  </p>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -651,7 +656,7 @@ function ContactContent() {
               >
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000!2d-80.85435667019426!3d32.89696941753158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDUzJzQ5LjEiTiA4MMKwNTEnMTUuNyJX!5e0!3m2!1sen!2sus!4v1706000000000!5m2!1sen!2sus"
-                  title="Traditions Field Club location map — Ruffin, South Carolina"
+                  title="Traditions Field Club location map, South Carolina Lowcountry"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
