@@ -497,11 +497,10 @@ export default function Activities() {
                   className="text-3xl md:text-4xl lg:text-5xl text-[#162838] mb-6"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
-                  Your Wild Side
+                  Forgotten passions, found again. Live your wild side.
                 </h2>
                 <p className="text-lg text-[#333333] mb-6 leading-relaxed">
-                  Beyond the courses, there&apos;s more of the property waiting. Membership opens the door to
-                  your wild side.
+                  Membership opens the door to your wild side.
                 </p>
                 <ul className="space-y-3 text-[#333333] mb-8">
                   <li className="flex items-start gap-3">
