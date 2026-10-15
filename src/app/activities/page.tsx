@@ -99,7 +99,7 @@ export default function Activities() {
                 Now
               </a>
               <a
-                href="#virtual-training"
+                href="#wild-side"
                 className="px-5 py-2 rounded-full border-2 border-[#a75235] text-[#a75235] text-sm font-semibold uppercase tracking-wide hover:bg-[#a75235] hover:text-[#f5f2ec] transition-colors"
               >
                 Coming Soon
@@ -443,10 +443,10 @@ export default function Activities() {
           </div>
         </section>
 
-        {/* Virtual Training Section - Image Left */}
+        {/* Wild Side Section - Image Left */}
         <section
-          id="virtual-training"
-          ref={(el) => { sectionRefs.current["virtual-training"] = el; }}
+          id="wild-side"
+          ref={(el) => { sectionRefs.current["wild-side"] = el; }}
           className="pt-16 pb-16 md:pt-8 md:pb-24 lg:pt-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -459,15 +459,15 @@ export default function Activities() {
               {/* Image Placeholder */}
               <div
                 className={`relative h-[300px] sm:h-[350px] md:h-[450px] lg:h-[360px] order-1 transition-all duration-500 ease-out ${
-                  isVisible("virtual-training")
+                  isVisible("wild-side")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="absolute inset-0 rounded-lg overflow-hidden">
                   <FadeImage
-                    src="/images/virtual_training_vr_shooting.webp"
-                    alt="Member using virtual reality equipment for shotgun training at Traditions Field Club"
+                    src="/media/wild-side-teaser-poster.jpg"
+                    alt="A glimpse of the wild side of the Traditions Field Club property"
                     fill
                     className="object-cover object-[22%_center] min-[500px]:object-center"
                     sizes="(max-width: 768px) 100vw, 50vw"
@@ -484,24 +484,24 @@ export default function Activities() {
               {/* Content */}
               <div
                 className={`order-2 transition-all duration-500 ease-out delay-100 ${
-                  isVisible("virtual-training")
+                  isVisible("wild-side")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-3"
                 }`}
               >
                 <div className="flex items-center gap-4 mb-4">
                   <span className="h-[1px] w-8 md:w-12 bg-[#a75235]"></span>
-                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Train Anytime</span>
+                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Members Only</span>
                 </div>
                 <h2
                   className="text-3xl md:text-4xl lg:text-5xl text-[#162838] mb-6"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
-                  Virtual Training
+                  Your Wild Side
                 </h2>
                 <p className="text-lg text-[#333333] mb-6 leading-relaxed">
-                  Can&apos;t make it to the range? Our virtual training program will let you sharpen your
-                  fundamentals from anywhere, with certified instructors reviewing your technique remotely.
+                  Beyond the courses, there&apos;s more of the property waiting. Membership opens the door to
+                  your wild side, with guided hunts on shared land for Prime and Corporate members.
                 </p>
                 <ul className="space-y-3 text-[#333333] mb-8">
                   <li className="flex items-start gap-3">
@@ -510,7 +510,7 @@ export default function Activities() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span>Shotgun mount fundamentals</span>
+                    <span>Deer stands</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -518,7 +518,7 @@ export default function Activities() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span>Stance, posture, and target acquisition</span>
+                    <span>Food plots</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -526,7 +526,7 @@ export default function Activities() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span>Swing mechanics and follow-through</span>
+                    <span>Duck blinds and quail fields</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -534,7 +534,7 @@ export default function Activities() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span>Remote technique review with a certified instructor</span>
+                    <span>Released and guided hunts</span>
                   </li>
                 </ul>
               </div>
