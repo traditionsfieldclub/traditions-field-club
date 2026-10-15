@@ -293,10 +293,9 @@ export default function Home() {
                 style={{ transitionDelay: "400ms" }}
               >
                 <div className="relative h-[200px] overflow-hidden">
-                  {/* 5-Stand photo: swap this src when Jim's new 5-stand photo arrives */}
                   <FadeImage
-                    src="/images/shooting_stations_construction.webp"
-                    alt="5-Stand shooting stations at Traditions Field Club"
+                    src="/images/five_stand_sunset.webp"
+                    alt="Two covered 5-stand shooting stations silhouetted against a Lowcountry sunset, with a tall pine and treeline behind"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 768px) 100vw, 33vw"
@@ -310,8 +309,8 @@ export default function Home() {
                     5-Stand
                   </h3>
                   <p className="text-[#333333] text-sm leading-relaxed mb-4">
-                    Five shooting stations with varied target presentations. Perfect for
-                    honing your skills or enjoying a quick session.
+                    Fourteen machines and five stations, so no two rounds look the same.
+                    Perfect for honing your skills or enjoying a quick session.
                   </p>
                   <Link
                     href="/activities#5-stand"
