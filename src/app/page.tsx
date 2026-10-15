@@ -309,8 +309,8 @@ export default function Home() {
                     5-Stand
                   </h3>
                   <p className="text-[#333333] text-sm leading-relaxed mb-4">
-                    Fourteen machines and five stations, so no two rounds look the same.
-                    Perfect for honing your skills or enjoying a quick session.
+                    Fourteen machines where most 5-stands run six to eight, so the combinations are endless.
+                    Shaded stations, great for warming up, groups, and sharpening skills.
                   </p>
                   <Link
                     href="/activities#5-stand"

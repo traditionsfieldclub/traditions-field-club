@@ -379,13 +379,13 @@ export default function Activities() {
                   Fourteen Machines. One Stand. Endless Presentations.
                 </h2>
                 <p className="text-[#333333] mb-4 leading-relaxed">
-                  Most 5-stand courses run six to eight machines. Ours runs fourteen, so no two rounds ever have to look the same.
-                  From first light to last light, five stations and fourteen machines present targets from every angle and distance
-                  for a dynamic round that tests your reflexes and marksmanship.
+                  Most 5-stand courses run six to eight machines. Ours runs fourteen, so the target combinations are
+                  practically endless and no two rounds ever have to look the same.
                 </p>
                 <p className="text-[#333333] mb-6 leading-relaxed">
-                  Perfect for those looking to sharpen their skills or enjoy a quick session, 5-Stand provides the thrill
-                  of sporting clays in a compact format.
+                  It&apos;s the perfect warm up before a round of sporting clays, a great setup for groups, and the
+                  fastest way to sharpen your skills. Every station is shaded under brand new roofs, so you stay
+                  comfortable from first light to last light.
                 </p>
                 <ul className="space-y-3 text-[#333333] mb-8">
                   <li className="flex items-start gap-3">
@@ -394,7 +394,7 @@ export default function Activities() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span>Five stations, fourteen machines</span>
+                    <span>Fourteen machines, where most 5-stands run six to eight</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -402,7 +402,7 @@ export default function Activities() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span>Multiple target combinations per station</span>
+                    <span>Endless target combinations from five stations</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -410,7 +410,15 @@ export default function Activities() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span>Suitable for beginners and experienced shooters</span>
+                    <span>Great for warming up, groups, and sharpening skills</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span>Shaded stations under new roofs</span>
                   </li>
                 </ul>
               </div>
