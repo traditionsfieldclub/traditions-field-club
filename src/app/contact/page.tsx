@@ -248,6 +248,9 @@ function ContactContent() {
                   <p className="text-[#333333]">
                     Lowcountry, South Carolina
                   </p>
+                  <p className="text-sm text-[#333333]/70 mt-1">
+                    For directions: 13197 Low Country Hwy, Ruffin, SC 29475
+                  </p>
                 </div>
 
                 {/* Phone */}
@@ -584,7 +587,6 @@ function ContactContent() {
                   Centrally Located
                 </h2>
                 <p className="text-base sm:text-lg text-[#333333] mb-6 leading-relaxed">
-                  Traditions Field Club is located strategically in the quiet rural areas of South Carolina.
                   A scenic drive through the Lowcountry, about an hour from Hilton Head, Bluffton, Beaufort and Edisto.
                 </p>
 
@@ -621,6 +623,9 @@ function ContactContent() {
                       1 hour 45 minutes from Columbia
                     </li>
                   </ul>
+                  <p className="text-sm text-[#333333]/70 mt-4">
+                    For directions: 13197 Low Country Hwy, Ruffin, SC 29475
+                  </p>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
