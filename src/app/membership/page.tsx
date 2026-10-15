@@ -392,11 +392,11 @@ export default function Membership() {
                 </div>
                 <div className="flex-shrink-0">
                   <a
-                    href="/contact?topic=scheduling"
+                    href="/member-for-a-day"
                     className="inline-block w-full md:w-auto border-2 border-[#a75235] text-[#a75235] px-8 py-3 text-center font-semibold tracking-wide hover:bg-[#a75235] hover:text-[#f5f2ec] transition-colors rounded-lg"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
-                    Book a visit
+                    Book your day
                   </a>
                 </div>
               </div>
