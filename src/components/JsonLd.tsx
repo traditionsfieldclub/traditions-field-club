@@ -50,10 +50,7 @@ const localBusiness = {
   priceRange: "$$",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "13197 Low Country Hwy",
-    addressLocality: "Ruffin",
     addressRegion: "SC",
-    postalCode: "29475",
     addressCountry: "US",
   },
   geo: {

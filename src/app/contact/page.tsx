@@ -249,7 +249,7 @@ function ContactContent() {
                     Lowcountry, South Carolina
                   </p>
                   <p className="text-sm text-[#333333]/70 mt-1">
-                    For directions: 13197 Low Country Hwy, Ruffin, SC 29475
+                    A scenic drive through the Lowcountry, about an hour from Hilton Head, Bluffton, Beaufort and Edisto.
                   </p>
                 </div>
 
@@ -623,9 +623,6 @@ function ContactContent() {
                       1 hour 45 minutes from Columbia
                     </li>
                   </ul>
-                  <p className="text-sm text-[#333333]/70 mt-4">
-                    For directions: 13197 Low Country Hwy, Ruffin, SC 29475
-                  </p>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
