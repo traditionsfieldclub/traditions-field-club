@@ -492,13 +492,22 @@ export default function Membership() {
                 <source src="/media/wild-side-teaser.mp4" type="video/mp4" />
               </video>
             </div>
-            <a
-              href="/join"
-              className="inline-block mt-8 bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#f5f2ec] hover:text-[#162838] transition-colors rounded-lg"
-              style={{ fontFamily: "var(--font-heading), serif" }}
-            >
-              Become a Member
-            </a>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/join"
+                className="inline-block bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#f5f2ec] hover:text-[#162838] transition-colors rounded-lg"
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                Become a Member
+              </a>
+              <a
+                href="/tour#book"
+                className="inline-block border-2 border-[#f5f2ec] text-[#f5f2ec] px-8 py-[10px] font-semibold tracking-wide hover:bg-[#f5f2ec] hover:text-[#162838] transition-colors rounded-lg"
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                Book a Tour
+              </a>
+            </div>
           </div>
         </section>
 

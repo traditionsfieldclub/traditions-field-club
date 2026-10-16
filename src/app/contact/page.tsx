@@ -640,6 +640,13 @@ function ContactContent() {
                   >
                     Become a Member
                   </Link>
+                  <Link
+                    href="/tour#book"
+                    className="inline-block border-2 border-[#a75235] text-[#a75235] px-6 py-[10px] text-center font-semibold tracking-wide hover:bg-[#a75235] hover:text-[#f5f2ec] transition-colors rounded-lg"
+                    style={{ fontFamily: "var(--font-heading), serif" }}
+                  >
+                    Book a Tour
+                  </Link>
                 </div>
               </div>
 

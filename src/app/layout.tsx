@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nanum_Myeongjo, Lato } from "next/font/google";
 import "./globals.css";
 import FloatingContact from "@/components/FloatingContact";
+import MobileBookingBar from "@/components/MobileBookingBar";
 import JsonLd from "@/components/JsonLd";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
@@ -109,6 +110,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         {children}
+        <MobileBookingBar />
         <FloatingContact />
         <JsonLd />
       </body>

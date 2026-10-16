@@ -39,7 +39,7 @@ export default function FloatingContact() {
 
       {/* Floating Button Container - Mobile only */}
       <div
-        className={`fixed bottom-6 right-6 z-50 md:hidden transition-opacity duration-300 ${
+        className={`fixed bottom-24 right-4 z-50 md:hidden transition-opacity duration-300 ${
           nearFooter ? 'opacity-0 pointer-events-none' : 'opacity-100'
         }`}
       >

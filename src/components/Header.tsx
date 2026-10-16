@@ -80,6 +80,36 @@ export default function Header() {
             >
               Become A Member
             </Link>
+            <div className="relative group">
+              <button
+                type="button"
+                aria-haspopup="true"
+                className="border-2 border-white text-white text-sm xl:text-base font-bold uppercase tracking-wide xl:tracking-widest px-4 xl:px-6 py-[6px] group-hover:bg-white group-hover:text-[#162838] group-focus-within:bg-white group-focus-within:text-[#162838] transition-colors duration-200 rounded whitespace-nowrap cursor-pointer"
+                style={{ fontFamily: "var(--font-heading), serif" }}
+              >
+                Book
+              </button>
+              <div className="absolute right-0 top-full pt-2 hidden group-hover:block group-focus-within:block">
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden min-w-[220px]">
+                  <Link
+                    href="/tour#book"
+                    className="block px-5 py-3 text-[#162838] hover:bg-[#f5f2ec] transition-colors"
+                    style={{ fontFamily: "var(--font-heading), serif" }}
+                  >
+                    <span className="block font-bold uppercase tracking-wide text-sm">Book a Tour</span>
+                    <span className="block text-xs text-[#666666]">Complimentary, about one hour</span>
+                  </Link>
+                  <Link
+                    href="/member-for-a-day#book"
+                    className="block px-5 py-3 text-[#162838] hover:bg-[#f5f2ec] transition-colors border-t border-[#e8e4dc]"
+                    style={{ fontFamily: "var(--font-heading), serif" }}
+                  >
+                    <span className="block font-bold uppercase tracking-wide text-sm">Member for a Day</span>
+                    <span className="block text-xs text-[#666666]">$100 per shooter, all in</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </nav>
 
           {/* Mobile Menu Button - Absolute Right. Hidden while the menu is open — the
@@ -148,6 +178,24 @@ export default function Header() {
             >
               Become A Member
             </Link>
+            <div className="grid grid-cols-2 gap-3">
+              <Link
+                href="/tour#book"
+                className="border-2 border-[#4d5c47] text-[#4d5c47] text-sm font-bold uppercase tracking-widest px-3 py-[10px] text-center hover:bg-[#4d5c47] hover:text-[#f5f2ec] transition-colors duration-200 rounded"
+                style={{ fontFamily: "var(--font-heading), serif" }}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Book a Tour
+              </Link>
+              <Link
+                href="/member-for-a-day#book"
+                className="border-2 border-[#a75235] text-[#a75235] text-sm font-bold uppercase tracking-widest px-3 py-[10px] text-center hover:bg-[#a75235] hover:text-[#f5f2ec] transition-colors duration-200 rounded"
+                style={{ fontFamily: "var(--font-heading), serif" }}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Book Your Day
+              </Link>
+            </div>
           </div>
         </nav>
       )}

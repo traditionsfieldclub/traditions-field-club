@@ -27,6 +27,35 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#162838] text-[#f5f2ec]">
+      {/* Booking CTA */}
+      <div className="border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+          <div>
+            <p className="text-2xl md:text-3xl" style={{ fontFamily: "var(--font-heading), serif" }}>
+              Come see Traditions for yourself
+            </p>
+            <p className="text-[#f5f2ec]/70 mt-1">
+              Complimentary tour, no cost, no commitment. Or shoot for a day at $100 per shooter.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+            <Link
+              href="/tour#book"
+              className="border-2 border-[#f5f2ec] text-[#f5f2ec] px-8 py-[10px] font-semibold tracking-wide hover:bg-[#f5f2ec] hover:text-[#162838] transition-colors rounded-lg text-center"
+              style={{ fontFamily: "var(--font-heading), serif" }}
+            >
+              Book a Tour
+            </Link>
+            <Link
+              href="/member-for-a-day#book"
+              className="bg-[#a75235] border-2 border-[#a75235] text-[#f5f2ec] px-8 py-[10px] font-semibold tracking-wide hover:bg-[#f5f2ec] hover:border-[#f5f2ec] hover:text-[#162838] transition-colors rounded-lg text-center"
+              style={{ fontFamily: "var(--font-heading), serif" }}
+            >
+              Book Your Day
+            </Link>
+          </div>
+        </div>
+      </div>
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-12">
 
