@@ -503,7 +503,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {[
                 { phase: "Phase 1", title: "Foundation", status: "Complete", desc: "2 sporting clays courses" },
-                { phase: "Phase 2", title: "Pavilion", status: "In Progress", desc: "Bathrooms, kitchen, shop\nFamily hangout space" },
+                { phase: "Phase 2", title: "Pavilion", status: "In Progress", desc: "Restrooms with showers, kitchen, shop\nFamily hangout space" },
                 { phase: "Phase 3", title: "Your Wild Side", status: "Coming Soon", desc: "Deer stands, food plots, duck blinds\nQuail fields, released and guided hunts" },
                 { phase: "Phase 4", title: "Recreation", status: "Future", desc: "Farm build-out, hiking, outdoor recreation" },
               ].map((item, index) => (
