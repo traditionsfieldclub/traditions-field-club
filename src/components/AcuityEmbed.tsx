@@ -16,7 +16,7 @@ export default function AcuityEmbed({ appointmentType, title }: { appointmentTyp
         className="flex items-center justify-center gap-2 w-full mb-4 border-2 border-[#a75235] text-[#a75235] px-6 py-3 font-semibold tracking-wide hover:bg-[#a75235] hover:text-[#f5f2ec] transition-colors rounded-lg"
         style={{ fontFamily: "var(--font-heading), serif" }}
       >
-        Open the scheduler in a new tab
+        Open the booking calendar
       </a>
       <iframe
         src={src}
