@@ -17,6 +17,25 @@ const navItems = [
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const mobileNavRef = useRef<HTMLElement>(null);
+  const [bookOpen, setBookOpen] = useState(false);
+  const bookRef = useRef<HTMLDivElement>(null);
+
+  // Book menu: open on tap/click (touch devices have no hover), close on outside tap or Escape
+  useEffect(() => {
+    if (!bookOpen) return;
+    const onDown = (e: PointerEvent) => {
+      if (bookRef.current && !bookRef.current.contains(e.target as Node)) setBookOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setBookOpen(false);
+    };
+    document.addEventListener("pointerdown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("pointerdown", onDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [bookOpen]);
   const pathname = usePathname();
 
   // Standard dropdown behavior: clicking anywhere outside the open mobile menu closes it.
@@ -80,19 +99,32 @@ export default function Header() {
             >
               Become A Member
             </Link>
-            <div className="relative group">
-              <button
-                type="button"
+            <div className="relative group" ref={bookRef}>
+              <a
+                href="/tour#book"
+                role="button"
                 aria-haspopup="true"
-                className="border-2 border-white text-white text-sm xl:text-base font-bold uppercase tracking-wide xl:tracking-widest px-4 xl:px-6 py-[6px] group-hover:bg-white group-hover:text-[#162838] group-focus-within:bg-white group-focus-within:text-[#162838] transition-colors duration-200 rounded whitespace-nowrap cursor-pointer"
+                aria-expanded={bookOpen}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setBookOpen((o) => !o);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === " ") {
+                    e.preventDefault();
+                    setBookOpen((o) => !o);
+                  }
+                }}
+                className="border-2 border-white text-white text-sm xl:text-base font-bold uppercase tracking-wide xl:tracking-widest px-4 xl:px-6 py-[6px] hover:bg-white hover:text-[#162838] aria-expanded:bg-white aria-expanded:text-[#162838] transition-colors duration-200 rounded whitespace-nowrap cursor-pointer inline-block"
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
                 Book
-              </button>
-              <div className="absolute right-0 top-full pt-2 hidden group-hover:block group-focus-within:block">
+              </a>
+              <div className={`absolute right-0 top-full pt-2 ${bookOpen ? "block" : "hidden"} [@media(hover:hover)]:group-hover:block`}>
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden min-w-[220px]">
                   <Link
                     href="/tour#book"
+                    onClick={() => setBookOpen(false)}
                     className="block px-5 py-3 text-[#162838] hover:bg-[#f5f2ec] transition-colors"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
@@ -101,6 +133,7 @@ export default function Header() {
                   </Link>
                   <Link
                     href="/member-for-a-day#book"
+                    onClick={() => setBookOpen(false)}
                     className="block px-5 py-3 text-[#162838] hover:bg-[#f5f2ec] transition-colors border-t border-[#e8e4dc]"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
