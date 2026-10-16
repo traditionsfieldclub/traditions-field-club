@@ -109,6 +109,12 @@ export default function Header() {
                   e.preventDefault();
                   setBookOpen((o) => !o);
                 }}
+                onKeyDown={(e) => {
+                  if (e.key === " ") {
+                    e.preventDefault();
+                    setBookOpen((o) => !o);
+                  }
+                }}
                 className="border-2 border-white text-white text-sm xl:text-base font-bold uppercase tracking-wide xl:tracking-widest px-4 xl:px-6 py-[6px] hover:bg-white hover:text-[#162838] aria-expanded:bg-white aria-expanded:text-[#162838] transition-colors duration-200 rounded whitespace-nowrap cursor-pointer inline-block"
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
