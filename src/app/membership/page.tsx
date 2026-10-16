@@ -395,14 +395,14 @@ export default function Membership() {
                 </div>
                 <div className="flex-shrink-0 flex flex-col gap-3">
                   <a
-                    href="/member-for-a-day"
+                    href="/member-for-a-day#book"
                     className="inline-block w-full md:w-auto border-2 border-[#a75235] text-[#a75235] px-8 py-3 text-center font-semibold tracking-wide hover:bg-[#a75235] hover:text-[#f5f2ec] transition-colors rounded-lg"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
                     Book your day
                   </a>
                   <a
-                    href="/tour"
+                    href="/tour#book"
                     className="inline-block w-full md:w-auto bg-[#4d5c47] border-2 border-[#4d5c47] text-[#f5f2ec] px-8 py-3 text-center font-semibold tracking-wide hover:bg-[#162838] hover:border-[#162838] transition-colors rounded-lg"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
