@@ -378,7 +378,7 @@ export default function Membership() {
                     >
                       Member for a Day
                     </h3>
-                    <span className="text-2xl text-[#162838] font-semibold">$100</span>
+                    <span className="text-2xl text-[#162838] font-semibold">$100 <span className="text-base font-normal text-[#666666]">per shooter, all in</span></span>
                   </div>
                   <p className="text-[#333333] leading-relaxed">
                     50 targets at select signature stations we pick for your group, guided by our team.

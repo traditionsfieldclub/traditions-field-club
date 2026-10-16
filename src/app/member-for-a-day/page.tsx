@@ -113,18 +113,37 @@ export default function MemberForADay() {
     <>
       <AnnouncementBar />
       <Header />
-      <main className="bg-[#f5f2ec]">
-        <section className="pt-32 pb-16 md:pt-40 md:pb-24">
+      <main id="main" className="flex-grow bg-[#f5f2ec]">
+        {/* Hero Section */}
+        <section className="relative py-20 md:py-28 lg:py-32 overflow-hidden">
+          <div className="absolute inset-0 bg-[#162838]">
+            <Picture name="sunset-mfad" alt="" imgClassName="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-[#162838]/70"></div>
+          </div>
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1
+              className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#f5f2ec] mb-4 tracking-wide"
+              style={{ fontFamily: "var(--font-heading), serif" }}
+            >
+              Member for a Day
+            </h1>
+            <p className="text-lg md:text-xl text-[#f5f2ec] max-w-2xl mx-auto opacity-90">
+              $100 per shooter, all in. Starting Tuesday, October 20.
+            </p>
+          </div>
+        </section>
+
+        <section className="py-16 md:py-24">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14">
             <div className="lg:col-span-2">
               <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Try it first</span>
-              <h1
-                className="text-4xl md:text-5xl text-[#162838] mt-2 mb-4"
+              <h2
+                className="text-3xl md:text-4xl text-[#162838] mt-2 mb-4"
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
-                Member for a Day
-              </h1>
-              <p className="text-2xl text-[#162838] font-semibold mb-4">$100, all in</p>
+                Your day on the property
+              </h2>
+              <p className="text-2xl text-[#162838] font-semibold mb-4">$100 per shooter, all in</p>
               <p className="text-[#333333] leading-relaxed mb-6">
                 Spend a day on the property the way our members do. Starting Tuesday, October 20.
               </p>
@@ -257,7 +276,7 @@ export default function MemberForADay() {
                     {isSubmitting ? "Sending..." : "Request my day"}
                   </button>
                   <p className="text-xs text-[#666666] text-center">
-                    $100 per person. We&apos;ll confirm your date and details within one business day.
+                    $100 per shooter, all in. We&apos;ll confirm your date and details within one business day.
                   </p>
                 </form>
               )}
