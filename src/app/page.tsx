@@ -82,7 +82,7 @@ export default function Home() {
             </div>
             <div className="text-center mt-10">
               <Link
-                href="/contact?topic=scheduling"
+                href="/tour#book"
                 className="inline-block bg-[#4d5c47] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >

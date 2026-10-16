@@ -41,7 +41,7 @@ export default function TourTraditions() {
               >
                 A guided look at the property
               </h2>
-              <p className="text-2xl text-[#162838] font-semibold mb-4">Complimentary tour, about 45 minutes</p>
+              <p className="text-2xl text-[#162838] font-semibold mb-4">Complimentary tour, about one hour</p>
               <p className="text-[#333333] leading-relaxed mb-6">
                 No shooting, just a walk through what we&apos;re building. Small groups of up to four, a scenic drive
                 through the Lowcountry, about an hour from Hilton Head, Bluffton, Beaufort and Edisto.

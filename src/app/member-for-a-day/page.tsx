@@ -110,7 +110,7 @@ export default function MemberForADay() {
                   Tour Traditions
                 </h2>
                 <p className="text-[#333333] leading-relaxed">
-                  A complimentary guided look at the property, about 45 minutes with no shooting: the pavilion,
+                  A complimentary guided look at the property, about one hour with no shooting: the pavilion,
                   the 5-Stand, a stretch of the Riverside course, and a short talk about our founding class.
                   Small groups of up to four.
                 </p>
