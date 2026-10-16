@@ -29,8 +29,9 @@ export default function AcuityEmbed({ appointmentType, title }: { appointmentTyp
       ></iframe>
       <Script src="https://embed.acuityscheduling.com/js/embed.js" strategy="afterInteractive" />
       <p className="text-sm text-[#666666] text-center mt-4">
-        Trouble booking? Call us at{" "}
-        <a href="tel:+18433218152" className="text-[#a75235] font-semibold hover:underline">(843) 321-8152</a>.
+        Calendar not loading? Try turning off your VPN or ad blocker, or call or text us at{" "}
+        <a href="tel:+18433218152" className="text-[#a75235] font-semibold hover:underline">(843) 321-8152</a>{" "}
+        and we&apos;ll book you.
       </p>
     </div>
   );
