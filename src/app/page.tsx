@@ -450,6 +450,13 @@ export default function Home() {
                   >
                     Become A Member
                   </Link>
+                  <Link
+                    href="/tour#book"
+                    className="inline-block bg-transparent border-2 border-[#4d5c47] text-[#4d5c47] px-8 py-3 font-semibold tracking-wide hover:bg-[#4d5c47] hover:text-[#f5f2ec] transition-colors rounded-lg text-center"
+                    style={{ fontFamily: "var(--font-heading), serif" }}
+                  >
+                    Book A Tour
+                  </Link>
                 </div>
               </div>
             </div>

@@ -80,6 +80,13 @@ export default function Header() {
             >
               Become A Member
             </Link>
+            <Link
+              href="/tour#book"
+              className="border-2 border-white text-white text-sm xl:text-base font-bold uppercase tracking-wide xl:tracking-widest px-4 xl:px-6 py-[6px] hover:bg-white hover:text-[#162838] transition-colors duration-200 rounded whitespace-nowrap [text-shadow:0_1px_4px_rgba(0,0,0,0.5)] hover:[text-shadow:none]"
+              style={{ fontFamily: "var(--font-heading), serif" }}
+            >
+              Book A Tour
+            </Link>
           </nav>
 
           {/* Mobile Menu Button - Absolute Right. Hidden while the menu is open — the
@@ -147,6 +154,14 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
             >
               Become A Member
+            </Link>
+            <Link
+              href="/tour#book"
+              className="border-2 border-[#4d5c47] text-[#4d5c47] text-sm font-bold uppercase tracking-widest px-5 py-[10px] text-center hover:bg-[#4d5c47] hover:text-[#f5f2ec] transition-colors duration-200 rounded"
+              style={{ fontFamily: "var(--font-heading), serif" }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Book A Tour
             </Link>
           </div>
         </nav>
