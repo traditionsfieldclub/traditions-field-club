@@ -51,6 +51,8 @@ const VALID_MEMBERSHIP_TYPES = [
   "Corporate Membership ($3,500/year)",
   "Member for a Day ($100)",
   "Day guest",
+  "Tour Traditions (complimentary)",
+  "Guest / Visitor",
 ];
 
 // --- Email Validation ---
