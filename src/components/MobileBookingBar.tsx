@@ -5,9 +5,9 @@ import Link from "next/link";
 export default function MobileBookingBar() {
   return (
     <>
-      <div className="h-[72px] md:hidden" aria-hidden="true"></div>
-      <div className="fixed bottom-0 inset-x-0 z-40 md:hidden bg-[#162838]/95 backdrop-blur border-t border-white/10 px-3 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
-        <div className="grid grid-cols-2 gap-3">
+      <div className="h-[72px] md:hidden [@media(pointer:coarse)]:block" aria-hidden="true"></div>
+      <div className="fixed bottom-0 inset-x-0 z-40 md:hidden [@media(pointer:coarse)]:block bg-[#162838]/95 backdrop-blur border-t border-white/10 px-3 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+        <div className="grid grid-cols-2 gap-3 max-w-xl mx-auto">
           <Link
             href="/tour#book"
             className="border-2 border-[#f5f2ec] text-[#f5f2ec] text-sm font-bold uppercase tracking-wider py-[10px] text-center rounded"

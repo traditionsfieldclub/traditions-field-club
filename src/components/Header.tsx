@@ -100,16 +100,20 @@ export default function Header() {
               Become A Member
             </Link>
             <div className="relative group" ref={bookRef}>
-              <button
-                type="button"
+              <a
+                href="/tour#book"
+                role="button"
                 aria-haspopup="true"
                 aria-expanded={bookOpen}
-                onClick={() => setBookOpen((o) => !o)}
-                className="border-2 border-white text-white text-sm xl:text-base font-bold uppercase tracking-wide xl:tracking-widest px-4 xl:px-6 py-[6px] hover:bg-white hover:text-[#162838] aria-expanded:bg-white aria-expanded:text-[#162838] transition-colors duration-200 rounded whitespace-nowrap cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setBookOpen((o) => !o);
+                }}
+                className="border-2 border-white text-white text-sm xl:text-base font-bold uppercase tracking-wide xl:tracking-widest px-4 xl:px-6 py-[6px] hover:bg-white hover:text-[#162838] aria-expanded:bg-white aria-expanded:text-[#162838] transition-colors duration-200 rounded whitespace-nowrap cursor-pointer inline-block"
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
                 Book
-              </button>
+              </a>
               <div className={`absolute right-0 top-full pt-2 ${bookOpen ? "block" : "hidden"} [@media(hover:hover)]:group-hover:block`}>
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden min-w-[220px]">
                   <Link
