@@ -283,6 +283,37 @@ export default function MemberForADay() {
             </div>
           </div>
         </section>
+        {/* Tour Traditions */}
+        <section id="tour" className="pb-16 md:pb-24">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-white rounded-lg shadow-sm border border-[#e8e4dc] border-l-4 border-l-[#4d5c47] p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
+              <div className="flex-grow text-center md:text-left">
+                <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Not ready to shoot?</span>
+                <h2
+                  className="text-2xl md:text-3xl text-[#162838] mt-2 mb-2"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Tour Traditions
+                </h2>
+                <p className="text-[#333333] leading-relaxed">
+                  A complimentary guided look at the property, about 45 minutes with no shooting: the pavilion,
+                  the 5-Stand, a stretch of the Riverside course, and a short talk about our founding class.
+                  Small groups of up to four.
+                </p>
+                <p className="text-sm text-[#666666] italic mt-2">No cost, no commitment.</p>
+              </div>
+              <div className="flex-shrink-0">
+                <a
+                  href="/tour"
+                  className="inline-block w-full md:w-auto border-2 border-[#a75235] text-[#a75235] px-8 py-3 text-center font-semibold tracking-wide hover:bg-[#a75235] hover:text-[#f5f2ec] transition-colors rounded-lg"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Tour Traditions
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </>

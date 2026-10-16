@@ -389,14 +389,24 @@ export default function Membership() {
                   <p className="text-sm text-[#666666] italic mt-1">
                     Shotgun rental, shells, and eye and ear protection all included.
                   </p>
+                  <p className="text-sm text-[#666666] mt-1">
+                    Want to look around first? Ask for a complimentary tour. No cost, no commitment.
+                  </p>
                 </div>
-                <div className="flex-shrink-0">
+                <div className="flex-shrink-0 flex flex-col gap-3">
                   <a
                     href="/member-for-a-day"
                     className="inline-block w-full md:w-auto border-2 border-[#a75235] text-[#a75235] px-8 py-3 text-center font-semibold tracking-wide hover:bg-[#a75235] hover:text-[#f5f2ec] transition-colors rounded-lg"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
                     Book your day
+                  </a>
+                  <a
+                    href="/tour"
+                    className="inline-block w-full md:w-auto bg-[#4d5c47] border-2 border-[#4d5c47] text-[#f5f2ec] px-8 py-3 text-center font-semibold tracking-wide hover:bg-[#162838] hover:border-[#162838] transition-colors rounded-lg"
+                    style={{ fontFamily: "var(--font-heading), serif" }}
+                  >
+                    Tour Traditions
                   </a>
                 </div>
               </div>

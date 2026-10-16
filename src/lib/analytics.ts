@@ -10,7 +10,8 @@ export type GAEvent =
   | "waiver_signed"
   | "newsletter_signup"
   | "cta_click"
-  | "mfad_booking_request";
+  | "mfad_booking_request"
+  | "tour_request";
 
 export function trackEvent(event: GAEvent, params: Record<string, unknown> = {}) {
   if (typeof window === "undefined" || typeof window.gtag !== "function") return;
