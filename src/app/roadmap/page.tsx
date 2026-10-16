@@ -279,6 +279,14 @@ export default function Roadmap() {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                    <span>Fire pits</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                    <span>Primitive campsites for members</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
                     <span>Key card member access system</span>
                   </li>
                   <li className="flex items-start gap-3">
