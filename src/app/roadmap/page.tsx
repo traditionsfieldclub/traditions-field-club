@@ -205,6 +205,10 @@ export default function Roadmap() {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                    <span>5-stand with 14 machines</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
                     <span>Member check-in and basic amenities</span>
                   </li>
                   <li className="flex items-start gap-3">
