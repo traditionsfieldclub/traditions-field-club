@@ -414,6 +414,45 @@ export default function Membership() {
           </div>
         </section>
 
+        {/* Member Vehicle Storage */}
+        <section id="vehicle-storage" className="py-16 md:py-24 bg-white overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+              <figure className="lg:order-2">
+                <div className="relative aspect-[16/9] rounded-lg overflow-hidden">
+                  <Picture
+                    name="member-utv-storage"
+                    alt="A side-by-side outfitted for sporting clays, with a roll cage gun rack, shell bag and gear box, parked on a sandy trail among the pines"
+                    imgClassName="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
+                <figcaption className="mt-2 text-xs text-[#666666] italic">Simulated photo for illustration.</figcaption>
+              </figure>
+              <div className="lg:order-1 text-center lg:text-left">
+                <div className="flex items-center justify-center lg:justify-start gap-4 mb-4">
+                  <span className="h-[1px] w-8 md:w-12 bg-[#a75235]"></span>
+                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Member Perk</span>
+                </div>
+                <h2
+                  className="text-3xl md:text-4xl text-[#162838] mb-6"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Your Second Home Has Room for Your Ride
+                </h2>
+                <p className="text-[#333333] leading-relaxed mb-4">
+                  Traditions is meant to feel like your second home, and we want to make it easy. Short
+                  on space at home? Members may keep their UTV, side-by-side or golf cart here. Think of
+                  it like dry stack storage at a marina: let us know you&apos;re coming out, and
+                  we&apos;ll have your ride ready when you arrive.
+                </p>
+                <p className="text-sm text-[#666666] italic">
+                  Vehicles must be covered by the owner&apos;s insurance.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Corporate and Hosted Events */}
         <section id="corporate-events" className="py-16 md:py-24 bg-[#162838] overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -572,45 +611,6 @@ export default function Membership() {
                     <p className="text-sm text-[#333333]">Keep your UTV, side-by-side or golf cart at the club. Let us know you&apos;re coming and it will be ready</p>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Member Vehicle Storage */}
-        <section id="vehicle-storage" className="py-16 md:py-24 bg-[#f5f2ec] overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-              <figure className="lg:order-2">
-                <div className="relative aspect-[16/9] rounded-lg overflow-hidden">
-                  <Picture
-                    name="member-utv-storage"
-                    alt="A side-by-side outfitted for sporting clays, with a roll cage gun rack, shell bag and gear box, parked on a sandy trail among the pines"
-                    imgClassName="absolute inset-0 w-full h-full object-cover"
-                  />
-                </div>
-                <figcaption className="mt-2 text-xs text-[#666666] italic">Simulated photo for illustration.</figcaption>
-              </figure>
-              <div className="lg:order-1 text-center lg:text-left">
-                <div className="flex items-center justify-center lg:justify-start gap-4 mb-4">
-                  <span className="h-[1px] w-8 md:w-12 bg-[#a75235]"></span>
-                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Member Perk</span>
-                </div>
-                <h2
-                  className="text-3xl md:text-4xl text-[#162838] mb-6"
-                  style={{ fontFamily: "var(--font-heading), serif" }}
-                >
-                  Your Second Home Has Room for Your Ride
-                </h2>
-                <p className="text-[#333333] leading-relaxed mb-4">
-                  Traditions is meant to feel like your second home, and we want to make it easy. Short
-                  on space at home? Members may keep their UTV, side-by-side or golf cart here. Think of
-                  it like dry stack storage at a marina: let us know you&apos;re coming out, and
-                  we&apos;ll have your ride ready when you arrive.
-                </p>
-                <p className="text-sm text-[#666666] italic">
-                  Vehicles must be covered by the owner&apos;s insurance.
-                </p>
               </div>
             </div>
           </div>
