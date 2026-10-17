@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
 import { Resend } from "resend";
+import { membershipReply, sendAutoReply } from "@/lib/autoReply";
 
 function esc(str: string): string {
   return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -595,6 +596,11 @@ export async function POST(req: NextRequest) {
     } catch (emailError) {
       console.error("Resend email failed:", emailError);
       // Don't block the response
+    }
+
+    // Automatic reply to the visitor (never blocks the submission)
+    if (RESEND_API_KEY && RESEND_API_KEY !== "REPLACE_WITH_REAL_API_KEY") {
+      await sendAutoReply(new Resend(RESEND_API_KEY), email.trim(), membershipReply(firstName.trim()));
     }
 
     return NextResponse.json({ success: true, pdf: pdfBase64 });

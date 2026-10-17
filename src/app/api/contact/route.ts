@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { contactReply, sendAutoReply } from "@/lib/autoReply";
 
 function esc(str: string): string {
   return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -171,6 +172,7 @@ export async function POST(req: NextRequest) {
         await resend.emails.send({
           from: "Traditions Field Club <noreply@traditionsfieldclub.com>",
           to: ["admin@traditionsfieldclub.com", "brian@traditionsfieldclub.com", "jim@traditionsfieldclub.com"],
+          replyTo: email.trim(),
           subject: `New Contact Form: ${topic} — ${firstName} ${lastName}`,
           html: `
             <h2>New Contact Form Submission</h2>
@@ -187,6 +189,11 @@ export async function POST(req: NextRequest) {
       }
     } catch (emailError) {
       console.error("Resend email failed:", emailError);
+    }
+
+    // Automatic reply to the visitor (never blocks the submission)
+    if (RESEND_API_KEY && RESEND_API_KEY !== "REPLACE_WITH_REAL_API_KEY") {
+      await sendAutoReply(new Resend(RESEND_API_KEY), email.trim(), contactReply(firstName.trim(), topic));
     }
 
     return NextResponse.json({ success: true });
