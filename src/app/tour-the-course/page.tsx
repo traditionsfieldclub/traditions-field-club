@@ -16,19 +16,38 @@ type Station = {
   difficulty: string;
   x: number;
   y: number;
-  lat: number | null;
-  lng: number | null;
+  lat: number;
+  lng: number;
   description: string;
   photo: string | null;
   video: string | null;
 };
 
+type Bounds = { north: number; south: number; west: number; east: number };
+
 const stations = data.stations as Station[];
+const FULL = data.bounds as Bounds;
+const COURSES = data.courseView as Bounds;
+const boundary = data.boundary as number[][];
+const landmarks = data.landmarks as { id: string; label: string; lat: number; lng: number }[];
+
+const VIEWS = {
+  courses: { bounds: COURSES, image: "tfc-aerial-courses-2023", aspect: "1293 / 1317" },
+  property: { bounds: FULL, image: "tfc-aerial-2023", aspect: "2000 / 1224" },
+} as const;
+type ViewKey = keyof typeof VIEWS;
+
+function toPct(b: Bounds, lat: number, lng: number) {
+  return {
+    x: ((lng - b.west) / (b.east - b.west)) * 100,
+    y: ((b.north - lat) / (b.north - b.south)) * 100,
+  };
+}
 
 const COURSE_STYLE: Record<string, { pin: string; chip: string }> = {
-  "Course 1": { pin: "bg-[#a75235] text-[#f5f2ec]", chip: "bg-[#a75235]" },
-  "Course 2": { pin: "bg-[#4d5c47] text-[#f5f2ec]", chip: "bg-[#4d5c47]" },
-  "5-Stand": { pin: "bg-[#162838] text-[#f5f2ec] ring-2 ring-[#f5f2ec]", chip: "bg-[#162838]" },
+  Riverside: { pin: "bg-[#a75235] text-[#f5f2ec]", chip: "bg-[#a75235]" },
+  Evergreen: { pin: "bg-[#4d5c47] text-[#f5f2ec]", chip: "bg-[#4d5c47]" },
+  "5-Stand": { pin: "bg-[#162838] text-[#f5f2ec]", chip: "bg-[#162838]" },
 };
 
 function isEmbeddable(url: string) {
@@ -43,38 +62,17 @@ function toEmbed(url: string) {
   return url;
 }
 
-function CourseMap() {
-  // Illustrated, not to scale. Pins are positioned by percent from src/data/course-stations.json.
-  return (
-    <svg viewBox="0 0 1000 700" className="absolute inset-0 w-full h-full" aria-hidden="true" preserveAspectRatio="none">
-      <defs>
-        <pattern id="pines" width="28" height="28" patternUnits="userSpaceOnUse">
-          <circle cx="7" cy="7" r="5" fill="#3f5a3a" opacity="0.55" />
-          <circle cx="21" cy="19" r="6" fill="#36502f" opacity="0.5" />
-        </pattern>
-      </defs>
-      <rect width="1000" height="700" fill="#5b7a4f" />
-      <rect width="1000" height="700" fill="url(#pines)" />
-      {/* Wild side tease, upper left */}
-      <rect x="0" y="0" width="300" height="230" fill="#1f2a1c" opacity="0.55" />
-      {/* River */}
-      <path d="M0 660 C 150 630, 260 700, 400 690 S 650 660, 760 700" stroke="#6f8fa3" strokeWidth="26" fill="none" opacity="0.9" />
-      <path d="M0 660 C 150 630, 260 700, 400 690 S 650 660, 760 700" stroke="#9fb9c8" strokeWidth="8" fill="none" opacity="0.7" />
-      {/* Trails */}
-      <path d="M500 560 L560 500 L610 440 L660 385 L720 330 L780 280 L835 235 L870 300 L860 380 L820 450 L760 510 L700 560 L620 610 L540 640 L460 655 L380 640"
-        stroke="#e9dfc7" strokeWidth="6" strokeDasharray="2 10" strokeLinecap="round" fill="none" />
-      <path d="M500 560 L440 500 L400 450 L360 400 L320 350 L270 310 L220 280 L180 330 L170 400 L200 460 L250 500 L310 530 L370 540 L500 560"
-        stroke="#e9dfc7" strokeWidth="6" strokeDasharray="2 10" strokeLinecap="round" fill="none" />
-      {/* Pavilion and entrance */}
-      <rect x="470" y="540" width="60" height="34" rx="4" fill="#e9dfc7" />
-      <path d="M500 574 L500 700" stroke="#d8ccb0" strokeWidth="10" />
-    </svg>
-  );
-}
-
 export default function TourTheCourse() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [filter, setFilter] = useState<string>("All");
+  const [view, setView] = useState<ViewKey>("courses");
+  const v = VIEWS[view];
+  const outline = boundary
+    .map(([lng, lat]) => {
+      const p = toPct(v.bounds, lat, lng);
+      return `${p.x.toFixed(2)},${p.y.toFixed(2)}`;
+    })
+    .join(" ");
   const active = stations.find((s) => s.id === activeId) || null;
 
   useEffect(() => {
@@ -113,7 +111,7 @@ export default function TourTheCourse() {
               Tour the Course
             </h1>
             <p className="text-lg md:text-xl text-[#f5f2ec] max-w-2xl mx-auto opacity-90">
-              Two sporting clays courses, Riverside stands along the Salkehatchie, and a 5-Stand with fourteen machines.
+              Two sporting clays courses, Riverside and Evergreen, with Riverside stands 12 to 15 along the old Salkehatchie River, plus a 5-Stand with fourteen machines.
               Tap any station to take a look.
             </p>
           </div>
@@ -125,8 +123,8 @@ export default function TourTheCourse() {
             <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
               {[
                 ["All", "All stations"],
-                ["Course 1", "Course 1: 15 stations"],
-                ["Course 2", "Course 2: 12 stations"],
+                ["Riverside", "Riverside: 15 stands"],
+                ["Evergreen", "Evergreen: 12 stands"],
                 ["5-Stand", "5-Stand"],
               ].map(([key, label]) => (
                 <button
@@ -146,34 +144,98 @@ export default function TourTheCourse() {
               ))}
             </div>
 
-            <div className="relative w-full aspect-[10/7] rounded-lg overflow-hidden shadow-md select-none">
-              <CourseMap />
-              <div className="absolute left-[2%] top-[3%] max-w-[26%] text-[#f5f2ec]/80 text-[10px] sm:text-xs md:text-sm italic leading-snug pointer-events-none">
-                Beyond the courses lies the wild side. Members only.
+            <div className="flex justify-center mb-4">
+              <div className="inline-flex rounded-lg border-2 border-[#162838]/20 p-1 bg-white">
+                {([
+                  ["courses", "The courses"],
+                  ["property", "Whole property"],
+                ] as [ViewKey, string][]).map(([key, label]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    onClick={() => setView(key)}
+                    aria-pressed={view === key}
+                    className={`px-4 py-1.5 rounded-md text-sm font-semibold cursor-pointer transition-colors ${
+                      view === key ? "bg-[#4d5c47] text-[#f5f2ec]" : "text-[#162838] hover:bg-[#f5f2ec]"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                ))}
               </div>
-              <div className="absolute left-[3%] bottom-[11%] text-[#f5f2ec] text-[10px] sm:text-xs md:text-sm font-semibold tracking-wider uppercase pointer-events-none">
-                Salkehatchie River
+            </div>
+
+            <div
+              className={`relative w-full mx-auto rounded-lg overflow-hidden shadow-md select-none bg-[#2f3b2a] ${view === "courses" ? "max-w-3xl" : ""}`}
+              style={{ aspectRatio: v.aspect }}
+            >
+              <Picture
+                name={v.image}
+                alt={view === "courses" ? "2023 aerial view of the Riverside and Evergreen courses" : "2023 aerial view of the whole Traditions Field Club property"}
+                imgClassName="absolute inset-0 w-full h-full object-cover"
+              />
+              <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="wild" x1="0" x2="1" y1="0" y2="0">
+                    <stop offset="0" stopColor="#0f1a0e" stopOpacity="0.6" />
+                    <stop offset="1" stopColor="#0f1a0e" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+                {/* Members-only wild side tease: a soft veil to the west, no pin */}
+                <rect x="0" y="0" width={view === "courses" ? 22 : 48} height="100" fill="url(#wild)" />
+                <polygon points={outline} fill="none" stroke="#f5f2ec" strokeOpacity="0.75" strokeWidth="1.5" strokeDasharray="6 4" vectorEffect="non-scaling-stroke" />
+              </svg>
+              <div className="absolute left-[2%] top-[3%] max-w-[30%] text-[#f5f2ec]/85 text-[10px] sm:text-xs md:text-sm italic leading-snug pointer-events-none [text-shadow:0_1px_3px_rgba(0,0,0,0.8)]">
+                {view === "courses" ? "Beyond the courses lies the wild side." : "The wild side."} Members only.
               </div>
-              <div className="absolute left-1/2 -translate-x-1/2 top-[73%] text-[#162838] text-[9px] sm:text-[11px] font-bold uppercase tracking-wider pointer-events-none mt-6 sm:mt-8">
-                Pavilion
-              </div>
-              {visible.map((s) => (
-                <button
-                  key={s.id}
-                  type="button"
-                  onClick={() => setActiveId(s.id)}
-                  aria-label={`${s.name}, ${s.difficulty}`}
-                  className={`absolute -translate-x-1/2 -translate-y-1/2 w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold shadow-lg cursor-pointer transition-transform hover:scale-110 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/70 touch-manipulation ${
-                    COURSE_STYLE[s.course].pin
-                  } ${activeId === s.id ? "scale-125 ring-4 ring-white" : ""}`}
-                  style={{ left: `${s.x}%`, top: `${s.y}%` }}
+              {view === "courses" && (
+                <div
+                  className="absolute text-[#f5f2ec] text-[9px] sm:text-[11px] md:text-xs font-semibold tracking-wider uppercase pointer-events-none [text-shadow:0_1px_3px_rgba(0,0,0,0.9)] -rotate-90 origin-left whitespace-nowrap"
+                  style={{ left: "6%", top: "98%" }}
                 >
-                  {s.label}
-                </button>
-              ))}
+                  Old Salkehatchie River
+                </div>
+              )}
+              {landmarks.map((l) => {
+                const p = toPct(v.bounds, l.lat, l.lng);
+                return (
+                  <div
+                    key={l.id}
+                    className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-none"
+                    style={{ left: `${p.x}%`, top: `${p.y}%` }}
+                  >
+                    <span className="block w-3 h-3 rotate-45 bg-[#f5f2ec] shadow"></span>
+                    {view === "courses" && (
+                      <span className="mt-1 text-[#f5f2ec] text-[9px] sm:text-[11px] font-bold uppercase tracking-wider [text-shadow:0_1px_3px_rgba(0,0,0,0.9)]">
+                        {l.label}
+                      </span>
+                    )}
+                  </div>
+                );
+              })}
+              {visible.map((s) => {
+                const p = view === "courses" ? toPct(v.bounds, s.lat, s.lng) : { x: s.x, y: s.y };
+                const small = view === "property";
+                return (
+                  <button
+                    key={s.id}
+                    type="button"
+                    onClick={() => setActiveId(s.id)}
+                    aria-label={`${s.name}, ${s.difficulty}`}
+                    className={`absolute -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center font-bold shadow-lg cursor-pointer transition-transform hover:scale-110 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/70 touch-manipulation ring-1 ring-[#f5f2ec]/80 ${
+                      small
+                        ? "w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-[0px]"
+                        : "w-5 h-5 text-[10px] sm:w-7 sm:h-7 sm:text-xs md:w-8 md:h-8 md:text-sm"
+                    } ${COURSE_STYLE[s.course].pin} ${activeId === s.id ? "scale-125 ring-4 ring-white z-10" : ""}`}
+                    style={{ left: `${p.x}%`, top: `${p.y}%` }}
+                  >
+                    {small ? "" : s.label}
+                  </button>
+                );
+              })}
             </div>
             <p className="text-xs text-[#666666] text-center mt-3">
-              Illustrated map, not to scale. Station photos and videos are being added.
+              Aerial imagery 2023. Imagery: USDA NAIP 2023. Station positions are approximate, and photos and videos are being added.
             </p>
           </div>
         </section>

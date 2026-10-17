@@ -1,381 +1,428 @@
 {
-  "_note": "Placeholder positions. x and y are percent of the map width and height. Fill lat/lng from Google Maps and run scripts/latlng-to-xy.mjs to compute x/y.",
+  "_note": "lat/lng from Jim's Google Maps pins (exact where shown, otherwise read from his screenshot, georeferenced to about 0.3 m). x/y are percent of the whole-property aerial (bounds below), computed with scripts/latlng-to-xy.mjs. The Courses view computes its own positions from lat/lng.",
+  "bounds": {
+    "north": 32.9017,
+    "south": 32.8868,
+    "west": -80.8815,
+    "east": -80.8525
+  },
+  "courseView": {
+    "north": 32.8986,
+    "south": 32.8915,
+    "west": -80.8655,
+    "east": -80.8572
+  },
+  "landmarks": [
+    {
+      "id": "pavilion",
+      "label": "Pavilion",
+      "lat": 32.8975974,
+      "lng": -80.8588151
+    }
+  ],
   "stations": [
     {
-      "id": "c1-1",
+      "id": "r-1",
       "label": "1",
-      "name": "Course 1, Station 1",
-      "course": "Course 1",
+      "name": "Riverside Stand 1",
+      "course": "Riverside",
       "difficulty": "Intermediate to advanced",
-      "x": 56.0,
-      "y": 71.4,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
+      "x": 66.9,
+      "y": 28.3,
+      "lat": 32.8974833,
+      "lng": -80.8620968,
+      "position": "exact",
+      "description": "Target presentations for this stand will be added soon.",
       "photo": "/media/photo-shooter-stand.jpg",
       "video": null
     },
     {
-      "id": "c1-2",
+      "id": "r-2",
       "label": "2",
-      "name": "Course 1, Station 2",
-      "course": "Course 1",
+      "name": "Riverside Stand 2",
+      "course": "Riverside",
       "difficulty": "Intermediate to advanced",
-      "x": 61.0,
-      "y": 62.9,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
+      "x": 65.2,
+      "y": 29,
+      "lat": 32.8973847,
+      "lng": -80.862596,
+      "position": "from screenshot",
+      "description": "Target presentations for this stand will be added soon.",
       "photo": "/media/photo-shooter-stand.jpg",
       "video": null
     },
     {
-      "id": "c1-3",
+      "id": "r-3",
       "label": "3",
-      "name": "Course 1, Station 3",
-      "course": "Course 1",
+      "name": "Riverside Stand 3",
+      "course": "Riverside",
       "difficulty": "Intermediate to advanced",
-      "x": 66.0,
-      "y": 55.0,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
+      "x": 63.9,
+      "y": 29.6,
+      "lat": 32.8972857,
+      "lng": -80.8629623,
+      "position": "from screenshot",
+      "description": "Target presentations for this stand will be added soon.",
       "photo": "/media/photo-shooter-stand.jpg",
       "video": null
     },
     {
-      "id": "c1-4",
+      "id": "r-4",
       "label": "4",
-      "name": "Course 1, Station 4",
-      "course": "Course 1",
+      "name": "Riverside Stand 4",
+      "course": "Riverside",
       "difficulty": "Intermediate to advanced",
-      "x": 72.0,
-      "y": 47.1,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
+      "x": 62.6,
+      "y": 34.3,
+      "lat": 32.8965871,
+      "lng": -80.8633406,
+      "position": "from screenshot",
+      "description": "Target presentations for this stand will be added soon.",
       "photo": "/media/photo-shooter-stand.jpg",
       "video": null
     },
     {
-      "id": "c1-5",
+      "id": "r-5",
       "label": "5",
-      "name": "Course 1, Station 5",
-      "course": "Course 1",
+      "name": "Riverside Stand 5",
+      "course": "Riverside",
       "difficulty": "Intermediate to advanced",
-      "x": 78.0,
-      "y": 40.0,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
+      "x": 61.5,
+      "y": 36.9,
+      "lat": 32.8962013,
+      "lng": -80.8636756,
+      "position": "from screenshot",
+      "description": "Target presentations for this stand will be added soon.",
       "photo": "/media/photo-shooter-stand.jpg",
       "video": null
     },
     {
-      "id": "c1-6",
+      "id": "r-6",
       "label": "6",
-      "name": "Course 1, Station 6",
-      "course": "Course 1",
+      "name": "Riverside Stand 6",
+      "course": "Riverside",
       "difficulty": "Intermediate to advanced",
-      "x": 83.5,
-      "y": 33.6,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
+      "x": 61.1,
+      "y": 39.4,
+      "lat": 32.8958259,
+      "lng": -80.8637809,
+      "position": "from screenshot",
+      "description": "Target presentations for this stand will be added soon.",
       "photo": "/media/photo-shooter-stand.jpg",
       "video": null
     },
     {
-      "id": "c1-7",
+      "id": "r-7",
       "label": "7",
-      "name": "Course 1, Station 7",
-      "course": "Course 1",
+      "name": "Riverside Stand 7",
+      "course": "Riverside",
       "difficulty": "Intermediate to advanced",
-      "x": 87.0,
+      "x": 60,
       "y": 42.9,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
+      "lat": 32.8953055,
+      "lng": -80.8641011,
+      "position": "exact",
+      "description": "Target presentations for this stand will be added soon.",
       "photo": "/media/photo-shooter-stand.jpg",
       "video": null
     },
     {
-      "id": "c1-8",
+      "id": "r-8",
       "label": "8",
-      "name": "Course 1, Station 8",
-      "course": "Course 1",
+      "name": "Riverside Stand 8",
+      "course": "Riverside",
       "difficulty": "Intermediate to advanced",
-      "x": 86.0,
-      "y": 54.3,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
+      "x": 59.2,
+      "y": 44.6,
+      "lat": 32.8950533,
+      "lng": -80.8643217,
+      "position": "exact",
+      "description": "Target presentations for this stand will be added soon.",
       "photo": "/media/photo-shooter-stand.jpg",
       "video": null
     },
     {
-      "id": "c1-9",
+      "id": "r-9",
       "label": "9",
-      "name": "Course 1, Station 9",
-      "course": "Course 1",
+      "name": "Riverside Stand 9",
+      "course": "Riverside",
       "difficulty": "Intermediate to advanced",
-      "x": 82.0,
-      "y": 64.3,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
-      "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
-    },
-    {
-      "id": "c1-10",
-      "label": "10",
-      "name": "Course 1, Station 10",
-      "course": "Course 1",
-      "difficulty": "Intermediate to advanced",
-      "x": 76.0,
-      "y": 72.9,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
-      "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
-    },
-    {
-      "id": "c1-11",
-      "label": "11",
-      "name": "Course 1, Station 11",
-      "course": "Course 1",
-      "difficulty": "Intermediate to advanced",
-      "x": 70.0,
-      "y": 80.0,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
-      "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
-    },
-    {
-      "id": "c1-12",
-      "label": "12",
-      "name": "Course 1, Station 12 (Riverside)",
-      "course": "Course 1",
-      "difficulty": "Intermediate to advanced",
-      "x": 62.0,
-      "y": 87.1,
-      "lat": null,
-      "lng": null,
-      "description": "One of four Riverside stands along the old Salkehatchie River, with targets presented over and along the water.",
-      "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
-    },
-    {
-      "id": "c1-13",
-      "label": "13",
-      "name": "Course 1, Station 13 (Riverside)",
-      "course": "Course 1",
-      "difficulty": "Intermediate to advanced",
-      "x": 54.0,
-      "y": 91.4,
-      "lat": null,
-      "lng": null,
-      "description": "One of four Riverside stands along the old Salkehatchie River, with targets presented over and along the water.",
-      "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
-    },
-    {
-      "id": "c1-14",
-      "label": "14",
-      "name": "Course 1, Station 14 (Riverside)",
-      "course": "Course 1",
-      "difficulty": "Intermediate to advanced",
-      "x": 46.0,
-      "y": 93.6,
-      "lat": null,
-      "lng": null,
-      "description": "One of four Riverside stands along the old Salkehatchie River, with targets presented over and along the water.",
-      "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
-    },
-    {
-      "id": "c1-15",
-      "label": "15",
-      "name": "Course 1, Station 15 (Riverside)",
-      "course": "Course 1",
-      "difficulty": "Intermediate to advanced",
-      "x": 38.0,
-      "y": 91.4,
-      "lat": null,
-      "lng": null,
-      "description": "One of four Riverside stands along the old Salkehatchie River, with targets presented over and along the water.",
-      "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
-    },
-    {
-      "id": "c2-1",
-      "label": "1",
-      "name": "Course 2, Station 1",
-      "course": "Course 2",
-      "difficulty": "Beginner to intermediate",
-      "x": 44.0,
-      "y": 71.4,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
-      "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
-    },
-    {
-      "id": "c2-2",
-      "label": "2",
-      "name": "Course 2, Station 2",
-      "course": "Course 2",
-      "difficulty": "Beginner to intermediate",
-      "x": 40.0,
-      "y": 64.3,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
-      "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
-    },
-    {
-      "id": "c2-3",
-      "label": "3",
-      "name": "Course 2, Station 3",
-      "course": "Course 2",
-      "difficulty": "Beginner to intermediate",
-      "x": 36.0,
-      "y": 57.1,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
-      "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
-    },
-    {
-      "id": "c2-4",
-      "label": "4",
-      "name": "Course 2, Station 4",
-      "course": "Course 2",
-      "difficulty": "Beginner to intermediate",
-      "x": 32.0,
-      "y": 50.0,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
-      "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
-    },
-    {
-      "id": "c2-5",
-      "label": "5",
-      "name": "Course 2, Station 5",
-      "course": "Course 2",
-      "difficulty": "Beginner to intermediate",
-      "x": 27.0,
-      "y": 44.3,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
-      "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
-    },
-    {
-      "id": "c2-6",
-      "label": "6",
-      "name": "Course 2, Station 6",
-      "course": "Course 2",
-      "difficulty": "Beginner to intermediate",
-      "x": 22.0,
-      "y": 40.0,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
-      "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
-    },
-    {
-      "id": "c2-7",
-      "label": "7",
-      "name": "Course 2, Station 7",
-      "course": "Course 2",
-      "difficulty": "Beginner to intermediate",
-      "x": 18.0,
+      "x": 59.3,
       "y": 47.1,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
+      "lat": 32.8946834,
+      "lng": -80.8642928,
+      "position": "exact",
+      "description": "Target presentations for this stand will be added soon.",
       "photo": "/media/photo-shooter-stand.jpg",
       "video": null
     },
     {
-      "id": "c2-8",
-      "label": "8",
-      "name": "Course 2, Station 8",
-      "course": "Course 2",
-      "difficulty": "Beginner to intermediate",
-      "x": 17.0,
-      "y": 57.1,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
-      "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
-    },
-    {
-      "id": "c2-9",
-      "label": "9",
-      "name": "Course 2, Station 9",
-      "course": "Course 2",
-      "difficulty": "Beginner to intermediate",
-      "x": 20.0,
-      "y": 65.7,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
-      "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
-    },
-    {
-      "id": "c2-10",
+      "id": "r-10",
       "label": "10",
-      "name": "Course 2, Station 10",
-      "course": "Course 2",
-      "difficulty": "Beginner to intermediate",
-      "x": 25.0,
-      "y": 71.4,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
+      "name": "Riverside Stand 10",
+      "course": "Riverside",
+      "difficulty": "Intermediate to advanced",
+      "x": 58.8,
+      "y": 50.8,
+      "lat": 32.8941237,
+      "lng": -80.8644578,
+      "position": "exact",
+      "description": "Target presentations for this stand will be added soon.",
       "photo": "/media/photo-shooter-stand.jpg",
       "video": null
     },
     {
-      "id": "c2-11",
+      "id": "r-11",
       "label": "11",
-      "name": "Course 2, Station 11",
-      "course": "Course 2",
-      "difficulty": "Beginner to intermediate",
-      "x": 31.0,
-      "y": 75.7,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
+      "name": "Riverside Stand 11",
+      "course": "Riverside",
+      "difficulty": "Intermediate to advanced",
+      "x": 59.7,
+      "y": 52.9,
+      "lat": 32.8938253,
+      "lng": -80.8641751,
+      "position": "exact",
+      "description": "Target presentations for this stand will be added soon.",
       "photo": "/media/photo-shooter-stand.jpg",
       "video": null
     },
     {
-      "id": "c2-12",
+      "id": "r-12",
       "label": "12",
-      "name": "Course 2, Station 12",
-      "course": "Course 2",
+      "name": "Riverside Stand 12",
+      "course": "Riverside",
+      "difficulty": "Intermediate to advanced",
+      "x": 59.3,
+      "y": 58.7,
+      "lat": 32.8929545,
+      "lng": -80.8642915,
+      "position": "exact",
+      "description": "One of the Riverside stands along the old Salkehatchie River. Target presentations will be added soon.",
+      "photo": "/media/photo-shooter-stand.jpg",
+      "video": null
+    },
+    {
+      "id": "r-13",
+      "label": "13",
+      "name": "Riverside Stand 13",
+      "course": "Riverside",
+      "difficulty": "Intermediate to advanced",
+      "x": 58.2,
+      "y": 59.4,
+      "lat": 32.892854,
+      "lng": -80.8646174,
+      "position": "exact",
+      "description": "One of the Riverside stands along the old Salkehatchie River. Target presentations will be added soon.",
+      "photo": "/media/photo-shooter-stand.jpg",
+      "video": null
+    },
+    {
+      "id": "r-14",
+      "label": "14",
+      "name": "Riverside Stand 14",
+      "course": "Riverside",
+      "difficulty": "Intermediate to advanced",
+      "x": 58.1,
+      "y": 62.8,
+      "lat": 32.8923467,
+      "lng": -80.8646422,
+      "position": "exact",
+      "description": "One of the Riverside stands along the old Salkehatchie River. Target presentations will be added soon.",
+      "photo": "/media/photo-shooter-stand.jpg",
+      "video": null
+    },
+    {
+      "id": "r-15",
+      "label": "15",
+      "name": "Riverside Stand 15",
+      "course": "Riverside",
+      "difficulty": "Intermediate to advanced",
+      "x": 58,
+      "y": 64.7,
+      "lat": 32.8920613,
+      "lng": -80.8646664,
+      "position": "from screenshot",
+      "description": "One of the Riverside stands along the old Salkehatchie River. Target presentations will be added soon.",
+      "photo": "/media/photo-shooter-stand.jpg",
+      "video": null
+    },
+    {
+      "id": "e-1",
+      "label": "1",
+      "name": "Evergreen Stand 1",
+      "course": "Evergreen",
       "difficulty": "Beginner to intermediate",
-      "x": 37.0,
-      "y": 77.1,
-      "lat": null,
-      "lng": null,
-      "description": "Placeholder description. Target presentations for this station will be added soon.",
+      "x": 80.8,
+      "y": 48.9,
+      "lat": 32.894412,
+      "lng": -80.8580624,
+      "position": "exact",
+      "description": "Target presentations for this stand will be added soon.",
+      "photo": "/media/photo-shooter-stand.jpg",
+      "video": null
+    },
+    {
+      "id": "e-2",
+      "label": "2",
+      "name": "Evergreen Stand 2",
+      "course": "Evergreen",
+      "difficulty": "Beginner to intermediate",
+      "x": 80,
+      "y": 45.7,
+      "lat": 32.894886,
+      "lng": -80.8582917,
+      "position": "exact",
+      "description": "Target presentations for this stand will be added soon.",
+      "photo": "/media/photo-shooter-stand.jpg",
+      "video": null
+    },
+    {
+      "id": "e-3",
+      "label": "3",
+      "name": "Evergreen Stand 3",
+      "course": "Evergreen",
+      "difficulty": "Beginner to intermediate",
+      "x": 79.7,
+      "y": 44.1,
+      "lat": 32.8951257,
+      "lng": -80.8583976,
+      "position": "from screenshot",
+      "description": "Target presentations for this stand will be added soon.",
+      "photo": "/media/photo-shooter-stand.jpg",
+      "video": null
+    },
+    {
+      "id": "e-4",
+      "label": "4",
+      "name": "Evergreen Stand 4",
+      "course": "Evergreen",
+      "difficulty": "Beginner to intermediate",
+      "x": 79.2,
+      "y": 42,
+      "lat": 32.8954367,
+      "lng": -80.8585217,
+      "position": "exact",
+      "description": "Target presentations for this stand will be added soon.",
+      "photo": "/media/photo-shooter-stand.jpg",
+      "video": null
+    },
+    {
+      "id": "e-5",
+      "label": "5",
+      "name": "Evergreen Stand 5",
+      "course": "Evergreen",
+      "difficulty": "Beginner to intermediate",
+      "x": 76.2,
+      "y": 38,
+      "lat": 32.8960385,
+      "lng": -80.8594102,
+      "position": "from screenshot",
+      "description": "Target presentations for this stand will be added soon.",
+      "photo": "/media/photo-shooter-stand.jpg",
+      "video": null
+    },
+    {
+      "id": "e-6",
+      "label": "6",
+      "name": "Evergreen Stand 6",
+      "course": "Evergreen",
+      "difficulty": "Beginner to intermediate",
+      "x": 74.2,
+      "y": 37.5,
+      "lat": 32.8961116,
+      "lng": -80.8599814,
+      "position": "from screenshot",
+      "description": "Target presentations for this stand will be added soon.",
+      "photo": "/media/photo-shooter-stand.jpg",
+      "video": null
+    },
+    {
+      "id": "e-7",
+      "label": "7",
+      "name": "Evergreen Stand 7",
+      "course": "Evergreen",
+      "difficulty": "Beginner to intermediate",
+      "x": 72.4,
+      "y": 37.3,
+      "lat": 32.8961483,
+      "lng": -80.8604967,
+      "position": "from screenshot",
+      "description": "Target presentations for this stand will be added soon.",
+      "photo": "/media/photo-shooter-stand.jpg",
+      "video": null
+    },
+    {
+      "id": "e-8",
+      "label": "8",
+      "name": "Evergreen Stand 8",
+      "course": "Evergreen",
+      "difficulty": "Beginner to intermediate",
+      "x": 70.8,
+      "y": 36.5,
+      "lat": 32.8962631,
+      "lng": -80.8609563,
+      "position": "from screenshot",
+      "description": "Target presentations for this stand will be added soon.",
+      "photo": "/media/photo-shooter-stand.jpg",
+      "video": null
+    },
+    {
+      "id": "e-9",
+      "label": "9",
+      "name": "Evergreen Stand 9",
+      "course": "Evergreen",
+      "difficulty": "Beginner to intermediate",
+      "x": 66.7,
+      "y": 36.4,
+      "lat": 32.8962692,
+      "lng": -80.862144,
+      "position": "exact",
+      "description": "Target presentations for this stand will be added soon.",
+      "photo": "/media/photo-shooter-stand.jpg",
+      "video": null
+    },
+    {
+      "id": "e-10",
+      "label": "10",
+      "name": "Evergreen Stand 10",
+      "course": "Evergreen",
+      "difficulty": "Beginner to intermediate",
+      "x": 65.9,
+      "y": 41.3,
+      "lat": 32.8955491,
+      "lng": -80.86239,
+      "position": "from screenshot",
+      "description": "Target presentations for this stand will be added soon.",
+      "photo": "/media/photo-shooter-stand.jpg",
+      "video": null
+    },
+    {
+      "id": "e-11",
+      "label": "11",
+      "name": "Evergreen Stand 11",
+      "course": "Evergreen",
+      "difficulty": "Beginner to intermediate",
+      "x": 64.7,
+      "y": 43.9,
+      "lat": 32.8951549,
+      "lng": -80.8627328,
+      "position": "exact",
+      "description": "Target presentations for this stand will be added soon.",
+      "photo": "/media/photo-shooter-stand.jpg",
+      "video": null
+    },
+    {
+      "id": "e-12",
+      "label": "12",
+      "name": "Evergreen Stand 12",
+      "course": "Evergreen",
+      "difficulty": "Beginner to intermediate",
+      "x": 62.5,
+      "y": 46.1,
+      "lat": 32.894835,
+      "lng": -80.8633705,
+      "position": "from screenshot",
+      "description": "Target presentations for this stand will be added soon.",
       "photo": "/media/photo-shooter-stand.jpg",
       "video": null
     },
@@ -385,13 +432,200 @@
       "name": "The 5-Stand",
       "course": "5-Stand",
       "difficulty": "All levels",
-      "x": 50.0,
-      "y": 87.1,
-      "lat": null,
-      "lng": null,
+      "x": 75,
+      "y": 24.2,
+      "lat": 32.8980878,
+      "lng": -80.8597529,
+      "position": "from screenshot",
       "description": "Fourteen machines where most 5-stands run six to eight, so the target combinations are endless. Shaded stations under new roofs. Great for warming up, groups, and sharpening skills.",
       "photo": "/images/five_stand_sunset.webp",
       "video": null
     }
+  ],
+  "boundary": [
+    [
+      -80.862334,
+      32.892029
+    ],
+    [
+      -80.863778,
+      32.891843
+    ],
+    [
+      -80.863862,
+      32.892465
+    ],
+    [
+      -80.864966,
+      32.892032
+    ],
+    [
+      -80.865291,
+      32.89201
+    ],
+    [
+      -80.865351,
+      32.891855
+    ],
+    [
+      -80.865806,
+      32.891931
+    ],
+    [
+      -80.866189,
+      32.891811
+    ],
+    [
+      -80.866259,
+      32.891669
+    ],
+    [
+      -80.867415,
+      32.891084
+    ],
+    [
+      -80.867742,
+      32.890061
+    ],
+    [
+      -80.87246,
+      32.889837
+    ],
+    [
+      -80.872735,
+      32.888356
+    ],
+    [
+      -80.872754,
+      32.888254
+    ],
+    [
+      -80.879408,
+      32.889185
+    ],
+    [
+      -80.87902,
+      32.89029
+    ],
+    [
+      -80.877909,
+      32.893461
+    ],
+    [
+      -80.877222,
+      32.89544
+    ],
+    [
+      -80.87096,
+      32.894979
+    ],
+    [
+      -80.870664,
+      32.896351
+    ],
+    [
+      -80.872125,
+      32.896376
+    ],
+    [
+      -80.87225,
+      32.898726
+    ],
+    [
+      -80.865256,
+      32.900067
+    ],
+    [
+      -80.862232,
+      32.900224
+    ],
+    [
+      -80.86248,
+      32.899493
+    ],
+    [
+      -80.862726,
+      32.898775
+    ],
+    [
+      -80.858691,
+      32.898978
+    ],
+    [
+      -80.857763,
+      32.899031
+    ],
+    [
+      -80.856869,
+      32.899082
+    ],
+    [
+      -80.855544,
+      32.899158
+    ],
+    [
+      -80.85546,
+      32.898734
+    ],
+    [
+      -80.855337,
+      32.89811
+    ],
+    [
+      -80.854694,
+      32.898201
+    ],
+    [
+      -80.854374,
+      32.896594
+    ],
+    [
+      -80.855105,
+      32.896548
+    ],
+    [
+      -80.857151,
+      32.896419
+    ],
+    [
+      -80.856896,
+      32.895302
+    ],
+    [
+      -80.856755,
+      32.894681
+    ],
+    [
+      -80.855393,
+      32.894794
+    ],
+    [
+      -80.855283,
+      32.894245
+    ],
+    [
+      -80.855441,
+      32.894243
+    ],
+    [
+      -80.859765,
+      32.894205
+    ],
+    [
+      -80.860112,
+      32.894145
+    ],
+    [
+      -80.860298,
+      32.892069
+    ],
+    [
+      -80.862145,
+      32.892058
+    ],
+    [
+      -80.862334,
+      32.892029
+    ]
   ]
 }
