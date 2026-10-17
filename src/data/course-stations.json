@@ -341,8 +341,8 @@
       "photo": "/media/photo-shooter-stand.jpg",
       "video": null,
       "display": {
-        "lat": 32.89513,
-        "lng": -80.8579,
+        "lat": 32.89515,
+        "lng": -80.85935,
         "note": "Courses view only: pin nudged for legibility, leader line points to the true position (lat/lng)."
       }
     },
@@ -699,7 +699,7 @@
       "id": "evergreen",
       "text": "Evergreen",
       "lat": 32.8952,
-      "lng": -80.8603
+      "lng": -80.8611
     }
   ]
 }
