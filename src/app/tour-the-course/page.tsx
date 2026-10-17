@@ -18,6 +18,7 @@ type Station = {
   y: number;
   lat: number;
   lng: number;
+  display?: { lat: number; lng: number };
   description: string;
   photo: string | null;
   video: string | null;
@@ -30,9 +31,11 @@ const FULL = data.bounds as Bounds;
 const COURSES = data.courseView as Bounds;
 const boundary = data.boundary as number[][];
 const landmarks = data.landmarks as { id: string; label: string; lat: number; lng: number }[];
+const courseLabels = data.labels as { id: string; text: string; lat: number; lng: number }[];
+const ROUTE_COLOR: Record<string, string> = { Riverside: "#a75235", Evergreen: "#4d5c47" };
 
 const VIEWS = {
-  courses: { bounds: COURSES, aerial: "tfc-aerial-courses-2023", map: "tfc-map-illustrated-courses", aspect: "1293 / 1317" },
+  courses: { bounds: COURSES, aerial: "tfc-aerial-courses-2023", map: "tfc-map-illustrated-courses", aspect: "1400 / 1429" },
   property: { bounds: FULL, aerial: "tfc-aerial-2023", map: "tfc-map-illustrated", aspect: "2000 / 1224" },
 } as const;
 type ViewKey = keyof typeof VIEWS;
@@ -202,14 +205,75 @@ export default function TourTheCourse() {
                 {/* Members-only wild side tease: a soft veil to the west, no pin */}
                 <rect x="0" y="0" width={view === "courses" ? 22 : 48} height="100" fill="url(#wild)" />
                 <polygon points={outline} fill="none" stroke={aerial ? "#f5f2ec" : "#7a5a3c"} strokeOpacity={aerial ? 0.75 : 0.55} strokeWidth="1.5" strokeDasharray="6 4" vectorEffect="non-scaling-stroke" />
+                {view === "courses" &&
+                  (["Riverside", "Evergreen"] as const)
+                    .filter((c) => filter === "All" || filter === c)
+                    .map((c) => (
+                      <polyline
+                        key={c}
+                        points={stations
+                          .filter((s) => s.course === c)
+                          .map((s) => {
+                            const q = toPct(v.bounds, s.lat, s.lng);
+                            return `${q.x.toFixed(2)},${q.y.toFixed(2)}`;
+                          })
+                          .join(" ")}
+                        fill="none"
+                        stroke={ROUTE_COLOR[c]}
+                        strokeOpacity="0.8"
+                        strokeWidth="2"
+                        strokeDasharray="1 5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        vectorEffect="non-scaling-stroke"
+                      />
+                    ))}
+                {view === "courses" &&
+                  visible
+                    .filter((s) => s.display)
+                    .map((s) => {
+                      const a = toPct(v.bounds, s.lat, s.lng);
+                      const b = toPct(v.bounds, s.display!.lat, s.display!.lng);
+                      return (
+                        <g key={`lead-${s.id}`}>
+                          <line x1={a.x} y1={a.y} x2={b.x} y2={b.y} stroke="#4d5c47" strokeWidth="1.2" vectorEffect="non-scaling-stroke" />
+                          <circle cx={a.x} cy={a.y} r="0.45" fill="#4d5c47" />
+                        </g>
+                      );
+                    })}
               </svg>
+              {/* Compass */}
+              <svg viewBox="0 0 40 40" className="absolute right-[3%] bottom-[3%] w-8 h-8 sm:w-11 sm:h-11 pointer-events-none opacity-80" aria-hidden="true">
+                <circle cx="20" cy="20" r="13" fill="none" stroke="#5b4a36" strokeWidth="0.8" />
+                <path d="M20 4 L23 20 L20 36 L17 20 Z" fill="#f5f2ec" stroke="#5b4a36" strokeWidth="0.8" />
+                <path d="M20 4 L23 20 L17 20 Z" fill="#a75235" />
+                <path d="M4 20 L20 17.5 L36 20 L20 22.5 Z" fill="#f5f2ec" stroke="#5b4a36" strokeWidth="0.6" />
+                <text x="20" y="3.2" textAnchor="middle" fontSize="5" fill="#5b4a36" fontFamily="serif">N</text>
+              </svg>
+              {/* Soft vignette */}
+              <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_40px_rgba(74,60,40,0.25)]"></div>
+              {view === "courses" &&
+                courseLabels.map((l) => {
+                  const q = toPct(v.bounds, l.lat, l.lng);
+                  return (
+                    <div
+                      key={l.id}
+                      className={`absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none text-sm sm:text-lg md:text-xl italic tracking-wide ${
+                        aerial ? "text-[#f5f2ec] [text-shadow:0_1px_3px_rgba(0,0,0,0.85)]" : l.id === "riverside" ? "text-[#8a3f27] [text-shadow:0_0_5px_rgba(245,242,236,0.95)]" : "text-[#3c4a36] [text-shadow:0_0_5px_rgba(245,242,236,0.95)]"
+                      }`}
+                      style={{ left: `${q.x}%`, top: `${q.y}%`, fontFamily: "var(--font-heading), serif" }}
+                    >
+                      {l.text}
+                    </div>
+                  );
+                })}
               <div className={`absolute left-[2%] top-[3%] max-w-[30%] text-[10px] sm:text-xs md:text-sm italic leading-snug pointer-events-none ${LBL}`} style={{ fontFamily: "var(--font-heading), serif" }}>
                 {view === "courses" ? "Beyond the courses lies the wild side." : "The wild side."} Members only.
               </div>
               {view === "courses" && (
                 <div
                   className={`absolute text-[10px] sm:text-xs md:text-sm italic tracking-wide pointer-events-none -rotate-90 origin-left whitespace-nowrap ${aerial ? LBL : "text-[#3f6474] [text-shadow:0_0_4px_rgba(245,242,236,0.95)]"}`}
-                  style={{ left: "6.5%", top: "97%", fontFamily: "var(--font-heading), serif" }}
+                  style={{ left: "5.5%", top: "86%", fontFamily: "var(--font-heading), serif" }}
                 >
                   Old Salkehatchie River
                 </div>
@@ -222,7 +286,11 @@ export default function TourTheCourse() {
                     className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-none"
                     style={{ left: `${p.x}%`, top: `${p.y}%` }}
                   >
-                    <span className="block w-3 h-3 sm:w-3.5 sm:h-3.5 bg-[#f5f2ec] border-2 border-[#7a5a3c] shadow-sm"></span>
+                    <svg viewBox="0 0 20 20" className="w-4 h-4 sm:w-5 sm:h-5 drop-shadow-sm" aria-hidden="true">
+                      <rect x="2" y="2" width="16" height="16" fill="#f5f2ec" stroke="#6b4f35" strokeWidth="1.6" />
+                      <path d="M2 2 L18 18 M18 2 L2 18" stroke="#6b4f35" strokeWidth="0.9" opacity="0.7" />
+                      <rect x="7" y="7" width="6" height="6" fill="#a75235" opacity="0.85" />
+                    </svg>
                     {view === "courses" && (
                       <span className={`mt-1 text-[10px] sm:text-xs italic tracking-wide ${LBL}`} style={{ fontFamily: "var(--font-heading), serif" }}>
                         {l.label}
@@ -232,7 +300,10 @@ export default function TourTheCourse() {
                 );
               })}
               {visible.map((s) => {
-                const p = view === "courses" ? toPct(v.bounds, s.lat, s.lng) : { x: s.x, y: s.y };
+                const p =
+                  view === "courses"
+                    ? toPct(v.bounds, s.display?.lat ?? s.lat, s.display?.lng ?? s.lng)
+                    : { x: s.x, y: s.y };
                 const small = view === "property";
                 return (
                   <button
@@ -240,14 +311,22 @@ export default function TourTheCourse() {
                     type="button"
                     onClick={() => setActiveId(s.id)}
                     aria-label={`${s.name}, ${s.difficulty}`}
-                    className={`absolute -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center font-bold shadow-lg cursor-pointer transition-transform hover:scale-110 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/70 touch-manipulation ring-1 ring-[#f5f2ec]/80 ${
+                    className={`absolute -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center font-bold tabular-nums shadow-[0_2px_4px_rgba(40,30,20,0.45)] cursor-pointer transition-transform hover:scale-110 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/70 touch-manipulation ring-1 ring-[#f5f2ec]/80 ${
                       small
                         ? "w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-[0px]"
                         : "w-5 h-5 text-[10px] sm:w-7 sm:h-7 sm:text-xs md:w-8 md:h-8 md:text-sm"
                     } ${COURSE_STYLE[s.course].pin} ${activeId === s.id ? "scale-125 ring-4 ring-white z-10" : ""}`}
                     style={{ left: `${p.x}%`, top: `${p.y}%` }}
                   >
-                    {small ? "" : s.label}
+                    {!small && s.course === "5-Stand" && (
+                      <span
+                        className={`absolute top-1/2 -translate-y-1/2 right-full mr-1.5 whitespace-nowrap text-[10px] sm:text-xs italic font-normal ${LBL}`}
+                        style={{ fontFamily: "var(--font-heading), serif" }}
+                      >
+                        5-Stand
+                      </span>
+                    )}
+                    {small ? "" : s.course === "5-Stand" ? "5S" : s.label}
                   </button>
                 );
               })}

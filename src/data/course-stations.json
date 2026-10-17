@@ -7,10 +7,10 @@
     "east": -80.8525
   },
   "courseView": {
-    "north": 32.8986,
-    "south": 32.8915,
-    "west": -80.8655,
-    "east": -80.8572
+    "north": 32.899,
+    "south": 32.8906,
+    "west": -80.8664,
+    "east": -80.8566
   },
   "landmarks": [
     {
@@ -274,7 +274,12 @@
       "position": "exact",
       "description": "Target presentations for this stand will be added soon.",
       "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
+      "video": null,
+      "display": {
+        "lat": 32.8948,
+        "lng": -80.8585,
+        "note": "Courses view only: pin nudged for legibility, leader line points to the true position (lat/lng)."
+      }
     },
     {
       "id": "e-3",
@@ -289,7 +294,12 @@
       "position": "from screenshot",
       "description": "Target presentations for this stand will be added soon.",
       "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
+      "video": null,
+      "display": {
+        "lat": 32.89513,
+        "lng": -80.8579,
+        "note": "Courses view only: pin nudged for legibility, leader line points to the true position (lat/lng)."
+      }
     },
     {
       "id": "e-4",
@@ -304,7 +314,12 @@
       "position": "exact",
       "description": "Target presentations for this stand will be added soon.",
       "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
+      "video": null,
+      "display": {
+        "lat": 32.8956,
+        "lng": -80.85865,
+        "note": "Courses view only: pin nudged for legibility, leader line points to the true position (lat/lng)."
+      }
     },
     {
       "id": "e-5",
@@ -627,5 +642,19 @@
       -80.862334,
       32.892029
     ]
+  ],
+  "labels": [
+    {
+      "id": "riverside",
+      "text": "Riverside",
+      "lat": 32.8967,
+      "lng": -80.8649
+    },
+    {
+      "id": "evergreen",
+      "text": "Evergreen",
+      "lat": 32.8952,
+      "lng": -80.8603
+    }
   ]
 }
