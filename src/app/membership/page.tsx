@@ -567,9 +567,38 @@ export default function Membership() {
                     <h4 className="text-[#162838] font-semibold mb-2">Community Events</h4>
                     <p className="text-sm text-[#333333]">Exclusive member gatherings and tournaments</p>
                   </div>
+                  <div className="bg-[#f5f2ec] p-4 rounded-lg sm:col-span-2">
+                    <h4 className="text-[#162838] font-semibold mb-2">Room for Your Ride</h4>
+                    <p className="text-sm text-[#333333]">Keep your UTV, side-by-side or golf cart at the club, ready when you arrive</p>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Member Vehicle Storage */}
+        <section id="vehicle-storage" className="py-16 md:py-24 bg-[#f5f2ec] overflow-hidden">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+              <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Member Perk</span>
+              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+            </div>
+            <h2
+              className="text-3xl md:text-4xl text-[#162838] mb-6"
+              style={{ fontFamily: "var(--font-heading), serif" }}
+            >
+              Your Second Home Has Room for Your Ride
+            </h2>
+            <p className="text-[#333333] leading-relaxed mb-4">
+              Traditions is meant to feel like your second home, and we want to make it easy. Short
+              on space at home? Members may keep their UTV, side-by-side or golf cart here, ready
+              when you arrive.
+            </p>
+            <p className="text-sm text-[#666666] italic">
+              Vehicles must be covered by the owner&apos;s insurance.
+            </p>
           </div>
         </section>
 
