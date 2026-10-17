@@ -46,7 +46,7 @@ function toPct(b: Bounds, lat: number, lng: number) {
 
 const COURSE_STYLE: Record<string, { pin: string; chip: string }> = {
   Riverside: { pin: "bg-[#a75235] text-[#f5f2ec]", chip: "bg-[#a75235]" },
-  Evergreen: { pin: "bg-[#4d5c47] text-[#f5f2ec]", chip: "bg-[#4d5c47]" },
+  Evergreen: { pin: "bg-[#f5f2ec] text-[#4d5c47] !ring-2 !ring-[#4d5c47]", chip: "bg-[#4d5c47]" },
   "5-Stand": { pin: "bg-[#162838] text-[#f5f2ec]", chip: "bg-[#162838]" },
 };
 
