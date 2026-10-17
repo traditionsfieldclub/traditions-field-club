@@ -49,10 +49,12 @@ const MAX_LENGTHS: Record<string, number> = {
 const VALID_MEMBERSHIP_TYPES = [
   "Prime Membership ($2,000/year)",
   "Corporate Membership ($3,500/year)",
-  "Member for a Day ($100)",
-  "Day guest",
+  "Member for a Day ($100 per shooter)",
   "Tour Traditions (complimentary)",
   "Guest / Visitor",
+  // Legacy values still accepted so a page loaded before this change can submit
+  "Member for a Day ($100)",
+  "Day guest",
 ];
 
 // --- Email Validation ---

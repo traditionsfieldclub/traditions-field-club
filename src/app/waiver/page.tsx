@@ -23,8 +23,7 @@ const SignatureCanvas = dynamic(() => import("react-signature-canvas"), {
 const WAIVER_MEMBERSHIP_TYPES = [
   "Prime Membership ($2,000/year)",
   "Corporate Membership ($3,500/year)",
-  "Member for a Day ($100)",
-  "Day guest",
+  "Member for a Day ($100 per shooter)",
   "Tour Traditions (complimentary)",
   "Guest / Visitor",
 ];
