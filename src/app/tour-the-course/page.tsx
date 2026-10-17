@@ -32,8 +32,8 @@ const boundary = data.boundary as number[][];
 const landmarks = data.landmarks as { id: string; label: string; lat: number; lng: number }[];
 
 const VIEWS = {
-  courses: { bounds: COURSES, image: "tfc-aerial-courses-2023", aspect: "1293 / 1317" },
-  property: { bounds: FULL, image: "tfc-aerial-2023", aspect: "2000 / 1224" },
+  courses: { bounds: COURSES, aerial: "tfc-aerial-courses-2023", map: "tfc-map-illustrated-courses", aspect: "1293 / 1317" },
+  property: { bounds: FULL, aerial: "tfc-aerial-2023", map: "tfc-map-illustrated", aspect: "2000 / 1224" },
 } as const;
 type ViewKey = keyof typeof VIEWS;
 
@@ -66,7 +66,11 @@ export default function TourTheCourse() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [filter, setFilter] = useState<string>("All");
   const [view, setView] = useState<ViewKey>("courses");
+  const [aerial, setAerial] = useState(false);
   const v = VIEWS[view];
+  const LBL = aerial
+    ? "text-[#f5f2ec] [text-shadow:0_1px_3px_rgba(0,0,0,0.85)]"
+    : "text-[#2f3b2a] [text-shadow:0_0_4px_rgba(245,242,236,0.95)]";
   const outline = boundary
     .map(([lng, lat]) => {
       const p = toPct(v.bounds, lat, lng);
@@ -144,7 +148,7 @@ export default function TourTheCourse() {
               ))}
             </div>
 
-            <div className="flex justify-center mb-4">
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-4">
               <div className="inline-flex rounded-lg border-2 border-[#162838]/20 p-1 bg-white">
                 {([
                   ["courses", "The courses"],
@@ -163,35 +167,49 @@ export default function TourTheCourse() {
                   </button>
                 ))}
               </div>
+              <label className="inline-flex items-center gap-2 text-sm text-[#162838] cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  checked={aerial}
+                  onChange={(e) => setAerial(e.target.checked)}
+                  className="w-4 h-4 accent-[#4d5c47] cursor-pointer"
+                />
+                Aerial photo
+              </label>
             </div>
 
             <div
-              className={`relative w-full mx-auto rounded-lg overflow-hidden shadow-md select-none bg-[#2f3b2a] ${view === "courses" ? "max-w-3xl" : ""}`}
+              className={`relative w-full mx-auto rounded-lg overflow-hidden shadow-md select-none bg-[#e9e1cb] ${view === "courses" ? "max-w-3xl" : ""}`}
               style={{ aspectRatio: v.aspect }}
             >
               <Picture
-                name={v.image}
-                alt={view === "courses" ? "2023 aerial view of the Riverside and Evergreen courses" : "2023 aerial view of the whole Traditions Field Club property"}
+                key={aerial ? v.aerial : v.map}
+                name={aerial ? v.aerial : v.map}
+                alt={
+                  aerial
+                    ? view === "courses" ? "2023 aerial view of the Riverside and Evergreen courses" : "2023 aerial view of the whole Traditions Field Club property"
+                    : view === "courses" ? "Illustrated map of the Riverside and Evergreen courses" : "Illustrated map of the whole Traditions Field Club property"
+                }
                 imgClassName="absolute inset-0 w-full h-full object-cover"
               />
               <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true">
                 <defs>
                   <linearGradient id="wild" x1="0" x2="1" y1="0" y2="0">
-                    <stop offset="0" stopColor="#0f1a0e" stopOpacity="0.6" />
+                    <stop offset="0" stopColor={aerial ? "#0f1a0e" : "#2f3b2a"} stopOpacity={aerial ? 0.6 : 0.45} />
                     <stop offset="1" stopColor="#0f1a0e" stopOpacity="0" />
                   </linearGradient>
                 </defs>
                 {/* Members-only wild side tease: a soft veil to the west, no pin */}
                 <rect x="0" y="0" width={view === "courses" ? 22 : 48} height="100" fill="url(#wild)" />
-                <polygon points={outline} fill="none" stroke="#f5f2ec" strokeOpacity="0.75" strokeWidth="1.5" strokeDasharray="6 4" vectorEffect="non-scaling-stroke" />
+                <polygon points={outline} fill="none" stroke={aerial ? "#f5f2ec" : "#7a5a3c"} strokeOpacity={aerial ? 0.75 : 0.55} strokeWidth="1.5" strokeDasharray="6 4" vectorEffect="non-scaling-stroke" />
               </svg>
-              <div className="absolute left-[2%] top-[3%] max-w-[30%] text-[#f5f2ec]/85 text-[10px] sm:text-xs md:text-sm italic leading-snug pointer-events-none [text-shadow:0_1px_3px_rgba(0,0,0,0.8)]">
+              <div className={`absolute left-[2%] top-[3%] max-w-[30%] text-[10px] sm:text-xs md:text-sm italic leading-snug pointer-events-none ${LBL}`} style={{ fontFamily: "var(--font-heading), serif" }}>
                 {view === "courses" ? "Beyond the courses lies the wild side." : "The wild side."} Members only.
               </div>
               {view === "courses" && (
                 <div
-                  className="absolute text-[#f5f2ec] text-[9px] sm:text-[11px] md:text-xs font-semibold tracking-wider uppercase pointer-events-none [text-shadow:0_1px_3px_rgba(0,0,0,0.9)] -rotate-90 origin-left whitespace-nowrap"
-                  style={{ left: "6%", top: "98%" }}
+                  className={`absolute text-[10px] sm:text-xs md:text-sm italic tracking-wide pointer-events-none -rotate-90 origin-left whitespace-nowrap ${aerial ? LBL : "text-[#3f6474] [text-shadow:0_0_4px_rgba(245,242,236,0.95)]"}`}
+                  style={{ left: "6.5%", top: "97%", fontFamily: "var(--font-heading), serif" }}
                 >
                   Old Salkehatchie River
                 </div>
@@ -204,9 +222,9 @@ export default function TourTheCourse() {
                     className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-none"
                     style={{ left: `${p.x}%`, top: `${p.y}%` }}
                   >
-                    <span className="block w-3 h-3 rotate-45 bg-[#f5f2ec] shadow"></span>
+                    <span className="block w-3 h-3 sm:w-3.5 sm:h-3.5 bg-[#f5f2ec] border-2 border-[#7a5a3c] shadow-sm"></span>
                     {view === "courses" && (
-                      <span className="mt-1 text-[#f5f2ec] text-[9px] sm:text-[11px] font-bold uppercase tracking-wider [text-shadow:0_1px_3px_rgba(0,0,0,0.9)]">
+                      <span className={`mt-1 text-[10px] sm:text-xs italic tracking-wide ${LBL}`} style={{ fontFamily: "var(--font-heading), serif" }}>
                         {l.label}
                       </span>
                     )}
@@ -235,7 +253,10 @@ export default function TourTheCourse() {
               })}
             </div>
             <p className="text-xs text-[#666666] text-center mt-3">
-              Aerial imagery 2023. Imagery: USDA NAIP 2023. Station positions are approximate, and photos and videos are being added.
+              {aerial
+                ? "Aerial imagery 2023. Imagery: USDA NAIP 2023. Station positions are approximate."
+                : "Illustrated map drawn from 2023 aerial imagery. Station positions are approximate."}{" "}
+              Photos and videos are being added.
             </p>
           </div>
         </section>
