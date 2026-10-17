@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { newsletterReply, sendAutoReply } from "@/lib/autoReply";
 
 const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY;
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
@@ -135,6 +136,11 @@ export async function POST(req: NextRequest) {
       }
     } catch (emailError) {
       console.error("Resend email failed:", emailError);
+    }
+
+    // Automatic reply to the visitor (never blocks the submission)
+    if (RESEND_API_KEY && RESEND_API_KEY !== "REPLACE_WITH_REAL_API_KEY") {
+      await sendAutoReply(new Resend(RESEND_API_KEY), email.trim(), newsletterReply());
     }
 
     return NextResponse.json({ success: true });
