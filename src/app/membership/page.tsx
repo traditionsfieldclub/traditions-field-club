@@ -569,7 +569,7 @@ export default function Membership() {
                   </div>
                   <div className="bg-[#f5f2ec] p-4 rounded-lg sm:col-span-2">
                     <h4 className="text-[#162838] font-semibold mb-2">Room for Your Ride</h4>
-                    <p className="text-sm text-[#333333]">Keep your UTV, side-by-side or golf cart at the club, ready when you arrive</p>
+                    <p className="text-sm text-[#333333]">Keep your UTV, side-by-side or golf cart at the club. Let us know you&apos;re coming and it will be ready</p>
                   </div>
                 </div>
               </div>
@@ -593,8 +593,9 @@ export default function Membership() {
             </h2>
             <p className="text-[#333333] leading-relaxed mb-4">
               Traditions is meant to feel like your second home, and we want to make it easy. Short
-              on space at home? Members may keep their UTV, side-by-side or golf cart here, ready
-              when you arrive.
+              on space at home? Members may keep their UTV, side-by-side or golf cart here. Think of
+              it like dry stack storage at a marina: let us know you&apos;re coming out, and
+              we&apos;ll have your ride ready when you arrive.
             </p>
             <p className="text-sm text-[#666666] italic">
               Vehicles must be covered by the owner&apos;s insurance.
