@@ -139,7 +139,12 @@
       "position": "exact",
       "description": "Target presentations for this stand will be added soon.",
       "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
+      "video": null,
+      "display": {
+        "lat": 32.8954,
+        "lng": -80.86385,
+        "note": "Courses view only: pin nudged for legibility, leader line points to the true position (lat/lng)."
+      }
     },
     {
       "id": "r-8",
@@ -154,7 +159,12 @@
       "position": "exact",
       "description": "Target presentations for this stand will be added soon.",
       "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
+      "video": null,
+      "display": {
+        "lat": 32.89505,
+        "lng": -80.86475,
+        "note": "Courses view only: pin nudged for legibility, leader line points to the true position (lat/lng)."
+      }
     },
     {
       "id": "r-9",
@@ -169,7 +179,12 @@
       "position": "exact",
       "description": "Target presentations for this stand will be added soon.",
       "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
+      "video": null,
+      "display": {
+        "lat": 32.89462,
+        "lng": -80.8641,
+        "note": "Courses view only: pin nudged for legibility, leader line points to the true position (lat/lng)."
+      }
     },
     {
       "id": "r-10",
