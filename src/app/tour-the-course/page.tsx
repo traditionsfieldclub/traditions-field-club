@@ -273,7 +273,7 @@ export default function TourTheCourse() {
               {view === "courses" && (
                 <div
                   className={`absolute text-[10px] sm:text-xs md:text-sm italic tracking-wide pointer-events-none -rotate-90 origin-left whitespace-nowrap ${aerial ? LBL : "text-[#3f6474] [text-shadow:0_0_4px_rgba(245,242,236,0.95)]"}`}
-                  style={{ left: "5.5%", top: "86%", fontFamily: "var(--font-heading), serif" }}
+                  style={{ left: "4%", top: "86%", fontFamily: "var(--font-heading), serif" }}
                 >
                   Old Salkehatchie River
                 </div>
