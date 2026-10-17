@@ -236,8 +236,8 @@ export default function TourTheCourse() {
                       const b = toPct(v.bounds, s.display!.lat, s.display!.lng);
                       return (
                         <g key={`lead-${s.id}`}>
-                          <line x1={a.x} y1={a.y} x2={b.x} y2={b.y} stroke="#4d5c47" strokeWidth="1.2" vectorEffect="non-scaling-stroke" />
-                          <circle cx={a.x} cy={a.y} r="0.45" fill="#4d5c47" />
+                          <line x1={a.x} y1={a.y} x2={b.x} y2={b.y} stroke={ROUTE_COLOR[s.course] || "#4d5c47"} strokeWidth="1.2" vectorEffect="non-scaling-stroke" />
+                          <circle cx={a.x} cy={a.y} r="0.45" fill={ROUTE_COLOR[s.course] || "#4d5c47"} />
                         </g>
                       );
                     })}

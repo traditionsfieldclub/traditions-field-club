@@ -199,7 +199,12 @@
       "position": "exact",
       "description": "One of the Riverside stands along the old Salkehatchie River. Target presentations will be added soon.",
       "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
+      "video": null,
+      "display": {
+        "lat": 32.893,
+        "lng": -80.86415,
+        "note": "Courses view only: pin nudged for legibility, leader line points to the true position (lat/lng)."
+      }
     },
     {
       "id": "r-13",
@@ -214,7 +219,12 @@
       "position": "exact",
       "description": "One of the Riverside stands along the old Salkehatchie River. Target presentations will be added soon.",
       "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
+      "video": null,
+      "display": {
+        "lat": 32.8928,
+        "lng": -80.8649,
+        "note": "Courses view only: pin nudged for legibility, leader line points to the true position (lat/lng)."
+      }
     },
     {
       "id": "r-14",
@@ -244,7 +254,12 @@
       "position": "from screenshot",
       "description": "One of the Riverside stands along the old Salkehatchie River. Target presentations will be added soon.",
       "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
+      "video": null,
+      "display": {
+        "lat": 32.8918,
+        "lng": -80.86465,
+        "note": "Courses view only: pin nudged for legibility, leader line points to the true position (lat/lng)."
+      }
     },
     {
       "id": "e-1",
