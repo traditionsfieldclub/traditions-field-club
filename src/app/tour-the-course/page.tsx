@@ -195,8 +195,8 @@ export default function TourTheCourse() {
               <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true">
                 <defs>
                   <linearGradient id="wild" x1="0" x2="1" y1="0" y2="0">
-                    <stop offset="0" stopColor={aerial ? "#0f1a0e" : "#2f3b2a"} stopOpacity={aerial ? 0.6 : 0.45} />
-                    <stop offset="1" stopColor="#0f1a0e" stopOpacity="0" />
+                    <stop offset="0" stopColor={aerial ? "#0f1a0e" : "#f1ead6"} stopOpacity={aerial ? 0.6 : 0.7} />
+                    <stop offset="1" stopColor={aerial ? "#0f1a0e" : "#f1ead6"} stopOpacity="0" />
                   </linearGradient>
                 </defs>
                 {/* Members-only wild side tease: a soft veil to the west, no pin */}
