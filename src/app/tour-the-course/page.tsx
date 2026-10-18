@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import Picture from "@/components/Picture";
 import { StandMarker, PavilionMarker, type MarkerStyle } from "@/components/StandMarker";
 
-const MARKER: MarkerStyle = "A";
+const MARKER: MarkerStyle = "C";
 import data from "@/data/course-stations.json";
 
 type Station = {
