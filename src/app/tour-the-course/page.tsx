@@ -270,9 +270,26 @@ export default function TourTheCourse() {
                     </div>
                   );
                 })}
-              <div className={`absolute left-[2%] top-[3%] max-w-[30%] text-[10px] sm:text-xs md:text-sm italic leading-snug pointer-events-none ${LBL}`} style={{ fontFamily: "var(--font-heading), serif" }}>
-                {view === "courses" ? "Beyond the courses lies the wild side." : "The wild side."} Members only.
-              </div>
+              {view === "courses" ? (
+                <div className={`absolute left-[2%] top-[3%] max-w-[30%] text-[10px] sm:text-xs md:text-sm italic leading-snug pointer-events-none ${LBL}`} style={{ fontFamily: "var(--font-heading), serif" }}>
+                  Beyond the courses lies the wild side. Members only.
+                </div>
+              ) : (
+                /* Wild side tease: a map label over the mist, no pin and no detail */
+                <div
+                  className="absolute left-[25%] top-[44%] -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none whitespace-nowrap"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  <div
+                    className={`italic tracking-[0.12em] text-xl sm:text-3xl md:text-5xl ${
+                      aerial ? "text-[#f5f2ec] [text-shadow:0_1px_4px_rgba(0,0,0,0.85)]" : "text-[#4a3d2c]/85 [text-shadow:0_0_8px_rgba(245,242,236,0.95)]"
+                    }`}
+                  >
+                    Wild Side
+                  </div>
+                  <div className={`mt-0.5 sm:mt-1 italic tracking-wide text-[10px] sm:text-xs md:text-sm ${LBL}`}>Traditions hunting grounds</div>
+                </div>
+              )}
               {view === "courses" && (
                 <div
                   className={`absolute text-[10px] sm:text-xs md:text-sm italic tracking-wide pointer-events-none -rotate-90 origin-left whitespace-nowrap ${aerial ? LBL : "text-[#3f6474] [text-shadow:0_0_4px_rgba(245,242,236,0.95)]"}`}
