@@ -281,13 +281,13 @@ export default function TourTheCourse() {
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
                   <div
-                    className={`italic tracking-[0.12em] text-2xl sm:text-4xl md:text-6xl ${
+                    className={`italic tracking-[0.12em] text-xl sm:text-4xl md:text-6xl ${
                       aerial ? "text-[#f5f2ec] [text-shadow:0_1px_4px_rgba(0,0,0,0.85)]" : "text-[#4a3d2c]/85 [text-shadow:0_0_8px_rgba(245,242,236,0.95)]"
                     }`}
                   >
                     Wild Side
                   </div>
-                  <div className={`mt-0.5 sm:mt-1 italic tracking-wide text-[11px] sm:text-sm md:text-base ${LBL}`}>Traditions hunting grounds</div>
+                  <div className={`mt-0.5 sm:mt-1 italic tracking-wide text-[10px] sm:text-sm md:text-base ${LBL}`}>Traditions hunting grounds</div>
                 </div>
               )}
               {view === "courses" && (
