@@ -6,6 +6,9 @@ import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
 import Picture from "@/components/Picture";
+import { StandMarker, PavilionMarker, type MarkerStyle } from "@/components/StandMarker";
+
+const MARKER: MarkerStyle = "A";
 import data from "@/data/course-stations.json";
 
 type Station = {
@@ -286,11 +289,7 @@ export default function TourTheCourse() {
                     className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-none"
                     style={{ left: `${p.x}%`, top: `${p.y}%` }}
                   >
-                    <svg viewBox="0 0 20 20" className="w-4 h-4 sm:w-5 sm:h-5 drop-shadow-sm" aria-hidden="true">
-                      <rect x="2" y="2" width="16" height="16" fill="#f5f2ec" stroke="#6b4f35" strokeWidth="1.6" />
-                      <path d="M2 2 L18 18 M18 2 L2 18" stroke="#6b4f35" strokeWidth="0.9" opacity="0.7" />
-                      <rect x="7" y="7" width="6" height="6" fill="#a75235" opacity="0.85" />
-                    </svg>
+                    <PavilionMarker style={MARKER} />
                     {view === "courses" && (
                       <span className={`mt-1 text-[10px] sm:text-xs italic tracking-wide ${LBL}`} style={{ fontFamily: "var(--font-heading), serif" }}>
                         {l.label}
@@ -311,11 +310,11 @@ export default function TourTheCourse() {
                     type="button"
                     onClick={() => setActiveId(s.id)}
                     aria-label={`${s.name}, ${s.difficulty}`}
-                    className={`absolute -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center font-bold tabular-nums shadow-[0_2px_4px_rgba(40,30,20,0.45)] cursor-pointer transition-transform hover:scale-110 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/70 touch-manipulation ring-1 ring-[#f5f2ec]/80 ${
+                    className={`absolute -translate-x-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer transition-transform hover:scale-110 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/70 rounded-full touch-manipulation ${
                       small
-                        ? "w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-[0px]"
-                        : "w-5 h-5 text-[10px] sm:w-7 sm:h-7 sm:text-xs md:w-8 md:h-8 md:text-sm"
-                    } ${COURSE_STYLE[s.course].pin} ${activeId === s.id ? "scale-125 ring-4 ring-white z-10" : ""}`}
+                        ? `w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-[0px] rounded-full ring-1 ring-[#f5f2ec]/80 shadow ${COURSE_STYLE[s.course].pin}`
+                        : "w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9"
+                    } ${activeId === s.id ? "scale-125 z-10" : ""}`}
                     style={{ left: `${p.x}%`, top: `${p.y}%` }}
                   >
                     {!small && s.course === "5-Stand" && (
@@ -326,7 +325,7 @@ export default function TourTheCourse() {
                         5-Stand
                       </span>
                     )}
-                    {small ? "" : s.course === "5-Stand" ? "5S" : s.label}
+                    {!small && <StandMarker style={MARKER} course={s.course} id={s.id} text={s.course === "5-Stand" ? "5S" : s.label} />}
                   </button>
                 );
               })}
