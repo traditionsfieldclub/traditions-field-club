@@ -277,17 +277,17 @@ export default function TourTheCourse() {
               ) : (
                 /* Wild side tease: a map label over the mist, no pin and no detail */
                 <div
-                  className="absolute left-[25%] top-[44%] -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none whitespace-nowrap"
+                  className="absolute left-[31%] top-[60%] -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none whitespace-nowrap"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
                   <div
-                    className={`italic tracking-[0.12em] text-xl sm:text-3xl md:text-5xl ${
+                    className={`italic tracking-[0.12em] text-2xl sm:text-4xl md:text-6xl ${
                       aerial ? "text-[#f5f2ec] [text-shadow:0_1px_4px_rgba(0,0,0,0.85)]" : "text-[#4a3d2c]/85 [text-shadow:0_0_8px_rgba(245,242,236,0.95)]"
                     }`}
                   >
                     Wild Side
                   </div>
-                  <div className={`mt-0.5 sm:mt-1 italic tracking-wide text-[10px] sm:text-xs md:text-sm ${LBL}`}>Traditions hunting grounds</div>
+                  <div className={`mt-0.5 sm:mt-1 italic tracking-wide text-[11px] sm:text-sm md:text-base ${LBL}`}>Traditions hunting grounds</div>
                 </div>
               )}
               {view === "courses" && (
