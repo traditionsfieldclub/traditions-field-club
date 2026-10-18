@@ -277,7 +277,7 @@ export default function TourTheCourse() {
               ) : (
                 /* Wild side tease: a map label over the mist, no pin and no detail */
                 <div
-                  className="absolute left-[31%] top-[60%] -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none whitespace-nowrap"
+                  className="absolute left-[28%] sm:left-[31%] top-[60%] -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none whitespace-nowrap"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
                   <div
