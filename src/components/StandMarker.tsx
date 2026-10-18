@@ -8,6 +8,8 @@ const ACCENT: Record<string, string> = {
   "5-Stand": "#162838",
 };
 
+const RING: Record<string, string> = { Riverside: "#b8471f", Evergreen: "#2f5a2c", "5-Stand": "#13294a" };
+
 const SERIF = "var(--font-heading), serif";
 
 export function StandMarker({ style, course, text, id }: { style: MarkerStyle; course: string; text: string; id: string }) {
@@ -55,13 +57,13 @@ export function StandMarker({ style, course, text, id }: { style: MarkerStyle; c
           <stop offset="1" stopColor="#8f6626" />
         </radialGradient>
       </defs>
-      <circle cx="16" cy="16" r="14.5" fill={accent} />
-      <circle cx="16" cy="16" r="12.6" fill={`url(#brass-${id})`} stroke="#5c4318" strokeWidth="1" />
-      <circle cx="16" cy="16" r="10.4" fill="none" stroke="#7a5a22" strokeWidth="0.5" opacity="0.6" />
-      <text x="16" y="17.1" dominantBaseline="central" textAnchor="middle" fontSize={fs} fontWeight="800" fill="#f9eab8" fontFamily={SERIF} opacity="0.9">
+      <circle cx="16" cy="16" r="15.6" fill={RING[course] || accent} stroke="#2a1d0c" strokeOpacity="0.35" strokeWidth="0.6" />
+      <circle cx="16" cy="16" r="11.6" fill={`url(#brass-${id})`} stroke="#4a3410" strokeWidth="0.9" />
+      <circle cx="16" cy="16" r="9.8" fill="none" stroke="#fff4cf" strokeWidth="0.7" opacity="0.55" />
+      <text x="16" y="17" dominantBaseline="central" textAnchor="middle" fontSize={fs} fontWeight="800" fill="#fff6d6" fontFamily={SERIF}>
         {text}
       </text>
-      <text x="16" y="16.3" dominantBaseline="central" textAnchor="middle" fontSize={fs} fontWeight="800" fill="#4a330f" fontFamily={SERIF}>
+      <text x="16" y="16.3" dominantBaseline="central" textAnchor="middle" fontSize={fs} fontWeight="800" fill="#2e1f06" fontFamily={SERIF}>
         {text}
       </text>
     </svg>
