@@ -118,7 +118,7 @@ export default function TourTheCourse() {
               Tour the Course
             </h1>
             <p className="text-lg md:text-xl text-[#f5f2ec] max-w-2xl mx-auto opacity-90">
-              Two sporting clays courses, Riverside and Evergreen, with Riverside stands 12 to 15 along the old Salkehatchie River, plus a 5-Stand with fourteen machines.
+              Two sporting clays courses, Riverside and Evergreen, with Riverside stands 12 to 15 along the Little Salkehatchie River, plus a 5-Stand with fourteen machines.
               Tap any station to take a look.
             </p>
           </div>
@@ -275,7 +275,7 @@ export default function TourTheCourse() {
                   className={`absolute text-[10px] sm:text-xs md:text-sm italic tracking-wide pointer-events-none -rotate-90 origin-left whitespace-nowrap ${aerial ? LBL : "text-[#3f6474] [text-shadow:0_0_4px_rgba(245,242,236,0.95)]"}`}
                   style={{ left: "4%", top: "86%", fontFamily: "var(--font-heading), serif" }}
                 >
-                  Old Salkehatchie River
+                  Little Salkehatchie River
                 </div>
               )}
               {landmarks.map((l) => {
