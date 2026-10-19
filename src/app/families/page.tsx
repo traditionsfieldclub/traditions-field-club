@@ -88,7 +88,7 @@ export default function Families() {
                   who care about them. Here is how that starts.
                 </p>
               </div>
-              <div className="relative h-[300px] md:h-[360px] rounded-lg overflow-hidden">
+              <div className="relative w-full aspect-[1600/1269] rounded-lg overflow-hidden">
                 <Picture
                   name="families-firepit"
                   alt="Three teens hanging out by the fire pit at golden hour at Traditions"
