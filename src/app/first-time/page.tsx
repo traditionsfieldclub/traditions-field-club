@@ -233,13 +233,13 @@ export default function FirstTime() {
               </ol>
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative col-span-2 aspect-[4/3] rounded-lg overflow-hidden shadow-sm">
-                  <FadeImage src="/media/first-time-stand.webp" alt="A group at a covered shooting stand on the course" fill sizes="(max-width: 1024px) 100vw, 560px" className="object-cover" />
+                  <FadeImage src="/media/first-time-stand-sunset.webp" alt="A covered shooting stand at sunset on the course" fill sizes="(max-width: 1024px) 100vw, 560px" className="object-cover" />
                 </div>
                 <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-sm">
-                  <FadeImage src="/media/first-time-guest.webp" alt="A guest shooting at a stand, wearing eye and ear protection" fill sizes="(max-width: 1024px) 50vw, 280px" className="object-cover" />
+                  <FadeImage src="/media/first-time-river-deck.webp" alt="A shooter on the river deck stand along the Little Salkehatchie River" fill sizes="(max-width: 1024px) 50vw, 280px" className="object-cover" />
                 </div>
                 <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-sm">
-                  <FadeImage src="/media/first-time-group.webp" alt="Shooters watching a target from a stand" fill sizes="(max-width: 1024px) 50vw, 280px" className="object-cover" />
+                  <FadeImage src="/media/first-time-bridge.webp" alt="A footbridge over the river on the Riverside course" fill sizes="(max-width: 1024px) 50vw, 280px" className="object-cover" />
                 </div>
               </div>
             </div>
