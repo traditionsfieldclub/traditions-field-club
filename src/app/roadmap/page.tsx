@@ -389,11 +389,11 @@ export default function Roadmap() {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Guided wing shoots</span>
+                    <span>Guided wingshooting</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                    <span>Natural-style property tours</span>
+                    <span>Guided walks of the property</span>
                   </li>
                 </ul>
               </div>

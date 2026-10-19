@@ -337,7 +337,7 @@ export default function About() {
                 <p className="text-[#333333] leading-relaxed mb-4">
                   Spanning 410 acres in the quiet rural heart of South Carolina&apos;s Lowcountry, Traditions Field Club
                   sits on land that embodies the natural beauty and rich heritage of the South.
-                  Rolling fields, mature pine forests, and the peaceful sounds of nature create
+                  Open fields and pine flatwoods, mature pine forests, and the peaceful sounds of nature create
                   an atmosphere unlike any other.
                 </p>
                 <p className="text-[#333333] leading-relaxed mb-6">
