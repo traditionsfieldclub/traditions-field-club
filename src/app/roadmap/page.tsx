@@ -467,7 +467,7 @@ export default function Roadmap() {
               >
                 <FadeImage
                   src="/images/recreation_hiking_trail_group.webp"
-                  alt="Members hiking a wooded trail at Traditions Field Club"
+                  alt="Teens walking a pine trail at Traditions with shotguns carried safely"
                   fill
                   className="object-cover object-[center_70%]"
                   sizes="(max-width: 768px) 100vw, 50vw"

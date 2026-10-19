@@ -463,6 +463,46 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Families Band */}
+        <section
+          id="families"
+          ref={(el) => { sectionRefs.current["families"] = el; }}
+          className="py-16 md:py-24 bg-[#f5f2ec]"
+        >
+          <div
+            className={`max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-500 ease-out ${
+              isVisible("families")
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-3"
+            }`}
+          >
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+              <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Families</span>
+              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+            </div>
+            <h2
+              className="text-3xl md:text-4xl text-[#162838]"
+              style={{ fontFamily: "var(--font-heading), serif" }}
+            >
+              Where Families Grow Together
+            </h2>
+            <div className="flex justify-center mt-4 mb-6">
+              <span className="h-[1px] w-16 bg-[#a75235]"></span>
+            </div>
+            <p className="text-[#333333] text-lg leading-relaxed">
+              Not every kid finds their sport on a field or a court. We&apos;ve watched ours find
+              it here, and watched our families grow closer for it.
+            </p>
+            <Link
+              href="/about#families"
+              className="inline-block mt-6 text-[#a75235] font-semibold tracking-wide hover:text-[#162838] transition-colors"
+            >
+              Read our story &rarr;
+            </Link>
+          </div>
+        </section>
+
         {/* Roadmap Preview */}
         <section
           id="roadmap"
