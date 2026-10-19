@@ -299,10 +299,10 @@ async function generateWaiverPDF(data: {
     "Never pointing a firearm at anything I do not intend to shoot",
     "Keeping my finger off the trigger until ready to shoot",
     "Being sure of my target and what is beyond it",
-    "Wearing eye and ear protection at all times on the range",
+    "Wearing eye and ear protection at all times on the course",
     "Keeping firearms unloaded and actions open when not in use",
     "Not possessing or consuming alcohol or drugs anywhere on club property",
-    "Following all instructions from Club staff and range officers",
+    "Following all instructions from Club staff and safety officers",
   ];
   for (const rule of rules) {
     drawBullet(rule);

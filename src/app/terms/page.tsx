@@ -128,7 +128,7 @@ export default function TermsOfService() {
                     <span className="text-[#f5f2ec] text-sm font-bold">5</span>
                   </span>
                   <div>
-                    <strong className="text-[#162838]">Eye and ear protection are mandatory on all ranges.</strong>
+                    <strong className="text-[#162838]">Eye and ear protection are mandatory on all courses and stands.</strong>
                     <p className="text-sm mt-1 opacity-75">Proper protective equipment must be worn at all times when on or near active shooting areas.</p>
                   </div>
                 </li>
@@ -155,7 +155,7 @@ export default function TermsOfService() {
                     <span className="text-[#f5f2ec] text-sm font-bold">8</span>
                   </span>
                   <div>
-                    <strong className="text-[#162838]">Follow all instructions from club staff and range officers.</strong>
+                    <strong className="text-[#162838]">Follow all instructions from club staff and safety officers.</strong>
                     <p className="text-sm mt-1 opacity-75">Staff members have the authority to enforce safety rules and may ask anyone to leave who does not comply.</p>
                   </div>
                 </li>
