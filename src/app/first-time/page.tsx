@@ -24,7 +24,7 @@ const visit = [
   },
   {
     title: "A guided round on our signature stands",
-    text: "We take you to a few of our signature stands for 50 shots. Having a good time? You're welcome to keep shooting past 50 for an added charge. Take your time. Ask anything. Nobody is keeping score unless you want to.",
+    text: "We take you to a few of our signature stands for 50 shots. Having a good time? Keep shooting past 50 if you like. Extra clays and shells are an added charge. Take your time. Ask anything. Nobody is keeping score unless you want to.",
   },
   {
     title: "Finish at the 5-Stand",
@@ -49,7 +49,7 @@ const faqs = [
   {
     question: "What does a first visit cost?",
     answer:
-      "A tour of Traditions is complimentary: no cost, no commitment. If you want to shoot, Member for a Day is $100 per shooter. Shotgun rental, shells, and eye and ear protection all included. That covers 50 shots; you're welcome to keep shooting past 50 for an added charge.",
+      "A tour of Traditions is complimentary: no cost, no commitment. If you want to shoot, Member for a Day is $100 per shooter. Shotgun rental, shells, and eye and ear protection all included. Extra clays and shells beyond 50 shots are an added charge.",
   },
   {
     question: "Where are you?",
