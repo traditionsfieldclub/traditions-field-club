@@ -233,7 +233,7 @@ export default function FirstTime() {
               </ol>
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative col-span-2 aspect-[4/3] rounded-lg overflow-hidden shadow-sm">
-                  <FadeImage src="/media/first-time-stand-10.webp" alt="Covered shooting stand 10 on the Riverside course in daylight" fill sizes="(max-width: 768px) 100vw, 560px" className="object-cover" />
+                  <FadeImage src="/media/first-time-stand-10.webp" alt="Covered shooting stand 10 on the Riverside course in daylight" fill quality={90} sizes="(max-width: 768px) 100vw, 560px" className="object-cover" />
                 </div>
                 <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-sm">
                   <FadeImage src="/media/first-time-shooter-adult.webp" alt="A shooter with eye and ear protection taking a shot from a stand" fill sizes="(max-width: 768px) 50vw, 280px" className="object-cover" />
