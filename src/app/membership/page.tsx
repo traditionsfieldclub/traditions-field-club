@@ -363,7 +363,7 @@ export default function Membership() {
               <div className="flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
                 <div className="grid grid-cols-2 gap-3 md:w-[260px] flex-shrink-0">
                   <div className="relative h-[140px] rounded-lg overflow-hidden">
-                    <Picture name="photo-shooter-stand" alt="A guest mounting a shotgun at a stand" imgClassName="absolute inset-0 w-full h-full object-cover" />
+                    <Picture name="stand-daylight" alt="Looking out from a covered shooting stand over the field in daylight" imgClassName="absolute inset-0 w-full h-full object-cover" />
                   </div>
                   <div className="relative h-[140px] rounded-lg overflow-hidden">
                     <Picture name="sunset-mfad" alt="Sunset over a shooting stand at Traditions Field Club" imgClassName="absolute inset-0 w-full h-full object-cover" />
