@@ -28,7 +28,7 @@ const visit = [
   },
   {
     title: "A guided round on our signature stands",
-    text: "Then we take you to a few of our signature stands for 50 shots. Having a good time? Keep shooting past 50 if you like. Extra clays and shells are an added charge. Take your time. Ask anything. Nobody is keeping score unless you want to.",
+    text: "Then we head out to a few of our signature stands. Your 50 shots cover both the warm-up and the round. Having a good time? Keep shooting past 50 if you like. Extra clays and shells are an added charge. Take your time. Ask anything. Nobody is keeping score unless you want to.",
   },
 ];
 
@@ -64,7 +64,7 @@ const faqs = [
   {
     question: "How long should I plan for?",
     answer:
-      "A tour takes about an hour. A Member for a Day visit runs about an hour to an hour and a half, including the safety walk-through, warm-up at the 5-Stand and a guided round of 50 shots on our signature stands.",
+      "A tour takes about an hour. A Member for a Day visit runs about an hour to an hour and a half, including the safety walk-through, a warm-up at the 5-Stand and a guided round on our signature stands, 50 shots in all.",
   },
   {
     question: "Can I bring my children?",
@@ -168,7 +168,7 @@ export default function FirstTime() {
                 <p className="text-[#a75235] text-sm tracking-[0.2em] uppercase mb-2">$100 per shooter</p>
                 <h3 className="text-2xl md:text-3xl text-[#162838] mb-3" style={heading}>Member for a Day</h3>
                 <p className="text-[#333333] leading-relaxed mb-4">
-                  A guided round of 50 shots on a few of our signature stands, with one of us alongside you.
+                  50 shots, starting with a warm-up at the 5-Stand and then a guided round on a few of our signature stands, with one of us alongside you.
                 </p>
                 <ul className="text-[#333333] space-y-1 mb-7">
                   <li>Shotgun rental, shells, and eye and ear protection all included</li>
