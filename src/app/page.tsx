@@ -504,7 +504,7 @@ export default function Home() {
               {[
                 { phase: "Phase 1", title: "Foundation", status: "Complete", desc: "2 sporting clays courses" },
                 { phase: "Phase 2", title: "Pavilion", status: "In Progress", desc: "Restrooms with showers, kitchen, shop\nFamily hangout space" },
-                { phase: "Phase 3", title: "Your Wild Side", status: "Coming Soon", desc: "Deer stands, food plots, duck blinds\nQuail fields, released and guided hunts" },
+                { phase: "Phase 3", title: "Your Wild Side", status: "Coming Soon", desc: "Deer stands, food plots, duck blinds\nQuail grounds, released and guided hunts" },
                 { phase: "Phase 4", title: "Recreation", status: "Future", desc: "Farm build-out, hiking, outdoor recreation" },
               ].map((item, index) => (
                 <div

@@ -533,7 +533,7 @@ export default function Activities() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span>Duck blinds and quail fields</span>
+                    <span>Duck blinds and quail grounds</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
