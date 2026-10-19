@@ -77,35 +77,66 @@ export default function Families() {
           </div>
         </section>
 
-        {/* Friendships */}
+        {/* Pathway */}
         <section className="py-16 md:py-24 overflow-hidden">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div className="md:order-2 relative h-[300px] md:h-[400px] rounded-lg overflow-hidden">
-              <Picture
-                name="families-friends"
-                alt="Three friends standing arm in arm in the woods at Traditions"
-                imgClassName="absolute inset-0 w-full h-full object-cover"
-              />
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center mb-12 md:mb-16">
+              <div>
+                <Eyebrow>The pathway</Eyebrow>
+                <h2 className="text-3xl md:text-4xl text-[#162838] mb-6" style={heading}>
+                  From first visit to friends for life
+                </h2>
+                <p className="text-[#333333] text-lg leading-relaxed">
+                  Some of the best friendships we know started out here. These young people have each
+                  other&apos;s backs. They show up, stay focused, and spend their time outdoors with people
+                  who care about them. Here is how that starts.
+                </p>
+              </div>
+              <div className="relative h-[300px] md:h-[360px] rounded-lg overflow-hidden">
+                <Picture
+                  name="families-friends"
+                  alt="Three friends standing arm in arm in the woods at Traditions"
+                  imgClassName="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
             </div>
-            <div className="md:order-1">
-              <Eyebrow>Friendships</Eyebrow>
-              <h2 className="text-3xl md:text-4xl text-[#162838] mb-6" style={heading}>
-                People who have each other&apos;s backs
-              </h2>
-              <p className="text-[#333333] text-lg leading-relaxed mb-4">
-                Some of the best friendships we know started out here. These young people have each
-                other&apos;s backs. They show up, stay focused, and spend their time outdoors with people
-                who care about them.
-              </p>
-              <p className="text-[#333333] text-lg leading-relaxed">
-                For parents, there is real peace of mind in knowing where your children are and who
-                they&apos;re with.
-              </p>
-            </div>
+            <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  title: "First visit",
+                  body: "Come out together. Book a complimentary tour and see the property as a family.",
+                },
+                {
+                  title: "Learn with a coach",
+                  body: "Safe gun handling, focus and patience, with an NSCA Level 1 Instructor alongside.",
+                },
+                {
+                  title: "Join the team",
+                  body: "Our youth clays team practices here on weekday afternoons, with Brian coaching.",
+                },
+                {
+                  title: "Grow together",
+                  body: "Friendships that last, parents out on the course too, and family membership when you are ready.",
+                },
+              ].map((step, n) => (
+                <li key={step.title} className="bg-white rounded-lg border border-[#e8e4dc] shadow-sm p-6">
+                  <span
+                    className="w-10 h-10 rounded-full bg-[#a75235] text-[#f5f2ec] flex items-center justify-center text-lg mb-4"
+                    style={heading}
+                  >
+                    {n + 1}
+                  </span>
+                  <h3 className="text-xl text-[#162838] mb-2" style={heading}>
+                    {step.title}
+                  </h3>
+                  <p className="text-[#333333] leading-relaxed">{step.body}</p>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
 
-        {/* Safety with a coach */}
+        {/* For parents */}
         <section className="py-16 md:py-24 bg-white overflow-hidden">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div className="relative h-[420px] md:h-[500px] rounded-lg overflow-hidden">
@@ -116,15 +147,15 @@ export default function Families() {
               />
             </div>
             <div>
-              <Eyebrow>Safety first</Eyebrow>
+              <Eyebrow>For parents</Eyebrow>
               <h2 className="text-3xl md:text-4xl text-[#162838] mb-6" style={heading}>
-                A coach alongside them
+                Safety first, always
               </h2>
-              <ul className="space-y-4 text-[#333333] text-lg">
+              <ul className="space-y-4 text-[#333333] text-lg mb-6">
                 {[
                   "Eyes and ears on, every time.",
                   "Muzzle up and pointed in a safe direction.",
-                  "An NSCA Level 1 Instructor alongside them.",
+                  "A coach alongside them.",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
@@ -136,28 +167,8 @@ export default function Families() {
                   </li>
                 ))}
               </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* Time together */}
-        <section className="py-16 md:py-24 overflow-hidden">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div className="md:order-2 relative h-[300px] md:h-[400px] rounded-lg overflow-hidden">
-              <Picture
-                name="first-time-bridge"
-                alt="A footbridge over the creek on the property at Traditions"
-                imgClassName="absolute inset-0 w-full h-full object-cover"
-              />
-            </div>
-            <div className="md:order-1">
-              <Eyebrow>After the round</Eyebrow>
-              <h2 className="text-3xl md:text-4xl text-[#162838] mb-6" style={heading}>
-                Time together
-              </h2>
               <p className="text-[#333333] text-lg leading-relaxed">
-                The best part often comes after the last clay. Slow down, talk through the round, and
-                enjoy the outdoors together.
+                And there is real peace of mind in knowing where your children are and who they&apos;re with.
               </p>
             </div>
           </div>
@@ -167,10 +178,10 @@ export default function Families() {
         <section className="py-16 md:py-20 bg-[#4d5c47]">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl text-[#f5f2ec] mb-4" style={heading}>
-              Come see it for yourself
+              Come out together
             </h2>
             <p className="text-[#f5f2ec] text-lg opacity-90 mb-8">
-              Take a complimentary tour, or spend a day on the property as Member for a Day.
+              Book a complimentary tour, ask us about the youth team, or spend a day on the property as Member for a Day.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -179,6 +190,13 @@ export default function Families() {
                 style={heading}
               >
                 Book a Tour
+              </a>
+              <a
+                href="/contact?topic=lessons"
+                className="inline-block border-2 border-[#f5f2ec] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#f5f2ec] hover:text-[#4d5c47] transition-colors rounded-lg"
+                style={heading}
+              >
+                Ask About the Youth Team
               </a>
               <a
                 href="/member-for-a-day#book"
