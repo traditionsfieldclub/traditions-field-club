@@ -523,13 +523,19 @@ export default function About() {
                   <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Families</span>
                 </div>
                 <h2
-                  className="text-3xl md:text-4xl text-[#162838] mb-6"
+                  className="text-3xl md:text-4xl text-[#162838] mb-3"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
                   Where Families Grow Together
                 </h2>
+                <p
+                  className="text-xl text-[#a75235] italic mb-6"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Friends become family.
+                </p>
                 <p className="text-[#333333] leading-relaxed">
-                  Not every kid finds their sport on a field or a court. We&apos;ve watched ours
+                  Not every child finds their sport on a field or a court. We&apos;ve watched ours
                   find it here. With a coach alongside them, teens learn safe gun handling, focus
                   and patience, and they start to carry themselves differently. We&apos;re parents
                   too, and watching our own teens grow into confident young adults out here is one
