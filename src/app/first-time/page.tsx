@@ -1,99 +1,109 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
 import FadeImage from "@/components/FadeImage";
 
-const steps = [
+const heading = { fontFamily: "var(--font-heading), serif" };
+
+const visit = [
   {
-    number: "01",
-    title: "Let Us Know You're Interested",
-    description:
-      "Reach out to us through our contact form or give us a call to express your interest. We'll answer any questions you have about the club, discuss membership options, and help you plan your first visit. Whether you're an experienced shooter or brand new to the sport, we're here to make sure you feel welcome from the start.",
+    title: "Pull in",
+    text: "Pull in and park. Give yourself a few extra minutes; the drive through the Lowcountry is part of it.",
   },
   {
-    number: "02",
-    title: "Arrival",
-    description:
-      "When you arrive at Traditions Field Club, you'll be greeted by our friendly staff at the main entrance. We recommend arriving 15-20 minutes before your scheduled time to allow for check-in and preparation. Don't forget to bring a valid ID and wear appropriate outdoor attire. Closed-toe shoes are required on the range.",
+    title: "One of us meets you",
+    text: "Jim or Brian will be there to say hello, show you around and answer whatever questions you have.",
   },
   {
-    number: "03",
-    title: "Receive a Safety Brief",
-    description:
-      "Safety is our top priority. Before heading to the range, all first-time visitors receive a comprehensive safety briefing from one of our certified instructors. You'll learn proper firearm handling, range etiquette, and emergency procedures. This ensures everyone has a safe and enjoyable experience.",
+    title: "Sign the waiver",
+    text: "Everyone who shoots signs our waiver. You can do it at the club, or sign it online ahead of time.",
   },
   {
-    number: "04",
-    title: "Learn the Layout",
-    description:
-      "Your guide will walk you through our facilities, showing you the sporting clays courses and amenities. You'll learn how to navigate the grounds, understand the different stations, and discover all the features that make Traditions Field Club special.",
+    title: "A safety walk-through",
+    text: "Before anyone loads a shell, we go over safe gun handling, how a station works and how we move between stands. Brian is a certified shooting instructor.",
   },
   {
-    number: "05",
-    title: "Enjoy Your Shoot",
-    description:
-      "Now comes the fun part! Our staff will be nearby to assist if needed as you take on the course. Take your time, enjoy the beautiful surroundings, and challenge yourself at your own pace. Don't worry if you're new. Everyone starts somewhere, and our supportive environment is perfect for learning.",
+    title: "A guided round on the course",
+    text: "We walk the course with you, stand by stand. Take your time. Ask anything. Nobody is keeping score unless you want to.",
   },
   {
-    number: "06",
-    title: "Let Us Know What You Think",
-    description:
-      "After your session, we'd love to hear about your experience. Your feedback helps us continue improving and ensures we're providing the best possible experience for all our guests. Plus, it's a great opportunity to ask about membership options and plan your next visit!",
+    title: "Finish at the 5-Stand",
+    text: "We wrap up at the 5-Stand, where targets come from several directions and it is easy to shoot a few more.",
   },
+];
+
+const bring = [
+  { label: "Valid ID", note: "Required for every shooter" },
+  { label: "Closed-toe shoes", note: "Required on the course" },
+  { label: "Clothes for the weather", note: "You will be outside and walking" },
+  { label: "Your own shotgun", note: "Optional; shotgun rental is included with Member for a Day" },
+];
+
+const included = [
+  "Shotgun rental",
+  "Shells",
+  "Eye and ear protection",
 ];
 
 const faqs = [
   {
-    question: "Do I need any experience to visit?",
-    answer: "Not at all! We welcome complete beginners. Our certified instructors will provide a full safety briefing and can offer guidance throughout your visit. Many of our members started with zero experience.",
+    question: "What does a first visit cost?",
+    answer:
+      "A tour of Traditions is complimentary: no cost, no commitment. If you want to shoot, Member for a Day is $100 per shooter. Shotgun rental, shells, and eye and ear protection all included.",
   },
   {
-    question: "How long should I plan for my first visit?",
-    answer: "Plan for about 2-3 hours for your first visit. This allows time for check-in, the safety briefing, orientation of the grounds, and your shooting session. You're welcome to stay longer if you'd like more time on the range.",
+    question: "Where are you?",
+    answer:
+      "Traditions is a private sporting clays and outdoor club, a scenic drive through the Lowcountry, about an hour from Hilton Head, Bluffton, Beaufort and Edisto.",
   },
   {
-    question: "How long does it take to complete a course?",
-    answer: "Approximately 1½ to 2 hours if you're shooting at a leisurely pace.",
+    question: "Do I need experience?",
+    answer:
+      "No. Beginners are welcome. We start with a safety walk-through and stay with you on the course.",
+  },
+  {
+    question: "How long should I plan for?",
+    answer:
+      "A tour takes about an hour. A Member for a Day visit runs roughly 2 hours, including the safety walk-through, a guided round and time at the 5-Stand.",
   },
   {
     question: "Can I bring my children?",
-    answer: "Yes! We welcome youth shooters. Children under 18 must be accompanied by a parent or guardian at all times. We offer youth-friendly instruction and have programs designed specifically for younger shooters to learn safely.",
+    answer:
+      "Yes. Shooters under 18 are welcome when accompanied by a parent or guardian at all times.",
   },
   {
-    question: "What if I don't have my own shotgun?",
-    answer: "No problem, rentals are available on-site. Just let us know when you schedule your visit so we can have equipment ready for you. We also have ammunition and other supplies available for purchase.",
+    question: "What if I don't have a shotgun?",
+    answer:
+      "You don't need one. Member for a Day includes shotgun rental, shells, and eye and ear protection.",
   },
 ];
 
+function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+  return (
+    <div className="flex items-center justify-center gap-4 mb-4">
+      <span className={`h-[1px] w-12 md:w-20 ${light ? "bg-[#f5f2ec]/30" : "bg-[#162838]/20"}`}></span>
+      <span className={`text-sm tracking-[0.3em] uppercase ${light ? "text-[#f5f2ec]/70" : "text-[#a75235]"}`}>{children}</span>
+      <span className={`h-[1px] w-12 md:w-20 ${light ? "bg-[#f5f2ec]/30" : "bg-[#162838]/20"}`}></span>
+    </div>
+  );
+}
+
+function Rule() {
+  return (
+    <div className="flex justify-center my-5">
+      <span className="h-[1px] w-16 bg-[#a75235]"></span>
+    </div>
+  );
+}
+
+const btnPrimary =
+  "inline-block bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg text-center";
+const btnOutline =
+  "inline-block border-2 border-[#162838] text-[#162838] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] hover:text-[#f5f2ec] transition-colors rounded-lg text-center";
+const btnLight =
+  "inline-block bg-transparent border-2 border-[#f5f2ec] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#f5f2ec] hover:text-[#4d5c47] transition-colors rounded-lg text-center";
+
 export default function FirstTime() {
-  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisibleSections((prev) => new Set([...prev, entry.target.id]));
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    Object.values(sectionRefs.current).forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const isVisible = (id: string) => visibleSections.has(id);
-
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -106,377 +116,211 @@ export default function FirstTime() {
 
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <AnnouncementBar />
       <Header />
 
       <main id="main" className="flex-grow">
-        {/* Hero Section */}
-        <section className="relative py-20 md:py-28 lg:py-32">
-          <div className="absolute inset-0 bg-[#162838]">
-            <div className="absolute inset-0 bg-[#162838]/70"></div>
-          </div>
-
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1
-              className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#f5f2ec] mb-4 tracking-wide"
-              style={{ fontFamily: "var(--font-heading), serif" }}
-            >
-              First Time Visitors
+        {/* Hero */}
+        <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-end">
+          <FadeImage
+            src="/media/first-time-hero.webp"
+            alt="Sunset over a field and longleaf pines at Traditions Field Club"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#162838]/85 via-[#162838]/35 to-transparent"></div>
+          <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 md:pb-20 text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#f5f2ec] mb-4 tracking-wide" style={heading}>
+              Your First Visit
             </h1>
             <p className="text-lg md:text-xl text-[#f5f2ec] max-w-2xl mx-auto opacity-90">
-              Everything you need to know for your first visit to Traditions Field Club
+              New to sporting clays, or just new to Traditions. Here is what a first visit looks like and how to start.
             </p>
           </div>
         </section>
 
-        {/* Intro Section */}
-        <section
-          id="intro"
-          ref={(el) => { sectionRefs.current["intro"] = el; }}
-          className="py-16 md:py-24 bg-white overflow-hidden"
-        >
-          <div
-            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center transition-all duration-500 ease-out ${
-              isVisible("intro")
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-3"
-            }`}
-          >
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
-              <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Welcome</span>
-              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+        {/* Two ways to start */}
+        <section id="start" className="py-16 md:py-20 bg-[#f5f2ec]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <Eyebrow>Two Ways to Start</Eyebrow>
+              <h2 className="text-3xl md:text-4xl text-[#162838]" style={heading}>Come See It, or Come Shoot</h2>
+              <Rule />
             </div>
-            <h2
-              className="text-3xl md:text-4xl text-[#162838] mb-6"
-              style={{ fontFamily: "var(--font-heading), serif" }}
-            >
-              Your First Visit, Step by Step
-            </h2>
-            <div className="flex justify-center mb-6">
-              <span className="h-[1px] w-16 bg-[#a75235]"></span>
-            </div>
-            <p className="text-lg text-[#333333] leading-relaxed">
-              We want your first experience at Traditions Field Club to be memorable for all the right reasons.
-              Whether you&apos;re a seasoned shooter or picking up a shotgun for the first time, our team is here
-              to guide you every step of the way. Here&apos;s what to expect when you visit us.
-            </p>
-          </div>
-        </section>
-
-        {/* Steps Section */}
-        <section
-          id="steps"
-          ref={(el) => { sectionRefs.current["steps"] = el; }}
-          className="py-16 md:py-24 bg-[#f5f2ec] overflow-hidden"
-        >
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="space-y-0">
-              {steps.map((step, index) => (
-                <div
-                  key={step.number}
-                  className={`relative transition-all duration-500 ease-out ${
-                    isVisible("steps")
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-3"
-                  }`}
-                  style={{ transitionDelay: `${index * 100}ms` }}
-                >
-                  {/* Connecting Line */}
-                  {index < steps.length - 1 && (
-                    <div className="absolute left-6 md:left-10 top-20 bottom-0 w-[2px] bg-[#a75235]/20"></div>
-                  )}
-
-                  <div className="flex gap-6 md:gap-10 pb-12 md:pb-16">
-                    {/* Number Circle */}
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 md:w-20 md:h-20 bg-[#a75235] rounded-full flex items-center justify-center shadow-lg">
-                        <span
-                          className="text-[#f5f2ec] text-lg md:text-2xl font-bold"
-                          style={{ fontFamily: "var(--font-heading), serif" }}
-                        >
-                          {step.number}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex-grow pt-1 md:pt-3">
-                      <h3
-                        className="text-xl md:text-2xl lg:text-3xl text-[#162838] mb-3"
-                        style={{ fontFamily: "var(--font-heading), serif" }}
-                      >
-                        {step.title}
-                      </h3>
-                      <p className="text-[#333333] leading-relaxed">
-                        {step.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* What to Bring Section */}
-        <section
-          id="bring"
-          ref={(el) => { sectionRefs.current["bring"] = el; }}
-          className="py-16 md:py-24 bg-white overflow-hidden"
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div
-                className={`transition-all duration-500 ease-out ${
-                  isVisible("bring")
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-3"
-                }`}
-              >
-                <div className="relative h-[300px] sm:h-[350px] md:h-[400px]">
-                  <div className="absolute inset-0 rounded-lg overflow-hidden">
-                    <FadeImage
-                      src="/images/clay_target_thrower.webp"
-                      alt="Clay target thrower loaded with orange clays"
-                      fill
-                      className="object-cover"
-                      style={{ objectPosition: "center calc(50% + 20px)" }}
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-                  {/* Decorative accent */}
-                  <div className="hidden sm:block absolute -bottom-4 -right-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
-                  <div className="hidden sm:block absolute -top-4 -left-4 w-24 h-24 bg-[#4d5c47]/10 rounded-lg -z-10"></div>
-                </div>
-                <p
-                  className="text-center text-2xl md:text-3xl text-[#162838] mt-8"
-                  style={{ fontFamily: "var(--font-heading), serif" }}
-                >
-                  We Bring the Rest
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-7 md:p-9 flex flex-col">
+                <p className="text-[#a75235] text-sm tracking-[0.2em] uppercase mb-2">Complimentary</p>
+                <h3 className="text-2xl md:text-3xl text-[#162838] mb-3" style={heading}>Tour Traditions</h3>
+                <p className="text-[#333333] leading-relaxed mb-4">
+                  Walk the grounds with one of us, see the courses and the pavilion, and get your questions answered.
                 </p>
-              </div>
-
-              {/* Content */}
-              <div
-                className={`transition-all duration-500 ease-out delay-100 ${
-                  isVisible("bring")
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-3"
-                }`}
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <span className="h-[1px] w-8 md:w-12 bg-[#a75235]"></span>
-                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Be Prepared</span>
-                </div>
-                <h2
-                  className="text-3xl md:text-4xl text-[#162838] mb-6"
-                  style={{ fontFamily: "var(--font-heading), serif" }}
-                >
-                  What to Bring
-                </h2>
-                <p className="text-[#333333] mb-6 leading-relaxed">
-                  To ensure you have the best experience possible, here are a few things to keep in mind
-                  before your visit:
-                </p>
-                <ul className="space-y-4 text-[#333333]">
-                  <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span><strong>Valid ID</strong>: Required for all visitors</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span><strong>Closed-toe shoes</strong>: Required on the range</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span><strong>Weather-appropriate clothing</strong>: We shoot rain or shine</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span><strong>Eye and ear protection</strong>: Available on-site if needed</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span><strong>Your own firearm</strong>: Optional; rentals available</span>
-                  </li>
+                <ul className="text-[#333333] space-y-1 mb-7">
+                  <li>About an hour</li>
+                  <li>No cost, no commitment</li>
                 </ul>
-
-                {/* Available On-Site Callout */}
-                <div className="mt-8 bg-[#f5f2ec] border border-[#4d5c47]/20 rounded-lg p-5">
-                  <h3
-                    className="text-lg text-[#162838] mb-3 flex items-center gap-2"
-                    style={{ fontFamily: "var(--font-heading), serif" }}
-                  >
-                    <svg className="w-5 h-5 text-[#4d5c47]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    Available On-Site
-                  </h3>
-                  <ul className="space-y-2 text-[#333333] text-sm">
-                    <li className="flex items-start gap-2">
-                      <span className="text-[#a75235] mt-0.5">&#8226;</span>
-                      <span><strong>Eye &amp; ear protection</strong> provided at no charge</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-[#a75235] mt-0.5">&#8226;</span>
-                      <span><strong>Firearm rentals</strong> available for guests</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-[#a75235] mt-0.5">&#8226;</span>
-                      <span><strong>Ammunition</strong> available for purchase</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-[#a75235] mt-0.5">&#8226;</span>
-                      <span><strong>Refreshments</strong>: water and snacks available on-site</span>
-                    </li>
-                  </ul>
-                </div>
+                <a href="/tour#book" className={`${btnOutline} mt-auto`} style={heading}>Book a Tour</a>
+              </div>
+              <div className="bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-7 md:p-9 flex flex-col">
+                <p className="text-[#a75235] text-sm tracking-[0.2em] uppercase mb-2">$100 per shooter</p>
+                <h3 className="text-2xl md:text-3xl text-[#162838] mb-3" style={heading}>Member for a Day</h3>
+                <p className="text-[#333333] leading-relaxed mb-4">
+                  Shoot the course the way our members do, with one of us alongside you.
+                </p>
+                <ul className="text-[#333333] space-y-1 mb-7">
+                  <li>Shotgun rental, shells, and eye and ear protection all included</li>
+                </ul>
+                <a href="/member-for-a-day#book" className={`${btnPrimary} mt-auto`} style={heading}>Book Member for a Day</a>
               </div>
             </div>
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section
-          id="faq"
-          ref={(el) => { sectionRefs.current["faq"] = el; }}
-          className="py-16 md:py-24 bg-[#f5f2ec] overflow-hidden"
-        >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Section Header */}
-            <div
-              className={`text-center mb-12 transition-all duration-500 ease-out ${
-                isVisible("faq")
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-3"
-              }`}
-            >
-              <div className="flex items-center justify-center gap-4 mb-4">
-                <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
-                <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Common Questions</span>
-                <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
-              </div>
-              <h2
-                className="text-3xl md:text-4xl text-[#162838]"
-                style={{ fontFamily: "var(--font-heading), serif" }}
-              >
-                First Time FAQs
-              </h2>
-              <div className="flex justify-center mt-4">
-                <span className="h-[1px] w-16 bg-[#a75235]"></span>
-              </div>
+        {/* Welcome from Jim and Brian */}
+        <section id="welcome" className="py-16 md:py-24 bg-white">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <Eyebrow>Welcome</Eyebrow>
+              <h2 className="text-3xl md:text-4xl text-[#162838]" style={heading}>You&apos;ll Be Shooting With Us</h2>
+              <Rule />
+              <p className="text-lg text-[#333333] leading-relaxed max-w-2xl mx-auto">
+                Traditions is our club. When you come out for the first time, one of us will be the person who meets you.
+              </p>
             </div>
-
-            {/* FAQ Accordion */}
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <div
-                  key={index}
-                  className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden transition-all duration-500 ease-out ${
-                    isVisible("faq")
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-3"
-                  }`}
-                  style={{ transitionDelay: `${(index + 1) * 100}ms` }}
-                >
-                  <button
-                    className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 hover:bg-[#f5f2ec]/50 transition-colors"
-                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                    aria-expanded={openFaq === index}
-                  >
-                    <span
-                      className="text-lg text-[#162838] font-semibold"
-                      style={{ fontFamily: "var(--font-heading), serif" }}
-                    >
-                      {faq.question}
-                    </span>
-                    <span
-                      className={`w-6 h-6 flex items-center justify-center text-[#a75235] transition-transform duration-300 flex-shrink-0 ${
-                        openFaq === index ? "rotate-180" : ""
-                      }`}
-                    >
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </span>
-                  </button>
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                      openFaq === index ? "max-h-96" : "max-h-0"
-                    }`}
-                  >
-                    <div className="px-6 pb-5 pt-0 text-[#333333] leading-relaxed border-t border-[#e8e4dc]">
-                      <p className="pt-4">{faq.answer}</p>
-                    </div>
+            <div className="grid grid-cols-2 gap-4 md:gap-8">
+              {[
+                { name: "Jim Nicholson", src: "/media/first-time-jim.webp", alt: "Jim Nicholson at a shooting stand at Traditions Field Club", role: "Co-founder" },
+                { name: "Brian Seifrit", src: "/media/first-time-brian.webp", alt: "Brian Seifrit at a shooting stand at Traditions Field Club", role: "Co-founder" },
+              ].map((p) => (
+                <figure key={p.name} className="text-center">
+                  <div className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-sm">
+                    <FadeImage src={p.src} alt={p.alt} fill sizes="(max-width: 768px) 50vw, 460px" className="object-cover" />
                   </div>
-                </div>
+                  <figcaption className="mt-4">
+                    <span className="block text-xl md:text-2xl text-[#162838]" style={heading}>{p.name}</span>
+                    <span className="block text-sm tracking-[0.2em] uppercase text-[#a75235] mt-1">{p.role}</span>
+                  </figcaption>
+                </figure>
               ))}
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
+        {/* The first visit */}
+        <section id="visit" className="py-16 md:py-24 bg-[#f5f2ec]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <Eyebrow>What to Expect</Eyebrow>
+              <h2 className="text-3xl md:text-4xl text-[#162838]" style={heading}>How a First Visit Goes</h2>
+              <Rule />
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+              <ol className="space-y-7">
+                {visit.map((v, i) => (
+                  <li key={v.title} className="flex gap-5">
+                    <span className="w-10 h-10 rounded-full bg-[#162838] text-[#f5f2ec] flex items-center justify-center flex-shrink-0 font-semibold" style={heading}>
+                      {i + 1}
+                    </span>
+                    <div>
+                      <h3 className="text-xl text-[#162838] mb-1" style={heading}>{v.title}</h3>
+                      <p className="text-[#333333] leading-relaxed">{v.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="relative col-span-2 aspect-[4/3] rounded-lg overflow-hidden shadow-sm">
+                  <FadeImage src="/media/first-time-stand.webp" alt="A group at a covered shooting stand on the course" fill sizes="(max-width: 1024px) 100vw, 560px" className="object-cover" />
+                </div>
+                <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-sm">
+                  <FadeImage src="/media/first-time-guest.webp" alt="A guest shooting at a stand, wearing eye and ear protection" fill sizes="(max-width: 1024px) 50vw, 280px" className="object-cover" />
+                </div>
+                <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-sm">
+                  <FadeImage src="/media/first-time-group.webp" alt="Shooters watching a target from a stand" fill sizes="(max-width: 1024px) 50vw, 280px" className="object-cover" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* What to bring */}
+        <section id="bring" className="py-16 md:py-24 bg-white">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <Eyebrow>Be Prepared</Eyebrow>
+              <h2 className="text-3xl md:text-4xl text-[#162838]" style={heading}>What to Bring</h2>
+              <Rule />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <ul className="space-y-4 text-[#333333]">
+                {bring.map((b) => (
+                  <li key={b.label} className="flex items-start gap-3">
+                    <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span><strong>{b.label}</strong>: {b.note}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="bg-[#f5f2ec] border border-[#4d5c47]/20 rounded-lg p-6">
+                <h3 className="text-lg text-[#162838] mb-3" style={heading}>Included With Member for a Day</h3>
+                <ul className="space-y-2 text-[#333333]">
+                  {included.map((x) => (
+                    <li key={x} className="flex items-start gap-2">
+                      <span className="text-[#a75235]">&#8226;</span>
+                      <span>{x}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-sm text-[#333333]/80 mt-4">$100 per shooter.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section id="faq" className="py-16 md:py-24 bg-[#f5f2ec]">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <Eyebrow>Common Questions</Eyebrow>
+              <h2 className="text-3xl md:text-4xl text-[#162838]" style={heading}>First Time FAQs</h2>
+              <Rule />
+            </div>
+            <div className="space-y-4">
+              {faqs.map((f) => (
+                <details key={f.question} className="group bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden">
+                  <summary className="cursor-pointer list-none px-6 py-5 flex items-center justify-between gap-4 hover:bg-[#f5f2ec]/50">
+                    <span className="text-lg text-[#162838] font-semibold" style={heading}>{f.question}</span>
+                    <svg className="w-5 h-5 text-[#a75235] transition-transform group-open:rotate-180 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div className="px-6 pb-5 text-[#333333] leading-relaxed border-t border-[#e8e4dc]">
+                    <p className="pt-4">{f.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Closing */}
         <section className="py-16 md:py-20 bg-[#4d5c47]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            {/* Decorative Header */}
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <span className="h-[1px] w-12 md:w-20 bg-[#f5f2ec]/30"></span>
-              <span className="text-[#f5f2ec]/60 text-sm tracking-[0.3em] uppercase">Get Started</span>
-              <span className="h-[1px] w-12 md:w-20 bg-[#f5f2ec]/30"></span>
-            </div>
-            <h2
-              className="text-3xl md:text-4xl text-[#f5f2ec] mb-4"
-              style={{ fontFamily: "var(--font-heading), serif" }}
-            >
-              Ready to Visit?
-            </h2>
-            <div className="flex justify-center mb-6">
-              <span className="h-[1px] w-16 bg-[#a75235]"></span>
-            </div>
+            <Eyebrow light>Get Started</Eyebrow>
+            <h2 className="text-3xl md:text-4xl text-[#f5f2ec]" style={heading}>Ready for Your First Visit?</h2>
+            <Rule />
             <p className="text-[#f5f2ec] opacity-90 max-w-2xl mx-auto mb-8">
-              We can&apos;t wait to welcome you to Traditions Field Club. Reach out to schedule your first
-              visit or sign our waiver ahead of time to speed up check-in.
+              Book a complimentary tour or a Member for a Day, and sign the waiver ahead of time if you like. We&apos;ll see you out there.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/waiver"
-                className="inline-block bg-[#a75235] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
-                style={{ fontFamily: "var(--font-heading), serif" }}
-              >
-                Sign Our Waiver
-              </a>
-              <a
-                href="/contact"
-                className="inline-block bg-transparent border-2 border-[#f5f2ec] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#f5f2ec] hover:text-[#4d5c47] transition-colors rounded-lg"
-                style={{ fontFamily: "var(--font-heading), serif" }}
-              >
-                Contact Us
-              </a>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center">
+              <a href="/tour#book" className={btnLight} style={heading}>Book a Tour</a>
+              <a href="/member-for-a-day#book" className={btnPrimary} style={heading}>Book Member for a Day</a>
+              <a href="/waiver" className={btnLight} style={heading}>Sign Our Waiver</a>
             </div>
           </div>
         </section>
