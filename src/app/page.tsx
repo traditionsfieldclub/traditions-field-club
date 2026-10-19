@@ -491,7 +491,7 @@ export default function Home() {
               <span className="h-[1px] w-16 bg-[#a75235]"></span>
             </div>
             <p className="text-[#333333] text-lg leading-relaxed">
-              Not every kid finds their sport on a field or a court. We&apos;ve watched ours find
+              Not every child finds their sport on a field or a court. We&apos;ve watched ours find
               it here, and watched our families grow closer for it.
             </p>
             <Link

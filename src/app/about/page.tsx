@@ -529,7 +529,7 @@ export default function About() {
                   Where Families Grow Together
                 </h2>
                 <p className="text-[#333333] leading-relaxed">
-                  Not every kid finds their sport on a field or a court. We&apos;ve watched ours
+                  Not every child finds their sport on a field or a court. We&apos;ve watched ours
                   find it here. With a coach alongside them, teens learn safe gun handling, focus
                   and patience, and they start to carry themselves differently. We&apos;re parents
                   too, and watching our own teens grow into confident young adults out here is one
