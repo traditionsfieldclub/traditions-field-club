@@ -12,6 +12,7 @@ const navLinks = [
   { label: "Roadmap", href: "/roadmap" },
   { label: "Membership", href: "/membership" },
   { label: "About", href: "/about" },
+  { label: "Families", href: "/families" },
   { label: "Contact", href: "/contact" },
 ];
 

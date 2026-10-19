@@ -28,7 +28,7 @@ export default function Families() {
           <div className="absolute inset-0 bg-[#162838]">
             <FadeImage
               src="/images/recreation_hiking_trail_group.webp"
-              alt=""
+              alt="Teens walking a pine trail at Traditions with shotguns carried safely"
               fill
               priority
               className="object-cover object-[center_70%]"
@@ -51,29 +51,25 @@ export default function Families() {
         </section>
 
         {/* Our story */}
-        <section className="py-16 md:py-24 bg-white overflow-hidden">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
-            <div className="relative h-[420px] md:h-[500px] rounded-lg overflow-hidden">
-              <FadeImage
-                src="/images/recreation_hiking_trail_group.webp"
-                alt="Teens walking a pine trail at Traditions with shotguns carried safely"
-                fill
-                className="object-cover object-[center_70%]"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
+        <section className="py-16 md:py-24 bg-white">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+              <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Why we built it</span>
+              <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
             </div>
-            <div>
-              <Eyebrow>Why we built it</Eyebrow>
-              <h2 className="text-3xl md:text-4xl text-[#162838] mb-6" style={heading}>
-                Their sport, found here
-              </h2>
-              <p className="text-[#333333] text-lg leading-relaxed">
-                Not every child finds their sport on a field or a court. We&apos;ve watched ours find it
-                here. With a coach alongside them, teens learn safe gun handling, focus and patience, and
-                they start to carry themselves differently. We&apos;re parents too, and watching our own
-                teens grow into confident young adults out here is one of the reasons we built Traditions.
-              </p>
+            <h2 className="text-3xl md:text-4xl text-[#162838]" style={heading}>
+              Their sport, found here
+            </h2>
+            <div className="flex justify-center mt-4 mb-6">
+              <span className="h-[1px] w-16 bg-[#a75235]"></span>
             </div>
+            <p className="text-[#333333] text-lg md:text-xl leading-relaxed">
+              Not every child finds their sport on a field or a court. We&apos;ve watched ours find it
+              here. With a coach alongside them, teens learn safe gun handling, focus and patience, and
+              they start to carry themselves differently. We&apos;re parents too, and watching our own
+              teens grow into confident young adults out here is one of the reasons we built Traditions.
+            </p>
           </div>
         </section>
 
