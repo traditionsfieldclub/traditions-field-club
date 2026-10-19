@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Member for a Day: Book Your Day",
   description:
-    "Try Traditions Field Club for $100 per shooter, all in: a guided outing, 50 targets, shotgun, shells, and eye and ear protection. Request your date and we'll confirm within one business day.",
+    "Try Traditions Field Club for $100 per shooter, all in: a warm-up at the 5-Stand and a guided round on our signature stands, 50 shots in all, with shotgun rental, shells, and eye and ear protection included. About an hour to an hour and a half. Request your date and we'll confirm within one business day.",
   alternates: { canonical: "https://traditionsfieldclub.com/member-for-a-day" },
 };
 

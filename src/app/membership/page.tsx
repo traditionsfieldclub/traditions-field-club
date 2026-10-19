@@ -381,7 +381,7 @@ export default function Membership() {
                     <span className="text-2xl text-[#162838] font-semibold">$100 <span className="text-base font-normal text-[#666666]">per shooter, all in</span></span>
                   </div>
                   <p className="text-[#333333] leading-relaxed">
-                    50 targets at select signature stations we pick for your group, guided by our team.
+                    A warm-up at the 5-Stand, then a guided round on a few of our signature stands with one of us alongside you. 50 shots in all, about an hour to an hour and a half. Extra clays and shells are an added charge.
                   </p>
                   <p className="text-sm text-[#666666] italic mt-2">
                     Join within 30 days and your $100 goes toward your Prime membership.
