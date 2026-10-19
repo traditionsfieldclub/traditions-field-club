@@ -532,7 +532,7 @@ export default function About() {
                   className="text-xl text-[#a75235] italic mb-6"
                   style={{ fontFamily: "var(--font-heading), serif" }}
                 >
-                  Friends who&apos;ve become family.
+                  Friends become family.
                 </p>
                 <p className="text-[#333333] leading-relaxed">
                   Not every child finds their sport on a field or a court. We&apos;ve watched ours
