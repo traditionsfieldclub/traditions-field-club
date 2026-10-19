@@ -458,8 +458,9 @@ export default function Roadmap() {
               </div>
 
               {/* Phase 4 Image */}
+              <div className="order-1 lg:order-2">
               <div
-                className={`relative h-[250px] sm:h-[300px] md:h-[400px] rounded-lg overflow-hidden order-1 lg:order-2 transition-all duration-500 ease-out delay-100 ${
+                className={`relative h-[250px] sm:h-[300px] md:h-[400px] rounded-lg overflow-hidden transition-all duration-500 ease-out delay-100 ${
                   isVisible("phase4")
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 md:translate-y-3"
@@ -467,7 +468,7 @@ export default function Roadmap() {
               >
                 <FadeImage
                   src="/images/recreation_hiking_trail_group.webp"
-                  alt="Members hiking a wooded trail at Traditions Field Club"
+                  alt="Teens walking a pine trail at Traditions with shotguns carried safely"
                   fill
                   className="object-cover object-[center_70%]"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -475,6 +476,34 @@ export default function Roadmap() {
                 <div className="absolute inset-0 flex items-end justify-center pb-4">
                   <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase">Coming Soon</span>
                 </div>
+              </div>
+
+              {/* Families */}
+              <div
+                className={`mt-10 transition-all duration-500 ease-out delay-150 ${
+                  isVisible("phase4")
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 md:translate-y-3"
+                }`}
+              >
+                <div className="flex items-center gap-4 mb-3">
+                  <span className="h-[1px] w-8 md:w-12 bg-[#a75235]"></span>
+                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Families</span>
+                </div>
+                <h3
+                  className="text-2xl md:text-3xl text-[#162838] mb-4"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Where Families Grow Together
+                </h3>
+                <p className="text-[#333333] leading-relaxed">
+                  Not every kid finds their sport on a field or a court. We&apos;ve watched ours
+                  find it here. With a coach alongside them, teens learn safe gun handling, focus
+                  and patience, and they start to carry themselves differently. We&apos;re parents
+                  too, and watching our own teens grow into confident young adults out here is one
+                  of the reasons we built Traditions.
+                </p>
+              </div>
               </div>
             </div>
           </div>
