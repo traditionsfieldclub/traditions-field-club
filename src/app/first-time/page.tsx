@@ -132,6 +132,7 @@ export default function FirstTime() {
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#162838]/85 via-[#162838]/35 to-transparent"></div>
+          <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#162838]/70 to-transparent"></div>
           <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 md:pb-20 text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#f5f2ec] mb-4 tracking-wide" style={heading}>
               Your First Visit
