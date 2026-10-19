@@ -452,7 +452,7 @@ export default function About() {
                   >
                     Brian Seifrit
                   </h3>
-                  <p className="text-[#a75235] text-sm uppercase tracking-wider mb-4">Co-Owner</p>
+                  <p className="text-[#a75235] text-sm uppercase tracking-wider mb-4">Co-Owner, NSCA Level 1 Instructor</p>
                   <p className="text-[#333333] leading-relaxed mb-4">
                     An accomplished marksman and seasoned outdoorsman, Brian brings decades of experience in hunting, shooting sports, land stewardship, and wildlife conservation. He is especially passionate about mentoring youth, teaching safe and responsible firearm handling, and helping young people develop confidence, discipline, and respect for the outdoors.
                   </p>
