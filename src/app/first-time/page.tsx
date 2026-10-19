@@ -23,12 +23,12 @@ const visit = [
     text: "Before anyone loads a shell, we go over safe gun handling, how a station works and how we move between stands. Brian is a certified shooting instructor.",
   },
   {
-    title: "A guided round on the course",
-    text: "We walk the course with you, stand by stand. Take your time. Ask anything. Nobody is keeping score unless you want to.",
+    title: "A guided round on our signature stands",
+    text: "We take you to a few of our signature stands for 50 shots. Take your time. Ask anything. Nobody is keeping score unless you want to.",
   },
   {
     title: "Finish at the 5-Stand",
-    text: "We wrap up at the 5-Stand, where targets come from several directions and it is easy to shoot a few more.",
+    text: "We wrap up at the 5-Stand, where targets come from several directions.",
   },
 ];
 
@@ -64,7 +64,7 @@ const faqs = [
   {
     question: "How long should I plan for?",
     answer:
-      "A tour takes about an hour. A Member for a Day visit runs roughly 2 hours, including the safety walk-through, a guided round and time at the 5-Stand.",
+      "A tour takes about an hour. A Member for a Day visit runs roughly 2 hours, including the safety walk-through, a guided round of 50 shots on our signature stands and time at the 5-Stand.",
   },
   {
     question: "Can I bring my children?",
@@ -168,7 +168,7 @@ export default function FirstTime() {
                 <p className="text-[#a75235] text-sm tracking-[0.2em] uppercase mb-2">$100 per shooter</p>
                 <h3 className="text-2xl md:text-3xl text-[#162838] mb-3" style={heading}>Member for a Day</h3>
                 <p className="text-[#333333] leading-relaxed mb-4">
-                  Shoot the course the way our members do, with one of us alongside you.
+                  A guided round of 50 shots on a few of our signature stands, with one of us alongside you.
                 </p>
                 <ul className="text-[#333333] space-y-1 mb-7">
                   <li>Shotgun rental, shells, and eye and ear protection all included</li>
