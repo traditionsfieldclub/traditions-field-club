@@ -456,10 +456,10 @@ export default function Waiver() {
                     <li>Never pointing a firearm at anything I do not intend to shoot</li>
                     <li>Keeping my finger off the trigger until ready to shoot</li>
                     <li>Being sure of my target and what is beyond it</li>
-                    <li>Wearing eye and ear protection at all times on the range</li>
+                    <li>Wearing eye and ear protection at all times on the course</li>
                     <li>Keeping firearms unloaded and actions open when not in use</li>
                     <li>Not possessing or consuming alcohol or drugs anywhere on club property</li>
-                    <li>Following all instructions from Club staff and range officers</li>
+                    <li>Following all instructions from Club staff and safety officers</li>
                   </ul>
                   <p>
                     I understand that violation of any safety rule may result in immediate removal from the premises and termination of any membership privileges without refund.

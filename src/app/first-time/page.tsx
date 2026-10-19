@@ -193,7 +193,7 @@ export default function FirstTime() {
             <div className="grid grid-cols-2 gap-4 md:gap-8">
               {[
                 { name: "Jim Nicholson", src: "/media/first-time-jim.webp", alt: "Jim Nicholson at a shooting stand at Traditions Field Club", role: "Co-founder" },
-                { name: "Brian Seifrit", src: "/media/first-time-brian.webp", alt: "Brian Seifrit at a shooting stand at Traditions Field Club", role: "Co-founder" },
+                { name: "Brian Seifrit", src: "/media/first-time-brian.webp", alt: "Brian Seifrit at a shooting stand at Traditions Field Club", role: "Co-founder, NSCA Level 1 Instructor" },
               ].map((p) => (
                 <figure key={p.name} className="text-center">
                   <div className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-sm">

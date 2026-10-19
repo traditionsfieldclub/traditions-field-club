@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "5-stand shooting",
     "shooting club Lowcountry",
     "veteran owned sporting club",
-    "family friendly shooting range",
+    "family friendly sporting clays",
     "outdoor club near Charleston",
     "sporting clays near Hilton Head",
     "corporate team building shooting",
