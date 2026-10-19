@@ -23,12 +23,12 @@ const visit = [
     text: "Before anyone loads a shell, we go over safe gun handling, how a station works and how we move between stands. Brian is a certified shooting instructor.",
   },
   {
-    title: "A guided round on our signature stands",
-    text: "We take you to a few of our signature stands for 50 shots. Having a good time? Keep shooting past 50 if you like. Extra clays and shells are an added charge. Take your time. Ask anything. Nobody is keeping score unless you want to.",
+    title: "Warm up at the 5-Stand",
+    text: "We start at the 5-Stand with a few practice shots and a little instruction, so you feel comfortable before heading out.",
   },
   {
-    title: "Finish at the 5-Stand",
-    text: "We wrap up at the 5-Stand, where targets come from several directions.",
+    title: "A guided round on our signature stands",
+    text: "Then we take you to a few of our signature stands for 50 shots. Having a good time? Keep shooting past 50 if you like. Extra clays and shells are an added charge. Take your time. Ask anything. Nobody is keeping score unless you want to.",
   },
 ];
 
@@ -64,7 +64,7 @@ const faqs = [
   {
     question: "How long should I plan for?",
     answer:
-      "A tour takes about an hour. A Member for a Day visit runs roughly 2 hours, including the safety walk-through, a guided round of 50 shots on our signature stands and time at the 5-Stand.",
+      "A tour takes about an hour. A Member for a Day visit runs about an hour to an hour and a half, including the safety walk-through, warm-up at the 5-Stand and a guided round of 50 shots on our signature stands.",
   },
   {
     question: "Can I bring my children?",
