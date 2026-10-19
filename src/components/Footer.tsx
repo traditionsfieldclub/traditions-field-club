@@ -288,17 +288,6 @@ export default function Footer() {
                 Terms of Service
               </Link>
             </div>
-            <p>
-              Website by{" "}
-              <a
-                href="https://forgeddigitaldesign.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-100 hover:text-[#889d80] transition-colors"
-              >
-                Forged Digital Design
-              </a>
-            </p>
           </div>
         </div>
       </div>
