@@ -217,7 +217,7 @@ export default function FirstTime() {
               <h2 className="text-3xl md:text-4xl text-[#162838]" style={heading}>How a First Visit Goes</h2>
               <Rule />
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-14 items-start">
               <ol className="space-y-7">
                 {visit.map((v, i) => (
                   <li key={v.title} className="flex gap-5">
@@ -233,13 +233,13 @@ export default function FirstTime() {
               </ol>
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative col-span-2 aspect-[4/3] rounded-lg overflow-hidden shadow-sm">
-                  <FadeImage src="/media/first-time-stand-sunset.webp" alt="A covered shooting stand at sunset on the course" fill sizes="(max-width: 1024px) 100vw, 560px" className="object-cover" />
+                  <FadeImage src="/media/first-time-stand-sunset.webp" alt="A covered shooting stand at sunset on the course" fill sizes="(max-width: 768px) 100vw, 560px" className="object-cover" />
                 </div>
                 <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-sm">
-                  <FadeImage src="/media/first-time-river-deck.webp" alt="A shooter on a river deck stand on the course" fill sizes="(max-width: 1024px) 50vw, 280px" className="object-cover" />
+                  <FadeImage src="/media/first-time-river-deck.webp" alt="A shooter on a river deck stand on the course" fill sizes="(max-width: 768px) 50vw, 280px" className="object-cover" />
                 </div>
                 <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-sm">
-                  <FadeImage src="/media/first-time-bridge.webp" alt="A footbridge over the river on the Riverside course" fill sizes="(max-width: 1024px) 50vw, 280px" className="object-cover" />
+                  <FadeImage src="/media/first-time-bridge.webp" alt="A footbridge over the river on the Riverside course" fill sizes="(max-width: 768px) 50vw, 280px" className="object-cover" />
                 </div>
               </div>
             </div>
