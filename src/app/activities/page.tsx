@@ -147,7 +147,7 @@ export default function Activities() {
                 </h2>
                 <p className="text-[#333333] mb-4 leading-relaxed">
                   Often called &quot;golf with a shotgun,&quot; our sporting clays courses wind through South
-                  Carolina&apos;s natural beauty: rolling fields, mature pines, and quiet Lowcountry scenery
+                  Carolina&apos;s natural beauty: open fields, pine flatwoods, and quiet Lowcountry scenery
                   that shifts from stand to stand. Each station offers a different view and a different target
                   presentation, simulating the flight patterns of various game birds.
                 </p>
@@ -541,7 +541,7 @@ export default function Activities() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span>Released and guided hunts</span>
+                    <span>Guided bird hunts</span>
                   </li>
                 </ul>
               </div>
