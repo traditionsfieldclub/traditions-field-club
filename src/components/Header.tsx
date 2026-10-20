@@ -7,11 +7,11 @@ import { useEffect, useRef, useState } from "react";
 const navItems = [
   { label: "Home", href: "/" },
   { label: "First Time", href: "/first-time" },
+  { label: "Membership", href: "/membership" },
+  { label: "Families", href: "/families" },
   { label: "Activities", href: "/activities" },
   { label: "Roadmap", href: "/roadmap" },
-  { label: "Membership", href: "/membership" },
   { label: "About", href: "/about" },
-  { label: "Families", href: "/families" },
   { label: "Contact", href: "/contact" },
 ];
 
