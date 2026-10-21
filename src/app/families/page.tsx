@@ -67,7 +67,7 @@ export default function Families() {
             <p className="text-[#333333] text-lg md:text-xl leading-relaxed">
               We&apos;re parents too, and some of our favorite days are the ones spent out here with our
               families. Walking the course together, slowing down under the pines, and ending the afternoon
-              along the Little Salkehatchie River. Those shared weekends are why we built Traditions: a
+              along the Little Salkehatchie River. Those shared days are why we built Traditions: a
               place where families can put the phones away, enjoy the outdoors, and make memories together.
             </p>
           </div>
@@ -84,8 +84,8 @@ export default function Families() {
                 </h2>
                 <p className="text-[#333333] text-lg leading-relaxed">
                   Some of the best friendships we know started out here, between children and between
-                  parents too. Families who come out once tend to come back, and before long the weekends
-                  here feel like time with old friends. Here is how that starts.
+                  parents too. Families who come out once tend to come back, and before long every visit
+                  here feels like time with old friends. Here is how that starts.
                 </p>
               </div>
               <div className="relative w-full aspect-[1600/1269] rounded-lg overflow-hidden">
@@ -112,7 +112,7 @@ export default function Families() {
                 },
                 {
                   title: "Make memories",
-                  body: "Shared weekends, friendships that last, and family membership when you are ready.",
+                  body: "Shared days, friendships that last, and family membership when you are ready.",
                 },
               ].map((step, n) => (
                 <li key={step.title} className="bg-white rounded-lg border border-[#e8e4dc] shadow-sm p-6">
