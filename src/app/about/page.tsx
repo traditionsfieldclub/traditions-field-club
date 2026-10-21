@@ -117,7 +117,7 @@ export default function About() {
                   Our Vision
                 </h2>
                 <p className="text-[#333333] leading-relaxed mb-4">
-                  We envision Traditions Field Club as more than a shooting range. It&apos;s a destination.
+                  We envision Traditions Field Club as more than a place to shoot. It&apos;s a destination.
                   A place where the beauty of South Carolina&apos;s Lowcountry meets the refined traditions
                   of heritage outdoor sports.
                 </p>
@@ -337,7 +337,7 @@ export default function About() {
                 <p className="text-[#333333] leading-relaxed mb-4">
                   Spanning 410 acres in the quiet rural heart of South Carolina&apos;s Lowcountry, Traditions Field Club
                   sits on land that embodies the natural beauty and rich heritage of the South.
-                  Rolling fields, mature pine forests, and the peaceful sounds of nature create
+                  Open fields, pine flatwoods, and the peaceful sounds of nature create
                   an atmosphere unlike any other.
                 </p>
                 <p className="text-[#333333] leading-relaxed mb-6">
@@ -361,7 +361,7 @@ export default function About() {
                   </li>
                   <li className="flex items-center gap-3">
                     <span className="w-2 h-2 bg-[#a75235] rounded-full flex-shrink-0"></span>
-                    Designed as a destination, not just a range
+                    Designed as a destination, not just a place to shoot
                   </li>
                 </ul>
               </div>
@@ -452,7 +452,7 @@ export default function About() {
                   >
                     Brian Seifrit
                   </h3>
-                  <p className="text-[#a75235] text-sm uppercase tracking-wider mb-4">Co-Owner</p>
+                  <p className="text-[#a75235] text-sm uppercase tracking-wider mb-4">Co-Owner, NSCA Level 1 Instructor</p>
                   <p className="text-[#333333] leading-relaxed mb-4">
                     An accomplished marksman and seasoned outdoorsman, Brian brings decades of experience in hunting, shooting sports, land stewardship, and wildlife conservation. He is especially passionate about mentoring youth, teaching safe and responsible firearm handling, and helping young people develop confidence, discipline, and respect for the outdoors.
                   </p>
@@ -489,6 +489,17 @@ export default function About() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* Families link */}
+        <section className="py-10 md:py-12 bg-white text-center">
+          <a
+            href="/families"
+            className="text-[#a75235] text-lg font-semibold tracking-wide hover:text-[#162838] transition-colors"
+            style={{ fontFamily: "var(--font-heading), serif" }}
+          >
+            Where Families Grow Together &rarr;
+          </a>
         </section>
 
         {/* Sunset Band */}

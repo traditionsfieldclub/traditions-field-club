@@ -92,7 +92,7 @@ export function newsletterReply(): AutoReply {
     ...layout(
       [
         "Welcome, and thanks for signing up.",
-        "We're Jim and Brian. We've lived in Bluffton and Hilton Head for 14 years, and sporting clays has long been part of our lives. Traditions is the private sporting clays and outdoor club we always wanted, a scenic drive through the Lowcountry.",
+        "We're Jim and Brian. We've lived in Bluffton and Hilton Head since 2014, and sporting clays has long been part of our lives. Traditions is the private sporting clays and outdoor club we always wanted, a scenic drive through the Lowcountry.",
         "We'll share club news and openings now and then. When you're ready, come see it for yourself.",
       ],
       [TOUR_BTN, DAY_BTN]

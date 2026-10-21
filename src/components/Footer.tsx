@@ -8,9 +8,10 @@ import FooterNewsletter from "./FooterNewsletter";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "First Time", href: "/first-time" },
+  { label: "Membership", href: "/membership" },
+  { label: "Families", href: "/families" },
   { label: "Activities", href: "/activities" },
   { label: "Roadmap", href: "/roadmap" },
-  { label: "Membership", href: "/membership" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -288,17 +289,6 @@ export default function Footer() {
                 Terms of Service
               </Link>
             </div>
-            <p>
-              Website by{" "}
-              <a
-                href="https://forgeddigitaldesign.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-100 hover:text-[#889d80] transition-colors"
-              >
-                Forged Digital Design
-              </a>
-            </p>
           </div>
         </div>
       </div>
