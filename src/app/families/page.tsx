@@ -59,16 +59,16 @@ export default function Families() {
               <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
             </div>
             <h2 className="text-3xl md:text-4xl text-[#162838]" style={heading}>
-              Their sport, found here
+              Time together, outdoors
             </h2>
             <div className="flex justify-center mt-4 mb-6">
               <span className="h-[1px] w-16 bg-[#a75235]"></span>
             </div>
             <p className="text-[#333333] text-lg md:text-xl leading-relaxed">
-              Not every child finds their sport on a field or a court. We&apos;ve watched ours find it
-              here. With a coach alongside them, teens learn safe gun handling, focus and patience, and
-              they start to carry themselves differently. We&apos;re parents too, and watching our own
-              teens grow into confident young adults out here is one of the reasons we built Traditions.
+              We&apos;re parents too, and some of our favorite days are the ones spent out here with our
+              families. Walking the course together, slowing down under the pines, and ending the afternoon
+              along the Little Salkehatchie River. Those shared weekends are why we built Traditions: a
+              place where families can put the phones away, enjoy the outdoors, and make memories together.
             </p>
           </div>
         </section>
@@ -78,14 +78,14 @@ export default function Families() {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center mb-12 md:mb-16">
               <div>
-                <Eyebrow>The pathway</Eyebrow>
+                <Eyebrow>Family time</Eyebrow>
                 <h2 className="text-3xl md:text-4xl text-[#162838] mb-6" style={heading}>
                   From first visit to friends for life
                 </h2>
                 <p className="text-[#333333] text-lg leading-relaxed">
-                  Some of the best friendships we know started out here. These young people have each
-                  other&apos;s backs. They show up, stay focused, and spend their time outdoors with people
-                  who care about them. Here is how that starts.
+                  Some of the best friendships we know started out here, between children and between
+                  parents too. Families who come out once tend to come back, and before long the weekends
+                  here feel like time with old friends. Here is how that starts.
                 </p>
               </div>
               <div className="relative w-full aspect-[1600/1269] rounded-lg overflow-hidden">
@@ -99,20 +99,20 @@ export default function Families() {
             <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 {
-                  title: "First visit",
-                  body: "Come out together. Book a complimentary tour and see the property as a family.",
+                  title: "Visit together",
+                  body: "Book a complimentary tour and see the property as a family.",
                 },
                 {
-                  title: "Learn with a coach",
-                  body: "Safe gun handling, focus and patience, with an NSCA Level 1 Instructor alongside.",
+                  title: "Walk the course",
+                  body: "Wander the trails and stations side by side, at your own pace, with time to talk along the way.",
                 },
                 {
-                  title: "Join the team",
-                  body: "Our youth clays team practices here on weekday afternoons, with Brian coaching.",
+                  title: "Slow down by the river",
+                  body: "Fresh air, tall pines and quiet afternoons along the Little Salkehatchie River.",
                 },
                 {
-                  title: "Grow together",
-                  body: "Friendships that last, parents out on the course too, and family membership when you are ready.",
+                  title: "Make memories",
+                  body: "Shared weekends, friendships that last, and family membership when you are ready.",
                 },
               ].map((step, n) => (
                 <li key={step.title} className="bg-white rounded-lg border border-[#e8e4dc] shadow-sm p-6">
@@ -151,7 +151,7 @@ export default function Families() {
                 {[
                   "Eyes and ears on, every time.",
                   "Muzzle up and pointed in a safe direction.",
-                  "A coach alongside them.",
+                  "Families together, with an experienced instructor nearby.",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
@@ -164,7 +164,9 @@ export default function Families() {
                 ))}
               </ul>
               <p className="text-[#333333] text-lg leading-relaxed">
+                Every visit starts with safety, so the whole family can relax and enjoy the day together.
                 And there is real peace of mind in knowing where your children are and who they&apos;re with.
+                Instruction and a youth team are also offered here.
               </p>
             </div>
           </div>
@@ -177,7 +179,7 @@ export default function Families() {
               Come out together
             </h2>
             <p className="text-[#f5f2ec] text-lg opacity-90 mb-8">
-              Book a complimentary tour, ask us about the youth team, or spend a day on the property as Member for a Day.
+              Book a complimentary tour and spend an afternoon on the property as a family. We would love to show you around.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -186,20 +188,6 @@ export default function Families() {
                 style={heading}
               >
                 Book a Tour
-              </a>
-              <a
-                href="/contact?topic=lessons"
-                className="inline-block border-2 border-[#f5f2ec] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#f5f2ec] hover:text-[#4d5c47] transition-colors rounded-lg"
-                style={heading}
-              >
-                Ask About the Youth Team
-              </a>
-              <a
-                href="/member-for-a-day#book"
-                className="inline-block border-2 border-[#f5f2ec] text-[#f5f2ec] px-8 py-3 font-semibold tracking-wide hover:bg-[#f5f2ec] hover:text-[#4d5c47] transition-colors rounded-lg"
-                style={heading}
-              >
-                Member for a Day
               </a>
             </div>
           </div>
