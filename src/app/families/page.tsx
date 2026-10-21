@@ -90,9 +90,9 @@ export default function Families() {
               </div>
               <div className="relative w-full aspect-[1600/1269] rounded-lg overflow-hidden">
                 <Picture
-                  name="families-tailgate"
-                  alt="Three teen friends sitting together on a truck tailgate in the tall grass on a sunny day"
-                  imgClassName="absolute inset-0 w-full h-full object-cover"
+                  name="families-stand"
+                  alt="Two teen friends smiling under a shooting stand roof, one holding a shotgun pointed safely upward"
+                  imgClassName="absolute inset-0 w-full h-full object-cover object-[50%_28%]"
                 />
               </div>
             </div>
@@ -204,6 +204,7 @@ export default function Families() {
             </div>
           </div>
         </section>
+        <p className="py-4 text-center text-xs text-[#6b6b6b] bg-[#f5f2ec]">Some images digitally edited.</p>
       </main>
       <Footer />
     </>
