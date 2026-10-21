@@ -26,7 +26,7 @@ export default function MemberForADay() {
               Member for a Day
             </h1>
             <p className="text-lg md:text-xl text-[#f5f2ec] max-w-2xl mx-auto opacity-90">
-              $100 per shooter, all in. Starting Tuesday, October 20.
+              $100 per shooter, all in. 50 shots, about an hour to an hour and a half. Starting Tuesday, October 20.
             </p>
           </div>
         </section>
@@ -43,14 +43,14 @@ export default function MemberForADay() {
               </h2>
               <p className="text-2xl text-[#162838] font-semibold mb-4">$100 per shooter, all in</p>
               <p className="text-[#333333] leading-relaxed mb-6">
-                Spend a day on the property the way our members do. Starting Tuesday, October 20.
+                Spend a day on the property the way our members do. We start at the 5-Stand with a few practice shots and a little instruction, then head out for a guided round on a few of our signature stands. Plan on about an hour to an hour and a half. Starting Tuesday, October 20.
               </p>
               <ul className="space-y-3 text-[#333333] mb-6">
                 {[
-                  "A guided outing with our team",
-                  "50 targets at select signature stations",
-                  "Shotgun and shells",
-                  "Eye and ear protection",
+                  "A warm-up and a little instruction at the 5-Stand",
+                  "A guided round on a few of our signature stands",
+                  "50 shots in all, covering the warm-up and the round",
+                  "Shotgun rental, shells, and eye and ear protection all included",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -62,6 +62,9 @@ export default function MemberForADay() {
                   </li>
                 ))}
               </ul>
+              <p className="text-[#333333] mb-4">
+                Having a good time? Keep shooting past 50 if you like. Extra clays and shells are an added charge.
+              </p>
               <p className="text-sm text-[#666666] italic mb-6">
                 Join within 30 days and your $100 goes toward your Prime membership.
               </p>
@@ -81,7 +84,7 @@ export default function MemberForADay() {
               </p>
               <div className="hidden lg:grid grid-cols-2 gap-3">
                 <div className="relative h-[160px] rounded-lg overflow-hidden">
-                  <Picture name="photo-shooter-stand" alt="A guest mounting a shotgun at a stand" imgClassName="absolute inset-0 w-full h-full object-cover" />
+                  <Picture name="stand-daylight" alt="Looking out from a covered shooting stand over the field in daylight" imgClassName="absolute inset-0 w-full h-full object-cover" />
                 </div>
                 <div className="relative h-[160px] rounded-lg overflow-hidden">
                   <Picture name="sunset-mfad" alt="Sunset over a shooting stand at Traditions Field Club" imgClassName="absolute inset-0 w-full h-full object-cover" />

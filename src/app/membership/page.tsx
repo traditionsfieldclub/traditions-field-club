@@ -363,7 +363,7 @@ export default function Membership() {
               <div className="flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
                 <div className="grid grid-cols-2 gap-3 md:w-[260px] flex-shrink-0">
                   <div className="relative h-[140px] rounded-lg overflow-hidden">
-                    <Picture name="photo-shooter-stand" alt="A guest mounting a shotgun at a stand" imgClassName="absolute inset-0 w-full h-full object-cover" />
+                    <Picture name="stand-daylight" alt="Looking out from a covered shooting stand over the field in daylight" imgClassName="absolute inset-0 w-full h-full object-cover" />
                   </div>
                   <div className="relative h-[140px] rounded-lg overflow-hidden">
                     <Picture name="sunset-mfad" alt="Sunset over a shooting stand at Traditions Field Club" imgClassName="absolute inset-0 w-full h-full object-cover" />
@@ -381,7 +381,7 @@ export default function Membership() {
                     <span className="text-2xl text-[#162838] font-semibold">$100 <span className="text-base font-normal text-[#666666]">per shooter, all in</span></span>
                   </div>
                   <p className="text-[#333333] leading-relaxed">
-                    50 targets at select signature stations we pick for your group, guided by our team.
+                    A warm-up at the 5-Stand, then a guided round on a few of our signature stands with one of us alongside you. 50 shots in all, about an hour to an hour and a half. Extra clays and shells are an added charge.
                   </p>
                   <p className="text-sm text-[#666666] italic mt-2">
                     Join within 30 days and your $100 goes toward your Prime membership.
@@ -409,6 +409,45 @@ export default function Membership() {
                     Tour Traditions
                   </a>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Member Vehicle Storage */}
+        <section id="vehicle-storage" className="py-16 md:py-24 bg-white overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+              <figure className="lg:order-2">
+                <div className="relative aspect-[16/9] rounded-lg overflow-hidden">
+                  <Picture
+                    name="member-utv-storage"
+                    alt="A side-by-side outfitted for sporting clays, with a roll cage gun rack, shell bag and gear box, parked on a sandy trail among the pines"
+                    imgClassName="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
+                <figcaption className="mt-2 text-xs text-[#666666] italic">Simulated photo for illustration.</figcaption>
+              </figure>
+              <div className="lg:order-1 text-center lg:text-left">
+                <div className="flex items-center justify-center lg:justify-start gap-4 mb-4">
+                  <span className="h-[1px] w-8 md:w-12 bg-[#a75235]"></span>
+                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Member Perk</span>
+                </div>
+                <h2
+                  className="text-3xl md:text-4xl text-[#162838] mb-6"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Your Second Home Has Room for Your Ride
+                </h2>
+                <p className="text-[#333333] leading-relaxed mb-4">
+                  Traditions is meant to feel like your second home, and we want to make it easy. Short
+                  on space at home? Members may keep their UTV, side-by-side or golf cart here. Think of
+                  it like dry stack storage at a marina: let us know you&apos;re coming out, and
+                  we&apos;ll have your ride ready when you arrive.
+                </p>
+                <p className="text-sm text-[#666666] italic">
+                  Vehicles must be covered by the owner&apos;s insurance.
+                </p>
               </div>
             </div>
           </div>
@@ -528,7 +567,7 @@ export default function Membership() {
               >
                 <FadeImage
                   src="/images/kids_truck_bed_property.webp"
-                  alt="Kids hanging out in a truck bed on the property at Traditions Field Club"
+                  alt="Children hanging out in a truck bed on the property at Traditions Field Club"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -566,6 +605,10 @@ export default function Membership() {
                   <div className="bg-[#f5f2ec] p-4 rounded-lg">
                     <h4 className="text-[#162838] font-semibold mb-2">Community Events</h4>
                     <p className="text-sm text-[#333333]">Exclusive member gatherings and tournaments</p>
+                  </div>
+                  <div className="bg-[#f5f2ec] p-4 rounded-lg sm:col-span-2">
+                    <h4 className="text-[#162838] font-semibold mb-2">Room for Your Ride</h4>
+                    <p className="text-sm text-[#333333]">Keep your UTV, side-by-side or golf cart at the club. Let us know you&apos;re coming and it will be ready</p>
                   </div>
                 </div>
               </div>
