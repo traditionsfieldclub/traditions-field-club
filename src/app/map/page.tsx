@@ -40,6 +40,7 @@ const places = features.places as Place[];
 const river = features.river as { name: string; status: string; coords: number[][] };
 type Trail = { id: string; name: string; status: string; coords: number[][] };
 const trails = trailData.trails as Trail[];
+const HAS_TRAILS = trails.length > 0;
 const courseLabels = data.labels as { id: string; text: string; lat: number; lng: number }[];
 const ROUTE_COLOR: Record<string, string> = { Riverside: "#a75235", Evergreen: "#4d5c47" };
 
@@ -137,7 +138,7 @@ export default function MapOfTraditions() {
             </h1>
             <p className="text-lg md:text-xl text-[#f5f2ec] max-w-2xl mx-auto opacity-90">
               The whole property in one place: the Riverside and Evergreen sporting clays courses, the 5-Stand,
-              the pavilion, walking trails, and the Little Salkehatchie River, with Riverside stands 12 to 15 along its banks.
+              the pavilion, and the Little Salkehatchie River, with Riverside stands 12 to 15 along its banks.
               Tap any station to take a look.
             </p>
           </div>
@@ -198,10 +199,10 @@ export default function MapOfTraditions() {
                 />
                 Aerial photo
               </label>
-              <label className="inline-flex items-center gap-2 text-sm text-[#162838] cursor-pointer select-none">
+              {HAS_TRAILS && <label className="inline-flex items-center gap-2 text-sm text-[#162838] cursor-pointer select-none">
                 <input type="checkbox" checked={showTrails} onChange={(e) => setShowTrails(e.target.checked)} className="w-4 h-4 accent-[#4d5c47] cursor-pointer" />
                 Trails
-              </label>
+              </label>}
               <label className="inline-flex items-center gap-2 text-sm text-[#162838] cursor-pointer select-none">
                 <input type="checkbox" checked={showPlaces} onChange={(e) => setShowPlaces(e.target.checked)} className="w-4 h-4 accent-[#4d5c47] cursor-pointer" />
                 Places
@@ -234,7 +235,7 @@ export default function MapOfTraditions() {
                 <polygon points={outline} fill="none" stroke={aerial ? "#f5f2ec" : "#7a5a3c"} strokeOpacity={aerial ? 0.75 : 0.55} strokeWidth="1.5" strokeDasharray="6 4" vectorEffect="non-scaling-stroke" />
                 {/* River (approximate course). The illustrated map already draws the river, so only overlay it on the aerial. */}
                 {aerial && <polyline points={line(river.coords)} fill="none" stroke={aerial ? "#9fd0e6" : "#5b8fa6"} strokeOpacity="0.85" strokeWidth={view === "courses" ? 5 : 3.5} strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />}
-                {/* Walking trails: placeholder (traced) dotted, GPS solid */}
+                {/* Trails from GPS (GPX import). Each must be checked against shot fall zones first. */}
                 {showTrails &&
                   trails.map((t) => (
                     <polyline
@@ -406,14 +407,13 @@ export default function MapOfTraditions() {
               <li className="flex items-center gap-2"><span className="inline-block w-3 h-3 rounded-full bg-[#f5f2ec] ring-2 ring-[#4d5c47]"></span>Evergreen stands</li>
               <li className="flex items-center gap-2"><span className="inline-block w-3 h-3 rounded-full bg-[#162838]"></span>5-Stand</li>
               <li className="flex items-center gap-2"><span className="inline-block w-6 h-1 rounded bg-[#5b8fa6]"></span>Little Salkehatchie River</li>
-              <li className="flex items-center gap-2"><span className="inline-block w-6 border-t-2 border-dotted border-[#6b4f2e]"></span>Walking trail (approximate)</li>
-              <li className="flex items-center gap-2"><span className="inline-block w-6 border-t-2 border-[#6b4f2e]"></span>Walking trail (GPS)</li>
+              {HAS_TRAILS && <li className="flex items-center gap-2"><span className="inline-block w-6 border-t-2 border-[#6b4f2e]"></span>Trail (GPS)</li>}
             </ul>
             <p className="text-xs text-[#666666] text-center mt-3">
               {aerial
                 ? "Aerial imagery 2023. Imagery: USDA NAIP 2023. Station positions are approximate."
                 : "Illustrated map drawn from 2023 aerial imagery. Station positions are approximate."}{" "}
-              Trails, parking and the entrance are approximate for now; GPS-recorded trails are on the way. Photos and videos are being added.
+              Parking and the entrance are approximate for now. Photos and videos are being added.
             </p>
           </div>
         </section>
