@@ -90,8 +90,8 @@ export default function Families() {
               </div>
               <div className="relative w-full aspect-[1600/1269] rounded-lg overflow-hidden">
                 <Picture
-                  name="families-firepit"
-                  alt="Three teens hanging out by the fire pit at golden hour at Traditions"
+                  name="families-tailgate"
+                  alt="Three teen friends sitting together on a truck tailgate in the tall grass on a sunny day"
                   imgClassName="absolute inset-0 w-full h-full object-cover"
                 />
               </div>
