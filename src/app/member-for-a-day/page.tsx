@@ -69,9 +69,9 @@ export default function MemberForADay() {
                 Join within 30 days and your $100 goes toward your Prime membership.
               </p>
               <p className="text-[#333333] mb-4">
-                Curious what you&apos;ll shoot?{" "}
-                <a href="/tour-the-course" className="text-[#a75235] font-semibold hover:underline">
-                  Tour the course
+                Curious what you&apos;ll shoot? Explore the{" "}
+                <a href="/map" className="text-[#a75235] font-semibold hover:underline">
+                  Map of Traditions
                 </a>{" "}
                 station by station.
               </p>

@@ -10,6 +10,8 @@ import { StandMarker, PavilionMarker, type MarkerStyle } from "@/components/Stan
 
 const MARKER: MarkerStyle = "B";
 import data from "@/data/course-stations.json";
+import trailData from "@/data/trails.json";
+import features from "@/data/map-features.json";
 
 type Station = {
   id: string;
@@ -33,7 +35,11 @@ const stations = data.stations as Station[];
 const FULL = data.bounds as Bounds;
 const COURSES = data.courseView as Bounds;
 const boundary = data.boundary as number[][];
-const landmarks = data.landmarks as { id: string; label: string; lat: number; lng: number }[];
+type Place = { id: string; label: string; status: string; lat: number; lng: number };
+const places = features.places as Place[];
+const river = features.river as { name: string; status: string; coords: number[][] };
+type Trail = { id: string; name: string; status: string; coords: number[][] };
+const trails = trailData.trails as Trail[];
 const courseLabels = data.labels as { id: string; text: string; lat: number; lng: number }[];
 const ROUTE_COLOR: Record<string, string> = { Riverside: "#a75235", Evergreen: "#4d5c47" };
 
@@ -68,11 +74,20 @@ function toEmbed(url: string) {
   return url;
 }
 
-export default function TourTheCourse() {
+export default function MapOfTraditions() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [filter, setFilter] = useState<string>("All");
-  const [view, setView] = useState<ViewKey>("courses");
+  const [view, setView] = useState<ViewKey>("property");
   const [aerial, setAerial] = useState(false);
+  const [showTrails, setShowTrails] = useState(true);
+  const [showPlaces, setShowPlaces] = useState(true);
+  const line = (coords: number[][]) =>
+    coords
+      .map(([lng, lat]) => {
+        const p = toPct(v.bounds, lat, lng);
+        return `${p.x.toFixed(2)},${p.y.toFixed(2)}`;
+      })
+      .join(" ");
   const v = VIEWS[view];
   const LBL = aerial
     ? "text-[#f5f2ec] [text-shadow:0_1px_3px_rgba(0,0,0,0.85)]"
@@ -118,10 +133,11 @@ export default function TourTheCourse() {
               className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#f5f2ec] mb-4 tracking-wide"
               style={{ fontFamily: "var(--font-heading), serif" }}
             >
-              Tour the Course
+              Map of Traditions
             </h1>
             <p className="text-lg md:text-xl text-[#f5f2ec] max-w-2xl mx-auto opacity-90">
-              Two sporting clays courses, Riverside and Evergreen, with Riverside stands 12 to 15 along the Little Salkehatchie River, plus a 5-Stand with fourteen machines.
+              The whole property in one place: the Riverside and Evergreen sporting clays courses, the 5-Stand,
+              the pavilion, walking trails, and the Little Salkehatchie River, with Riverside stands 12 to 15 along its banks.
               Tap any station to take a look.
             </p>
           </div>
@@ -157,8 +173,8 @@ export default function TourTheCourse() {
             <div className="flex flex-wrap items-center justify-center gap-3 mb-4">
               <div className="inline-flex rounded-lg border-2 border-[#162838]/20 p-1 bg-white">
                 {([
-                  ["courses", "The courses"],
                   ["property", "Whole property"],
+                  ["courses", "The courses"],
                 ] as [ViewKey, string][]).map(([key, label]) => (
                   <button
                     key={key}
@@ -181,6 +197,14 @@ export default function TourTheCourse() {
                   className="w-4 h-4 accent-[#4d5c47] cursor-pointer"
                 />
                 Aerial photo
+              </label>
+              <label className="inline-flex items-center gap-2 text-sm text-[#162838] cursor-pointer select-none">
+                <input type="checkbox" checked={showTrails} onChange={(e) => setShowTrails(e.target.checked)} className="w-4 h-4 accent-[#4d5c47] cursor-pointer" />
+                Trails
+              </label>
+              <label className="inline-flex items-center gap-2 text-sm text-[#162838] cursor-pointer select-none">
+                <input type="checkbox" checked={showPlaces} onChange={(e) => setShowPlaces(e.target.checked)} className="w-4 h-4 accent-[#4d5c47] cursor-pointer" />
+                Places
               </label>
             </div>
 
@@ -208,6 +232,24 @@ export default function TourTheCourse() {
                 {/* Members-only wild side tease: a soft veil to the west, no pin */}
                 <rect x="0" y="0" width={view === "courses" ? 22 : 48} height="100" fill="url(#wild)" />
                 <polygon points={outline} fill="none" stroke={aerial ? "#f5f2ec" : "#7a5a3c"} strokeOpacity={aerial ? 0.75 : 0.55} strokeWidth="1.5" strokeDasharray="6 4" vectorEffect="non-scaling-stroke" />
+                {/* River (approximate course) */}
+                <polyline points={line(river.coords)} fill="none" stroke={aerial ? "#9fd0e6" : "#5b8fa6"} strokeOpacity="0.85" strokeWidth={view === "courses" ? 5 : 3.5} strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+                {/* Walking trails: placeholder (traced) dotted, GPS solid */}
+                {showTrails &&
+                  trails.map((t) => (
+                    <polyline
+                      key={t.id}
+                      points={line(t.coords)}
+                      fill="none"
+                      stroke={aerial ? "#fff3c4" : "#6b4f2e"}
+                      strokeOpacity="0.95"
+                      strokeWidth={t.status === "gps" ? 2.5 : 2}
+                      strokeDasharray={t.status === "gps" ? undefined : "2 4"}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      vectorEffect="non-scaling-stroke"
+                    />
+                  ))}
                 {view === "courses" &&
                   (["Riverside", "Evergreen"] as const)
                     .filter((c) => filter === "All" || filter === c)
@@ -298,20 +340,32 @@ export default function TourTheCourse() {
                   Little Salkehatchie River
                 </div>
               )}
-              {landmarks.map((l) => {
+              {view === "property" && (
+                <div
+                  className={`absolute text-[10px] sm:text-xs md:text-sm italic tracking-wide pointer-events-none -rotate-[80deg] origin-left whitespace-nowrap ${aerial ? LBL : "text-[#3f6474] [text-shadow:0_0_4px_rgba(245,242,236,0.95)]"}`}
+                  style={{ left: "55%", top: "88%", fontFamily: "var(--font-heading), serif" }}
+                >
+                  Little Salkehatchie River
+                </div>
+              )}
+              {showPlaces && places.map((l) => {
                 const p = toPct(v.bounds, l.lat, l.lng);
+                if (p.x < 0 || p.x > 100 || p.y < 0 || p.y > 100) return null;
                 return (
                   <div
                     key={l.id}
                     className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-none"
                     style={{ left: `${p.x}%`, top: `${p.y}%` }}
                   >
-                    <PavilionMarker style={MARKER} />
-                    {view === "courses" && (
-                      <span className={`mt-1 text-[10px] sm:text-xs italic tracking-wide ${LBL}`} style={{ fontFamily: "var(--font-heading), serif" }}>
-                        {l.label}
-                      </span>
+                    {l.id === "pavilion" ? (
+                      <PavilionMarker style={MARKER} />
+                    ) : (
+                      <span className="w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full bg-[#f7f1e1] border-2 border-[#2b241c] border-dashed"></span>
                     )}
+                    <span className={`mt-1 text-[10px] sm:text-xs italic tracking-wide whitespace-nowrap ${LBL}`} style={{ fontFamily: "var(--font-heading), serif" }}>
+                      {l.label}
+                      {l.status !== "known" ? " (approx.)" : ""}
+                    </span>
                   </div>
                 );
               })}
@@ -347,11 +401,19 @@ export default function TourTheCourse() {
                 );
               })}
             </div>
+            <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-4 text-sm text-[#333333]">
+              <li className="flex items-center gap-2"><span className="inline-block w-3 h-3 rounded-full bg-[#a75235]"></span>Riverside stands</li>
+              <li className="flex items-center gap-2"><span className="inline-block w-3 h-3 rounded-full bg-[#f5f2ec] ring-2 ring-[#4d5c47]"></span>Evergreen stands</li>
+              <li className="flex items-center gap-2"><span className="inline-block w-3 h-3 rounded-full bg-[#162838]"></span>5-Stand</li>
+              <li className="flex items-center gap-2"><span className="inline-block w-6 h-1 rounded bg-[#5b8fa6]"></span>Little Salkehatchie River</li>
+              <li className="flex items-center gap-2"><span className="inline-block w-6 border-t-2 border-dotted border-[#6b4f2e]"></span>Walking trail (approximate)</li>
+              <li className="flex items-center gap-2"><span className="inline-block w-6 border-t-2 border-[#6b4f2e]"></span>Walking trail (GPS)</li>
+            </ul>
             <p className="text-xs text-[#666666] text-center mt-3">
               {aerial
                 ? "Aerial imagery 2023. Imagery: USDA NAIP 2023. Station positions are approximate."
                 : "Illustrated map drawn from 2023 aerial imagery. Station positions are approximate."}{" "}
-              Photos and videos are being added.
+              Trails, parking and the entrance are approximate for now; GPS-recorded trails are on the way. Photos and videos are being added.
             </p>
           </div>
         </section>

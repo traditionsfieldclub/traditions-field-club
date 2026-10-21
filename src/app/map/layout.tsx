@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Tour the Course: Interactive Course Map",
+  title: "Map of Traditions: Interactive Property Map",
   description:
-    "Explore Traditions Field Club station by station: the Riverside and Evergreen sporting clays courses, Riverside stands along the Little Salkehatchie River, and a 5-Stand with fourteen machines.",
-  alternates: { canonical: "https://traditionsfieldclub.com/tour-the-course" },
+    "Explore Traditions Field Club: the Riverside and Evergreen sporting clays courses, the 5-Stand, the pavilion, walking trails, and the Little Salkehatchie River.",
+  alternates: { canonical: "https://traditionsfieldclub.com/map" },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

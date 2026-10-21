@@ -1,4 +1,4 @@
-// Stand marker styles for the Tour the Course map.
+// Stand marker styles for the Map of Traditions.
 // A: wooden shed-roof stand, B: hand-inked field-map circle, C: brass medallion.
 export type MarkerStyle = "A" | "B" | "C";
 
