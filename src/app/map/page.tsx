@@ -232,8 +232,8 @@ export default function MapOfTraditions() {
                 {/* Members-only wild side tease: a soft veil to the west, no pin */}
                 <rect x="0" y="0" width={view === "courses" ? 22 : 48} height="100" fill="url(#wild)" />
                 <polygon points={outline} fill="none" stroke={aerial ? "#f5f2ec" : "#7a5a3c"} strokeOpacity={aerial ? 0.75 : 0.55} strokeWidth="1.5" strokeDasharray="6 4" vectorEffect="non-scaling-stroke" />
-                {/* River (approximate course) */}
-                <polyline points={line(river.coords)} fill="none" stroke={aerial ? "#9fd0e6" : "#5b8fa6"} strokeOpacity="0.85" strokeWidth={view === "courses" ? 5 : 3.5} strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
+                {/* River (approximate course). The illustrated map already draws the river, so only overlay it on the aerial. */}
+                {aerial && <polyline points={line(river.coords)} fill="none" stroke={aerial ? "#9fd0e6" : "#5b8fa6"} strokeOpacity="0.85" strokeWidth={view === "courses" ? 5 : 3.5} strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />}
                 {/* Walking trails: placeholder (traced) dotted, GPS solid */}
                 {showTrails &&
                   trails.map((t) => (
@@ -354,7 +354,7 @@ export default function MapOfTraditions() {
                 return (
                   <div
                     key={l.id}
-                    className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-none"
+                    className={`absolute -translate-x-1/2 -translate-y-1/2 flex items-center pointer-events-none ${l.id === "pavilion" ? "flex-col-reverse" : "flex-col"}`}
                     style={{ left: `${p.x}%`, top: `${p.y}%` }}
                   >
                     {l.id === "pavilion" ? (
@@ -362,7 +362,7 @@ export default function MapOfTraditions() {
                     ) : (
                       <span className="w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full bg-[#f7f1e1] border-2 border-[#2b241c] border-dashed"></span>
                     )}
-                    <span className={`mt-1 text-[10px] sm:text-xs italic tracking-wide whitespace-nowrap ${LBL}`} style={{ fontFamily: "var(--font-heading), serif" }}>
+                    <span className={`${l.id === "pavilion" ? "mb-1" : "mt-1"} text-[10px] sm:text-xs italic tracking-wide whitespace-nowrap ${LBL}`} style={{ fontFamily: "var(--font-heading), serif" }}>
                       {l.label}
                       {l.status !== "known" ? " (approx.)" : ""}
                     </span>
