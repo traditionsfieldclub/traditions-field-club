@@ -495,7 +495,7 @@ export default function Home() {
               it here, and watched our families grow closer for it.
             </p>
             <Link
-              href="/about#families"
+              href="/families"
               className="inline-block mt-6 text-[#a75235] font-semibold tracking-wide hover:text-[#162838] transition-colors"
             >
               Read our story &rarr;

@@ -491,59 +491,15 @@ export default function About() {
           </div>
         </section>
 
-        {/* Families Section */}
-        <section
-          id="families"
-          ref={(el) => { sectionRefs.current["families"] = el; }}
-          className="py-16 md:py-24 bg-white overflow-hidden"
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
-              {/* Photo */}
-              <div className="relative h-[420px] md:h-[480px] lg:h-[540px] rounded-lg overflow-hidden">
-                <FadeImage
-                  src="/images/recreation_hiking_trail_group.webp"
-                  alt="Teens walking a pine trail at Traditions with shotguns carried safely"
-                  fill
-                  className="object-cover object-[center_70%]"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-
-              {/* Content */}
-              <div
-                className={`transition-all duration-500 ease-out delay-100 ${
-                  isVisible("families")
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-3"
-                }`}
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <span className="h-[1px] w-8 md:w-12 bg-[#a75235]"></span>
-                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Families</span>
-                </div>
-                <h2
-                  className="text-3xl md:text-4xl text-[#162838] mb-3"
-                  style={{ fontFamily: "var(--font-heading), serif" }}
-                >
-                  Where Families Grow Together
-                </h2>
-                <p
-                  className="text-xl text-[#a75235] italic mb-6"
-                  style={{ fontFamily: "var(--font-heading), serif" }}
-                >
-                  Friends become family.
-                </p>
-                <p className="text-[#333333] leading-relaxed">
-                  Not every child finds their sport on a field or a court. We&apos;ve watched ours
-                  find it here. With a coach alongside them, teens learn safe gun handling, focus
-                  and patience, and they start to carry themselves differently. We&apos;re parents
-                  too, and watching our own teens grow into confident young adults out here is one
-                  of the reasons we built Traditions.
-                </p>
-              </div>
-            </div>
-          </div>
+        {/* Families link */}
+        <section className="py-10 md:py-12 bg-white text-center">
+          <a
+            href="/families"
+            className="text-[#a75235] text-lg font-semibold tracking-wide hover:text-[#162838] transition-colors"
+            style={{ fontFamily: "var(--font-heading), serif" }}
+          >
+            Where Families Grow Together &rarr;
+          </a>
         </section>
 
         {/* Sunset Band */}

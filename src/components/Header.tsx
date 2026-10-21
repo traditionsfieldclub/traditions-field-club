@@ -7,9 +7,10 @@ import { useEffect, useRef, useState } from "react";
 const navItems = [
   { label: "Home", href: "/" },
   { label: "First Time", href: "/first-time" },
+  { label: "Membership", href: "/membership" },
+  { label: "Families", href: "/families" },
   { label: "Activities", href: "/activities" },
   { label: "Roadmap", href: "/roadmap" },
-  { label: "Membership", href: "/membership" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -73,13 +74,13 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center h-24 relative">
           {/* Desktop Navigation - Right */}
-          <nav className="hidden lg:flex items-center space-x-5 xl:space-x-7">
+          <nav className="hidden lg:flex items-center space-x-3 xl:space-x-5">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
                 onClick={handleNavClick(item.href)}
-                className={`group text-sm xl:text-base font-bold uppercase tracking-wide xl:tracking-widest transition-colors duration-200 relative whitespace-nowrap ${
+                className={`group text-[13px] xl:text-[15px] font-bold uppercase tracking-wide transition-colors duration-200 relative whitespace-nowrap ${
                   pathname === item.href
                     ? "text-[#889d80]"
                     : "text-white hover:text-[#889d80] [text-shadow:0_1px_4px_rgba(0,0,0,0.5)]"
@@ -94,7 +95,7 @@ export default function Header() {
             ))}
             <Link
               href="/join"
-              className="bg-[#4d5c47] text-[#f5f2ec] text-sm xl:text-base font-bold uppercase tracking-wide xl:tracking-widest px-4 xl:px-6 py-2 hover:bg-[#162838] transition-colors duration-200 rounded whitespace-nowrap"
+              className="bg-[#4d5c47] text-[#f5f2ec] text-[13px] xl:text-[15px] font-bold uppercase tracking-wide px-3 xl:px-5 py-2 hover:bg-[#162838] transition-colors duration-200 rounded whitespace-nowrap"
               style={{ fontFamily: "var(--font-heading), serif" }}
             >
               Become A Member
@@ -115,7 +116,7 @@ export default function Header() {
                     setBookOpen((o) => !o);
                   }
                 }}
-                className="border-2 border-white text-white text-sm xl:text-base font-bold uppercase tracking-wide xl:tracking-widest px-4 xl:px-6 py-[6px] hover:bg-white hover:text-[#162838] aria-expanded:bg-white aria-expanded:text-[#162838] transition-colors duration-200 rounded whitespace-nowrap cursor-pointer inline-block"
+                className="border-2 border-white text-white text-[13px] xl:text-[15px] font-bold uppercase tracking-wide px-3 xl:px-5 py-[6px] hover:bg-white hover:text-[#162838] aria-expanded:bg-white aria-expanded:text-[#162838] transition-colors duration-200 rounded whitespace-nowrap cursor-pointer inline-block"
                 style={{ fontFamily: "var(--font-heading), serif" }}
               >
                 Book

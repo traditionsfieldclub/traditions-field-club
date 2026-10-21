@@ -8,9 +8,10 @@ import FooterNewsletter from "./FooterNewsletter";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "First Time", href: "/first-time" },
+  { label: "Membership", href: "/membership" },
+  { label: "Families", href: "/families" },
   { label: "Activities", href: "/activities" },
   { label: "Roadmap", href: "/roadmap" },
-  { label: "Membership", href: "/membership" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
