@@ -77,7 +77,7 @@ export default function MemberForADay() {
               </p>
               <div className="hidden lg:grid grid-cols-2 gap-3">
                 <div className="relative h-[160px] rounded-lg overflow-hidden">
-                  <Picture name="five-stand-sunset-mfad" alt="The covered 5-Stand at golden hour, where every Member for a Day begins" imgClassName="absolute inset-0 w-full h-full object-cover" />
+                  <Picture name="riverside-river" alt="The river winding through green woods along the Riverside course" imgClassName="absolute inset-0 w-full h-full object-cover" />
                 </div>
                 <div className="relative h-[160px] rounded-lg overflow-hidden">
                   <Picture name="sunset-mfad" alt="Sunset over a shooting stand at Traditions Field Club" imgClassName="absolute inset-0 w-full h-full object-cover" />
