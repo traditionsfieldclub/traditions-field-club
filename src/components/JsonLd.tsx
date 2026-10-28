@@ -10,7 +10,7 @@ const organization = {
   image: `${BASE_URL}/og-image.jpg`,
   email: "info@traditionsfieldclub.com",
   telephone: "+1-843-321-8152",
-  sameAs: ["https://www.instagram.com/traditionsfieldclub/"],
+  sameAs: ["https://www.instagram.com/traditionsfieldclub/", "https://www.facebook.com/people/Traditions-Field-Club/61595314241290/", "https://www.youtube.com/@traditionsfieldclub"],
   founder: [
     { "@type": "Person", name: "Brian Seifrit" },
     { "@type": "Person", name: "Jim Nicholson" },
@@ -82,7 +82,7 @@ const localBusiness = {
       closes: "18:00",
     },
   ],
-  sameAs: ["https://www.instagram.com/traditionsfieldclub/"],
+  sameAs: ["https://www.instagram.com/traditionsfieldclub/", "https://www.facebook.com/people/Traditions-Field-Club/61595314241290/", "https://www.youtube.com/@traditionsfieldclub"],
   keywords:
     "sporting clays, 5-stand, shooting club, South Carolina, Lowcountry, veteran-owned, family-friendly",
   founder: [
