@@ -12,6 +12,8 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    # Facebook iOS in-app browser can choke on HTML served as HTTP 206.
+    Accept-Ranges = "none"
 
 [[headers]]
   for = "/_next/static/*"
@@ -22,3 +24,9 @@
   for = "/images/*"
   [headers.values]
     Cache-Control = "public, max-age=300, must-revalidate"
+    Accept-Ranges = "bytes"
+
+[[headers]]
+  for = "/media/*"
+  [headers.values]
+    Accept-Ranges = "bytes"
