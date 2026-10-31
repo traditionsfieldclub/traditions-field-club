@@ -425,7 +425,7 @@ export default function MapOfTraditions() {
               See it in person
             </h2>
             <p className="text-[#333333] mb-8">
-              Be a Member for a Day: 50 shots on a guided round of our signature stands, $100 per shooter, all in. Or take a complimentary tour. No cost, no commitment.
+              Be a Member for a Day: 50 shots on a guided round of our signature stands, $100 per shooter, all in. Or take a complimentary tour, with no cost and no commitment.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
