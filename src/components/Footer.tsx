@@ -103,6 +103,7 @@ export default function Footer() {
               <li className="opacity-75">
                 13197 Lowcountry Hwy, Ruffin, SC 29475
               </li>
+              <li className="opacity-75">I-95 Exit 42</li>
               <li className="opacity-75">
                 Sunrise to Sunset
               </li>
@@ -245,6 +246,7 @@ export default function Footer() {
               <li className="opacity-75">
                 13197 Lowcountry Hwy, Ruffin, SC 29475
               </li>
+              <li className="opacity-75">I-95 Exit 42</li>
               <li className="opacity-75">
                 Sunrise to Sunset
               </li>

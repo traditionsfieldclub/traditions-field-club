@@ -249,7 +249,7 @@ function ContactContent() {
                     13197 Lowcountry Hwy, Ruffin, SC 29475
                   </p>
                   <p className="text-sm text-[#333333]/70 mt-1">
-                    A scenic drive through the Lowcountry, about an hour from Hilton Head, Bluffton, Beaufort and Edisto.
+                    Just off I-95 Exit 42. A scenic drive through the Lowcountry, about an hour from Hilton Head, Bluffton, Beaufort and Edisto.
                   </p>
                 </div>
 
@@ -587,7 +587,7 @@ function ContactContent() {
                   Centrally Located
                 </h2>
                 <p className="text-base sm:text-lg text-[#333333] mb-6 leading-relaxed">
-                  A scenic drive through the Lowcountry, about an hour from Hilton Head, Bluffton, Beaufort and Edisto.
+                  Just off I-95 Exit 42. A scenic drive through the Lowcountry, about an hour from Hilton Head, Bluffton, Beaufort and Edisto.
                 </p>
 
                 <div className="mb-8">
