@@ -503,8 +503,8 @@ export default function MapOfTraditions() {
                 <button type="button" onClick={() => step(-1)} className="px-4 py-2 rounded-lg border-2 border-[#162838]/20 text-[#162838] font-semibold cursor-pointer">
                   Previous
                 </button>
-                <Link href="/member-for-a-day#book" className="text-[#a75235] font-semibold hover:underline text-sm">
-                  Book Your Day
+                <Link href="/membership" className="text-[#a75235] font-semibold hover:underline text-sm">
+                  Inquire About Membership
                 </Link>
                 <button type="button" onClick={() => step(1)} className="px-4 py-2 rounded-lg border-2 border-[#162838]/20 text-[#162838] font-semibold cursor-pointer">
                   Next
