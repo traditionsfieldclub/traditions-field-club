@@ -1,0 +1,56 @@
+{
+  "_note": "Other map features. status: known = from Jim's pins or existing site data; approximate = placed by eye from the 2023 aerial, to be confirmed. Coordinates are [lng, lat] for lines, lat/lng for points.",
+  "river": {
+    "name": "Little Salkehatchie River",
+    "status": "approximate",
+    "coords": [
+      [
+        -80.86497,
+        32.895857
+      ],
+      [
+        -80.864753,
+        32.894761
+      ],
+      [
+        -80.864897,
+        32.893787
+      ],
+      [
+        -80.86497,
+        32.892814
+      ],
+      [
+        -80.865115,
+        32.891961
+      ],
+      [
+        -80.865405,
+        32.891353
+      ]
+    ]
+  },
+  "places": [
+    {
+      "id": "pavilion",
+      "label": "Pavilion",
+      "status": "known",
+      "lat": 32.8975974,
+      "lng": -80.8588151
+    },
+    {
+      "id": "parking",
+      "label": "Parking",
+      "status": "approximate",
+      "lat": 32.897257,
+      "lng": -80.859315
+    },
+    {
+      "id": "entrance",
+      "label": "Entrance",
+      "status": "approximate",
+      "lat": 32.896892,
+      "lng": -80.854458
+    }
+  ]
+}

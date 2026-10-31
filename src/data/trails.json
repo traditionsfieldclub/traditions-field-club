@@ -1,0 +1,4 @@
+{
+  "_note": "Walking trails. PLACEHOLDER lines are approximate, traced by eye from the 2023 aerial and shown dotted. To add a real trail, record it with a GPS app, export GPX, then run: node scripts/gpx-to-trail.mjs <file.gpx> <id> \"<Name>\" . That replaces (or adds) the trail with status \"gps\" and the map draws it as a solid line. Coordinates are [lng, lat]. SAFETY: every trail must be checked against shot fall zones before it goes on the map.",
+  "trails": []
+}
