@@ -107,9 +107,9 @@
       "lat": 32.8962013,
       "lng": -80.8636756,
       "position": "from screenshot",
-      "description": "Target presentations for this stand will be added soon.",
-      "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
+      "description": "From the stand.",
+      "photo": "/media/map/riverside-stand-05.jpg",
+      "video": "/media/map/riverside-stand-05.mp4"
     },
     {
       "id": "r-6",
@@ -137,9 +137,9 @@
       "lat": 32.8953055,
       "lng": -80.8641011,
       "position": "exact",
-      "description": "Target presentations for this stand will be added soon.",
-      "photo": "/media/photo-shooter-stand.jpg",
-      "video": null,
+      "description": "From the stand.",
+      "photo": "/media/map/riverside-stand-07.jpg",
+      "video": "/media/map/riverside-stand-07.mp4",
       "display": {
         "lat": 32.8954,
         "lng": -80.86385,
