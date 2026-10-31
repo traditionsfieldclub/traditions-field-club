@@ -246,7 +246,7 @@ function ContactContent() {
                     Address
                   </h3>
                   <p className="text-[#333333]">
-                    Lowcountry, South Carolina
+                    13197 Lowcountry Hwy, Ruffin, SC 29475
                   </p>
                   <p className="text-sm text-[#333333]/70 mt-1">
                     A scenic drive through the Lowcountry, about an hour from Hilton Head, Bluffton, Beaufort and Edisto.
