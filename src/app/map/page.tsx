@@ -384,7 +384,7 @@ export default function MapOfTraditions() {
                     aria-label={`${s.name}, ${s.difficulty}`}
                     className={`absolute -translate-x-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer transition-transform hover:scale-110 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/70 rounded-full touch-manipulation ${
                       small
-                        ? `w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 text-[0px] rounded-full ring-1 ring-[#f5f2ec]/80 shadow ${COURSE_STYLE[s.course].pin}`
+                        ? "w-5 h-5 sm:w-6 sm:h-6"
                         : "w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9"
                     } ${activeId === s.id ? "scale-125 z-10" : ""}`}
                     style={{ left: `${p.x}%`, top: `${p.y}%` }}
@@ -397,7 +397,7 @@ export default function MapOfTraditions() {
                         5-Stand
                       </span>
                     )}
-                    {!small && <StandMarker style={MARKER} course={s.course} id={s.id} text={s.course === "5-Stand" ? "5S" : s.label} />}
+                    <StandMarker style={MARKER} course={s.course} id={s.id} text={s.course === "5-Stand" ? "5S" : s.label} />
                   </button>
                 );
               })}
