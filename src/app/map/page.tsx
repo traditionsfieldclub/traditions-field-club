@@ -464,7 +464,7 @@ export default function MapOfTraditions() {
                     allowFullScreen
                   ></iframe>
                 ) : (
-                  <video src={active.video} controls playsInline poster={active.photo || undefined} className="absolute inset-0 w-full h-full object-cover" />
+                  <video src={active.video} controls playsInline poster={active.photo || undefined} className="absolute inset-0 w-full h-full object-contain bg-black" />
                 )
               ) : (
                 <>
