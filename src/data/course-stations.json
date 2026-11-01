@@ -122,9 +122,9 @@
       "lat": 32.8958259,
       "lng": -80.8637809,
       "position": "from screenshot",
-      "description": "Target presentations for this stand will be added soon.",
-      "photo": "/media/photo-shooter-stand.jpg",
-      "video": null
+      "description": "From the stand.",
+      "photo": "/media/map/riverside-stand-06.jpg",
+      "video": "/media/map/riverside-stand-06.mp4"
     },
     {
       "id": "r-7",
