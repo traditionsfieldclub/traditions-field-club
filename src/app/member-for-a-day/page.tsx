@@ -68,6 +68,13 @@ export default function MemberForADay() {
               <p className="text-sm text-[#666666] italic mb-6">
                 Join within 30 days and your $100 goes toward your Prime membership.
               </p>
+              <p className="text-[#333333] mb-4">
+                Curious what you&apos;ll shoot? Explore the{" "}
+                <a href="/map" className="text-[#a75235] font-semibold hover:underline">
+                  Map of Traditions
+                </a>{" "}
+                station by station.
+              </p>
               <p className="text-[#333333] mb-6">
                 Prefer to talk it through? Call us at{" "}
                 <a href="tel:+18433218152" className="text-[#a75235] font-semibold hover:underline">
