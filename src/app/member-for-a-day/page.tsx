@@ -69,8 +69,8 @@ export default function MemberForADay() {
                 Join within 30 days and your $100 goes toward your Prime membership.
               </p>
               <p className="text-[#333333] mb-6">
-                Prefer to talk it through? Call us at{" "}
-                <a href="tel:+18433218152" className="text-[#a75235] font-semibold hover:underline">
+                Prefer to talk it through? Call or text us at{" "}
+                <a href="sms:+18433218152" className="text-[#a75235] font-semibold hover:underline">
                   (843) 321-8152
                 </a>
                 .

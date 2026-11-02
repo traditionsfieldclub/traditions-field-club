@@ -253,20 +253,27 @@ function ContactContent() {
                   </p>
                 </div>
 
-                {/* Phone */}
+                {/* Call or text */}
                 <div className="mb-6">
                   <h3
                     className="text-lg text-[#162838] font-semibold mb-2"
                     style={{ fontFamily: "var(--font-heading), serif" }}
                   >
-                    Phone
+                    Call or text
                   </h3>
                   <a
-                    href="tel:+18433218152"
+                    href="sms:+18433218152"
                     className="text-[#333333] hover:text-[#a75235] transition-colors"
                   >
                     (843) 321-8152
                   </a>
+                  <p className="text-sm text-[#333333]/70 mt-1">
+                    Text preferred — or{" "}
+                    <a href="tel:+18433218152" className="underline hover:text-[#a75235]">
+                      call
+                    </a>
+                    .
+                  </p>
                 </div>
 
                 {/* Email */}

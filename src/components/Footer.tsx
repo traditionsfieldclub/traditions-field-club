@@ -94,10 +94,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="tel:+18433218152"
+                  href="sms:+18433218152"
                   className="opacity-75 hover:opacity-100 hover:text-[#889d80] transition-colors"
                 >
-                  (843) 321-8152
+                  Call or text (843) 321-8152
                 </a>
               </li>
               <li className="opacity-75">
@@ -237,10 +237,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="tel:+18433218152"
+                  href="sms:+18433218152"
                   className="opacity-75 hover:opacity-100 hover:text-[#889d80] transition-colors"
                 >
-                  (843) 321-8152
+                  Call or text (843) 321-8152
                 </a>
               </li>
               <li className="opacity-75">
