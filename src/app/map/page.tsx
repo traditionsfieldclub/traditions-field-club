@@ -77,6 +77,15 @@ function toEmbed(url: string) {
 
 export default function MapOfTraditions() {
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [hoverId, setHoverId] = useState<string | null>(null);
+  const [canHover, setCanHover] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const upd = () => setCanHover(mq.matches);
+    upd();
+    mq.addEventListener("change", upd);
+    return () => mq.removeEventListener("change", upd);
+  }, []);
   const [filter, setFilter] = useState<string>("All");
   const [view, setView] = useState<ViewKey>("property");
   const [aerial, setAerial] = useState(false);
@@ -376,18 +385,28 @@ export default function MapOfTraditions() {
                     ? toPct(v.bounds, s.display?.lat ?? s.lat, s.display?.lng ?? s.lng)
                     : { x: s.x, y: s.y };
                 const small = view === "property";
+                const hovered = canHover && hoverId === s.id && activeId === null;
+                const showVid = !!s.video && !isEmbeddable(s.video);
+                const below = p.y < 40;
+                const alignX = p.x < 25 ? "left-0" : p.x > 75 ? "right-0" : "left-1/2 -translate-x-1/2";
                 return (
-                  <button
+                  <div
                     key={s.id}
+                    className={`absolute ${hovered ? "z-50" : ""}`}
+                    style={{ left: `${p.x}%`, top: `${p.y}%` }}
+                    onMouseEnter={() => canHover && setHoverId(s.id)}
+                    onMouseLeave={() => setHoverId((h) => (h === s.id ? null : h))}
+                  >
+                  <button
                     type="button"
-                    onClick={() => setActiveId(s.id)}
+                    onClick={() => { setHoverId(null); setActiveId(s.id); }}
                     aria-label={`${s.name}, ${s.difficulty}`}
                     className={`absolute -translate-x-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer transition-transform hover:scale-110 focus:outline-none focus-visible:ring-4 focus-visible:ring-white/70 rounded-full touch-manipulation ${
                       small
                         ? "w-5 h-5 sm:w-6 sm:h-6"
                         : "w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9"
                     } ${activeId === s.id ? "scale-125 z-10" : ""}`}
-                    style={{ left: `${p.x}%`, top: `${p.y}%` }}
+                    style={{ left: 0, top: 0 }}
                   >
                     {!small && s.course === "5-Stand" && (
                       <span
@@ -399,6 +418,43 @@ export default function MapOfTraditions() {
                     )}
                     <StandMarker style={MARKER} course={s.course} id={s.id} text={s.course === "5-Stand" ? "5S" : s.label} />
                   </button>
+                  {hovered && (
+                    <div
+                      className={`absolute ${alignX} ${below ? "top-3 pt-4" : "bottom-3 pb-4"}`}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => { setHoverId(null); setActiveId(s.id); }}
+                        className={`block text-left bg-[#f5f2ec] rounded-xl shadow-2xl ring-1 ring-[#162838]/20 overflow-hidden cursor-pointer ${showVid ? "w-56 sm:w-64" : "w-48"}`}
+                      >
+                        {showVid ? (
+                          <video
+                            key={s.video!}
+                            src={s.video!}
+                            muted
+                            autoPlay
+                            loop
+                            playsInline
+                            preload="none"
+                            className="w-full aspect-video object-cover bg-[#162838]"
+                          />
+                        ) : s.photo ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img src={s.photo} alt="" className="w-full aspect-video object-cover" />
+                        ) : null}
+                        <div className="px-3 py-2">
+                          <div className="flex items-center gap-2">
+                            <span className="font-semibold text-sm text-[#162838] truncate">{s.name}</span>
+                            <span className={`ml-auto shrink-0 text-[10px] uppercase tracking-wide px-2 py-0.5 rounded-full ${s.course === "Riverside" ? "bg-[#a75235] text-[#f5f2ec]" : s.course === "Evergreen" ? "bg-[#4d5c47] text-[#f5f2ec]" : "bg-[#162838] text-[#f5f2ec]"}`}>{s.course}</span>
+                          </div>
+                          <div className="text-xs text-[#333333] mt-0.5">
+                            {showVid ? "Click for full stand card" : `${s.difficulty} · Video coming soon`}
+                          </div>
+                        </div>
+                      </button>
+                    </div>
+                  )}
+                  </div>
                 );
               })}
             </div>
