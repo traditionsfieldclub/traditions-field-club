@@ -67,8 +67,8 @@ export default function TourTraditions() {
                 Ready to shoot? Try <a href="/member-for-a-day" className="text-[#a75235] not-italic font-semibold hover:underline">Member for a Day</a> instead.
               </p>
               <p className="text-[#333333] mb-6">
-                Prefer to talk it through? Call us at{" "}
-                <a href="tel:+18433218152" className="text-[#a75235] font-semibold hover:underline">
+                Prefer to talk it through? Call or text us at{" "}
+                <a href="sms:+18433218152" className="text-[#a75235] font-semibold hover:underline">
                   (843) 321-8152
                 </a>
                 .
