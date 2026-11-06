@@ -1,0 +1,174 @@
+{
+  "Riverside": {
+    "description": "The Riverside course winds through the headwaters and along the Little Salkehatchie River.",
+    "stands": [
+      {
+        "number": 1,
+        "pairs": 3,
+        "targets": 6,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 2,
+        "pairs": 4,
+        "targets": 8,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 3,
+        "pairs": 3,
+        "targets": 6,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 4,
+        "pairs": 4,
+        "targets": 8,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 5,
+        "pairs": 3,
+        "targets": 6,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 6,
+        "pairs": 3,
+        "targets": 6,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 7,
+        "pairs": 3,
+        "targets": 6,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 8,
+        "pairs": 3,
+        "targets": 6,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 9,
+        "pairs": 4,
+        "targets": 8,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 10,
+        "pairs": 3,
+        "targets": 6,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 11,
+        "pairs": 3,
+        "targets": 6,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 12,
+        "pairs": 4,
+        "targets": 8,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 13,
+        "pairs": 3,
+        "targets": 6,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 14,
+        "pairs": 3,
+        "targets": 6,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 15,
+        "pairs": 4,
+        "targets": 8,
+        "notes": "Coming soon \u2014 Jim to fill"
+      }
+    ]
+  },
+  "Evergreen": {
+    "description": "Explore the Evergreen course, with 12 sporting clays stations.",
+    "stands": [
+      {
+        "number": 1,
+        "pairs": 4,
+        "targets": 8,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 2,
+        "pairs": 4,
+        "targets": 8,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 3,
+        "pairs": 4,
+        "targets": 8,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 4,
+        "pairs": 4,
+        "targets": 8,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 5,
+        "pairs": 4,
+        "targets": 8,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 6,
+        "pairs": 5,
+        "targets": 10,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 7,
+        "pairs": 4,
+        "targets": 8,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 8,
+        "pairs": 4,
+        "targets": 8,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 9,
+        "pairs": 4,
+        "targets": 8,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 10,
+        "pairs": 4,
+        "targets": 8,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 11,
+        "pairs": 4,
+        "targets": 8,
+        "notes": "Coming soon \u2014 Jim to fill"
+      },
+      {
+        "number": 12,
+        "pairs": 5,
+        "targets": 10,
+        "notes": "Coming soon \u2014 Jim to fill"
+      }
+    ]
+  }
+}
