@@ -74,7 +74,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center h-24 relative">
           {/* Desktop Navigation - Right */}
-          <nav className="hidden lg:flex items-center space-x-3 xl:space-x-5">
+          <nav className="hidden lg:flex flex-wrap justify-center items-center gap-x-3 xl:gap-x-5 gap-y-2">
             {navItems.map((item) => (
               <Link
                 key={item.label}
@@ -144,7 +144,22 @@ export default function Header() {
                 </div>
               </div>
             </div>
+            <a
+              href="/app"
+              className="border-2 border-[#c9a85c] bg-[#162838]/90 text-[#c9a85c] text-[13px] xl:text-[15px] font-bold uppercase tracking-wide px-3 py-[6px] hover:bg-[#c9a85c] hover:text-[#162838] transition-colors duration-200 rounded whitespace-nowrap"
+              style={{ fontFamily: "var(--font-heading), serif" }}
+            >
+              Get the App
+            </a>
           </nav>
+
+          <a
+            href="/app"
+            className="lg:hidden absolute left-0 -translate-y-[20px] border-2 border-[#c9a85c] bg-[#162838]/90 text-[#c9a85c] text-sm font-bold uppercase tracking-wide px-4 py-2 rounded hover:bg-[#c9a85c] hover:text-[#162838] transition-colors"
+            style={{ fontFamily: "var(--font-heading), serif" }}
+          >
+            Get the App
+          </a>
 
           {/* Mobile Menu Button - Absolute Right. Hidden while the menu is open — the
               close control lives on the panel itself instead of toggling in place. */}
