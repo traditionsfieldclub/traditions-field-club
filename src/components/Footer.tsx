@@ -54,6 +54,13 @@ export default function Footer() {
             >
               Book Your Day
             </Link>
+            <a
+              href="/app"
+              className="border-2 border-[#c9a85c] text-[#c9a85c] px-8 py-[10px] font-semibold tracking-wide hover:bg-[#c9a85c] hover:text-[#162838] transition-colors rounded-lg text-center"
+              style={{ fontFamily: "var(--font-heading), serif" }}
+            >
+              Get the App
+            </a>
           </div>
         </div>
       </div>
@@ -174,6 +181,14 @@ export default function Footer() {
                   Sign Waiver →
                 </Link>
               </li>
+              <li>
+                <a
+                  href="/app"
+                  className="text-base font-semibold opacity-90 hover:opacity-100 hover:text-[#889d80] transition-colors"
+                >
+                  Get the App →
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -218,6 +233,14 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href="/app"
+                  className="text-sm font-semibold opacity-90 hover:opacity-100 hover:text-[#889d80] transition-colors"
+                >
+                  Get the App →
+                </a>
+              </li>
             </ul>
           </div>
 
