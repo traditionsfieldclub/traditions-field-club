@@ -503,7 +503,7 @@ export default function Activities() {
                 </div>
                 <h2
                   className="text-3xl md:text-4xl lg:text-5xl text-[#162838] mb-6"
-                  style={ fontFamily: "var(--font-heading), serif" }
+                  style={{ fontFamily: "var(--font-heading), serif" }}
                 >
                   Wild side now open for those who seek to wander and build the path forward.
                 </h2>
