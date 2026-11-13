@@ -507,7 +507,7 @@ export default function Membership() {
         {/* The Wild Side teaser */}
         <section id="wild-side" className="py-16 md:py-24 bg-[#1f2a1c] overflow-hidden">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span className="text-[#f5f2ec]/60 text-sm tracking-[0.3em] uppercase">Members Only</span>
+            <span className="text-[#f5f2ec]/60 text-sm tracking-[0.3em] uppercase">Now Open, Members Only</span>
             <h2
               className="text-3xl md:text-4xl text-[#f5f2ec] mt-2 mb-4"
               style={{ fontFamily: "var(--font-heading), serif" }}
@@ -515,7 +515,7 @@ export default function Membership() {
               The Wild Side
             </h2>
             <p className="text-[#f5f2ec]/85 max-w-2xl mx-auto mb-8">
-              Membership grants access to our wild side. Prime and Corporate members get to see what lies beyond the courses.
+              The Wild Side is now open if you are ready for an adventure. Membership grants access, and Prime and Corporate members get to see what lies beyond the courses.
             </p>
             <div className="rounded-lg overflow-hidden bg-black aspect-video max-w-4xl mx-auto">
               <video

@@ -346,7 +346,7 @@ export default function Roadmap() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 flex items-end justify-center pb-4">
-                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase">Coming Soon</span>
+                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase">Now Open</span>
                   </div>
                 </div>
               </div>
@@ -361,11 +361,11 @@ export default function Roadmap() {
               >
                 <div className="flex items-center gap-4 mb-3">
                   <span className="h-[1px] w-8 md:w-12 bg-[#a75235]"></span>
-                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Future Vision</span>
+                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Open Now</span>
                 </div>
                 <div className="flex items-center gap-4 mb-4">
                   <span className="bg-[#162838] text-[#f5f2ec] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                    Coming Soon
+                    Now Open
                   </span>
                 </div>
                 <h2
@@ -375,8 +375,8 @@ export default function Roadmap() {
                   Phase 3: Hunting &amp; Outdoors
                 </h2>
                 <p className="text-[#333333] leading-relaxed mb-6">
-                  Expanding into the natural side of the property: hunting, fishing, and guided
-                  outdoor experiences that let members connect even deeper with the land.
+                  The wild side is now open if you are ready for an adventure. Hunting, fishing, and guided
+                  outdoor experiences let members connect even deeper with the land.
                 </p>
                 <ul className="space-y-3 text-[#333333]">
                   <li className="flex items-start gap-3">

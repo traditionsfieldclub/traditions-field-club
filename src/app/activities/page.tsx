@@ -102,7 +102,7 @@ export default function Activities() {
                 href="#wild-side"
                 className="px-5 py-2 rounded-full border-2 border-[#a75235] text-[#a75235] text-sm font-semibold uppercase tracking-wide hover:bg-[#a75235] hover:text-[#f5f2ec] transition-colors"
               >
-                Coming Soon
+                Now Open
               </a>
               <a
                 href="#future"
@@ -460,7 +460,7 @@ export default function Activities() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-center gap-4 mb-10">
               <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
-              <span className="text-[#a75235] text-sm font-bold tracking-[0.3em] uppercase">Coming Soon</span>
+              <span className="text-[#a75235] text-sm font-bold tracking-[0.3em] uppercase">Now Open</span>
               <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -481,7 +481,7 @@ export default function Activities() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 flex items-end justify-center pb-4">
-                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase">Coming Soon</span>
+                    <span className="text-white text-sm font-semibold tracking-[0.3em] uppercase">Now Open</span>
                   </div>
                 </div>
                 {/* Decorative accent */}
@@ -508,7 +508,7 @@ export default function Activities() {
                   Forgotten passions, found again. Live your wild side.
                 </h2>
                 <p className="text-lg text-[#333333] mb-6 leading-relaxed">
-                  Membership opens the door to your wild side.
+                  The wild side is now open if you are ready for an adventure. Membership opens the door.
                 </p>
                 <ul className="space-y-3 text-[#333333] mb-8">
                   <li className="flex items-start gap-3">

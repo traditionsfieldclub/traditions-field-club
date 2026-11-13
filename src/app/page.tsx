@@ -544,7 +544,7 @@ export default function Home() {
               {[
                 { phase: "Phase 1", title: "Foundation", status: "Complete", desc: "2 sporting clays courses" },
                 { phase: "Phase 2", title: "Pavilion", status: "In Progress", desc: "Restrooms with showers, kitchen, shop\nFamily hangout space" },
-                { phase: "Phase 3", title: "Your Wild Side", status: "Coming Soon", desc: "Deer stands, food plots, duck blinds\nQuail grounds and guided bird hunts" },
+                { phase: "Phase 3", title: "Your Wild Side", status: "Now Open", desc: "Deer stands, food plots, duck blinds\nQuail grounds and guided bird hunts" },
                 { phase: "Phase 4", title: "Recreation", status: "Future", desc: "Farm build-out, hiking, outdoor recreation" },
               ].map((item, index) => (
                 <div
@@ -557,9 +557,9 @@ export default function Home() {
                   style={{ transitionDelay: `${(index + 1) * 150}ms` }}
                 >
                   <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 ${
-                    item.status === "Complete" ? "bg-[#a75235]" : item.status === "In Progress" ? "bg-[#4d5c47]" : "bg-[#f5f2ec]/10"
+                    item.status === "Complete" || item.status === "Now Open" ? "bg-[#a75235]" : item.status === "In Progress" ? "bg-[#4d5c47]" : "bg-[#f5f2ec]/10"
                   }`}>
-                    {item.status === "Complete" ? (
+                    {item.status === "Complete" || item.status === "Now Open" ? (
                       <svg className="w-6 h-6 text-[#f5f2ec]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -568,7 +568,7 @@ export default function Home() {
                     )}
                   </div>
                   <span className={`text-xs uppercase tracking-wider ${
-                    item.status === "Complete" ? "text-[#a75235]" : item.status === "In Progress" ? "text-[#4d5c47]" : "text-[#f5f2ec]/50"
+                    item.status === "Complete" || item.status === "Now Open" ? "text-[#a75235]" : item.status === "In Progress" ? "text-[#4d5c47]" : "text-[#f5f2ec]/50"
                   }`}>
                     {item.status}
                   </span>
