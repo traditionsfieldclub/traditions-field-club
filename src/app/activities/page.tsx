@@ -503,13 +503,10 @@ export default function Activities() {
                 </div>
                 <h2
                   className="text-3xl md:text-4xl lg:text-5xl text-[#162838] mb-6"
-                  style={{ fontFamily: "var(--font-heading), serif" }}
+                  style={ fontFamily: "var(--font-heading), serif" }
                 >
-                  Forgotten passions, found again. Live your wild side.
+                  Wild side now open for those who seek to wander and build the path forward.
                 </h2>
-                <p className="text-lg text-[#333333] mb-6 leading-relaxed">
-                  The wild side is now open if you are ready for an adventure. Membership opens the door.
-                </p>
                 <ul className="space-y-3 text-[#333333] mb-8">
                   <li className="flex items-start gap-3">
                     <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">

@@ -375,8 +375,7 @@ export default function Roadmap() {
                   Phase 3: Hunting &amp; Outdoors
                 </h2>
                 <p className="text-[#333333] leading-relaxed mb-6">
-                  The wild side is now open if you are ready for an adventure. Hunting, fishing, and guided
-                  outdoor experiences let members connect even deeper with the land.
+                  Wild side now open for those who seek to wander and build the path forward.
                 </p>
                 <ul className="space-y-3 text-[#333333]">
                   <li className="flex items-start gap-3">

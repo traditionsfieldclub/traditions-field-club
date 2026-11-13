@@ -515,7 +515,7 @@ export default function Membership() {
               The Wild Side
             </h2>
             <p className="text-[#f5f2ec]/85 max-w-2xl mx-auto mb-8">
-              The Wild Side is now open if you are ready for an adventure. Membership grants access, and Prime and Corporate members get to see what lies beyond the courses.
+              Wild side now open for those who seek to wander and build the path forward.
             </p>
             <div className="rounded-lg overflow-hidden bg-black aspect-video max-w-4xl mx-auto">
               <video
