@@ -359,6 +359,48 @@ export default function Membership() {
               Annual or quarterly billing available.
             </p>
 
+            {/* Member clay pricing */}
+            <div
+              id="clay-pricing"
+              className={`max-w-4xl mx-auto mt-6 md:mt-8 bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 transition-all duration-500 ease-out ${
+                isVisible("tiers")
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-3"
+              }`}
+              style={{ transitionDelay: "250ms" }}
+            >
+              <div className="text-center mb-6">
+                <div className="flex items-center justify-center gap-4 mb-3">
+                  <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Member Clay Pricing</span>
+                  <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+                </div>
+                <h3
+                  className="text-xl md:text-2xl text-[#162838] mb-3"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  For Members
+                </h3>
+                <p className="text-[#333333] leading-relaxed max-w-2xl mx-auto">
+                  These rates are for members shooting on their own. Non-members visit through Member for a Day or lessons.
+                </p>
+              </div>
+              <ul className="space-y-3 text-[#333333] max-w-xl mx-auto">
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Members: $0.45 per clay</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Bulk buy of 1,000: $0.40 per clay</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Youth (member family): $0.40 per clay</span>
+                </li>
+              </ul>
+            </div>
+
             {/* Member for a Day - Try it first */}
             <div
               className={`max-w-4xl mx-auto mt-6 md:mt-8 bg-white rounded-lg shadow-sm border border-[#e8e4dc] border-l-4 border-l-[#4d5c47] p-6 md:p-8 transition-all duration-500 ease-out hover:shadow-md ${

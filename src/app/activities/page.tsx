@@ -448,8 +448,15 @@ export default function Activities() {
                   </div>
                 </div>
               </div>
-              <p className="text-[#333333] leading-relaxed mt-8 text-center max-w-3xl mx-auto">
+              <p className="text-[#333333] leading-relaxed mt-8 mb-2 text-center max-w-3xl mx-auto">
                 Membership includes 2 hours of instruction per year.
+              </p>
+              <p className="text-[#333333] leading-relaxed text-center max-w-3xl mx-auto">
+                Members also have clay pricing for regular shooting. See{" "}
+                <Link href="/membership#clay-pricing" className="text-[#a75235] font-semibold hover:underline">
+                  member clay pricing
+                </Link>
+                .
               </p>
             </div>
           </div>
