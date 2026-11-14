@@ -34,7 +34,11 @@ const faqs = [
   },
   {
     question: "What if I've never shot sporting clays before?",
-    answer: "We welcome beginners! Our certified instructors offer lessons for all skill levels. We recommend booking an introductory session where you'll learn safety protocols, proper technique, and get comfortable with the sport."
+    answer: "We welcome beginners! Our certified instructors offer lessons for all skill levels. Instruction is open to members and non-members. Membership includes 2 hours of instruction per year."
+  },
+  {
+    question: "Does membership include instruction?",
+    answer: "Membership includes 2 hours of instruction per year. Additional lessons are available at posted rates on the Activities page. Instruction is open to members and non-members."
   },
 ];
 
@@ -215,7 +219,7 @@ export default function Membership() {
               >
                 All Memberships Include
               </h3>
-              <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 text-[#333333]">
+              <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-x-8 sm:gap-y-3 text-[#333333]">
                 <div className="flex items-center gap-3">
                   <span className="w-2 h-2 bg-[#a75235] rounded-full flex-shrink-0"></span>
                   <span>Access to sporting clays</span>
@@ -227,6 +231,10 @@ export default function Membership() {
                 <div className="flex items-center gap-3">
                   <span className="w-2 h-2 bg-[#a75235] rounded-full flex-shrink-0"></span>
                   <span>Invitation to member and family events</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full flex-shrink-0"></span>
+                  <span>Membership includes 2 hours of instruction per year</span>
                 </div>
               </div>
             </div>

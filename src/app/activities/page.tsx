@@ -221,7 +221,7 @@ export default function Activities() {
         <section
           id="lessons"
           ref={(el) => { sectionRefs.current["lessons"] = el; }}
-          className="pt-8 pb-8 md:pt-8 md:pb-24 lg:pt-12 lg:pb-12 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
+          className="pt-8 pb-16 md:pt-8 md:pb-24 lg:pt-12 lg:pb-24 bg-[#f5f2ec] scroll-mt-32 overflow-hidden"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -245,12 +245,13 @@ export default function Activities() {
                 </h2>
                 <p className="text-[#333333] mb-4 leading-relaxed">
                   Whether you&apos;re picking up a shotgun for the first time or looking to refine your technique,
-                  our certified instructor is here to help you reach your goals. Private and group lessons are
-                  available for shooters of all ages and skill levels.
+                  our certified instructor is here to help you reach your goals. Lessons are open to members
+                  and non-members at this private field club.
                 </p>
                 <p className="text-[#333333] mb-6 leading-relaxed">
-                  From mastering the fundamentals to breaking through plateaus, personalized coaching can
-                  accelerate your progress and deepen your enjoyment of the sport.
+                  Membership includes 2 hours of instruction per year. From mastering the fundamentals to
+                  breaking through plateaus, personalized coaching can accelerate your progress and deepen
+                  your enjoyment of the sport.
                 </p>
                 <ul className="space-y-3 text-[#333333] mb-8">
                   <li className="flex items-start gap-3">
@@ -267,7 +268,7 @@ export default function Activities() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span>Private and group sessions available</span>
+                    <span>Open to members and non-members</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -275,7 +276,7 @@ export default function Activities() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span>Beginner through advanced skill levels</span>
+                    <span>Membership includes 2 hours of instruction per year</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-6 h-6 bg-[#4d5c47] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -283,7 +284,7 @@ export default function Activities() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span>Youth instruction programs</span>
+                    <span>Private, semi-private, group, and youth lessons</span>
                   </li>
                 </ul>
                 <Link
@@ -315,6 +316,127 @@ export default function Activities() {
                 {/* Decorative accent */}
                 <div className="hidden sm:block absolute -bottom-4 -left-4 w-32 h-32 bg-[#a75235]/10 rounded-lg -z-10"></div>
                 <div className="hidden sm:block absolute -top-4 -right-4 w-24 h-24 bg-[#4d5c47]/10 rounded-lg -z-10"></div>
+              </div>
+            </div>
+
+            <div
+              className={`mt-12 md:mt-16 transition-all duration-500 ease-out delay-100 ${
+                isVisible("lessons")
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-3"
+              }`}
+            >
+              <div className="text-center mb-8">
+                <div className="flex items-center justify-center gap-4 mb-4">
+                  <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Lesson Rates</span>
+                  <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+                </div>
+                <h3
+                  className="text-2xl md:text-3xl text-[#162838]"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Open to Members and Non-Members
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-7 md:p-9 flex flex-col">
+                  <p className="text-[#a75235] text-sm tracking-[0.2em] uppercase mb-2">1 hour, 1 shooter</p>
+                  <h3
+                    className="text-2xl md:text-3xl text-[#162838] mb-3"
+                    style={{ fontFamily: "var(--font-heading), serif" }}
+                  >
+                    Private Lesson
+                  </h3>
+                  <p className="text-2xl text-[#162838] font-semibold">$200 all-in</p>
+                  <p className="text-[#333333] mb-4">or $150 instruction only</p>
+                  <p className="text-[#333333] leading-relaxed">
+                    All-in includes the course and 50 targets, shells, gun rental if needed, and eye and ear protection.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-7 md:p-9 flex flex-col">
+                  <p className="text-[#a75235] text-sm tracking-[0.2em] uppercase mb-2">1 hour, 2 shooters</p>
+                  <h3
+                    className="text-2xl md:text-3xl text-[#162838] mb-3"
+                    style={{ fontFamily: "var(--font-heading), serif" }}
+                  >
+                    Semi-Private Lesson
+                  </h3>
+                  <p className="text-2xl text-[#162838] font-semibold">$150 per person all-in</p>
+                  <p className="text-[#333333] mb-4">or $100 per person instruction only</p>
+                  <p className="text-[#333333] leading-relaxed">
+                    One instructor, two shooters. Same all-in inclusions, per person.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-7 md:p-9 flex flex-col">
+                  <p className="text-[#a75235] text-sm tracking-[0.2em] uppercase mb-2">2 hours, 3 to 6 shooters</p>
+                  <h3
+                    className="text-2xl md:text-3xl text-[#162838] mb-3"
+                    style={{ fontFamily: "var(--font-heading), serif" }}
+                  >
+                    Group Clinic
+                  </h3>
+                  <p className="text-2xl text-[#162838] font-semibold mb-4">$150 per person</p>
+                  <p className="text-[#333333] leading-relaxed">
+                    Includes the course and 50 targets, shells, gun rental if needed, and eye and ear protection.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-7 md:p-9 flex flex-col">
+                  <p className="text-[#a75235] text-sm tracking-[0.2em] uppercase mb-2">1 hour, 17 and under</p>
+                  <h3
+                    className="text-2xl md:text-3xl text-[#162838] mb-3"
+                    style={{ fontFamily: "var(--font-heading), serif" }}
+                  >
+                    Youth Lesson
+                  </h3>
+                  <p className="text-2xl text-[#162838] font-semibold">$100 all-in</p>
+                  <p className="text-[#333333] mb-4">or $75 instruction only</p>
+                  <p className="text-[#333333] leading-relaxed">
+                    A parent or guardian stays with the shooter. Same all-in inclusions as a private lesson.
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-[#333333] leading-relaxed mt-8 mb-2 text-center max-w-3xl mx-auto">
+                Instruction only is the lesson fee, with targets and shells billed separately when you bring your own gun and ammo.
+              </p>
+              <p className="text-[#333333] leading-relaxed mb-8 text-center max-w-3xl mx-auto">
+                Membership includes 2 hours of instruction per year.
+              </p>
+
+              <div className="bg-white rounded-lg shadow-sm border border-[#e8e4dc] border-l-4 border-l-[#4d5c47] p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
+                <div className="flex-grow text-center md:text-left">
+                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">First visit</span>
+                  <h3
+                    className="text-xl md:text-2xl text-[#162838] mt-2 mb-2"
+                    style={{ fontFamily: "var(--font-heading), serif" }}
+                  >
+                    Member for a Day stays $100
+                  </h3>
+                  <p className="text-[#333333] leading-relaxed">
+                    $100 per shooter for a guided intro, with 50 shots, shotgun rental, shells, and eye and ear protection included. That is a first visit on the course, not a formal lesson.
+                  </p>
+                </div>
+                <div className="flex-shrink-0 flex flex-col sm:flex-row gap-3">
+                  <Link
+                    href="/member-for-a-day#book"
+                    className="inline-block w-full md:w-auto border-2 border-[#a75235] text-[#a75235] px-8 py-3 text-center font-semibold tracking-wide hover:bg-[#a75235] hover:text-[#f5f2ec] transition-colors rounded-lg"
+                    style={{ fontFamily: "var(--font-heading), serif" }}
+                  >
+                    Book Member for a Day
+                  </Link>
+                  <Link
+                    href="/tour#book"
+                    className="inline-block w-full md:w-auto border-2 border-[#4d5c47] text-[#4d5c47] px-8 py-3 text-center font-semibold tracking-wide hover:bg-[#4d5c47] hover:text-[#f5f2ec] transition-colors rounded-lg"
+                    style={{ fontFamily: "var(--font-heading), serif" }}
+                  >
+                    Book a Tour
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

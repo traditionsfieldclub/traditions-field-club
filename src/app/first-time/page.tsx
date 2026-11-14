@@ -76,6 +76,11 @@ const faqs = [
     answer:
       "You don't need one. Member for a Day includes shotgun rental, shells, and eye and ear protection.",
   },
+  {
+    question: "Do you offer lessons?",
+    answer:
+      "Yes. Instruction is open to members and non-members. Membership includes 2 hours of instruction per year. A private lesson is $200 all-in, or $150 instruction only. Semi-private lessons, group clinics, and youth lessons are also available. Lesson rates are listed on the Activities page.",
+  },
 ];
 
 function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
@@ -174,6 +179,18 @@ export default function FirstTime() {
                   <li>Shotgun rental, shells, and eye and ear protection all included</li>
                 </ul>
                 <a href="/member-for-a-day#book" className={`${btnPrimary} mt-auto`} style={heading}>Book Member for a Day</a>
+              </div>
+            </div>
+            <div className="bg-white rounded-lg shadow-sm border border-[#e8e4dc] border-l-4 border-l-[#4d5c47] p-6 md:p-8 mt-6 flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
+              <div className="flex-grow text-center md:text-left">
+                <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Instruction</span>
+                <h3 className="text-xl md:text-2xl text-[#162838] mt-2 mb-2" style={heading}>Lessons are open to members and non-members</h3>
+                <p className="text-[#333333] leading-relaxed">
+                  Membership includes 2 hours of instruction per year. Private, semi-private, group, and youth lesson rates are posted on the Activities page.
+                </p>
+              </div>
+              <div className="flex-shrink-0">
+                <a href="/activities#lessons" className={`${btnOutline} w-full md:w-auto`} style={heading}>See Lesson Rates</a>
               </div>
             </div>
           </div>
