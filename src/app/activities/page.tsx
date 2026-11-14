@@ -389,10 +389,66 @@ export default function Activities() {
                 </div>
               </div>
 
-              <p className="text-[#333333] leading-relaxed mt-8 mb-2 text-center max-w-3xl mx-auto">
-                Targets, shells, and gun rental are extra.
-              </p>
-              <p className="text-[#333333] leading-relaxed text-center max-w-3xl mx-auto">
+              <div className="mt-8 bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-7 md:p-9">
+                <div className="text-center mb-6">
+                  <div className="flex items-center justify-center gap-4 mb-3">
+                    <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+                    <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Lesson Add-Ons</span>
+                    <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+                  </div>
+                  <p className="text-[#333333] leading-relaxed max-w-2xl mx-auto">
+                    Targets, shells, and gun rental are extra on lessons, at these rates.
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                  <div>
+                    <h3
+                      className="text-xl text-[#162838] mb-3"
+                      style={{ fontFamily: "var(--font-heading), serif" }}
+                    >
+                      Targets
+                    </h3>
+                    <p className="text-[#333333] leading-relaxed mb-2">
+                      Non-members: $0.60 each ($15 per 25, $30 per 50, $60 per 100)
+                    </p>
+                    <p className="text-[#333333] leading-relaxed">
+                      Members: $0.45 each ($11.25 per 25, $22.50 per 50, $45 per 100)
+                    </p>
+                  </div>
+                  <div>
+                    <h3
+                      className="text-xl text-[#162838] mb-3"
+                      style={{ fontFamily: "var(--font-heading), serif" }}
+                    >
+                      Shells
+                    </h3>
+                    <p className="text-[#333333] leading-relaxed mb-2">
+                      $14 per box of 25, standard 12-gauge target loads
+                    </p>
+                    <p className="text-[#333333] leading-relaxed">
+                      Same price for members and non-members
+                    </p>
+                  </div>
+                  <div>
+                    <h3
+                      className="text-xl text-[#162838] mb-3"
+                      style={{ fontFamily: "var(--font-heading), serif" }}
+                    >
+                      Gun Rental
+                    </h3>
+                    <p className="text-[#333333] leading-relaxed mb-2">
+                      Non-members: $30
+                    </p>
+                    <p className="text-[#333333] leading-relaxed mb-2">
+                      Members: $20
+                    </p>
+                    <p className="text-[#333333] leading-relaxed">
+                      Shells must be purchased on site when renting a gun.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <p className="text-[#333333] leading-relaxed mt-8 text-center max-w-3xl mx-auto">
                 Membership includes 2 hours of instruction per year.
               </p>
             </div>
