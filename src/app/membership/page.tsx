@@ -239,7 +239,7 @@ export default function Membership() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
               {/* Prime Membership */}
               <div
                 className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden flex flex-col transition-all duration-500 ease-out hover:shadow-md ${
@@ -353,10 +353,55 @@ export default function Membership() {
                   </a>
                 </div>
               </div>
+
+              {/* Youth Membership */}
+              <div
+                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden flex flex-col transition-all duration-500 ease-out hover:shadow-md ${
+                  isVisible("tiers")
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
+                }`}
+                style={{ transitionDelay: "250ms" }}
+              >
+                <div className="bg-[#162838] p-6 text-center">
+                  <span className="text-[#f5f2ec]/60 text-sm tracking-[0.3em] uppercase">Youth Shooter</span>
+                  <h3
+                    className="text-2xl md:text-3xl text-[#f5f2ec] mt-2"
+                    style={{ fontFamily: "var(--font-heading), serif" }}
+                  >
+                    Youth Membership
+                  </h3>
+                  <p className="mt-3">
+                    <span className="text-3xl md:text-4xl text-[#f5f2ec] font-semibold">$500</span>
+                    <span className="text-sm text-[#f5f2ec]/60"> /year</span>
+                  </p>
+                </div>
+                <div className="p-6 md:p-8 flex-grow">
+                  <ul className="space-y-3 text-[#333333] mb-8">
+                    <li className="flex items-start gap-3">
+                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Covers the youth shooter only.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Clays: $0.40 per clay</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="p-6 pt-0">
+                  <a
+                    href="/join"
+                    className="block w-full bg-[#a75235] text-[#f5f2ec] px-6 py-3 text-center font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
+                    style={{ fontFamily: "var(--font-heading), serif" }}
+                  >
+                    Apply Now
+                  </a>
+                </div>
+              </div>
             </div>
 
             <p className="max-w-4xl mx-auto mt-4 text-center text-sm text-[#333333]/80">
-              Annual or quarterly billing available.
+              Annual or quarterly billing available for Prime and Corporate memberships.
             </p>
 
             {/* Member clay pricing */}
@@ -396,7 +441,7 @@ export default function Membership() {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
-                  <span>Youth (member family): $0.40 per clay</span>
+                  <span>Youth membership: $0.40 per clay</span>
                 </li>
               </ul>
             </div>
