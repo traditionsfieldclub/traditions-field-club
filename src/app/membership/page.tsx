@@ -446,6 +446,38 @@ export default function Membership() {
               </ul>
             </div>
 
+            {/* Youth Teams */}
+            <div
+              id="youth-teams"
+              className={`max-w-4xl mx-auto mt-6 md:mt-8 bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 transition-all duration-500 ease-out ${
+                isVisible("tiers")
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-3"
+              }`}
+              style={{ transitionDelay: "275ms" }}
+            >
+              <div className="text-center mb-2">
+                <div className="flex items-center justify-center gap-4 mb-3">
+                  <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Youth Teams</span>
+                  <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+                </div>
+                <h3
+                  className="text-xl md:text-2xl text-[#162838] mb-3"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Youth Team Rate
+                </h3>
+                <p className="text-2xl text-[#162838] font-semibold mb-4">$0.40 per clay</p>
+                <p className="text-[#333333] leading-relaxed max-w-2xl mx-auto">
+                  For registered athletes on named SCTP, SCYSF, or 4-H teams at reserved team practices. No membership required. Coaches, parents, and siblings shooting along pay regular rates.
+                </p>
+                <p className="text-[#333333] leading-relaxed max-w-2xl mx-auto mt-3">
+                  Teams can prepay a block of clays or be invoiced monthly. This rate is separate from Youth membership.
+                </p>
+              </div>
+            </div>
+
             {/* Member for a Day - Try it first */}
             <div
               className={`max-w-4xl mx-auto mt-6 md:mt-8 bg-white rounded-lg shadow-sm border border-[#e8e4dc] border-l-4 border-l-[#4d5c47] p-6 md:p-8 transition-all duration-500 ease-out hover:shadow-md ${
