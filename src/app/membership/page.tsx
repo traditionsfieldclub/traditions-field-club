@@ -456,7 +456,7 @@ export default function Membership() {
               }`}
               style={{ transitionDelay: "275ms" }}
             >
-              <div className="text-center mb-2">
+              <div className="text-center mb-6">
                 <div className="flex items-center justify-center gap-4 mb-3">
                   <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
                   <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Youth Teams</span>
@@ -470,12 +470,35 @@ export default function Membership() {
                 </h3>
                 <p className="text-2xl text-[#162838] font-semibold mb-4">$0.40 per clay</p>
                 <p className="text-[#333333] leading-relaxed max-w-2xl mx-auto">
-                  For registered athletes on named SCTP, SCYSF, or 4-H teams at reserved team practices. No membership required. Coaches, parents, and siblings shooting along pay regular rates.
-                </p>
-                <p className="text-[#333333] leading-relaxed max-w-2xl mx-auto mt-3">
-                  Teams can prepay a block of clays or be invoiced monthly. This rate is separate from Youth membership.
+                  For registered athletes on named SCTP, SCYSF, or 4-H teams. No membership required. This rate is separate from Youth membership.
                 </p>
               </div>
+              <ul className="space-y-3 text-[#333333] max-w-xl mx-auto text-left">
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Teams prepay in blocks of 1,000 clays ($400) and refill when the balance runs low.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Teams may shoot any time the club is open. Practice times may change in the future.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Team coaching staff must accompany the team at all times.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Every participant must have a signed waiver. A parent or guardian must sign each athlete&apos;s waiver.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Up to 4 shooters per stand. Both courses are open to teams.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Coaches, parents, and siblings shooting along pay regular rates.</span>
+                </li>
+              </ul>
             </div>
 
             {/* Member for a Day - Try it first */}
