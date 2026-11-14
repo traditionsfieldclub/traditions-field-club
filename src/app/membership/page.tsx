@@ -34,11 +34,11 @@ const faqs = [
   },
   {
     question: "What if I've never shot sporting clays before?",
-    answer: "We welcome beginners! Our certified instructors offer lessons for all skill levels. Instruction is open to members and non-members. Membership includes 2 hours of instruction per year."
+    answer: "We welcome beginners! Our certified instructors offer lessons for all skill levels. Instruction is open to members and non-members. Membership includes 2 hours of instruction per year. Targets, shells, and gun rental are extra."
   },
   {
     question: "Does membership include instruction?",
-    answer: "Membership includes 2 hours of instruction per year. Additional lessons are available at posted rates on the Activities page. Instruction is open to members and non-members."
+    answer: "Membership includes 2 hours of instruction per year. Additional lessons are available at posted rates on the Activities page. Targets, shells, and gun rental are extra. Instruction is open to members and non-members."
   },
 ];
 

@@ -79,7 +79,7 @@ const faqs = [
   {
     question: "Do you offer lessons?",
     answer:
-      "Yes. Instruction is open to members and non-members. Membership includes 2 hours of instruction per year. A private lesson is $200 all-in, or $150 instruction only. Semi-private lessons, group clinics, and youth lessons are also available. Lesson rates are listed on the Activities page.",
+      "Yes. Instruction is open to members and non-members. Membership includes 2 hours of instruction per year. A private lesson is $150. Semi-private, group clinics, and youth lessons are also available. Targets, shells, and gun rental are extra. Lesson rates are listed on the Activities page.",
   },
 ];
 
@@ -186,7 +186,7 @@ export default function FirstTime() {
                 <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Instruction</span>
                 <h3 className="text-xl md:text-2xl text-[#162838] mt-2 mb-2" style={heading}>Lessons are open to members and non-members</h3>
                 <p className="text-[#333333] leading-relaxed">
-                  Membership includes 2 hours of instruction per year. Private, semi-private, group, and youth lesson rates are posted on the Activities page.
+                  Membership includes 2 hours of instruction per year. Private, semi-private, group, and youth lesson rates are posted on the Activities page. Targets, shells, and gun rental are extra.
                 </p>
               </div>
               <div className="flex-shrink-0">
