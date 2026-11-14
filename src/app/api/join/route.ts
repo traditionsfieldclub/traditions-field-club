@@ -56,7 +56,7 @@ const MAX_LENGTHS: Record<string, number> = {
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // --- Whitelist Values ---
-const VALID_MEMBERSHIP_TYPES = ["prime", "corporate", "undecided"];
+const VALID_MEMBERSHIP_TYPES = ["prime", "corporate", "youth", "undecided"];
 const VALID_EXPERIENCE_LEVELS = ["beginner", "novice", "intermediate", "advanced", "competitive"];
 const VALID_HOW_HEARD = ["friend", "member", "social", "search", "event", "signage", "other"];
 
@@ -64,6 +64,7 @@ const VALID_HOW_HEARD = ["friend", "member", "social", "search", "event", "signa
 const MEMBERSHIP_LABELS: Record<string, string> = {
   prime: "Prime Membership (Individual & Family)",
   corporate: "Corporate Membership (Business)",
+  youth: "Youth Membership (youth shooter only)",
   undecided: "Undecided — Would like to discuss options",
 };
 

@@ -34,7 +34,11 @@ const faqs = [
   },
   {
     question: "What if I've never shot sporting clays before?",
-    answer: "We welcome beginners! Our certified instructors offer lessons for all skill levels. We recommend booking an introductory session where you'll learn safety protocols, proper technique, and get comfortable with the sport."
+    answer: "We welcome beginners! Our certified instructors offer lessons for all skill levels. Instruction is open to members and non-members. Membership includes 2 hours of instruction per year. Targets, shells, and gun rental are extra."
+  },
+  {
+    question: "Does membership include instruction?",
+    answer: "Membership includes 2 hours of instruction per year. Additional lessons are available at posted rates on the Activities page. Targets, shells, and gun rental are extra. Instruction is open to members and non-members."
   },
 ];
 
@@ -215,7 +219,7 @@ export default function Membership() {
               >
                 All Memberships Include
               </h3>
-              <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 text-[#333333]">
+              <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-x-8 sm:gap-y-3 text-[#333333]">
                 <div className="flex items-center gap-3">
                   <span className="w-2 h-2 bg-[#a75235] rounded-full flex-shrink-0"></span>
                   <span>Access to sporting clays</span>
@@ -228,10 +232,14 @@ export default function Membership() {
                   <span className="w-2 h-2 bg-[#a75235] rounded-full flex-shrink-0"></span>
                   <span>Invitation to member and family events</span>
                 </div>
+                <div className="flex items-center gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full flex-shrink-0"></span>
+                  <span>Membership includes 2 hours of instruction per year</span>
+                </div>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
               {/* Prime Membership */}
               <div
                 className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden flex flex-col transition-all duration-500 ease-out hover:shadow-md ${
@@ -345,11 +353,153 @@ export default function Membership() {
                   </a>
                 </div>
               </div>
+
+              {/* Youth Membership */}
+              <div
+                className={`bg-white rounded-lg shadow-sm border border-[#e8e4dc] overflow-hidden flex flex-col transition-all duration-500 ease-out hover:shadow-md ${
+                  isVisible("tiers")
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
+                }`}
+                style={{ transitionDelay: "250ms" }}
+              >
+                <div className="bg-[#162838] p-6 text-center">
+                  <span className="text-[#f5f2ec]/60 text-sm tracking-[0.3em] uppercase">Youth Shooter</span>
+                  <h3
+                    className="text-2xl md:text-3xl text-[#f5f2ec] mt-2"
+                    style={{ fontFamily: "var(--font-heading), serif" }}
+                  >
+                    Youth Membership
+                  </h3>
+                  <p className="mt-3">
+                    <span className="text-3xl md:text-4xl text-[#f5f2ec] font-semibold">$500</span>
+                    <span className="text-sm text-[#f5f2ec]/60"> /year</span>
+                  </p>
+                </div>
+                <div className="p-6 md:p-8 flex-grow">
+                  <ul className="space-y-3 text-[#333333] mb-8">
+                    <li className="flex items-start gap-3">
+                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Covers the youth shooter only.</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                      <span>Clays: $0.40 per clay</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="p-6 pt-0">
+                  <a
+                    href="/join"
+                    className="block w-full bg-[#a75235] text-[#f5f2ec] px-6 py-3 text-center font-semibold tracking-wide hover:bg-[#162838] transition-colors rounded-lg"
+                    style={{ fontFamily: "var(--font-heading), serif" }}
+                  >
+                    Apply Now
+                  </a>
+                </div>
+              </div>
             </div>
 
             <p className="max-w-4xl mx-auto mt-4 text-center text-sm text-[#333333]/80">
-              Annual or quarterly billing available.
+              Annual or quarterly billing available for Prime and Corporate memberships.
             </p>
+
+            {/* Member clay pricing */}
+            <div
+              id="clay-pricing"
+              className={`max-w-4xl mx-auto mt-6 md:mt-8 bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 transition-all duration-500 ease-out ${
+                isVisible("tiers")
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-3"
+              }`}
+              style={{ transitionDelay: "250ms" }}
+            >
+              <div className="text-center mb-6">
+                <div className="flex items-center justify-center gap-4 mb-3">
+                  <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Member Clay Pricing</span>
+                  <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+                </div>
+                <h3
+                  className="text-xl md:text-2xl text-[#162838] mb-3"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  For Members
+                </h3>
+                <p className="text-[#333333] leading-relaxed max-w-2xl mx-auto">
+                  These rates are for members shooting on their own. Non-members visit through Member for a Day or lessons.
+                </p>
+              </div>
+              <ul className="space-y-3 text-[#333333] max-w-xl mx-auto">
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Members: $0.45 per clay</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Bulk buy of 1,000: $0.40 per clay</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Youth membership: $0.40 per clay</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Youth Teams */}
+            <div
+              id="youth-teams"
+              className={`max-w-4xl mx-auto mt-6 md:mt-8 bg-white rounded-lg shadow-sm border border-[#e8e4dc] p-6 md:p-8 transition-all duration-500 ease-out ${
+                isVisible("tiers")
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-3"
+              }`}
+              style={{ transitionDelay: "275ms" }}
+            >
+              <div className="text-center mb-6">
+                <div className="flex items-center justify-center gap-4 mb-3">
+                  <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+                  <span className="text-[#a75235] text-sm tracking-[0.3em] uppercase">Youth Teams</span>
+                  <span className="h-[1px] w-12 md:w-20 bg-[#162838]/20"></span>
+                </div>
+                <h3
+                  className="text-xl md:text-2xl text-[#162838] mb-3"
+                  style={{ fontFamily: "var(--font-heading), serif" }}
+                >
+                  Youth Team Rate
+                </h3>
+                <p className="text-2xl text-[#162838] font-semibold mb-4">$0.40 per clay</p>
+                <p className="text-[#333333] leading-relaxed max-w-2xl mx-auto">
+                  For registered athletes on named SCTP, SCYSF, or 4-H teams. No membership required. This rate is separate from Youth membership.
+                </p>
+              </div>
+              <ul className="space-y-3 text-[#333333] max-w-xl mx-auto text-left">
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Teams prepay in blocks of 1,000 clays ($400) and refill when the balance runs low.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Teams may shoot any time the club is open. Practice times may change in the future.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Team coaching staff must accompany the team at all times.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Every participant must have a signed waiver. A parent or guardian must sign each athlete&apos;s waiver.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Up to 4 shooters per stand. Both courses are open to teams.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="w-2 h-2 bg-[#a75235] rounded-full mt-2 flex-shrink-0"></span>
+                  <span>Coaches, parents, and siblings shooting along pay regular rates.</span>
+                </li>
+              </ul>
+            </div>
 
             {/* Member for a Day - Try it first */}
             <div

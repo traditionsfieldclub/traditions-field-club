@@ -516,6 +516,7 @@ export default function Join() {
                     <option value="">Select a membership type...</option>
                     <option value="prime">Prime Membership (Individual & Family)</option>
                     <option value="corporate">Corporate Membership (Business)</option>
+                    <option value="youth">Youth Membership (youth shooter only)</option>
                     <option value="undecided">Not sure yet - would like to discuss options</option>
                   </select>
                   <p className="text-sm text-[#666666] mt-2">

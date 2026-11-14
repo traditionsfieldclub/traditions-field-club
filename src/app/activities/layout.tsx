@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Activities: Sporting Clays & 5-Stand",
   description:
-    "Experience world-class sporting clays at Traditions Field Club, a scenic drive through the Lowcountry. Two courses, 15-station and 12-station, plus a 14-machine 5-Stand. Certified instruction available for all skill levels.",
+    "Experience world-class sporting clays at Traditions Field Club, a private field club and a scenic drive through the Lowcountry. Two courses, 15-station and 12-station, plus a 14-machine 5-Stand. Certified instruction is open to members and non-members.",
   openGraph: {
     title: "Activities: Sporting Clays & 5-Stand",
     description:
-      "Experience world-class sporting clays at Traditions Field Club, a scenic drive through the Lowcountry. Two courses, 15-station and 12-station, plus a 14-machine 5-Stand. Certified instruction available for all skill levels.",
+      "Experience world-class sporting clays at Traditions Field Club, a private field club and a scenic drive through the Lowcountry. Two courses, 15-station and 12-station, plus a 14-machine 5-Stand. Certified instruction is open to members and non-members.",
     url: "https://traditionsfieldclub.com/activities",
     images: [{ url: "https://traditionsfieldclub.com/og-image.jpg", width: 1200, height: 630 }],
   },
