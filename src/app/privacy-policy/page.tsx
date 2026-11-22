@@ -46,7 +46,7 @@ export default function PrivacyPolicy() {
               Privacy Policy
             </h1>
             <p className="text-base md:text-lg text-[#f5f2ec] opacity-75">
-              Last updated: August 14, 2026
+              Last updated: November 21, 2026
             </p>
           </div>
         </section>
@@ -113,7 +113,8 @@ export default function PrivacyPolicy() {
                 </h2>
                 <p className="leading-relaxed">
                   Our website uses cookies and similar tracking technologies, including Google Analytics, to
-                  help us understand how visitors use our site and to improve your experience. Cookies are
+                  help us understand how visitors use our site and to improve your experience. This site
+                  also uses the Meta Pixel for advertising measurement. Cookies are
                   small data files stored on your device. You can set your browser to refuse cookies or alert
                   you when cookies are being sent; however, some parts of our website may not function
                   properly without them.
