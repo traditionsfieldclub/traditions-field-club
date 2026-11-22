@@ -5,6 +5,7 @@ import FloatingContact from "@/components/FloatingContact";
 import MobileBookingBar from "@/components/MobileBookingBar";
 import JsonLd from "@/components/JsonLd";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import MetaPixel from "@/components/MetaPixel";
 
 const nanumMyeongjo = Nanum_Myeongjo({
   variable: "--font-heading",
@@ -98,6 +99,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="preload" href="/images/hero-poster.webp" as="image" type="image/webp" />
         <GoogleAnalytics />
+        <MetaPixel />
       </head>
       <body
         className={`${nanumMyeongjo.variable} ${lato.variable} antialiased overflow-x-hidden w-full max-w-full`}
